@@ -23,6 +23,11 @@
 6. Embeddable widget for blogs (earns links).
 7. Later (towards end of 2027): pages for specific monthly amounts ("PAC 100 € al mese", "PAC 300 €"…).
 
+## Later: paid services (2028 or later, after the Beckham period — Marco's ideas)
+- Premium "connected" version with real data for selected ETFs (prices, history, costs), instead of fixed average returns. Check market-data licensing costs first (index and exchange data is often paid).
+- Calculators and guides for special tax regimes for people moving countries (e.g. Spain's Beckham Law, Italy's impatriati regime, Portugal's IFICI). Free guides could already bring expat traffic before any paid version.
+- Nothing paid before the tax question is cleared (see Constraints).
+
 ## Log
 - 2026-10-29: site live at youretfplan.com (EN `/`, IT `/it/`), sitemap submitted to Google Search Console, Cloudflare Web Analytics on, donate button switched off.
 - 2026-10-29: Spanish version live at `/es/` (Spain time zone or Spanish browser → `/es/`).
