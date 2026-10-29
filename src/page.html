@@ -100,7 +100,9 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .row .sub{grid-column:1/-1;font-size:.86rem;color:var(--muted)}
 .row .sub.loss{color:var(--down);font-weight:600}
 .chart-box{padding:12px 8px 8px}
-.chart-box svg{display:block;width:100%;height:auto}
+.chart-box svg{display:block;width:100%}
+#chart{height:260px}
+#ride{height:200px}
 
 /* ride */
 .ride-you{background:var(--warn-soft);border-left:4px solid var(--warn);padding:14px;border-radius:6px}
@@ -611,7 +613,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function drawChart(){
     if(!lastRes)return;
     const {res,years,defl}=lastRes;
-    const box=$('chart-box'), W=Math.max(280,box.clientWidth-16), H=Math.round(Math.min(320,Math.max(220,W*0.6)));
+    const box=$('chart-box'), W=Math.max(280,box.clientWidth-16), H=260; // fixed height: no layout shift when redrawn
     const Lp=48,R=72,Tp=14,B=28;
     const series=res.map(s=>s.pts.slice(0,years+1).map((v,i)=>v/defl(i)));
     const max=Math.max(...series.flat(),1);
@@ -646,7 +648,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   // Illustrative path: steady growth, a 2008-style halving, recovery, a 2020-style dip, recovery.
   const RIDE=[100,106,113,120,126,104,78,63,74,88,98,108,117,126,135,143,151,159,166,173,181,186,190,198,207,138,172,205,220,236];
   function drawRide(){
-    const box=$('ride-box'), W=Math.max(280,box.clientWidth-16), H=Math.round(Math.min(240,Math.max(180,W*0.45)));
+    const box=$('ride-box'), W=Math.max(280,box.clientWidth-16), H=200;
     const Lp=12,R=12,Tp=22,B=16, n=RIDE.length-1, top=250, bot=40;
     const x=i=>Lp+(W-Lp-R)*i/n, y=v=>Tp+(H-Tp-B)*(1-(v-bot)/(top-bot));
     let g='';
