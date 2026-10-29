@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Your ETF Plan</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A free, simple guide to investing in ETFs: how much to keep for emergencies, how much to invest each month and what you could have in 5 to 25 years. In English and Italian.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://youretfplan.com/">
+<meta property="og:title" content="Your ETF Plan">
+<meta property="og:description" content="See what happens to your money if you invest a part of it every month in ETFs instead of leaving it in the bank. Free, no sign-up.">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://youretfplan.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6b52'/%3E%3Cpath d='M14 46 L26 32 L34 38 L50 18' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one calm column that reads top to bottom: promise, explanation, numbers, plan, results, risk, income, action, questions */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --ink:#1d2a26; --muted:#5d6b66; --line:#d9e0dc;
+  --accent:#1f6b52; --accent-soft:#e1efe8;
+  --bank:#8a8f8c; --s5:#b07a1f; --s7:#1f8a5b; --s9:#2f6fb3; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121816; --surface:#1a2320; --ink:#e6ece9; --muted:#9aa8a2; --line:#2c3833;
+  --accent:#5cc79b; --accent-soft:#1f3a2f;
+  --bank:#a2a8a5; --s5:#e0b25a; --s7:#4fc48e; --s9:#6aa6e8; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121816; --surface:#1a2320; --ink:#e6ece9; --muted:#9aa8a2; --line:#2c3833;
+  --accent:#5cc79b; --accent-soft:#1f3a2f;
+  --bank:#a2a8a5; --s5:#e0b25a; --s7:#4fc48e; --s9:#6aa6e8; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:820px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.9rem,6vw,2.6rem)}
+h2{font-size:1.45rem}
+h3{font-size:1.2rem}
+p{margin:0}
+a{color:var(--accent)}
+.lead{color:var(--muted);max-width:60ch}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.small{font-size:.92rem;color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted);max-width:70ch}
+.card-base{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.term{color:inherit;text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+
+/* header */
+.brand{font-family:var(--display);font-size:1.15rem;color:var(--ink);letter-spacing:.01em}
+.brand span{color:var(--accent)}
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--muted);font:700 .8rem var(--body);letter-spacing:.06em;padding:5px 12px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.pill{align-self:flex-start;font-size:.8rem;font-weight:600;color:var(--warn);background:var(--warn-soft);padding:4px 10px;border-radius:999px}
+.headline{background:var(--accent-soft);border:1px solid var(--accent);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.headline p.big{font-size:1.2rem;line-height:1.45}
+.headline strong{color:var(--accent)}
+
+/* explainer */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.three b{display:block;font-size:1.02rem;margin-bottom:4px}
+
+/* inputs */
+.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:6px;padding:12px 14px}
+.field label{font-size:.9rem;color:var(--muted);font-weight:500}
+.money{display:flex;align-items:center;gap:6px;border-bottom:2px solid var(--line)}
+.money:focus-within{border-color:var(--accent)}
+.money span{font-size:1.3rem;color:var(--muted)}
+.money input{border:0;background:transparent;color:var(--ink);font:600 1.5rem var(--body);width:100%;min-width:0;padding:2px 0;outline:none;font-variant-numeric:tabular-nums}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.step{display:flex;flex-direction:column;gap:6px}
+.step .big{font-size:1.6rem;font-weight:700}
+.step.wide{grid-column:1/-1;background:var(--accent-soft);border-color:var(--accent)}
+.monthly{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:flex-end}
+.m-col{display:flex;flex-direction:column;gap:2px}
+.m-lab{font-size:.9rem;color:var(--muted);font-weight:500}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{width:34px;height:34px;flex:none;border-radius:50%;border:1px solid var(--accent);background:var(--surface);color:var(--accent);font:600 1.25rem/1 var(--body);cursor:pointer}
+.stepper button:hover{background:var(--accent);color:var(--surface)}
+.stepper button:disabled{opacity:.35;cursor:default;background:var(--surface);color:var(--accent)}
+.reset{align-self:flex-start;border:0;background:none;padding:0;color:var(--accent);font:600 .88rem var(--body);text-decoration:underline;cursor:pointer}
+.notice{background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+
+/* results */
+.slider{display:flex;flex-direction:column;gap:6px}
+.slider-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.slider-head strong{font-size:1.25rem}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.ticks{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+.toggle{display:flex;align-items:flex-start;gap:8px;font-size:.95rem;cursor:pointer}
+.toggle input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.feat{border-top:5px solid var(--s7);display:flex;flex-direction:column;gap:4px;padding:18px}
+.feat .tag,.row .tag{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.feat .val{font-size:clamp(2rem,8vw,2.6rem);font-weight:700;line-height:1.1}
+.feat .diff{font-weight:700;color:var(--s7);font-size:1.05rem}
+.feat .tax{font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:6px}
+.cmp{display:flex;flex-direction:column;padding:4px 16px}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row:last-child{border-bottom:0}
+.row .val{font-size:1.2rem;font-weight:700;text-align:right}
+.row .sub{grid-column:1/-1;font-size:.86rem;color:var(--muted)}
+.row .sub.loss{color:var(--down);font-weight:600}
+.chart-box{padding:12px 8px 8px}
+.chart-box svg{display:block;width:100%;height:auto}
+
+/* ride */
+.ride-you{background:var(--warn-soft);border-left:4px solid var(--warn);padding:14px;border-radius:6px}
+
+/* second salary */
+.rule{background:var(--accent-soft);border:1px solid var(--accent);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.rule-main{font-size:clamp(1.8rem,7vw,2.3rem);font-weight:700;color:var(--accent);line-height:1.1}
+.rule-rows{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.9rem;color:var(--muted)}
+
+/* start */
+.start{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:st}
+.start li{counter-increment:st;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.start li::before{content:counter(st);width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--surface);display:grid;place-items:center;font-weight:700}
+.start li b{display:block}
+.start li > div{padding-top:5px;min-width:0}
+
+/* faq + glossary */
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 16px}
+details + details{margin-top:-4px}
+summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:700;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.gloss{display:flex;flex-direction:column;gap:10px;margin:0}
+.gloss dt{font-weight:700;color:var(--ink)}
+.gloss dd{margin:0}
+.gloss .hl{background:var(--accent-soft);border-radius:6px;padding:2px 4px;margin:-2px -4px}
+
+/* support */
+.support{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px}
+.support > div{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 280px}
+.coffee-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--surface);font-weight:700;text-decoration:none;white-space:nowrap}
+.coffee-btn:hover{filter:brightness(1.08)}
+.disclaimer{font-size:.88rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <div class="top-row">
+      <span class="brand">youretfplan<span>.com</span></span>
+      <div class="lang" role="group" aria-label="Language / Lingua">
+        <button type="button" id="l-en" lang="en">EN</button>
+        <button type="button" id="l-it" lang="it">IT</button>
+      </div>
+    </div>
+    <span class="eyebrow" data-t="eyebrow"></span>
+    <h1 data-t="h1"></h1>
+    <p class="lead" data-t="lead"></p>
+    <span class="pill" data-t="pill"></span>
+    <div class="headline" aria-live="polite">
+      <p class="big" id="headline"></p>
+      <p class="small"><span data-t="headlineNote"></span> <a href="#numbers" data-t="headlineLink"></a></p>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-30">
+    <h2 id="h-30" data-t="h30"></h2>
+    <div class="three">
+      <div class="card-base" data-t="e1"></div>
+      <div class="card-base" data-t="e2"></div>
+      <div class="card-base" data-t="e3"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-in" id="numbers">
+    <h2 id="h-in" data-t="hIn"></h2>
+    <div class="inputs">
+      <div class="field card-base">
+        <label for="income" data-t="lIncome"></label>
+        <div class="money"><span>€</span><input id="income" type="text" inputmode="numeric" autocomplete="off" value="2500"></div>
+      </div>
+      <div class="field card-base">
+        <label for="spend" data-t="lSpend"></label>
+        <div class="money"><span>€</span><input id="spend" type="text" inputmode="numeric" autocomplete="off" value="1500"></div>
+      </div>
+      <div class="field card-base">
+        <label for="cash" data-t="lCash"></label>
+        <div class="money"><span>€</span><input id="cash" type="text" inputmode="numeric" autocomplete="off" value="10000"></div>
+      </div>
+    </div>
+    <p class="foot" data-t="example"></p>
+  </section>
+
+  <section aria-labelledby="h-plan">
+    <h2 id="h-plan" data-t="hPlan"></h2>
+    <div id="notice" class="notice" hidden></div>
+    <div class="plan">
+      <div class="step card-base">
+        <span class="eyebrow" data-t="s1"></span>
+        <span class="big num" id="o-emerg">–</span>
+        <p class="small" data-t="s1why"></p>
+      </div>
+      <div class="step card-base">
+        <span class="eyebrow" data-t="s2"></span>
+        <span class="big num" id="o-lump">–</span>
+        <p class="small" id="o-lump-txt"></p>
+      </div>
+      <div class="step card-base wide">
+        <span class="eyebrow" data-t="s3"></span>
+        <div class="monthly">
+          <div class="m-col">
+            <div class="stepper">
+              <button type="button" id="etf-minus" data-ta="minus">−</button>
+              <span class="big num" id="o-etf">–</span>
+              <button type="button" id="etf-plus" data-ta="plus">+</button>
+            </div>
+            <span class="m-lab" data-t="s3etf"></span>
+          </div>
+          <div class="m-col">
+            <span class="big num" id="o-save">–</span>
+            <span class="m-lab" data-t="s3save"></span>
+          </div>
+        </div>
+        <p class="small" id="o-etf-txt" hidden></p>
+        <button type="button" class="reset" id="etf-reset" hidden data-t="reset"></button>
+        <p class="small" data-t="s3why"></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-fut">
+    <h2 id="h-fut" data-t="hFut"></h2>
+    <div class="slider">
+      <div class="slider-head">
+        <label for="years" data-t="lYears"></label>
+        <strong class="num" id="years-out"></strong>
+      </div>
+      <input id="years" type="range" min="5" max="25" step="1" value="20">
+      <div class="ticks"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span></div>
+    </div>
+    <label class="toggle"><input type="checkbox" id="real"> <span data-t="real"></span></label>
+    <div class="feat card-base" id="feat"></div>
+    <div class="cmp card-base" id="cmp"></div>
+    <div class="chart-box card-base" id="chart-box">
+      <svg id="chart" role="img" data-ta="chartAria"></svg>
+    </div>
+    <p class="foot" id="explain"></p>
+  </section>
+
+  <section aria-labelledby="h-ride">
+    <h2 id="h-ride" data-t="hRide"></h2>
+    <p data-t="ride1"></p>
+    <div class="chart-box card-base" id="ride-box">
+      <svg id="ride" role="img" data-ta="rideIll"></svg>
+      <p class="foot" style="padding:4px 8px 0" data-t="rideIll"></p>
+    </div>
+    <p class="ride-you" id="ride-you"></p>
+  </section>
+
+  <section aria-labelledby="h-rule">
+    <div class="rule">
+      <span class="eyebrow" data-t="ruleEyebrow"></span>
+      <h2 id="h-rule"></h2>
+      <div class="rule-main num" id="rule-main"></div>
+      <p class="small" id="rule-sub"></p>
+      <p class="small" data-t="ruleTxt"></p>
+      <div class="rule-rows num" id="rule-rows"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-start" id="start">
+    <h2 id="h-start" data-t="hStart"></h2>
+    <ol class="start">
+      <li><div data-t="st1"></div></li>
+      <li><div data-t="st2"></div></li>
+      <li><div data-t="st3"></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="hFaq"></h2>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <details><summary data-t="q1"></summary><div data-t="a1"></div></details>
+      <details><summary data-t="q2"></summary><div data-t="a2"></div></details>
+      <details><summary data-t="q3"></summary><div data-t="a3"></div></details>
+      <details><summary data-t="q4"></summary><div data-t="a4"></div></details>
+      <details id="glossary"><summary data-t="glossTitle"></summary><div><dl class="gloss" id="gloss"></dl></div></details>
+    </div>
+  </section>
+
+  <section class="support card-base" aria-labelledby="h-sup">
+    <div>
+      <h2 id="h-sup" data-t="hSup"></h2>
+      <p class="small" data-t="supTxt"></p>
+    </div>
+    <a class="coffee-btn" id="coffee-bottom" href="https://buymeacoffee.com/youretfplan" target="_blank" rel="noopener" data-t="coffee"></a>
+  </section>
+
+  <p class="disclaimer" data-t="disc"></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, MONTHS=6, MAIN=2;
+  const SCEN=[{rate:0,c:'--bank'},{rate:0.05,c:'--s5'},{rate:0.07,c:'--s7'},{rate:0.09,c:'--s9'}];
+
+  const T={
+    en:{
+      title:`Your ETF Plan`, locale:`en-IE`, taxRate:0.20,
+      eyebrow:`Investing in ETFs, made simple`,
+      h1:`Your ETF plan`,
+      lead:`See what happens to your money if you invest part of it every month in ETFs instead of leaving it in the bank. No sign-up, nothing to buy.`,
+      pill:`Educational tool, not financial advice`,
+      headline:(amt,diff,y)=>`Investing <strong>${amt} a month</strong> instead of leaving it in the bank could give you about <strong>${diff} more</strong> in ${y} years.`,
+      headlineNone:`Right now nothing is left at the end of the month. The first step is to free up a little money each month, even €50.`,
+      headlineNote:`Based on the example numbers below, at a 7% average return.`,
+      headlineLink:`Put in your own numbers`,
+      h30:`ETFs in 30 seconds`,
+      e1:`<b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.`,
+      e2:`<b>You buy a bit every month</b>You set up an automatic monthly payment, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
+      e3:`<b>Your slice grows with the companies</b>Over long periods companies earn more and become worth more, and so does your slice. Not every year, and sometimes it drops a lot. Over 15–20 years it has historically grown.`,
+      hIn:`Your numbers`, lIncome:`Net salary per month`, lSpend:`What you spend per month`, lCash:`Money in the bank today`,
+      example:`These are example numbers. Replace them with your own and everything on the page updates.`,
+      hPlan:`Your plan`,
+      s1:`1 · Keep in the bank`,
+      s1why:`6 months of expenses. <b>Why:</b> if you lose your job or something breaks, you use this money and never have to sell your ETFs at a bad moment.`,
+      s2:`2 · Invest now`,
+      lumpYes:`What you have above the emergency fund. Put it into the ETF from <a href="#start">How to start</a>, all at once or spread over 6–12 months.`,
+      lumpNo:`Nothing yet. Fill the emergency fund first.`,
+      s3:`3 · Every month`, s3etf:`into ETFs`, s3save:`set aside`,
+      s3why:`<b>Why automatic:</b> the money leaves the day after payday, so you never have to decide or remember. The set-aside part is for big costs like a car, holidays or gifts.`,
+      minus:`Invest €50 less`, plus:`Invest €50 more`, reset:`Back to the suggested amount`,
+      etfAll:`You are investing everything you have left, so nothing is set aside for big costs.`,
+      etfOwn:s=>`Your own amount. Suggested: ${s}.`,
+      gap:(g,mm)=>`You are ${g} short of a full emergency fund. For the first ${mm} ${mm===1?'month':'months'}, put all your savings in the bank, then start with ETFs.`,
+      noSurplus:`Right now your spending is equal to or higher than your salary, so there is nothing left to invest. The first step is to free up some money each month, even a small amount.`,
+      hFut:`What you could have`, lYears:`In how many years`, years:n=>`${n} years`,
+      real:`Show in today's euros (with 2% <a class="term" href="#g-infl">inflation</a> per year)`,
+      scen:[[`All in the bank`,`Do nothing`],[`ETFs at 5%`,`Cautious`],[`ETFs at 7%`,`Historical normal`],[`ETFs at 9%`,`Good decades`]],
+      paidIn:p=>`You put in ${p} in total.`,
+      vsBank:d=>`${d} more than leaving it in the bank`,
+      afterTax:(r,v)=>`Before tax. If your gains are taxed at ${r}, you'd keep about ${v}.`,
+      bankNom:v=>`Worth about ${v} in today's money, because prices rise every year.`,
+      bankReal:p=>`You put aside ${p}, but in today's money it buys less.`,
+      explainReal:(y,v)=>`Shown in today's euros. In ${y} years, €1,000 will buy what about ${v} buys today. That's why money sitting in the bank loses value even though the number on the account doesn't go down.`,
+      explainNom:`Shown as the number you'll see on your account. Tick "today's euros" to see what it's really worth after inflation.`,
+      chartAria:`Growth of savings over the years for each scenario`,
+      hRide:`What it really feels like`,
+      ride1:`The numbers above are smooth averages. Real markets jump up and down, sometimes a lot. World stock markets fell by about half between 2007 and 2009, and by about a third in a few weeks in 2020. Both times they came back: within a few years after 2009, and within months in 2020.`,
+      rideIll:`Illustration of a typical path, not real data`,
+      rideYou:(y,v,h)=>`With your plan, after ${y} years you'd have about <strong>${v}</strong> in ETFs. In a crash like 2008 your account could show about <strong>${h}</strong> for a while. That's the moment most beginners sell and turn a temporary drop into a real loss. If you keep your monthly payment going, you're buying cheap.`,
+      rideYouNone:`If you keep investing through the drops, you buy more for the same money. Selling during a drop is what turns it into a real loss.`,
+      ridePeak:`peak`, rideLow:`low`, rideBack:`back up`, rideStart:`your money`,
+      ruleEyebrow:`The 3% rule`,
+      ruleH:y=>`A second salary for life, in ${y} years`,
+      perMonth:` a month`,
+      ruleSub:v=>`3% a year of the ${v} in your ETFs, at the 7% average.`,
+      ruleTxt:`After these years you could stop adding money and take out 3% of your ETFs every year as a monthly income. Historically, taking 3% a year from a mostly-stock portfolio has lasted 30 years or more in almost every period, and often the money kept growing. It's a guide, not a guarantee. The emergency fund stays in the bank.`,
+      ruleOther:(t,v)=>`${t}: ${v} a month`,
+      hStart:`How to start this week`,
+      st1:`<b>Open an account with a low-cost broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and hold ETFs. Pick one that is regulated in your country and lets you set up a monthly investment plan. Check how ETF taxes work where you live.`,
+      st2:`<b>Pick one world ETF</b>Look for one that follows the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> is fine too.`,
+      st3:`<b>Set up the monthly plan and leave it alone</b>Use the monthly amount from your plan above and a date right after payday. Then don't check it every day.`,
+      hFaq:`Questions everyone asks`,
+      q1:`Can I lose money?`,
+      a1:`Yes, in the short term, and sometimes for several years. Over 15 years or more, a world ETF has historically ended up higher, but that's not guaranteed. That's why you only invest money you won't need for a long time, and keep the emergency fund in the bank.`,
+      q2:`What if I need the money?`,
+      a2:`You can sell any day the market is open, and the cash arrives in a few days. But selling right after a drop locks in the loss. That's what the emergency fund is for.`,
+      q3:`Do I pay taxes?`,
+      a3:`Usually you pay tax only on your gains, and only when you sell. Rates and rules depend on your country, so check before you start. The results on this page are before tax.`,
+      q4:`When should I start?`,
+      a4:`As soon as your emergency fund is in place, even with a small amount. Time in the market matters more than picking the right moment, and nobody can reliably pick it.`,
+      glossTitle:`Words explained`,
+      gloss:[
+        ['g-etf',`ETF`,`A fund you buy and sell on the stock exchange like a single share, but it holds many companies at once.`],
+        ['g-acc',`Accumulating`,`Dividends are not paid out to you. The fund reinvests them automatically, which is the simplest way to let the money grow.`],
+        ['g-bonds',`Bonds`,`Loans to governments or companies that pay interest. They move less than stocks, so they calm a portfolio down, but on average they earn less.`],
+        ['g-infl',`Inflation`,`Prices going up over time. At 2% a year, something that costs €100 today will cost about €149 in 20 years.`],
+        ['g-ter',`TER`,`The yearly cost of an ETF, as a percentage. A TER of 0.2% on €10,000 is about €20 a year, taken out of the fund's value automatically.`],
+        ['g-broker',`Broker`,`The bank or app where you buy, hold and sell your ETFs.`]
+      ],
+      hSup:`Found this useful?`,
+      supTxt:`Made by Marco, an engineer who invests in ETFs himself. This page is free, with no ads and no affiliate links. If it helped you, you can buy me a coffee.`,
+      coffee:`Buy me a coffee`,
+      disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing can lose money. Do your own research or talk to a qualified adviser before you invest.`,
+      today:`today`, yAbbr:`y`
+    },
+    it:{
+      title:`Il tuo piano ETF · Your ETF Plan`, locale:`it-IT`, taxRate:0.26,
+      eyebrow:`Investire in ETF, spiegato semplice`,
+      h1:`Il tuo piano ETF`,
+      lead:`Guarda cosa succede ai tuoi soldi se ne investi una parte ogni mese in ETF invece di lasciarli in banca. Nessuna registrazione, niente da comprare.`,
+      pill:`Strumento educativo, non è una consulenza finanziaria`,
+      headline:(amt,diff,y)=>`Investire <strong>${amt} al mese</strong> invece di lasciarli in banca potrebbe darti circa <strong>${diff} in più</strong> tra ${y} anni.`,
+      headlineNone:`Oggi a fine mese non avanza nulla. Il primo passo è liberare un po' di soldi ogni mese, anche 50 €.`,
+      headlineNote:`Calcolato con i numeri di esempio qui sotto e un rendimento medio del 7%.`,
+      headlineLink:`Inserisci i tuoi numeri`,
+      h30:`Gli ETF in 30 secondi`,
+      e1:`<b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.`,
+      e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
+      e3:`<b>Il tuo pezzettino cresce con le aziende</b>Nel lungo periodo le aziende guadagnano di più e valgono di più, e con loro il tuo pezzettino. Non ogni anno, e a volte scende parecchio. Su 15–20 anni storicamente è cresciuto.`,
+      hIn:`I tuoi numeri`, lIncome:`Stipendio netto al mese`, lSpend:`Quanto spendi al mese`, lCash:`Soldi in banca oggi`,
+      example:`Sono numeri di esempio. Metti i tuoi e tutta la pagina si aggiorna.`,
+      hPlan:`Il tuo piano`,
+      s1:`1 · Resta in banca`,
+      s1why:`6 mesi di spese. <b>Perché:</b> se perdi il lavoro o si rompe qualcosa usi questi soldi, e non sei mai costretto a vendere gli ETF nel momento sbagliato.`,
+      s2:`2 · Investi subito`,
+      lumpYes:`Quello che hai oltre il fondo emergenza. Mettilo nell'ETF scelto in <a href="#start">Come iniziare</a>, tutto subito o in 6–12 rate.`,
+      lumpNo:`Ancora niente. Prima completa il fondo emergenza.`,
+      s3:`3 · Ogni mese`, s3etf:`in ETF`, s3save:`da parte`,
+      s3why:`<b>Perché automatico:</b> i soldi partono il giorno dopo lo stipendio, così non devi decidere né ricordarti nulla. I soldi messi da parte servono per le spese grosse, come auto, vacanze o regali.`,
+      minus:`Investi 50 € in meno`, plus:`Investi 50 € in più`, reset:`Torna all'importo consigliato`,
+      etfAll:`Stai investendo tutto quello che ti avanza: non resta nulla da parte per le spese grosse.`,
+      etfOwn:s=>`Importo scelto da te. Consigliato: ${s}.`,
+      gap:(g,mm)=>`Ti mancano ${g} per completare il fondo emergenza. Per ${mm===1?'il primo mese':'i primi '+mm+' mesi'} metti tutto il risparmio in banca, poi parti con gli ETF.`,
+      noSurplus:`Oggi le spese sono uguali o più alte dello stipendio, quindi non resta nulla da investire. Il primo passo è creare un margine ogni mese, anche piccolo.`,
+      hFut:`Quanto potresti avere`, lYears:`Tra quanti anni`, years:n=>`${n} anni`,
+      real:`Mostra in euro di oggi (con <a class="term" href="#g-infl">inflazione</a> al 2% l'anno)`,
+      scen:[[`Tutto in banca`,`Non fare nulla`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Storico normale`],[`ETF al 9%`,`Decenni buoni`]],
+      paidIn:p=>`Hai versato ${p} in tutto.`,
+      vsBank:d=>`${d} in più che lasciarli in banca`,
+      afterTax:(r,v)=>`Prima delle tasse. Con il ${r} sui guadagni ti resterebbero circa ${v}.`,
+      bankNom:v=>`Vale circa ${v} in euro di oggi, perché i prezzi salgono ogni anno.`,
+      bankReal:p=>`Hai messo da parte ${p}, ma in euro di oggi ci compri meno.`,
+      explainReal:(y,v)=>`Valori in euro di oggi. Tra ${y} anni 1.000 € compreranno quello che oggi compri con circa ${v}. Per questo i soldi fermi in banca perdono valore anche se il numero sul conto non scende.`,
+      explainNom:`Valori come li vedrai sul conto. Spunta "euro di oggi" per vedere quanto valgono davvero tolta l'inflazione.`,
+      chartAria:`Crescita del patrimonio negli anni per ogni scenario`,
+      hRide:`Come ci si sente davvero`,
+      ride1:`I numeri qui sopra sono medie regolari. I mercati veri salgono e scendono, a volte parecchio. Le borse mondiali sono scese di circa la metà tra il 2007 e il 2009, e di circa un terzo in poche settimane nel 2020. Entrambe le volte sono risalite: in pochi anni dopo il 2009, e in pochi mesi nel 2020.`,
+      rideIll:`Esempio di un andamento tipico, non dati reali`,
+      rideYou:(y,v,h)=>`Con il tuo piano, dopo ${y} anni avresti circa <strong>${v}</strong> in ETF. In un crollo come quello del 2008 il conto potrebbe mostrare circa <strong>${h}</strong> per un po'. È il momento in cui molti principianti vendono e trasformano un calo temporaneo in una perdita vera. Se continui con il versamento mensile, stai comprando a sconto.`,
+      rideYouNone:`Se continui a investire durante i cali, con gli stessi soldi compri di più. È vendere durante un calo che lo trasforma in una perdita vera.`,
+      ridePeak:`picco`, rideLow:`minimo`, rideBack:`risalita`, rideStart:`i tuoi soldi`,
+      ruleEyebrow:`La regola del 3%`,
+      ruleH:y=>`Un secondo stipendio per sempre, tra ${y} anni`,
+      perMonth:` al mese`,
+      ruleSub:v=>`Il 3% l'anno dei ${v} che avresti in ETF, con la media del 7%.`,
+      ruleTxt:`Dopo questi anni potresti smettere di versare e prelevare ogni anno il 3% dei tuoi ETF come entrata mensile. Storicamente, prelevare il 3% l'anno da un portafoglio quasi tutto azionario è durato 30 anni o più in quasi tutti i periodi, e spesso il capitale ha continuato a crescere. È un riferimento, non una garanzia. Il fondo emergenza resta in banca.`,
+      ruleOther:(t,v)=>`${t}: ${v} al mese`,
+      hStart:`Come iniziare questa settimana`,
+      st1:`<b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in regime amministrato: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che offra il piano di accumulo (PAC) mensile.`,
+      st2:`<b>Scegli un ETF mondiale</b>Cerca un ETF che segue tutto il mercato azionario mondiale, ad <a class="term" href="#g-acc">accumulazione</a> e con un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>.`,
+      st3:`<b>Imposta il piano mensile e lascialo andare</b>Usa l'importo mensile del tuo piano qui sopra e una data subito dopo lo stipendio. Poi non guardarlo ogni giorno.`,
+      hFaq:`Le domande che si fanno tutti`,
+      q1:`Posso perdere soldi?`,
+      a1:`Sì, nel breve periodo, e a volte per qualche anno. Su 15 anni o più un ETF mondiale storicamente è finito più in alto, ma non è garantito. Per questo investi solo soldi che non ti servono per molto tempo, e tieni il fondo emergenza in banca.`,
+      q2:`E se mi servono i soldi?`,
+      a2:`Puoi vendere in qualsiasi giorno di borsa aperta e i soldi arrivano in pochi giorni. Ma vendere subito dopo un calo rende la perdita definitiva. A questo serve il fondo emergenza.`,
+      q3:`Si pagano tasse?`,
+      a3:`In Italia paghi il 26% solo sui guadagni e solo quando vendi, più l'imposta di bollo dello 0,2% l'anno sul valore. Con un broker in regime amministrato se ne occupa lui. I risultati di questa pagina sono prima delle tasse.`,
+      q4:`Quando conviene iniziare?`,
+      a4:`Appena hai il fondo emergenza, anche con poco. Conta più il tempo passato investiti che azzeccare il momento giusto, che nessuno sa prevedere.`,
+      glossTitle:`Le parole spiegate`,
+      gloss:[
+        ['g-etf',`ETF`,`Un fondo che compri e vendi in borsa come una singola azione, ma che contiene tante aziende insieme.`],
+        ['g-acc',`Accumulazione`,`I dividendi non ti vengono pagati: il fondo li reinveste in automatico. È il modo più semplice per far crescere i soldi.`],
+        ['g-bonds',`Obbligazioni`,`Prestiti a stati o aziende che pagano un interesse. Si muovono meno delle azioni, quindi rendono il portafoglio più tranquillo, ma in media rendono meno.`],
+        ['g-infl',`Inflazione`,`L'aumento dei prezzi nel tempo. Al 2% l'anno, quello che oggi costa 100 € tra 20 anni costerà circa 149 €.`],
+        ['g-ter',`TER`,`Il costo annuo dell'ETF, in percentuale. Un TER dello 0,2% su 10.000 € sono circa 20 € l'anno, tolti in automatico dal valore del fondo.`],
+        ['g-broker',`Broker`,`La banca o l'app dove compri, tieni e vendi i tuoi ETF.`]
+      ],
+      hSup:`Ti è stata utile?`,
+      supTxt:`L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione. Se ti è servita, puoi offrirmi un caffè.`,
+      coffee:`Offrimi un caffè`,
+      disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.`,
+      today:`oggi`, yAbbr:`a`
+    }
+  };
+
+  // Language: saved choice first, then Italian time zone or Italian browser language, else English.
+  function detectLang(){
+    try{const s=localStorage.getItem('etf-plan-lang'); if(s==='it'||s==='en')return s}catch(e){}
+    let tz='';
+    try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    const first=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
+    return first.startsWith('it')?'it':'en';
+  }
+  let lang=detectLang(), L=T[lang], fmt, short, grp;
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const gf=new Intl.NumberFormat(L.locale,{maximumFractionDigits:0});
+    fmt=v=>nf.format(Math.round(v));
+    grp=v=>gf.format(v);
+    short=v=>v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
+    $('l-en').setAttribute('aria-pressed',lang==='en');
+    $('l-it').setAttribute('aria-pressed',lang==='it');
+    ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id))});
+    render();
+  }
+  function setLang(l){lang=l;try{localStorage.setItem('etf-plan-lang',l)}catch(e){}applyLang()}
+
+  let etfOverride=null, lastEtf=0;
+  function num(id){const v=parseInt(String($(id).value).replace(/[^\d]/g,''),10);return isFinite(v)&&v>0?v:0}
+
+  // Month-by-month simulation: emergency fund first, then the monthly split between ETFs and savings.
+  function simulate(p,rate,years){
+    const mr=Math.pow(1+rate,1/12)-1, E=p.spend*MONTHS;
+    let bank=Math.min(p.cash,E), etf=0, extra=0, paid=p.cash;
+    const lump=Math.max(0,p.cash-E);
+    if(rate>0){etf=lump}else{bank+=lump}
+    const pts=[bank+etf+extra], etfPts=[etf], paidPts=[paid];
+    for(let m=1;m<=years*12;m++){
+      etf*=1+mr;
+      let s=p.surplus;
+      if(s>0){
+        paid+=s;
+        if(rate===0){bank+=s}
+        else{
+          const gap=Math.max(0,E-bank), toE=Math.min(gap,s);
+          bank+=toE; s-=toE;
+          etf+=s*p.split; extra+=s*(1-p.split);
+        }
+      }
+      if(m%12===0){pts.push(bank+etf+extra);etfPts.push(etf);paidPts.push(paid)}
+    }
+    return {pts,etfPts,paidPts,paid,etf};
+  }
+
+  function render(){
+    const p={income:num('income'),spend:num('spend'),cash:num('cash')};
+    p.surplus=p.income-p.spend;
+    const pos=Math.max(0,p.surplus), suggested=Math.round(pos*0.75/10)*10;
+    const etfM=etfOverride==null?suggested:Math.min(Math.max(etfOverride,0),pos);
+    p.split=pos>0?etfM/pos:0;
+    lastEtf=etfM;
+    $('etf-minus').disabled=pos<=0||etfM<=0;
+    $('etf-plus').disabled=pos<=0||etfM>=pos;
+    $('etf-reset').hidden=etfOverride==null||etfM===suggested;
+    const years=+$('years').value, real=$('real').checked;
+    $('years-out').textContent=L.years(years);
+
+    // plan
+    const E=p.spend*MONTHS, lump=Math.max(0,p.cash-E), gap=Math.max(0,E-p.cash);
+    $('o-emerg').textContent=fmt(E);
+    $('o-lump').textContent=fmt(lump);
+    $('o-lump-txt').innerHTML=lump>0?L.lumpYes:L.lumpNo;
+    $('o-etf').textContent=fmt(etfM);
+    $('o-save').textContent=fmt(pos-etfM);
+    const et=$('o-etf-txt');
+    if(pos>0&&etfM>=pos){et.hidden=false;et.textContent=L.etfAll}
+    else if(etfOverride!=null&&etfM!==suggested){et.hidden=false;et.textContent=L.etfOwn(fmt(suggested))}
+    else et.hidden=true;
+    const note=$('notice');
+    if(p.surplus<=0){note.hidden=false;note.textContent=L.noSurplus}
+    else if(gap>0){note.hidden=false;note.textContent=L.gap(fmt(gap),Math.ceil(gap/p.surplus))}
+    else note.hidden=true;
+
+    // results
+    const defl=y=>real?Math.pow(1+INFL,y):1;
+    const res=SCEN.map((s,i)=>({...s,name:L.scen[i][0],tag:L.scen[i][1],...simulate(p,s.rate,years)}));
+    const val=s=>s.pts[years]/defl(years);
+    const bank=res[0], main=res[MAIN], bankV=val(bank), mainV=val(main);
+
+    // headline (always the 7% case vs the bank, in the same units as the results)
+    $('headline').innerHTML=pos>0?L.headline(fmt(etfM),fmt(mainV-bankV),years):L.headlineNone;
+
+    const gains=Math.max(0,main.pts[years]-main.paid);
+    const afterTax=(main.pts[years]-gains*L.taxRate)/defl(years);
+    $('feat').innerHTML='<span class="tag" style="--c:var(--s7)">'+main.tag+' · 7%</span>'+
+      '<span class="val num">'+fmt(mainV)+'</span>'+
+      '<span class="small">'+L.paidIn(fmt(main.paid))+'</span>'+
+      '<span class="diff num">+'+L.vsBank(fmt(mainV-bankV))+'</span>'+
+      '<span class="tax">'+L.afterTax(Math.round(L.taxRate*100)+'%',fmt(afterTax))+'</span>';
+
+    const rows=[bank,res[1],res[3]].map(s=>{
+      const v=val(s);
+      let sub;
+      if(s.rate===0) sub='<span class="sub loss">'+(real?L.bankReal(fmt(s.paid)):L.bankNom(fmt(s.pts[years]/Math.pow(1+INFL,years))))+'</span>';
+      else sub='<span class="sub">'+L.paidIn(fmt(s.paid))+'</span>';
+      return '<div class="row"><span><span class="tag" style="--c:var('+s.c+')">'+s.tag+'</span><br>'+s.name+(s.rate?'':' (0%)')+'</span>'+
+        '<span class="val num">'+fmt(v)+'</span>'+sub+'</div>';
+    });
+    $('cmp').innerHTML=rows.join('');
+    $('explain').textContent=real?L.explainReal(years,fmt(1000/Math.pow(1+INFL,years))):L.explainNom;
+
+    // ride: what a 2008-style halving would look like on this person's account
+    const ry=Math.min(10,years), etfAt=main.etfPts[ry];
+    $('ride-you').innerHTML=etfAt>500?L.rideYou(ry,fmt(etfAt),fmt(etfAt/2)):L.rideYouNone;
+
+    // second salary
+    $('h-rule').textContent=L.ruleH(years);
+    const mon=s=>(s.etf/defl(years))*0.03/12;
+    $('rule-main').textContent=fmt(mon(main))+L.perMonth;
+    $('rule-sub').textContent=L.ruleSub(fmt(main.etf/defl(years)));
+    $('rule-rows').innerHTML=[res[1],res[3]].map(s=>'<span>'+L.ruleOther(s.tag+' '+Math.round(s.rate*100)+'%',fmt(mon(s)))+'</span>').join('');
+
+    lastRes={res,years,defl};
+    drawChart();
+    drawRide();
+  }
+  let lastRes=null;
+
+  const svgText=(x,y,anchor,s,fill,weight)=>'<text x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="'+anchor+'" font-size="12" font-weight="'+(weight||500)+'" fill="'+(fill||'var(--muted)')+'" font-family="Figtree,system-ui,sans-serif">'+s+'</text>';
+
+  function drawChart(){
+    if(!lastRes)return;
+    const {res,years,defl}=lastRes;
+    const box=$('chart-box'), W=Math.max(280,box.clientWidth-16), H=Math.round(Math.min(320,Math.max(220,W*0.6)));
+    const Lp=48,R=72,Tp=14,B=28;
+    const series=res.map(s=>s.pts.slice(0,years+1).map((v,i)=>v/defl(i)));
+    const max=Math.max(...series.flat(),1);
+    const step=niceStep(max/3), top=Math.ceil(max/step)*step;
+    const x=i=>Lp+(W-Lp-R)*i/years, y=v=>Tp+(H-Tp-B)*(1-v/top);
+    let g='';
+    for(let v=0;v<=top+1e-6;v+=step){
+      g+='<line x1="'+Lp+'" x2="'+(W-R)+'" y1="'+y(v).toFixed(1)+'" y2="'+y(v).toFixed(1)+'" stroke="var(--line)" stroke-width="1"/>';
+      g+=svgText(Lp-6,y(v)+4,'end',short(v));
+    }
+    const xs=years<=10?5:(years<=20?5:5);
+    for(let i=0;i<=years;i+=xs)g+=svgText(x(i),H-8,'middle',i===0?L.today:i+L.yAbbr);
+    if(years%xs!==0)g+=svgText(x(years),H-8,'middle',years+L.yAbbr);
+    // main line area
+    const mainPts=series[MAIN];
+    g+='<path d="M'+x(0)+' '+y(0)+' '+mainPts.map((v,i)=>'L'+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ')+' L'+x(years)+' '+y(0)+'Z" fill="var(--s7)" fill-opacity=".10"/>';
+    series.forEach((pts,k)=>{
+      const c='var('+res[k].c+')';
+      const d=pts.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+      g+='<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="'+(k===MAIN?3:2)+'" stroke-linejoin="round"'+(k===0?' stroke-dasharray="5 4"':'')+'/>';
+      g+='<circle cx="'+x(years).toFixed(1)+'" cy="'+y(pts[years]).toFixed(1)+'" r="'+(k===MAIN?4.5:3.5)+'" fill="'+c+'"/>';
+    });
+    // end labels, pushed apart so they never overlap
+    const labs=res.map((s,k)=>({k,y:y(series[k][years]),t:(s.rate?Math.round(s.rate*100)+'%':'0%')+' '+short(series[k][years])})).sort((a,b)=>a.y-b.y);
+    for(let i=1;i<labs.length;i++)if(labs[i].y-labs[i-1].y<15)labs[i].y=labs[i-1].y+15;
+    const over=labs[labs.length-1].y-(H-B);
+    if(over>0)labs.forEach(l=>l.y-=over);
+    labs.forEach(l=>{g+=svgText(x(years)+8,l.y+4,'start',l.t,'var('+res[l.k].c+')',l.k===MAIN?700:600)});
+    const svg=$('chart'); svg.setAttribute('viewBox','0 0 '+W+' '+H); svg.innerHTML=g;
+  }
+
+  // Illustrative path: steady growth, a 2008-style halving, recovery, a 2020-style dip, recovery.
+  const RIDE=[100,106,113,120,126,104,78,63,74,88,98,108,117,126,135,143,151,159,166,173,181,186,190,198,207,138,172,205,220,236];
+  function drawRide(){
+    const box=$('ride-box'), W=Math.max(280,box.clientWidth-16), H=Math.round(Math.min(240,Math.max(180,W*0.45)));
+    const Lp=12,R=12,Tp=22,B=16, n=RIDE.length-1, top=250, bot=40;
+    const x=i=>Lp+(W-Lp-R)*i/n, y=v=>Tp+(H-Tp-B)*(1-(v-bot)/(top-bot));
+    let g='';
+    g+='<line x1="'+Lp+'" x2="'+(W-R)+'" y1="'+y(100).toFixed(1)+'" y2="'+y(100).toFixed(1)+'" stroke="var(--line)" stroke-dasharray="4 4"/>';
+    g+=svgText(W-R,y(100)+16,'end',L.rideStart);
+    // colour falling segments
+    for(let i=1;i<=n;i++){
+      const down=RIDE[i]<RIDE[i-1];
+      g+='<line x1="'+x(i-1).toFixed(1)+'" y1="'+y(RIDE[i-1]).toFixed(1)+'" x2="'+x(i).toFixed(1)+'" y2="'+y(RIDE[i]).toFixed(1)+'" stroke="'+(down?'var(--down)':'var(--s7)')+'" stroke-width="3" stroke-linecap="round"/>';
+    }
+    const ann=(i,lab,dy)=>{g+='<circle cx="'+x(i).toFixed(1)+'" cy="'+y(RIDE[i]).toFixed(1)+'" r="4" fill="var(--surface)" stroke="var(--down)" stroke-width="2"/>';g+=svgText(x(i),y(RIDE[i])+dy,'middle',lab,'var(--down)',700)};
+    ann(7,'−50%',20);
+    ann(25,'−33%',20);
+    const svg=$('ride'); svg.setAttribute('viewBox','0 0 '+W+' '+H); svg.innerHTML=g;
+  }
+  function niceStep(raw){const p=Math.pow(10,Math.floor(Math.log10(raw)));const n=raw/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
+
+  // money inputs: digits only, shown with thousands separators
+  ['income','spend','cash'].forEach(id=>{
+    const el=$(id);
+    el.addEventListener('input',()=>{
+      const before=el.value.length, pos=el.selectionStart;
+      const n=num(id); el.value=n?grp(n):'';
+      const diff=el.value.length-before;
+      try{el.setSelectionRange(Math.max(0,pos+diff),Math.max(0,pos+diff))}catch(e){}
+      render();
+    });
+    el.addEventListener('blur',()=>{el.value=grp(num(id))});
+  });
+  ['years','real'].forEach(id=>$(id).addEventListener('input',render));
+  $('etf-plus').addEventListener('click',()=>{etfOverride=Math.floor(lastEtf/50)*50+50;render()});
+  $('etf-minus').addEventListener('click',()=>{etfOverride=Math.ceil(lastEtf/50)*50-50;render()});
+  $('etf-reset').addEventListener('click',()=>{etfOverride=null;render()});
+  $('l-en').addEventListener('click',()=>setLang('en'));
+  $('l-it').addEventListener('click',()=>setLang('it'));
+  // glossary links open the glossary and highlight the word
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a.term'); if(!a)return;
+    e.preventDefault();
+    const id=a.getAttribute('href').slice(1);
+    $('glossary').open=true;
+    document.querySelectorAll('.gloss .hl').forEach(n=>n.classList.remove('hl'));
+    const t=$(id); if(t){t.classList.add('hl');t.scrollIntoView({block:'center'})}
+  });
+  let rt; window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{drawChart();drawRide()},120)});
+  applyLang();
+})();
+</script>
+
+</body>
+</html>
