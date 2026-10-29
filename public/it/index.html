@@ -376,10 +376,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   <section class="support card-base" aria-labelledby="h-sup">
     <div>
-      <h2 id="h-sup" data-t="hSup">Ti è stata utile?</h2>
-      <p class="small" data-t="supTxt">L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione. Se ti è servita, puoi offrirmi un caffè.</p>
+      <h2 id="h-sup" data-t="hSup">Chi l'ha fatta</h2>
+      <p class="small" data-t="supTxt">L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione.</p>
     </div>
-    <a class="coffee-btn" id="coffee-bottom" href="https://buymeacoffee.com/youretfplan" target="_blank" rel="noopener" data-t="coffee">Offrimi un caffè</a>
+    
   </section>
 
   <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.</p>
@@ -390,6 +390,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
 (function(){
   const $=id=>document.getElementById(id);
   const INFL=0.02, MONTHS=6, MAIN=2;
+  // Donations are switched off for now (tax check pending). Set to true to bring the coffee button back.
+  const DONATIONS=false;
   const SCEN=[{rate:0,c:'--bank'},{rate:0.05,c:'--s5'},{rate:0.07,c:'--s7'},{rate:0.09,c:'--s9'}];
 
   const T={
@@ -469,6 +471,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ],
       hSup:`Found this useful?`,
       supTxt:`Made by Marco, an engineer who invests in ETFs himself. This page is free, with no ads and no affiliate links. If it helped you, you can buy me a coffee.`,
+      hSupNo:`Who made this`,
+      supTxtNo:`Made by Marco, an engineer who invests in ETFs himself. This page is free, with no ads and no affiliate links.`,
       coffee:`Buy me a coffee`,
       disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing can lose money. Do your own research or talk to a qualified adviser before you invest.`,
       today:`today`, yAbbr:`y`
@@ -549,11 +553,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ],
       hSup:`Ti è stata utile?`,
       supTxt:`L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione. Se ti è servita, puoi offrirmi un caffè.`,
+      hSupNo:`Chi l'ha fatta`,
+      supTxtNo:`L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione.`,
       coffee:`Offrimi un caffè`,
       disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.`,
       today:`oggi`, yAbbr:`a`
     }
   };
+
+  if(!DONATIONS){
+    for(const k in T){T[k].hSup=T[k].hSupNo;T[k].supTxt=T[k].supTxtNo}
+    const cb=$('coffee-bottom'); if(cb)cb.remove();
+  }
 
   // Language. On youretfplan.com each language has its own URL (/ and /it/), set by a
   // <meta name="page-lang"> tag at build time. Without that tag (the claude.ai copy) the
