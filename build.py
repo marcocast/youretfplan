@@ -44,6 +44,16 @@ PAGES = {
         "timezone": "Europe/Rome",
         "locale": "it-IT",
     },
+    "es": {
+        "path": "/es/",
+        "file": PUBLIC / "es" / "index.html",
+        "title": "Calculadora de inversión en ETF: cuánto invertir cada mes | Your ETF Plan",
+        "description": "Calculadora gratuita para invertir en ETF: descubre cuánto guardar para emergencias, cuánto invertir cada mes y cuánto podrías tener en 5 a 25 años frente a dejarlo en el banco.",
+        "og_locale": "es_ES",
+        "og_image": "/og-es.png",
+        "timezone": "Europe/Madrid",
+        "locale": "es-ES",
+    },
 }
 
 
@@ -128,7 +138,8 @@ FOOTER = '<p class="foot" style="text-align:center">© 2026 youretfplan.com</p>'
 FOOTER_SITE = (
     '<p class="foot" style="text-align:center">© 2026 youretfplan.com · '
     '<a href="/" hreflang="en" lang="en">English</a> · '
-    '<a href="/it/" hreflang="it" lang="it">Italiano</a></p>'
+    '<a href="/it/" hreflang="it" lang="it">Italiano</a> · '
+    '<a href="/es/" hreflang="es" lang="es">Español</a></p>'
 )
 
 

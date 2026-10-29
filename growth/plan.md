@@ -13,10 +13,10 @@
 
 ## Roadmap (ideas, in rough priority)
 1. Measurement: anonymous "plan created" counter + 👍/👎 feedback box (Cloudflare Worker + D1), daily export to `growth/data/` via GitHub Action, privacy note on the page.
-2. Spanish version at `/es/`.
+2. ~~Spanish version at `/es/`.~~ Done 2026-10-29.
 3. "Share my plan" button that creates an image of the user's result.
 4. Comparison subpages (Marco's idea), each with its own calculator and IT/EN/ES versions:
-   - Buying a house vs investing in ETFs (casa vs ETF)
+   - Buying a house vs investing in ETFs (casa vs ETF), including the angle "I inherited a house, now what? Keep, rent or sell and invest" (Marco's idea)
    - Bank account vs ETFs, a more specific version of today's comparison
    - Other investments vs ETFs: savings deposit accounts, government bonds (BTP), gold, pension funds…
 5. Beginner articles answering common questions, linking to the calculator.
@@ -25,3 +25,4 @@
 
 ## Log
 - 2026-10-29: site live at youretfplan.com (EN `/`, IT `/it/`), sitemap submitted to Google Search Console, Cloudflare Web Analytics on, donate button switched off.
+- 2026-10-29: Spanish version live at `/es/` (Spain time zone or Spanish browser → `/es/`).

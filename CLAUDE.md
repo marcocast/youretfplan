@@ -1,10 +1,10 @@
 # youretfplan.com
 
 - Edit only `src/page.html`. It is the single source: markup, CSS and JS, written as a claude.ai artifact fragment (no doctype/head).
-- Then run `python3 build.py`. It writes `public/index.html` (English, `/`) and `public/it/index.html` (Italian, `/it/`) with per-language SEO head (title, description, canonical, hreflang, Open Graph, JSON-LD) and pre-rendered text, plus `public/sitemap.xml` and `public/robots.txt`. Commit `public/` together with the source.
-- All visible text lives in the `T` object in the script, with `en` and `it` entries. Every copy change must be made in both languages. SEO titles and descriptions live in `build.py`.
-- Language: on the site each language has its own URL (`<meta name="page-lang">`). First visit to `/` from Italy (time zone or browser language) redirects once to `/it/`; the EN/IT buttons save the choice. Without the meta tag (artifact copy) the page switches language in place.
+- Then run `python3 build.py`. It writes `public/index.html` (English, `/`), `public/it/index.html` (Italian, `/it/`) and `public/es/index.html` (Spanish, `/es/`) with per-language SEO head (title, description, canonical, hreflang, Open Graph, JSON-LD) and pre-rendered text, plus `public/sitemap.xml` and `public/robots.txt`. Commit `public/` together with the source.
+- All visible text lives in the `T` object in the script, with `en`, `it` and `es` entries. Every copy change must be made in all three languages. SEO titles and descriptions live in `build.py`.
+- Language: on the site each language has its own URL (`<meta name="page-lang">`). On `/` the visitor is sent to their saved language, or on a first visit to the one guessed from time zone or browser language (Italy → `/it/`, Spain or Spanish browser → `/es/`); the EN/IT/ES buttons save the choice. Without the meta tag (artifact copy) the page switches language in place.
 - Donations (Buy Me a Coffee, https://buymeacoffee.com/youretfplan) are switched off with `DONATIONS=false` in the script while Marco checks the tax side (Beckham regime). Set it to true to bring the button back.
 - Pushing to `main` deploys to production through Cloudflare Workers Builds (static assets from `public/`). Check both pages in a headless browser (phone width, light and dark) before pushing.
-- Social preview images `public/og-en.png` and `public/og-it.png` are 1200×630.
+- Social preview images `public/og-en.png`, `public/og-it.png` and `public/og-es.png` are 1200×630.
 - Owner: Marco. He also keeps a copy of the page as a claude.ai artifact; keep it in sync when asked.

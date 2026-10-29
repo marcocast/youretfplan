@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://youretfplan.com/">
 <link rel="alternate" hreflang="en" href="https://youretfplan.com/">
 <link rel="alternate" hreflang="it" href="https://youretfplan.com/it/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/">
 <link rel="alternate" hreflang="x-default" href="https://youretfplan.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/logo.png">
@@ -234,9 +235,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <header style="display:flex;flex-direction:column;gap:12px">
     <div class="top-row">
       <span class="brand">youretfplan<span>.com</span></span>
-      <div class="lang" role="group" aria-label="Language / Lingua">
+      <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
         <button type="button" id="l-en" lang="en" aria-pressed="true">EN</button>
         <button type="button" id="l-it" lang="it" aria-pressed="false">IT</button>
+        <button type="button" id="l-es" lang="es" aria-pressed="false">ES</button>
       </div>
     </div>
     <span class="eyebrow" data-t="eyebrow">Investing in ETFs, made simple</span>
@@ -383,7 +385,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   </section>
 
   <p class="disclaimer" data-t="disc"><strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing can lose money. Do your own research or talk to a qualified adviser before you invest.</p>
-  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/" hreflang="en" lang="en">English</a> · <a href="/it/" hreflang="it" lang="it">Italiano</a></p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/" hreflang="en" lang="en">English</a> · <a href="/it/" hreflang="it" lang="it">Italiano</a> · <a href="/es/" hreflang="es" lang="es">Español</a></p>
 </div>
 
 <script>
@@ -558,6 +560,88 @@ details > div{padding:0 0 14px;color:var(--muted)}
       coffee:`Offrimi un caffè`,
       disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.`,
       today:`oggi`, yAbbr:`a`
+    },
+    es:{
+      title:`Tu plan ETF · Your ETF Plan`, locale:`es-ES`, taxRate:0.21,
+      eyebrow:`Invertir en ETF, explicado fácil`,
+      h1:`Tu plan ETF`,
+      lead:`Mira qué pasa con tu dinero si inviertes una parte cada mes en ETF en lugar de dejarlo en el banco. Una calculadora gratuita: sin registro y sin nada que comprar.`,
+      pill:`Herramienta educativa, no es asesoramiento financiero`,
+      headline:(amt,diff,y)=>`Invertir <strong>${amt} al mes</strong> en lugar de dejarlo en el banco podría darte unos <strong>${diff} más</strong> en ${y} años.`,
+      headlineNone:`Ahora mismo no te sobra nada a final de mes. El primer paso es liberar un poco de dinero cada mes, aunque sean 50 €.`,
+      headlineNote:`Calculado con los números de ejemplo de abajo y una rentabilidad media del 7%.`,
+      headlineLink:`Pon tus propios números`,
+      h30:`Los ETF en 30 segundos`,
+      e1:`<b>Una cesta de empresas</b>Un <a class="term" href="#g-etf">ETF</a> contiene cientos o miles de empresas a la vez, como Apple, Nestlé o Toyota. Con una sola compra tienes un trocito de todas.`,
+      e2:`<b>Compras un poco cada mes</b>Programas una aportación automática mensual, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
+      e3:`<b>Tu trocito crece con las empresas</b>A largo plazo las empresas ganan más y valen más, y tu trocito con ellas. No todos los años, y a veces baja mucho. En 15–20 años, históricamente ha crecido.`,
+      hIn:`Tus números`, lIncome:`Sueldo neto al mes`, lSpend:`Lo que gastas al mes`, lCash:`Dinero en el banco hoy`,
+      example:`Son números de ejemplo. Pon los tuyos y toda la página se actualiza.`,
+      hPlan:`Tu plan`,
+      s1:`1 · Se queda en el banco`,
+      s1why:`6 meses de gastos. <b>Por qué:</b> si pierdes el trabajo o se rompe algo, usas este dinero y nunca tienes que vender tus ETF en un mal momento.`,
+      s2:`2 · Invierte ya`,
+      lumpYes:`Lo que tienes por encima del fondo de emergencia. Ponlo en el ETF de <a href="#start">Cómo empezar</a>, todo de golpe o repartido en 6–12 meses.`,
+      lumpNo:`Todavía nada. Primero completa el fondo de emergencia.`,
+      s3:`3 · Cada mes`, s3etf:`en ETF`, s3save:`ahorrado aparte`,
+      s3why:`<b>Por qué automático:</b> el dinero sale el día después de cobrar, así no tienes que decidir ni acordarte de nada. Lo que ahorras aparte es para gastos grandes, como el coche, las vacaciones o los regalos.`,
+      minus:`Invertir 50 € menos`, plus:`Invertir 50 € más`, reset:`Volver al importe recomendado`,
+      etfAll:`Estás invirtiendo todo lo que te sobra, así que no queda nada aparte para gastos grandes.`,
+      etfOwn:s=>`Importe elegido por ti. Recomendado: ${s}.`,
+      gap:(g,mm)=>`Te faltan ${g} para completar el fondo de emergencia. ${mm===1?'El primer mes':'Durante los primeros '+mm+' meses'} deja todo el ahorro en el banco y después empieza con los ETF.`,
+      noSurplus:`Ahora mismo gastas lo mismo o más de lo que ganas, así que no queda nada para invertir. El primer paso es liberar algo de dinero cada mes, aunque sea poco.`,
+      hFut:`Lo que podrías tener`, lYears:`Dentro de cuántos años`, years:n=>`${n} años`,
+      real:`Mostrar en euros de hoy (con un 2% de <a class="term" href="#g-infl">inflación</a> al año)`,
+      scen:[[`Todo en el banco`,`No hacer nada`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Histórico normal`],[`ETF al 9%`,`Décadas buenas`]],
+      paidIn:p=>`Has aportado ${p} en total.`,
+      vsBank:d=>`${d} más que dejarlo en el banco`,
+      afterTax:(r,v)=>`Antes de impuestos. Si tus ganancias tributan, por ejemplo, al ${r}, te quedarían unos ${v}.`,
+      bankNom:v=>`Equivale a unos ${v} de hoy, porque los precios suben cada año.`,
+      bankReal:p=>`Has ahorrado ${p}, pero en euros de hoy te da para menos.`,
+      explainReal:(y,v)=>`Valores en euros de hoy. Dentro de ${y} años, 1.000 € comprarán lo que hoy compras con unos ${v}. Por eso el dinero parado en el banco pierde valor aunque la cifra de la cuenta no baje.`,
+      explainNom:`Valores tal como los verás en tu cuenta. Marca "euros de hoy" para ver lo que valen de verdad descontando la inflación.`,
+      chartAria:`Crecimiento del patrimonio a lo largo de los años en cada escenario`,
+      hRide:`Cómo se vive de verdad`,
+      ride1:`Los números de arriba son medias suaves. Los mercados reales suben y bajan, a veces mucho. Las bolsas mundiales cayeron más o menos a la mitad entre 2007 y 2009, y alrededor de un tercio en pocas semanas en 2020. Las dos veces se recuperaron: en pocos años después de 2009 y en pocos meses en 2020.`,
+      rideIll:`Ejemplo de un recorrido típico, no son datos reales`,
+      rideYou:(y,v,h)=>`Con tu plan, después de ${y} años tendrías unos <strong>${v}</strong> en ETF. En una caída como la de 2008 tu cuenta podría mostrar unos <strong>${h}</strong> durante un tiempo. Es el momento en que muchos principiantes venden y convierten una bajada temporal en una pérdida real. Si sigues con tu aportación mensual, estás comprando más barato.`,
+      rideYouNone:`Si sigues invirtiendo durante las caídas, con el mismo dinero compras más. Lo que convierte una caída en una pérdida real es vender en ese momento.`,
+      ridePeak:`máximo`, rideLow:`mínimo`, rideBack:`recuperación`, rideStart:`tu dinero`,
+      ruleEyebrow:`La regla del 3%`,
+      ruleH:y=>`Un segundo sueldo para siempre, dentro de ${y} años`,
+      perMonth:` al mes`,
+      ruleSub:v=>`El 3% al año de los ${v} que tendrías en ETF, con la media del 7%.`,
+      ruleTxt:`Después de estos años podrías dejar de aportar y retirar cada año el 3% de tus ETF como un ingreso mensual. Históricamente, retirar un 3% al año de una cartera casi toda en acciones ha durado 30 años o más en casi todos los periodos, y a menudo el capital ha seguido creciendo. Es una referencia, no una garantía. El fondo de emergencia se queda en el banco.`,
+      ruleOther:(t,v)=>`${t}: ${v} al mes`,
+      hStart:`Cómo empezar esta semana`,
+      st1:`<b>Abre una cuenta en un bróker de bajo coste</b>El <a class="term" href="#g-broker">bróker</a> es el banco o la app donde compras y guardas tus ETF. Elige uno regulado en España o en la UE que permita programar aportaciones mensuales automáticas.`,
+      st2:`<b>Elige un ETF mundial</b>Busca un ETF que siga todo el mercado de acciones mundial, de <a class="term" href="#g-acc">acumulación</a> y con un coste anual bajo (<a class="term" href="#g-ter">TER</a>), idealmente por debajo del 0,25%. Si quieres menos sustos, también vale un ETF todo en uno que incluya <a class="term" href="#g-bonds">bonos</a>.`,
+      st3:`<b>Programa la aportación mensual y olvídate</b>Usa el importe mensual de tu plan de arriba y una fecha justo después de cobrar. Y no lo mires todos los días.`,
+      hFaq:`Las preguntas que todo el mundo se hace`,
+      q1:`¿Puedo perder dinero?`,
+      a1:`Sí, a corto plazo, y a veces durante algunos años. En 15 años o más, un ETF mundial históricamente ha terminado más arriba, pero no está garantizado. Por eso solo inviertes dinero que no vas a necesitar en mucho tiempo, y mantienes el fondo de emergencia en el banco.`,
+      q2:`¿Y si necesito el dinero?`,
+      a2:`Puedes vender cualquier día que la bolsa esté abierta y el dinero llega en pocos días. Pero vender justo después de una caída hace que la pérdida sea definitiva. Para eso está el fondo de emergencia.`,
+      q3:`¿Se pagan impuestos?`,
+      a3:`En España pagas entre el 19% y el 30% solo sobre las ganancias y solo cuando vendes, y lo declaras en la renta. Un detalle: los fondos indexados permiten traspasos entre fondos sin pagar impuestos y los ETF no. Los resultados de esta página son antes de impuestos.`,
+      q4:`¿Cuándo conviene empezar?`,
+      a4:`En cuanto tengas el fondo de emergencia, aunque sea con poco. Importa más el tiempo que pasas invertido que acertar el momento, y nadie sabe predecirlo.`,
+      glossTitle:`Las palabras, explicadas`,
+      gloss:[
+        ['g-etf',`ETF`,`Un fondo que compras y vendes en bolsa como si fuera una acción, pero que contiene muchas empresas a la vez.`],
+        ['g-acc',`Acumulación`,`Los dividendos no se te pagan: el fondo los reinvierte automáticamente. Es la forma más sencilla de hacer crecer el dinero.`],
+        ['g-bonds',`Bonos`,`Préstamos a gobiernos o empresas que pagan un interés. Se mueven menos que las acciones, así que dan más tranquilidad a la cartera, pero de media rinden menos.`],
+        ['g-infl',`Inflación`,`La subida de los precios con el tiempo. Al 2% anual, lo que hoy cuesta 100 € costará unos 149 € dentro de 20 años.`],
+        ['g-ter',`TER`,`El coste anual del ETF, en porcentaje. Un TER del 0,2% sobre 10.000 € son unos 20 € al año, descontados automáticamente del valor del fondo.`],
+        ['g-broker',`Bróker`,`El banco o la app donde compras, guardas y vendes tus ETF.`]
+      ],
+      hSup:`¿Te ha sido útil?`,
+      supTxt:`La ha hecho Marco, un ingeniero que invierte en ETF él mismo. Esta página es gratuita, sin publicidad y sin enlaces de afiliado. Si te ha servido, puedes invitarme a un café.`,
+      hSupNo:`Quién la ha hecho`,
+      supTxtNo:`La ha hecho Marco, un ingeniero que invierte en ETF él mismo. Esta página es gratuita, sin publicidad y sin enlaces de afiliado.`,
+      coffee:`Invítame a un café`,
+      disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta educativa con estimaciones aproximadas. Las rentabilidades no están garantizadas y cambian cada año; aquí son medias constantes. Los impuestos y las comisiones no están incluidos en los resultados. La cuenta del banco se calcula sin intereses. Invertir conlleva el riesgo de perder dinero. Infórmate bien o habla con un asesor cualificado antes de invertir.`,
+      today:`hoy`, yAbbr:`a`
     }
   };
 
@@ -571,17 +655,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
   // page switches language in place.
   const pageLangMeta=document.querySelector('meta[name="page-lang"]');
   const FIXED=pageLangMeta?pageLangMeta.content:null;
-  const URLS={en:'/',it:'/it/'};
-  function savedLang(){try{const s=localStorage.getItem('etf-plan-lang');if(s==='it'||s==='en')return s}catch(e){}return null}
+  const URLS={en:'/',it:'/it/',es:'/es/'};
+  function savedLang(){try{const s=localStorage.getItem('etf-plan-lang');if(s in URLS)return s}catch(e){}return null}
   function guessLang(){
     let tz='';
     try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
     if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
-    const first=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
-    return first.startsWith('it')?'it':'en';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const first=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return first in URLS?first:'en';
   }
-  // First visit to the English page from Italy: send the visitor to the Italian page once.
-  if(FIXED==='en'&&!savedLang()&&guessLang()==='it'&&!navigator.webdriver){location.replace(URLS.it+location.hash);return}
+  // On the English page (/), send visitors to their saved language, or on a first visit to the language guessed from time zone / browser.
+  if(FIXED==='en'&&!navigator.webdriver){const g=savedLang()||guessLang();if(g!=='en'){location.replace(URLS[g]+location.hash);return}}
   let lang=FIXED||savedLang()||guessLang(), L=T[lang], fmt, short, grp;
 
   function applyLang(){
@@ -598,6 +683,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');
     $('l-it').setAttribute('aria-pressed',lang==='it');
+    $('l-es').setAttribute('aria-pressed',lang==='es');
     ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id))});
     render();
   }
@@ -784,6 +870,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   $('etf-reset').addEventListener('click',()=>{etfOverride=null;render()});
   $('l-en').addEventListener('click',()=>setLang('en'));
   $('l-it').addEventListener('click',()=>setLang('it'));
+  $('l-es').addEventListener('click',()=>setLang('es'));
   // glossary links open the glossary and highlight the word
   document.addEventListener('click',e=>{
     const a=e.target.closest('a.term'); if(!a)return;
