@@ -20,6 +20,12 @@
    - Bank account vs ETFs, a more specific version of today's comparison
    - Other investments vs ETFs: savings deposit accounts, government bonds (BTP), gold, pension funds…
 5. Beginner articles answering common questions, linking to the calculator.
+5b. Free guide "Investing in ETFs under the Beckham Law" (Marco's angle: always tied to what the regime means for ETF investors). Points to cover, each verified against current sources before publishing:
+   - Foreign-source gains and dividends are not taxed in Spain during the regime, so non-Spanish-domiciled ETFs (e.g. Irish ISIN IE…) are in practice tax-free in Spain while it lasts; Spanish-source investments are still taxed.
+   - No Modelo 720 while the regime applies (DGT position), as long as the regime is valid.
+   - The trap at the end: after the 6 years you become an ordinary resident and later sales are taxed on the whole gain, so the timing of sales before the regime ends matters.
+   - Wealth tax and the end-of-regime planning need an asesor; the page says so clearly.
+   - Same pattern later for Italy (impatriati) and Portugal (IFICI).
 6. Embeddable widget for blogs (earns links).
 7. Later (towards end of 2027): pages for specific monthly amounts ("PAC 100 € al mese", "PAC 300 €"…).
 
