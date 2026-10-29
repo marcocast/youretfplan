@@ -12,7 +12,7 @@
 - Content changes about finance go through pull requests that Marco approves; small fixes (typos, bugs, speed) can go straight to `main`.
 
 ## Roadmap (ideas, in rough priority)
-1. Measurement: anonymous "plan created" counter + 👍/👎 feedback box (Cloudflare Worker + D1), daily export to `growth/data/` via GitHub Action, privacy note on the page.
+1. ~~Measurement~~ (counter and feedback live 2026-10-29; daily export pending): anonymous "plan created" counter + 👍/👎 feedback box (Cloudflare Worker + D1), daily export to `growth/data/` via GitHub Action, privacy note on the page.
 2. ~~Spanish version at `/es/`.~~ Done 2026-10-29.
 3. "Share my plan" button that creates an image of the user's result.
 4. Comparison subpages (Marco's idea), each with its own calculator and IT/EN/ES versions:
@@ -37,3 +37,4 @@
 ## Log
 - 2026-10-29: site live at youretfplan.com (EN `/`, IT `/it/`), sitemap submitted to Google Search Console, Cloudflare Web Analytics on, donate button switched off.
 - 2026-10-29: Spanish version live at `/es/` (Spain time zone or Spanish browser → `/es/`).
+- 2026-10-29: anonymous funnel counter and feedback (after results + bottom) live via Worker + D1; privacy line added.

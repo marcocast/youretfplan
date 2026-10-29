@@ -163,6 +163,22 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .coffee-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--surface);font-weight:700;text-decoration:none;white-space:nowrap}
 .coffee-btn:hover{filter:brightness(1.08)}
 .disclaimer{font-size:.88rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+/* feedback */
+.fb-inline{display:flex;flex-direction:column;gap:10px;padding:14px 16px}
+.fb-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:600}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote:hover{border-color:var(--accent)}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-form{display:flex;flex-direction:column;gap:8px;position:relative}
+.fb-form label{font-size:.9rem;color:var(--muted);font-weight:500}
+.fb-form textarea{width:100%;min-height:88px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:.95rem;background:var(--surface);color:var(--ink);resize:vertical}
+.fb-form textarea:focus-visible,.fb-vote:focus-visible,.fb-send:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fb-send{align-self:flex-start;border:0;border-radius:999px;background:var(--accent);color:var(--surface);font:700 .95rem var(--body);padding:10px 20px;cursor:pointer}
+.fb-send:disabled{opacity:.5;cursor:default}
+.fb-thanks{font-weight:600;color:var(--accent)}
+.fb-err{font-size:.88rem;color:var(--down)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <script type="application/ld+json">
@@ -333,6 +349,23 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <svg id="chart" role="img" data-ta="chartAria" aria-label="Crescita del patrimonio negli anni per ogni scenario" viewBox="0 0 770 260"><line x1="48" x2="698" y1="232.0" y2="232.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="236.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0k</text><line x1="48" x2="698" y1="159.3" y2="159.3" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="163.3" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€200k</text><line x1="48" x2="698" y1="86.7" y2="86.7" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="90.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€400k</text><line x1="48" x2="698" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="18.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€600k</text><text x="48.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">oggi</text><text x="210.5" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5a</text><text x="373.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10a</text><text x="535.5" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15a</text><text x="698.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20a</text><path d="M48 232 L48.0 228.4 L80.5 223.9 L113.0 219.2 L145.5 214.2 L178.0 208.9 L210.5 203.4 L243.0 197.5 L275.5 191.3 L308.0 184.8 L340.5 177.8 L373.0 170.5 L405.5 162.7 L438.0 154.5 L470.5 145.7 L503.0 136.5 L535.5 126.6 L568.0 116.1 L600.5 105.0 L633.0 93.2 L665.5 80.6 L698.0 67.2 L698 232Z" fill="var(--s7)" fill-opacity=".10"></path><path d="M48.0 228.4 L80.5 224.0 L113.0 219.6 L145.5 215.3 L178.0 210.9 L210.5 206.6 L243.0 202.2 L275.5 197.8 L308.0 193.5 L340.5 189.1 L373.0 184.8 L405.5 180.4 L438.0 176.0 L470.5 171.7 L503.0 167.3 L535.5 163.0 L568.0 158.6 L600.5 154.2 L633.0 149.9 L665.5 145.5 L698.0 141.2" fill="none" stroke="var(--bank)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"></path><circle cx="698.0" cy="141.2" r="3.5" fill="var(--bank)"></circle><path d="M48.0 228.4 L80.5 223.9 L113.0 219.3 L145.5 214.5 L178.0 209.5 L210.5 204.3 L243.0 199.0 L275.5 193.4 L308.0 187.5 L340.5 181.5 L373.0 175.2 L405.5 168.6 L438.0 161.8 L470.5 154.6 L503.0 147.2 L535.5 139.5 L568.0 131.4 L600.5 122.9 L633.0 114.2 L665.5 105.0 L698.0 95.4" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round"></path><circle cx="698.0" cy="95.4" r="3.5" fill="var(--s5)"></circle><path d="M48.0 228.4 L80.5 223.9 L113.0 219.2 L145.5 214.2 L178.0 208.9 L210.5 203.4 L243.0 197.5 L275.5 191.3 L308.0 184.8 L340.5 177.8 L373.0 170.5 L405.5 162.7 L438.0 154.5 L470.5 145.7 L503.0 136.5 L535.5 126.6 L568.0 116.1 L600.5 105.0 L633.0 93.2 L665.5 80.6 L698.0 67.2" fill="none" stroke="var(--s7)" stroke-width="3" stroke-linejoin="round"></path><circle cx="698.0" cy="67.2" r="4.5" fill="var(--s7)"></circle><path d="M48.0 228.4 L80.5 223.8 L113.0 219.0 L145.5 213.8 L178.0 208.3 L210.5 202.4 L243.0 196.0 L275.5 189.1 L308.0 181.8 L340.5 173.8 L373.0 165.3 L405.5 156.0 L438.0 146.1 L470.5 135.3 L503.0 123.7 L535.5 111.1 L568.0 97.5 L600.5 82.8 L633.0 66.9 L665.5 49.6 L698.0 30.8" fill="none" stroke="var(--s9)" stroke-width="2" stroke-linejoin="round"></path><circle cx="698.0" cy="30.8" r="3.5" fill="var(--s9)"></circle><text x="706.0" y="34.8" text-anchor="start" font-size="12" font-weight="600" fill="var(--s9)" font-family="Figtree,system-ui,sans-serif">9% €554k</text><text x="706.0" y="71.2" text-anchor="start" font-size="12" font-weight="700" fill="var(--s7)" font-family="Figtree,system-ui,sans-serif">7% €454k</text><text x="706.0" y="99.4" text-anchor="start" font-size="12" font-weight="600" fill="var(--s5)" font-family="Figtree,system-ui,sans-serif">5% €376k</text><text x="706.0" y="145.2" text-anchor="start" font-size="12" font-weight="600" fill="var(--bank)" font-family="Figtree,system-ui,sans-serif">0% €250k</text></svg>
     </div>
     <p class="foot" id="explain">Valori come li vedrai sul conto. Spunta "euro di oggi" per vedere quanto valgono davvero tolta l'inflazione.</p>
+    <div class="fb-inline card-base" id="fb-result" hidden="">
+      <div class="fb-row">
+        <span data-t="fbQ">Questo risultato è chiaro?</span>
+        <span class="fb-votes">
+          <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sì, è chiaro">👍</button>
+          <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="No, non molto">👎</button>
+        </span>
+      </div>
+      <form class="fb-form" id="fb-result-form" hidden="">
+        <label for="fb-result-text" data-t="fbMore">Cosa lo renderebbe più chiaro? (facoltativo)</label>
+        <textarea id="fb-result-text" maxlength="1000" rows="3"></textarea>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="fb-send" data-t="fbSend">Invia</button>
+        <p class="fb-err" hidden="" data-t="fbErr">Invio non riuscito. Riprova tra poco.</p>
+      </form>
+      <p class="fb-thanks" hidden="" data-t="fbThanks">Grazie! Ogni risposta aiuta a migliorare la pagina.</p>
+    </div>
   </section>
 
   <section aria-labelledby="h-ride">
@@ -376,6 +409,19 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
   </section>
 
+  <section class="card-base" id="fb-bottom" aria-labelledby="h-fb" style="padding:20px" hidden="">
+    <h2 id="h-fb" data-t="fbH">Cosa manca?</h2>
+    <p class="small" data-t="fbTxt">Qualcosa che non hai capito, una domanda che ti resta, un'idea? Scrivila qui. Non servono nome né email.</p>
+    <form class="fb-form" id="fb-bottom-form">
+      <label for="fb-bottom-text" data-t="fbLabel">Il tuo messaggio</label>
+      <textarea id="fb-bottom-text" maxlength="1000" rows="4"></textarea>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="fb-send" data-t="fbSend">Invia</button>
+      <p class="fb-err" hidden="" data-t="fbErr">Invio non riuscito. Riprova tra poco.</p>
+    </form>
+    <p class="fb-thanks" hidden="" data-t="fbThanks">Grazie! Ogni risposta aiuta a migliorare la pagina.</p>
+  </section>
+
   <section class="support card-base" aria-labelledby="h-sup">
     <div>
       <h2 id="h-sup" data-t="hSup">Chi l'ha fatta</h2>
@@ -385,6 +431,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   </section>
 
   <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: niente cookie e niente dati personali. Per migliorare la pagina contiamo visite e click in forma anonima, con un codice che cambia ogni giorno e non permette di identificarti. I feedback vengono salvati senza nomi.</p>
   <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/" hreflang="en" lang="en">English</a> · <a href="/it/" hreflang="it" lang="it">Italiano</a> · <a href="/es/" hreflang="es" lang="es">Español</a></p>
 </div>
 
@@ -477,6 +524,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       supTxtNo:`Made by Marco, an engineer who invests in ETFs himself. This page is free, with no ads and no affiliate links.`,
       coffee:`Buy me a coffee`,
       disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing can lose money. Do your own research or talk to a qualified adviser before you invest.`,
+      fbQ:`Is this result clear?`,
+      fbYes:`Yes, it's clear`,
+      fbNo:`No, not really`,
+      fbMore:`What would make it clearer? (optional)`,
+      fbSend:`Send`,
+      fbThanks:`Thanks! Every answer helps improve the page.`,
+      fbH:`What's missing?`,
+      fbTxt:`Something you didn't understand, a question you still have, an idea? Write it here. No name or email needed.`,
+      fbLabel:`Your message`,
+      fbErr:`Couldn't send. Please try again in a moment.`,
+      privacy:`Privacy: no cookies and no personal data. To improve the page we count visits and clicks anonymously, with a code that changes every day and can't identify you. Feedback is stored without names.`,
       today:`today`, yAbbr:`y`
     },
     it:{
@@ -559,6 +617,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       supTxtNo:`L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione.`,
       coffee:`Offrimi un caffè`,
       disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.`,
+      fbQ:`Questo risultato è chiaro?`,
+      fbYes:`Sì, è chiaro`,
+      fbNo:`No, non molto`,
+      fbMore:`Cosa lo renderebbe più chiaro? (facoltativo)`,
+      fbSend:`Invia`,
+      fbThanks:`Grazie! Ogni risposta aiuta a migliorare la pagina.`,
+      fbH:`Cosa manca?`,
+      fbTxt:`Qualcosa che non hai capito, una domanda che ti resta, un'idea? Scrivila qui. Non servono nome né email.`,
+      fbLabel:`Il tuo messaggio`,
+      fbErr:`Invio non riuscito. Riprova tra poco.`,
+      privacy:`Privacy: niente cookie e niente dati personali. Per migliorare la pagina contiamo visite e click in forma anonima, con un codice che cambia ogni giorno e non permette di identificarti. I feedback vengono salvati senza nomi.`,
       today:`oggi`, yAbbr:`a`
     },
     es:{
@@ -641,6 +710,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       supTxtNo:`La ha hecho Marco, un ingeniero que invierte en ETF él mismo. Esta página es gratuita, sin publicidad y sin enlaces de afiliado.`,
       coffee:`Invítame a un café`,
       disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta educativa con estimaciones aproximadas. Las rentabilidades no están garantizadas y cambian cada año; aquí son medias constantes. Los impuestos y las comisiones no están incluidos en los resultados. La cuenta del banco se calcula sin intereses. Invertir conlleva el riesgo de perder dinero. Infórmate bien o habla con un asesor cualificado antes de invertir.`,
+      fbQ:`¿Se entiende este resultado?`,
+      fbYes:`Sí, se entiende`,
+      fbNo:`No mucho`,
+      fbMore:`¿Qué lo haría más claro? (opcional)`,
+      fbSend:`Enviar`,
+      fbThanks:`¡Gracias! Cada respuesta ayuda a mejorar la página.`,
+      fbH:`¿Qué falta?`,
+      fbTxt:`¿Algo que no has entendido, una duda que te queda, una idea? Escríbela aquí. No hace falta nombre ni email.`,
+      fbLabel:`Tu mensaje`,
+      fbErr:`No se ha podido enviar. Inténtalo de nuevo en un momento.`,
+      privacy:`Privacidad: sin cookies y sin datos personales. Para mejorar la página contamos visitas y clics de forma anónima, con un código que cambia cada día y no permite identificarte. Los comentarios se guardan sin nombres.`,
       today:`hoy`, yAbbr:`a`
     }
   };
@@ -666,7 +746,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return first in URLS?first:'en';
   }
   // On the English page (/), send visitors to their saved language, or on a first visit to the language guessed from time zone / browser.
-  if(FIXED==='en'&&!navigator.webdriver){const g=savedLang()||guessLang();if(g!=='en'){location.replace(URLS[g]+location.hash);return}}
+  if(FIXED==='en'&&!navigator.webdriver){const g=savedLang()||guessLang();if(g!=='en'){try{sessionStorage.setItem('etf-ref',document.referrer)}catch(e){}location.replace(URLS[g]+location.hash);return}}
   let lang=FIXED||savedLang()||guessLang(), L=T[lang], fmt, short, grp;
 
   function applyLang(){
@@ -881,6 +961,66 @@ details > div{padding:0 0 14px;color:var(--muted)}
     const t=$(id); if(t){t.classList.add('hl');t.scrollIntoView({block:'center'})}
   });
   let rt; window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{drawChart();drawRide()},120)});
+  // Anonymous usage events and feedback: only on youretfplan.com (not in the claude.ai copy,
+  // not during the build's pre-render). See worker/index.js for what is stored.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  if(TRACK){['fb-result','fb-bottom','privacy'].forEach(id=>{$(id).hidden=false})}
+  const sentSteps=new Set(), stepQueue=[]; let stepTimer;
+  // After the language redirect the referrer is our own page, so use the one saved before redirecting.
+  const SRC=(()=>{let r=document.referrer;try{const k=sessionStorage.getItem('etf-ref');if(k!==null){r=k;sessionStorage.removeItem('etf-ref')}}catch(e){}if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function flushSteps(){
+    if(!stepQueue.length)return;
+    const body=JSON.stringify({steps:stepQueue.splice(0),lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  function track(step){
+    if(!TRACK||sentSteps.has(step))return;
+    sentSteps.add(step);stepQueue.push(step);
+    clearTimeout(stepTimer);stepTimer=setTimeout(flushSteps,800);
+  }
+  if(TRACK){
+    addEventListener('pagehide',flushSteps);
+    track('view');
+    if('IntersectionObserver' in window){
+      const seen=[['numbers','calc_seen'],['start','start_seen'],['privacy','bottom']];
+      const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const m=seen.find(x=>$(x[0])===e.target);if(m)track(m[1]);io.unobserve(e.target)}}),{threshold:.3});
+      seen.forEach(([id])=>{const el=$(id);if(el)io.observe(el)});
+    }
+    ['income','spend','cash'].forEach(id=>$(id).addEventListener('input',()=>track('active')));
+    ['years','real'].forEach(id=>$(id).addEventListener('input',()=>track('explore')));
+    ['etf-plus','etf-minus','etf-reset'].forEach(id=>$(id).addEventListener('click',()=>track('explore')));
+    document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)track('faq')}));
+  }
+
+  function postFeedback(data){
+    return fetch('/api/f',{method:'POST',body:JSON.stringify(Object.assign({lang},data))})
+      .then(r=>{if(!r.ok)throw new Error('status '+r.status)});
+  }
+  function wireForm(form,thanks,extra){
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const ta=form.querySelector('textarea'), btn=form.querySelector('.fb-send'), err=form.querySelector('.fb-err');
+      const comment=ta.value.trim(); if(!comment){ta.focus();return}
+      btn.disabled=true; err.hidden=true;
+      postFeedback(Object.assign({comment,website:form.querySelector('.hp').value},extra()))
+        .then(()=>{form.hidden=true;thanks.hidden=false})
+        .catch(()=>{err.hidden=false})
+        .finally(()=>{btn.disabled=false});
+    });
+  }
+  let resultVote=null;
+  const fbR=$('fb-result');
+  fbR.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+    if(resultVote!==null)return;
+    resultVote=+b.dataset.vote;
+    fbR.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+    postFeedback({place:'result',vote:resultVote}).catch(()=>{});
+    $('fb-result-form').hidden=false;
+    fbR.querySelector(':scope > .fb-thanks').hidden=false;
+  }));
+  wireForm($('fb-result-form'),fbR.querySelector(':scope > .fb-thanks'),()=>({place:'result_comment',vote:resultVote}));
+  wireForm($('fb-bottom-form'),$('fb-bottom').querySelector(':scope > .fb-thanks'),()=>({place:'bottom'}));
+
   applyLang();
 })();
 </script>

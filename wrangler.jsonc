@@ -1,8 +1,18 @@
 {
-  // Static site served by Cloudflare Workers (static assets only, no server code).
+  // Static site from ./public, plus a small API (worker/index.js) for anonymous
+  // usage events and feedback, stored in the D1 database "youretfplan".
   "name": "youretfplan",
+  "main": "worker/index.js",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "./public"
-  }
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "youretfplan",
+      "database_id": "072aab7d-60cc-45cc-8203-670937089572"
+    }
+  ]
 }
