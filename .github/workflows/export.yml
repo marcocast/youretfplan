@@ -1,0 +1,37 @@
+name: Daily data export
+
+# Pulls anonymous usage, feedback and Web Analytics from Cloudflare into growth/data/
+# every morning, so the daily growth session can read them from the repo.
+on:
+  schedule:
+    - cron: "30 4 * * *" # 04:30 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-export
+  cancel-in-progress: false
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export from Cloudflare
+        run: python3 tools/export.py
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: f133aba3f4f814dc075fe01d651b0908
+          D1_DATABASE_ID: 072aab7d-60cc-45cc-8203-670937089572
+          CF_SITE_TAG: 731b641592674b4c811bc26be8f270a7
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add growth/data
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "Data export $(date -u +%F)"
+          git pull --rebase origin main
+          git push
