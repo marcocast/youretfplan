@@ -285,17 +285,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="field card-base">
         <label for="income" id="lab-income" data-t="lIncome">Sueldo neto al mes</label>
         <div class="money"><span>€</span><input id="income" type="text" inputmode="numeric" autocomplete="off" value="2500"></div>
-        <input type="range" id="income-r" min="0" max="10000" step="50" value="2500" aria-labelledby="lab-income">
+        <input type="range" id="income-r" min="0" max="20000" step="50" value="2500" aria-labelledby="lab-income">
       </div>
       <div class="field card-base">
         <label for="spend" id="lab-spend" data-t="lSpend">Lo que gastas al mes</label>
         <div class="money"><span>€</span><input id="spend" type="text" inputmode="numeric" autocomplete="off" value="1500"></div>
-        <input type="range" id="spend-r" min="0" max="8000" step="50" value="1500" aria-labelledby="lab-spend">
+        <input type="range" id="spend-r" min="0" max="10000" step="50" value="1500" aria-labelledby="lab-spend">
       </div>
       <div class="field card-base">
         <label for="cash" id="lab-cash" data-t="lCash">Dinero en el banco hoy</label>
         <div class="money"><span>€</span><input id="cash" type="text" inputmode="numeric" autocomplete="off" value="10000"></div>
-        <input type="range" id="cash-r" min="0" max="100000" step="500" value="10000" aria-labelledby="lab-cash">
+        <input type="range" id="cash-r" min="0" max="1000" step="1" value="100" aria-labelledby="lab-cash">
       </div>
     </div>
     <p class="foot" data-t="example">Son números de ejemplo. Mueve los deslizadores o escribe los tuyos, y toda la página se actualiza.</p>
@@ -353,7 +353,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <div class="feat card-base" id="feat"><span class="tag" style="--c:var(--s7)">Histórico normal · 7%</span><span class="val num">453.522&nbsp;€</span><span class="small">Has aportado 250.000&nbsp;€ en total.</span><span class="diff num">+203.522&nbsp;€ más que dejarlo en el banco</span><span class="tax">Antes de impuestos. Si tus ganancias tributan, por ejemplo, al 21%, te quedarían unos 410.782&nbsp;€.</span></div>
     <div class="cmp card-base" id="cmp"><div class="row"><span><span class="tag" style="--c:var(--bank)">No hacer nada</span><br>Todo en el banco (0%)</span><span class="val num">250.000&nbsp;€</span><span class="sub loss">Equivale a unos 168.243&nbsp;€ de hoy, porque los precios suben cada año.</span></div><div class="row"><span><span class="tag" style="--c:var(--s5)">Prudente</span><br>ETF al 5%</span><span class="val num">376.007&nbsp;€</span><span class="sub">Has aportado 250.000&nbsp;€ en total.</span></div><div class="row"><span><span class="tag" style="--c:var(--s9)">Décadas buenas</span><br>ETF al 9%</span><span class="val num">553.743&nbsp;€</span><span class="sub">Has aportado 250.000&nbsp;€ en total.</span></div></div>
     <div class="chart-box card-base" id="chart-box">
-      <svg id="chart" role="img" data-ta="chartAria" aria-label="Crecimiento del patrimonio a lo largo de los años en cada escenario" viewBox="0 0 770 260"><line x1="48" x2="698" y1="232.0" y2="232.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="236.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0k</text><line x1="48" x2="698" y1="159.3" y2="159.3" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="163.3" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€200k</text><line x1="48" x2="698" y1="86.7" y2="86.7" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="90.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€400k</text><line x1="48" x2="698" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="18.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€600k</text><text x="48.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">hoy</text><text x="210.5" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5a</text><text x="373.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10a</text><text x="535.5" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15a</text><text x="698.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20a</text><path d="M48 232 L48.0 228.4 L80.5 223.9 L113.0 219.2 L145.5 214.2 L178.0 208.9 L210.5 203.4 L243.0 197.5 L275.5 191.3 L308.0 184.8 L340.5 177.8 L373.0 170.5 L405.5 162.7 L438.0 154.5 L470.5 145.7 L503.0 136.5 L535.5 126.6 L568.0 116.1 L600.5 105.0 L633.0 93.2 L665.5 80.6 L698.0 67.2 L698 232Z" fill="var(--s7)" fill-opacity=".10"></path><path d="M48.0 228.4 L80.5 224.0 L113.0 219.6 L145.5 215.3 L178.0 210.9 L210.5 206.6 L243.0 202.2 L275.5 197.8 L308.0 193.5 L340.5 189.1 L373.0 184.8 L405.5 180.4 L438.0 176.0 L470.5 171.7 L503.0 167.3 L535.5 163.0 L568.0 158.6 L600.5 154.2 L633.0 149.9 L665.5 145.5 L698.0 141.2" fill="none" stroke="var(--bank)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"></path><circle cx="698.0" cy="141.2" r="3.5" fill="var(--bank)"></circle><path d="M48.0 228.4 L80.5 223.9 L113.0 219.3 L145.5 214.5 L178.0 209.5 L210.5 204.3 L243.0 199.0 L275.5 193.4 L308.0 187.5 L340.5 181.5 L373.0 175.2 L405.5 168.6 L438.0 161.8 L470.5 154.6 L503.0 147.2 L535.5 139.5 L568.0 131.4 L600.5 122.9 L633.0 114.2 L665.5 105.0 L698.0 95.4" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round"></path><circle cx="698.0" cy="95.4" r="3.5" fill="var(--s5)"></circle><path d="M48.0 228.4 L80.5 223.9 L113.0 219.2 L145.5 214.2 L178.0 208.9 L210.5 203.4 L243.0 197.5 L275.5 191.3 L308.0 184.8 L340.5 177.8 L373.0 170.5 L405.5 162.7 L438.0 154.5 L470.5 145.7 L503.0 136.5 L535.5 126.6 L568.0 116.1 L600.5 105.0 L633.0 93.2 L665.5 80.6 L698.0 67.2" fill="none" stroke="var(--s7)" stroke-width="3" stroke-linejoin="round"></path><circle cx="698.0" cy="67.2" r="4.5" fill="var(--s7)"></circle><path d="M48.0 228.4 L80.5 223.8 L113.0 219.0 L145.5 213.8 L178.0 208.3 L210.5 202.4 L243.0 196.0 L275.5 189.1 L308.0 181.8 L340.5 173.8 L373.0 165.3 L405.5 156.0 L438.0 146.1 L470.5 135.3 L503.0 123.7 L535.5 111.1 L568.0 97.5 L600.5 82.8 L633.0 66.9 L665.5 49.6 L698.0 30.8" fill="none" stroke="var(--s9)" stroke-width="2" stroke-linejoin="round"></path><circle cx="698.0" cy="30.8" r="3.5" fill="var(--s9)"></circle><text x="706.0" y="34.8" text-anchor="start" font-size="12" font-weight="600" fill="var(--s9)" font-family="Figtree,system-ui,sans-serif">9% €554k</text><text x="706.0" y="71.2" text-anchor="start" font-size="12" font-weight="700" fill="var(--s7)" font-family="Figtree,system-ui,sans-serif">7% €454k</text><text x="706.0" y="99.4" text-anchor="start" font-size="12" font-weight="600" fill="var(--s5)" font-family="Figtree,system-ui,sans-serif">5% €376k</text><text x="706.0" y="145.2" text-anchor="start" font-size="12" font-weight="600" fill="var(--bank)" font-family="Figtree,system-ui,sans-serif">0% €250k</text></svg>
+      <svg id="chart" role="img" data-ta="chartAria" aria-label="Crecimiento del patrimonio a lo largo de los años en cada escenario" viewBox="0 0 770 260"><line x1="48" x2="684" y1="232.0" y2="232.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="236.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="48" x2="684" y1="159.3" y2="159.3" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="163.3" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€200k</text><line x1="48" x2="684" y1="86.7" y2="86.7" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="90.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€400k</text><line x1="48" x2="684" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="18.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€600k</text><text x="48.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">hoy</text><text x="207.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5a</text><text x="366.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10a</text><text x="525.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15a</text><text x="684.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20a</text><path d="M48 232 L48.0 228.4 L79.8 223.9 L111.6 219.2 L143.4 214.2 L175.2 208.9 L207.0 203.4 L238.8 197.5 L270.6 191.3 L302.4 184.8 L334.2 177.8 L366.0 170.5 L397.8 162.7 L429.6 154.5 L461.4 145.7 L493.2 136.5 L525.0 126.6 L556.8 116.1 L588.6 105.0 L620.4 93.2 L652.2 80.6 L684.0 67.2 L684 232Z" fill="var(--s7)" fill-opacity=".10"></path><path d="M48.0 228.4 L79.8 224.0 L111.6 219.6 L143.4 215.3 L175.2 210.9 L207.0 206.6 L238.8 202.2 L270.6 197.8 L302.4 193.5 L334.2 189.1 L366.0 184.8 L397.8 180.4 L429.6 176.0 L461.4 171.7 L493.2 167.3 L525.0 163.0 L556.8 158.6 L588.6 154.2 L620.4 149.9 L652.2 145.5 L684.0 141.2" fill="none" stroke="var(--bank)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"></path><circle cx="684.0" cy="141.2" r="3.5" fill="var(--bank)"></circle><path d="M48.0 228.4 L79.8 223.9 L111.6 219.3 L143.4 214.5 L175.2 209.5 L207.0 204.3 L238.8 199.0 L270.6 193.4 L302.4 187.5 L334.2 181.5 L366.0 175.2 L397.8 168.6 L429.6 161.8 L461.4 154.6 L493.2 147.2 L525.0 139.5 L556.8 131.4 L588.6 122.9 L620.4 114.2 L652.2 105.0 L684.0 95.4" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round"></path><circle cx="684.0" cy="95.4" r="3.5" fill="var(--s5)"></circle><path d="M48.0 228.4 L79.8 223.9 L111.6 219.2 L143.4 214.2 L175.2 208.9 L207.0 203.4 L238.8 197.5 L270.6 191.3 L302.4 184.8 L334.2 177.8 L366.0 170.5 L397.8 162.7 L429.6 154.5 L461.4 145.7 L493.2 136.5 L525.0 126.6 L556.8 116.1 L588.6 105.0 L620.4 93.2 L652.2 80.6 L684.0 67.2" fill="none" stroke="var(--s7)" stroke-width="3" stroke-linejoin="round"></path><circle cx="684.0" cy="67.2" r="4.5" fill="var(--s7)"></circle><path d="M48.0 228.4 L79.8 223.8 L111.6 219.0 L143.4 213.8 L175.2 208.3 L207.0 202.4 L238.8 196.0 L270.6 189.1 L302.4 181.8 L334.2 173.8 L366.0 165.3 L397.8 156.0 L429.6 146.1 L461.4 135.3 L493.2 123.7 L525.0 111.1 L556.8 97.5 L588.6 82.8 L620.4 66.9 L652.2 49.6 L684.0 30.8" fill="none" stroke="var(--s9)" stroke-width="2" stroke-linejoin="round"></path><circle cx="684.0" cy="30.8" r="3.5" fill="var(--s9)"></circle><text x="692.0" y="34.8" text-anchor="start" font-size="12" font-weight="600" fill="var(--s9)" font-family="Figtree,system-ui,sans-serif">9% €554k</text><text x="692.0" y="71.2" text-anchor="start" font-size="12" font-weight="700" fill="var(--s7)" font-family="Figtree,system-ui,sans-serif">7% €454k</text><text x="692.0" y="99.4" text-anchor="start" font-size="12" font-weight="600" fill="var(--s5)" font-family="Figtree,system-ui,sans-serif">5% €376k</text><text x="692.0" y="145.2" text-anchor="start" font-size="12" font-weight="600" fill="var(--bank)" font-family="Figtree,system-ui,sans-serif">0% €250k</text></svg>
     </div>
     <p class="foot" id="explain">Valores tal como los verás en tu cuenta. Marca "euros de hoy" para ver lo que valen de verdad descontando la inflación.</p>
     <div class="fb-inline card-base" id="fb-result" hidden="">
@@ -767,14 +767,14 @@ details > div{padding:0 0 14px;color:var(--muted)}
     const gf=new Intl.NumberFormat(L.locale,{maximumFractionDigits:0});
     fmt=v=>nf.format(Math.round(v));
     grp=v=>gf.format(v);
-    short=v=>v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
+    short=v=>v<=0?'€0':v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');
     $('l-it').setAttribute('aria-pressed',lang==='it');
     $('l-es').setAttribute('aria-pressed',lang==='es');
-    ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id));$(id+'-r').value=num(id)});
+    ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id));$(id+'-r').value=sliderPos(id,num(id))});
     render();
   }
   function setLang(l){
@@ -891,7 +891,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     if(!lastRes)return;
     const {res,years,defl}=lastRes;
     const box=$('chart-box'), W=Math.max(280,box.clientWidth-16), H=260; // fixed height: no layout shift when redrawn
-    const Lp=48,R=72,Tp=14,B=28;
+    const Lp=48,R=86,Tp=14,B=28;
     const series=res.map(s=>s.pts.slice(0,years+1).map((v,i)=>v/defl(i)));
     const max=Math.max(...series.flat(),1);
     const step=niceStep(max/3), top=Math.ceil(max/step)*step;
@@ -943,6 +943,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
   }
   function niceStep(raw){const p=Math.pow(10,Math.floor(Math.log10(raw)));const n=raw/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
 
+  // Savings slider uses a curved scale (cube) from 0 to 10 million, so the low range
+  // (a few thousand euros) stays precise. Other sliders are linear.
+  const CASH_MAX=10000000;
+  function cashFromPos(p){
+    const v=CASH_MAX*Math.pow(p/1000,3);
+    const step=v<10000?100:v<100000?1000:v<1000000?10000:100000;
+    return Math.round(v/step)*step;
+  }
+  function posFromCash(v){return Math.round(1000*Math.cbrt(Math.min(v,CASH_MAX)/CASH_MAX))}
+  function sliderVal(id,pos){return id==='cash'?cashFromPos(pos):pos}
+  function sliderPos(id,v){return id==='cash'?posFromCash(v):v}
+
   // money inputs: digits only, shown with thousands separators
   ['income','spend','cash'].forEach(id=>{
     const el=$(id);
@@ -951,12 +963,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
       const n=num(id); el.value=n?grp(n):'';
       const diff=el.value.length-before;
       try{el.setSelectionRange(Math.max(0,pos+diff),Math.max(0,pos+diff))}catch(e){}
-      $(id+'-r').value=n;
+      $(id+'-r').value=sliderPos(id,n);
       render();
     });
     el.addEventListener('blur',()=>{el.value=grp(num(id))});
     // slider: moves the number; typed values above the slider's max stay as typed
-    $(id+'-r').addEventListener('input',e=>{el.value=grp(+e.target.value);render()});
+    $(id+'-r').addEventListener('input',e=>{el.value=grp(sliderVal(id,+e.target.value));render()});
   });
   $('etf-r').addEventListener('input',e=>{etfOverride=+e.target.value;render()});
   ['years','real'].forEach(id=>$(id).addEventListener('input',render));

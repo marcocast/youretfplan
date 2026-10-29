@@ -195,17 +195,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="field card-base">
         <label for="income" id="lab-income" data-t="lIncome"></label>
         <div class="money"><span>€</span><input id="income" type="text" inputmode="numeric" autocomplete="off" value="2500"></div>
-        <input type="range" id="income-r" min="0" max="10000" step="50" value="2500" aria-labelledby="lab-income">
+        <input type="range" id="income-r" min="0" max="20000" step="50" value="2500" aria-labelledby="lab-income">
       </div>
       <div class="field card-base">
         <label for="spend" id="lab-spend" data-t="lSpend"></label>
         <div class="money"><span>€</span><input id="spend" type="text" inputmode="numeric" autocomplete="off" value="1500"></div>
-        <input type="range" id="spend-r" min="0" max="8000" step="50" value="1500" aria-labelledby="lab-spend">
+        <input type="range" id="spend-r" min="0" max="10000" step="50" value="1500" aria-labelledby="lab-spend">
       </div>
       <div class="field card-base">
         <label for="cash" id="lab-cash" data-t="lCash"></label>
         <div class="money"><span>€</span><input id="cash" type="text" inputmode="numeric" autocomplete="off" value="10000"></div>
-        <input type="range" id="cash-r" min="0" max="100000" step="500" value="10000" aria-labelledby="lab-cash">
+        <input type="range" id="cash-r" min="0" max="1000" step="1" value="100" aria-labelledby="lab-cash">
       </div>
     </div>
     <p class="foot" data-t="example"></p>
@@ -677,14 +677,14 @@ details > div{padding:0 0 14px;color:var(--muted)}
     const gf=new Intl.NumberFormat(L.locale,{maximumFractionDigits:0});
     fmt=v=>nf.format(Math.round(v));
     grp=v=>gf.format(v);
-    short=v=>v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
+    short=v=>v<=0?'€0':v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');
     $('l-it').setAttribute('aria-pressed',lang==='it');
     $('l-es').setAttribute('aria-pressed',lang==='es');
-    ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id));$(id+'-r').value=num(id)});
+    ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id));$(id+'-r').value=sliderPos(id,num(id))});
     render();
   }
   function setLang(l){
@@ -801,7 +801,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     if(!lastRes)return;
     const {res,years,defl}=lastRes;
     const box=$('chart-box'), W=Math.max(280,box.clientWidth-16), H=260; // fixed height: no layout shift when redrawn
-    const Lp=48,R=72,Tp=14,B=28;
+    const Lp=48,R=86,Tp=14,B=28;
     const series=res.map(s=>s.pts.slice(0,years+1).map((v,i)=>v/defl(i)));
     const max=Math.max(...series.flat(),1);
     const step=niceStep(max/3), top=Math.ceil(max/step)*step;
@@ -853,6 +853,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
   }
   function niceStep(raw){const p=Math.pow(10,Math.floor(Math.log10(raw)));const n=raw/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
 
+  // Savings slider uses a curved scale (cube) from 0 to 10 million, so the low range
+  // (a few thousand euros) stays precise. Other sliders are linear.
+  const CASH_MAX=10000000;
+  function cashFromPos(p){
+    const v=CASH_MAX*Math.pow(p/1000,3);
+    const step=v<10000?100:v<100000?1000:v<1000000?10000:100000;
+    return Math.round(v/step)*step;
+  }
+  function posFromCash(v){return Math.round(1000*Math.cbrt(Math.min(v,CASH_MAX)/CASH_MAX))}
+  function sliderVal(id,pos){return id==='cash'?cashFromPos(pos):pos}
+  function sliderPos(id,v){return id==='cash'?posFromCash(v):v}
+
   // money inputs: digits only, shown with thousands separators
   ['income','spend','cash'].forEach(id=>{
     const el=$(id);
@@ -861,12 +873,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
       const n=num(id); el.value=n?grp(n):'';
       const diff=el.value.length-before;
       try{el.setSelectionRange(Math.max(0,pos+diff),Math.max(0,pos+diff))}catch(e){}
-      $(id+'-r').value=n;
+      $(id+'-r').value=sliderPos(id,n);
       render();
     });
     el.addEventListener('blur',()=>{el.value=grp(num(id))});
     // slider: moves the number; typed values above the slider's max stay as typed
-    $(id+'-r').addEventListener('input',e=>{el.value=grp(+e.target.value);render()});
+    $(id+'-r').addEventListener('input',e=>{el.value=grp(sliderVal(id,+e.target.value));render()});
   });
   $('etf-r').addEventListener('input',e=>{etfOverride=+e.target.value;render()});
   ['years','real'].forEach(id=>$(id).addEventListener('input',render));
