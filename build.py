@@ -195,9 +195,27 @@ async def main() -> None:
         encoding="utf-8",
     )
     (PUBLIC / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8"
+        f"User-agent: *\nAllow: /\nDisallow: /v2/\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8"
     )
     print("built public/sitemap.xml, public/robots.txt")
+
+    # Preview of the "hook-first" redesign at /v2/: not indexed, no tracking,
+    # language switches in place. Not in the sitemap.
+    v2 = (ROOT / "src" / "v2.html").read_text(encoding="utf-8")
+    v2 = re.sub(r"<title>.*?</title>\s*", "", v2, count=1, flags=re.S)
+    head = (
+        '<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+        '<meta name="robots" content="noindex">\n'
+        "<title>Your ETF Plan (preview)</title>\n"
+        '<link rel="icon" href="/favicon.svg" type="image/svg+xml">\n'
+        "<style>body{margin:0}</style>\n"
+    )
+    end = v2.index("</style>") + len("</style>")
+    out = f'<!doctype html>\n<html lang="en">\n<head>\n{head}{v2[:end]}\n</head>\n<body>{v2[end:]}\n</body>\n</html>\n'
+    (PUBLIC / "v2").mkdir(exist_ok=True)
+    (PUBLIC / "v2" / "index.html").write_text(out, encoding="utf-8")
+    print("built public/v2/index.html (preview, noindex)")
 
 
 if __name__ == "__main__":

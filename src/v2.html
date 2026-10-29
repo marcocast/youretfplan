@@ -1,0 +1,251 @@
+<title>Your ETF Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: hook first. One question, two sliders, one big number; everything else is below and short. */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --ink:#1d2a26; --muted:#5d6b66; --line:#d9e0dc;
+  --accent:#1f6b52; --accent-soft:#e1efe8; --grow:#1f8a5b; --bank:#9aa09d; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121816; --surface:#1a2320; --ink:#e6ece9; --muted:#9aa8a2; --line:#2c3833;
+  --accent:#5cc79b; --accent-soft:#1f3a2f; --grow:#4fc48e; --bank:#7d8582; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121816; --surface:#1a2320; --ink:#e6ece9; --muted:#9aa8a2; --line:#2c3833;
+  --accent:#5cc79b; --accent-soft:#1f3a2f; --grow:#4fc48e; --bank:#7d8582; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:16px 48px;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--display);font-weight:400;margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(1.9rem,8vw,2.6rem)}
+h2{font-size:1.35rem}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-family:var(--display);font-size:1.1rem}
+.brand span{color:var(--accent)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--muted);font:700 .78rem var(--body);letter-spacing:.06em;padding:5px 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+
+.hero{display:flex;flex-direction:column;gap:18px}
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
+/* the two controls */
+.ctrl{display:flex;flex-direction:column;gap:4px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:600;font-size:1rem}
+.ctrl-val{font-size:1.5rem;font-weight:800;color:var(--accent)}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--accent);cursor:pointer}
+
+/* result */
+.result{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 0 var(--line)}
+.r-lead{font-size:1rem;color:var(--muted);font-weight:600}
+.big{font-size:clamp(2.6rem,13vw,3.6rem);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.range{font-size:.9rem;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.bar-row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline}
+.bar-row .lab{font-size:.9rem;font-weight:600}
+.bar-row .val{font-size:.95rem;font-weight:700}
+.track{grid-column:1/-1;height:14px;border-radius:7px;background:var(--line);overflow:hidden}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.fill.grow{background:var(--grow)}
+.fill.bank{background:var(--bank)}
+.split{font-size:.95rem;line-height:1.45}
+.split strong{color:var(--grow)}
+.salary{background:var(--accent-soft);border-radius:12px;padding:12px 14px;font-size:1rem;line-height:1.4}
+.salary strong{font-size:1.25rem;color:var(--accent)}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--accent);color:var(--surface);font-weight:800;font-size:1.02rem;text-decoration:none}
+.cta:hover{filter:brightness(1.07)}
+.fine{font-size:.8rem;color:var(--muted);text-align:center}
+
+/* below the fold */
+.points{display:flex;flex-direction:column;gap:10px;counter-reset:pt}
+.pt{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.pt::before{counter-increment:pt;content:counter(pt);width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800}
+.pt b{display:block;margin-bottom:2px}
+.pt p{color:var(--muted);font-size:.95rem}
+.honest{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:8px;padding:14px;font-size:.95rem}
+.disc{font-size:.8rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span class="brand">youretfplan<span>.com</span></span>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en">EN</button>
+      <button type="button" id="l-it" lang="it">IT</button>
+      <button type="button" id="l-es" lang="es">ES</button>
+    </div>
+  </div>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="kicker" data-t="kicker"></span>
+    <h1 id="h1" data-t="h1"></h1>
+
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="monthly" data-t="lMonthly"></label><span class="ctrl-val num" id="monthly-out"></span></div>
+      <input type="range" id="monthly" min="25" max="2000" step="25" value="200">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="age" data-t="lAge"></label><span class="ctrl-val num" id="age-out"></span></div>
+      <input type="range" id="age" min="18" max="65" step="1" value="30">
+    </div>
+
+    <div class="result" aria-live="polite">
+      <p class="r-lead" id="r-lead"></p>
+      <div class="big num" id="big">–</div>
+      <p class="range num" id="range"></p>
+      <div class="bars">
+        <div class="bar-row"><span class="lab" data-t="barInvest"></span><span class="val num" id="v-inv"></span><div class="track"><div class="fill grow" id="b-inv"></div></div></div>
+        <div class="bar-row"><span class="lab" data-t="barBank"></span><span class="val num" id="v-bank"></span><div class="track"><div class="fill bank" id="b-bank"></div></div></div>
+      </div>
+      <p class="split" id="split"></p>
+      <p class="salary" id="salary"></p>
+      <a class="cta" id="cta" href="/"><span data-t="cta"></span><span aria-hidden="true">→</span></a>
+      <p class="fine" data-t="fine"></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-3">
+    <h2 id="h-3" data-t="h3"></h2>
+    <div class="points" style="margin-top:12px">
+      <div class="pt"><div><b data-t="p1t"></b><p data-t="p1"></p></div></div>
+      <div class="pt"><div><b data-t="p2t"></b><p data-t="p2"></p></div></div>
+      <div class="pt"><div><b data-t="p3t"></b><p data-t="p3"></p></div></div>
+    </div>
+  </section>
+
+  <p class="honest" data-t="honest"></p>
+
+  <a class="cta" id="cta2" href="/"><span data-t="cta"></span><span aria-hidden="true">→</span></a>
+
+  <p class="disc" data-t="disc"></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const RATE=0.07, LOW=0.05, HIGH=0.09, INFL=0.02, TARGET_AGE=60;
+  const T={
+    en:{locale:'en-IE', full:'/#numbers',
+      kicker:'Free calculator · 30 seconds',
+      h1:'What could your savings become?',
+      lMonthly:'I can put aside each month', lAge:'My age', ageUnit:'',
+      lead:(age,y)=>age<TARGET_AGE-10?`At ${TARGET_AGE} you could have`:`In ${y} years you could have`,
+      range:(lo,hi)=>`Somewhere between ${lo} and ${hi}, depending on the markets. Shown at the 7% historical average.`,
+      barInvest:'Invested in ETFs', barBank:'Left in the bank',
+      split:(put,time)=>`You put in <b>${put}</b>. Time and the markets add <strong>${time}</strong>.`,
+      salary:v=>`From then on: about <strong>${v} a month</strong>, a second salary that can last for life.`,
+      cta:'Make your full plan', fine:'Free · No sign-up · Not financial advice',
+      h3:'Three things to know',
+      p1t:'An ETF is a basket of companies', p1:'One purchase gives you a small slice of thousands of companies around the world.',
+      p2t:'You invest a bit every month', p2:'An automatic monthly payment, like a subscription. You don’t have to pick the right moment.',
+      p3t:'Time does the heavy lifting', p3:'The longer you stay invested, the more your gains earn gains of their own.',
+      honest:'<b>Honestly:</b> some years will be red, sometimes very red. World markets roughly halved in 2008 and recovered within a few years. The people who keep going are the ones who end up with the numbers above.',
+      disc:'Educational estimates, not financial advice. Returns are not guaranteed; here they are constant averages before tax and fees. The bank is calculated at zero interest. Investing can lose money.',
+      title:'Your ETF Plan'},
+    it:{locale:'it-IT', full:'/it/#numbers',
+      kicker:'Calcolatore gratuito · 30 secondi',
+      h1:'Quanto potrebbero diventare i tuoi risparmi?',
+      lMonthly:'Riesco a mettere da parte ogni mese', lAge:'La mia età', ageUnit:'',
+      lead:(age,y)=>age<TARGET_AGE-10?`A ${TARGET_AGE} anni potresti avere`:`Tra ${y} anni potresti avere`,
+      range:(lo,hi)=>`Tra ${lo} e ${hi}, a seconda di come vanno i mercati. Calcolato con la media storica del 7%.`,
+      barInvest:'Investiti in ETF', barBank:'Lasciati in banca',
+      split:(put,time)=>`Tu metti <b>${put}</b>. Il tempo e i mercati aggiungono <strong>${time}</strong>.`,
+      salary:v=>`Da lì in poi: circa <strong>${v} al mese</strong>, un secondo stipendio che può durare per sempre.`,
+      cta:'Fai il tuo piano completo', fine:'Gratis · Senza registrazione · Non è consulenza finanziaria',
+      h3:'Tre cose da sapere',
+      p1t:'Un ETF è un paniere di aziende', p1:'Con un solo acquisto possiedi un pezzettino di migliaia di aziende in tutto il mondo.',
+      p2t:'Investi un po’ ogni mese', p2:'Un versamento automatico, come un abbonamento: si chiama PAC. Non devi indovinare il momento giusto.',
+      p3t:'Il tempo fa il lavoro pesante', p3:'Più resti investito, più i tuoi guadagni producono altri guadagni.',
+      honest:'<b>Onestamente:</b> ci saranno anni in rosso, a volte molto rossi. Nel 2008 le borse mondiali si sono quasi dimezzate e si sono riprese in pochi anni. Chi continua è chi arriva ai numeri qui sopra.',
+      disc:'Stime educative, non consulenza finanziaria. I rendimenti non sono garantiti; qui sono medie costanti prima di tasse e commissioni. La banca è calcolata a interesse zero. Investire comporta il rischio di perdere denaro.',
+      title:'Il tuo piano ETF · Your ETF Plan'},
+    es:{locale:'es-ES', full:'/es/#numbers',
+      kicker:'Calculadora gratuita · 30 segundos',
+      h1:'¿En cuánto podrían convertirse tus ahorros?',
+      lMonthly:'Puedo ahorrar cada mes', lAge:'Mi edad', ageUnit:'',
+      lead:(age,y)=>age<TARGET_AGE-10?`A los ${TARGET_AGE} años podrías tener`:`Dentro de ${y} años podrías tener`,
+      range:(lo,hi)=>`Entre ${lo} y ${hi}, según cómo vayan los mercados. Calculado con la media histórica del 7%.`,
+      barInvest:'Invertido en ETF', barBank:'Dejado en el banco',
+      split:(put,time)=>`Tú pones <b>${put}</b>. El tiempo y los mercados añaden <strong>${time}</strong>.`,
+      salary:v=>`A partir de ahí: unos <strong>${v} al mes</strong>, un segundo sueldo que puede durar para siempre.`,
+      cta:'Haz tu plan completo', fine:'Gratis · Sin registro · No es asesoramiento financiero',
+      h3:'Tres cosas que saber',
+      p1t:'Un ETF es una cesta de empresas', p1:'Con una sola compra tienes un trocito de miles de empresas de todo el mundo.',
+      p2t:'Inviertes un poco cada mes', p2:'Una aportación automática, como una suscripción. No tienes que adivinar el momento.',
+      p3t:'El tiempo hace el trabajo duro', p3:'Cuanto más tiempo sigues invertido, más ganancias generan tus propias ganancias.',
+      honest:'<b>Con sinceridad:</b> habrá años en rojo, a veces muy rojos. En 2008 las bolsas mundiales casi se redujeron a la mitad y se recuperaron en pocos años. Quien sigue es quien llega a las cifras de arriba.',
+      disc:'Estimaciones educativas, no asesoramiento financiero. Las rentabilidades no están garantizadas; aquí son medias constantes antes de impuestos y comisiones. El banco se calcula sin intereses. Invertir conlleva el riesgo de perder dinero.',
+      title:'Tu plan ETF · Your ETF Plan'}
+  };
+
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=guessLang(), L=T[lang], fmt;
+
+  // Future value of a monthly payment with monthly compounding at an annual rate.
+  function fv(monthly,rate,years){
+    const mr=Math.pow(1+rate,1/12)-1, n=years*12;
+    return rate===0?monthly*n:monthly*(Math.pow(1+mr,n)-1)/mr;
+  }
+
+  // Count the big number up/down smoothly to its new value.
+  let shown=0, animFrom=0, animTo=0, animStart=0, raf=0;
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateBig(to){
+    if(reduce){shown=to;$('big').textContent=fmt(to);return}
+    animFrom=shown; animTo=to; animStart=performance.now();
+    cancelAnimationFrame(raf);
+    const step=t=>{const k=Math.min(1,(t-animStart)/450), e=1-Math.pow(1-k,3);
+      shown=animFrom+(animTo-animFrom)*e; $('big').textContent=fmt(shown);
+      if(k<1)raf=requestAnimationFrame(step)};
+    raf=requestAnimationFrame(step);
+  }
+
+  function render(){
+    const m=+$('monthly').value, age=+$('age').value;
+    const years=age<TARGET_AGE-10?TARGET_AGE-age:10;
+    $('monthly-out').textContent=fmt(m);
+    $('age-out').textContent=age;
+    const inv=fv(m,RATE,years), lo=fv(m,LOW,years), hi=fv(m,HIGH,years), bank=fv(m,0,years);
+    $('r-lead').textContent=L.lead(age,years);
+    animateBig(inv);
+    $('range').textContent=L.range(fmt(lo),fmt(hi));
+    $('v-inv').textContent=fmt(inv); $('v-bank').textContent=fmt(bank);
+    $('b-inv').style.width='100%'; $('b-bank').style.width=Math.max(2,bank/inv*100).toFixed(1)+'%';
+    $('split').innerHTML=L.split(fmt(bank),fmt(inv-bank));
+    $('salary').innerHTML=L.salary(fmt(inv*0.03/12));
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    fmt=v=>nf.format(Math.round(v));
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('cta').href=L.full; $('cta2').href=L.full;
+    shown=0; render();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>{lang=k;try{localStorage.setItem('etf-plan-lang',k)}catch(e){}applyLang()}));
+  ['monthly','age'].forEach(id=>$(id).addEventListener('input',render));
+  applyLang();
+})();
+</script>

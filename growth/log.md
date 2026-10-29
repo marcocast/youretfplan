@@ -8,3 +8,4 @@ One dated entry per daily growth session. Newest at the bottom.
 - Daily growth session scheduled at 08:49 Madrid time.
 - No data yet. First real numbers expected from the 2026-10-30 export.
 - Sliders added for salary, spending, savings and the monthly ETF amount (Marco's request: faster on phones). Moving a slider counts as `active`.
+- Evening: Marco felt the page isn't catchy for first-time investors. Built a hook-first preview at /v2/ (one question, monthly-savings and age sliders, big animated result at 60 with 5–9% range, invest-vs-bank bars, second-salary line, 3 short points, honest risk note, CTA to the full plan). Not indexed, no tracking. Waiting for Marco's verdict before replacing the main page; then compare the `active` rate before/after.
