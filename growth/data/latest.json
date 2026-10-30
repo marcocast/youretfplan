@@ -1,0 +1,13 @@
+{
+ "generated_at": "2026-10-30T07:51:01+00:00",
+ "range": {
+  "from": "2026-09-25",
+  "to": "2026-10-30"
+ },
+ "errors": [
+  "missing settings: CF_API_TOKEN",
+  "web analytics: HTTP 400 on /graphql: {\"success\":false,\"errors\":[{\"code\":9106,\"message\":\"Missing X-Auth-Key, X-Auth-Email or Authorization headers\"}],\"messages\":[],\"result\":null}\n",
+  "funnel: HTTP 401 on /accounts/f133aba3f4f814dc075fe01d651b0908/d1/database/072aab7d-60cc-45cc-8203-670937089572/query: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}",
+  "feedback: HTTP 401 on /accounts/f133aba3f4f814dc075fe01d651b0908/d1/database/072aab7d-60cc-45cc-8203-670937089572/query: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}"
+ ]
+}
