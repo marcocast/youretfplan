@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T08:20:02+00:00",
+ "generated_at": "2026-10-30T10:56:51+00:00",
  "range": {
   "from": "2026-09-25",
   "to": "2026-10-30"
@@ -11,68 +11,83 @@
     "date": "2026-10-29",
     "pageviews": 70,
     "visits": 30
+   },
+   {
+    "date": "2026-10-30",
+    "pageviews": 10,
+    "visits": 10
    }
   ],
   "last_7_days": {
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 59,
-     "visits": 47
+     "pageviews": 76,
+     "visits": 63
     },
     {
      "requestPath": "/it/",
-     "pageviews": 22,
+     "pageviews": 33,
      "visits": 3
     },
     {
      "requestPath": "/es/",
-     "pageviews": 9,
-     "visits": 0
+     "pageviews": 11,
+     "visits": 1
     },
     {
      "requestPath": "/v2/",
      "pageviews": 5,
      "visits": 5
+    },
+    {
+     "requestPath": "/v3/",
+     "pageviews": 2,
+     "visits": 2
     }
    ],
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 55,
-     "visits": 55
+     "pageviews": 74,
+     "visits": 74
     },
     {
      "refererHost": "www.youretfplan.com",
-     "pageviews": 35,
+     "pageviews": 36,
      "visits": 0
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 5,
+     "pageviews": 17,
      "visits": 0
     }
    ],
    "countries": [
     {
-     "countryName": "FR",
-     "pageviews": 29,
-     "visits": 9
+     "countryName": "ES",
+     "pageviews": 50,
+     "visits": 23
     },
     {
-     "countryName": "ES",
-     "pageviews": 25,
-     "visits": 9
+     "countryName": "FR",
+     "pageviews": 31,
+     "visits": 10
     },
     {
      "countryName": "US",
-     "pageviews": 25,
-     "visits": 25
+     "pageviews": 26,
+     "visits": 26
     },
     {
      "countryName": "PL",
+     "pageviews": 5,
+     "visits": 5
+    },
+    {
+     "countryName": "IT",
      "pageviews": 4,
-     "visits": 4
+     "visits": 1
     },
     {
      "countryName": "DE",
@@ -80,9 +95,9 @@
      "visits": 4
     },
     {
-     "countryName": "IT",
+     "countryName": "CA",
      "pageviews": 3,
-     "visits": 1
+     "visits": 3
     },
     {
      "countryName": "NL",
@@ -98,23 +113,18 @@
      "countryName": "SG",
      "pageviews": 1,
      "visits": 1
-    },
-    {
-     "countryName": "CA",
-     "pageviews": 1,
-     "visits": 1
     }
    ],
    "devices": [
     {
-     "deviceType": "mobile",
-     "pageviews": 43,
-     "visits": 27
+     "deviceType": "desktop",
+     "pageviews": 58,
+     "visits": 43
     },
     {
-     "deviceType": "desktop",
-     "pageviews": 29,
-     "visits": 26
+     "deviceType": "mobile",
+     "pageviews": 46,
+     "visits": 29
     },
     {
      "deviceType": "tablet",
@@ -130,6 +140,8 @@
    {
     "day": "2026-10-29",
     "view": 16,
+    "hook": 0,
+    "plan": 0,
     "calc_seen": 15,
     "active": 3,
     "explore": 4,
@@ -140,13 +152,15 @@
    },
    {
     "day": "2026-10-30",
-    "view": 4,
-    "calc_seen": 4,
-    "active": 0,
+    "view": 7,
+    "hook": 2,
+    "plan": 1,
+    "calc_seen": 7,
+    "active": 2,
     "explore": 1,
-    "start_seen": 1,
+    "start_seen": 3,
     "faq": 1,
-    "bottom": 1,
+    "bottom": 2,
     "feedback": 0
    }
   ],
@@ -154,14 +168,14 @@
    {
     "step": "view",
     "lang": "en",
-    "device": "desktop",
+    "device": "mobile",
     "source": "direct",
-    "n": 7
+    "n": 8
    },
    {
     "step": "view",
     "lang": "en",
-    "device": "mobile",
+    "device": "desktop",
     "source": "direct",
     "n": 7
    },
@@ -184,7 +198,14 @@
     "lang": "it",
     "device": "mobile",
     "source": "internal",
-    "n": 3
+    "n": 4
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
    },
    {
     "step": "calc_seen",
@@ -203,6 +224,13 @@
    {
     "step": "active",
     "lang": "en",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "en",
     "device": "mobile",
     "source": "internal",
     "n": 1
@@ -215,9 +243,9 @@
     "n": 1
    },
    {
-    "step": "active",
-    "lang": "it",
-    "device": "mobile",
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "desktop",
     "source": "internal",
     "n": 1
    },
@@ -230,6 +258,34 @@
    },
    {
     "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "hook",
+    "lang": "en",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "hook",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "plan",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -245,8 +301,22 @@
    {
     "step": "view",
     "lang": "es",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "es",
     "device": "mobile",
     "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
     "n": 1
    },
    {
@@ -267,9 +337,9 @@
   "monthly_active": [
    {
     "month": "2026-10",
-    "active_user_days": 3
+    "active_user_days": 5
    }
   ]
  },
- "new_feedback": 3
+ "new_feedback": 0
 }
