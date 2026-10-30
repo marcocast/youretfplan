@@ -252,6 +252,11 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .w-quick span{width:100%;color:var(--muted);font-weight:600}
 .w-quick a{border:2px solid var(--ink);border-radius:999px;padding:6px 12px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.2}
 .w-quick a:hover{background:var(--sun);color:#17322a}
+.w-what{margin:0;background:var(--surface);border:2px dashed var(--ink);border-radius:14px;padding:10px 14px;font-size:.95rem;line-height:1.5}
+.w-what a{color:var(--ink);font-weight:700;white-space:nowrap}
+.tip{position:absolute;z-index:60;background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:12px 40px 12px 14px;font-size:.93rem;line-height:1.45}
+.tip b{display:block;margin-bottom:2px}
+.tip-x{position:absolute;top:4px;right:6px;width:32px;height:32px;border:0;background:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer}
 </style>
 <script type="application/ld+json">
 [
@@ -311,6 +316,30 @@ details > div{padding:0 0 14px;color:var(--muted)}
      "@type": "Answer",
      "text": ""
     }
+   },
+   {
+    "@type": "Question",
+    "name": "Quanto serve per iniziare?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "E se il broker fallisce?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Meglio un ETF o il fondo che mi propone la banca?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
    }
   ]
  }
@@ -355,6 +384,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <span class="w-badge" data-w="badge">Gratis · 10 minuti</span>
     <h1 id="h1" data-w="h1">Il tuo primo <em>PAC in ETF</em>, in 10 minuti.</h1>
     <p class="w-sub" data-w="sub">Rispondi a 3 domande. Alla fine hai il tuo piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese, cosa cercare in un ETF e come impostarlo.</p>
+    <p class="w-what" data-t="whatEtf">Un <b>ETF</b> è un paniere con dentro migliaia di aziende: ne compri un pezzettino di tutte, anche con pochi euro. Un <b>PAC</b> è comprarne un po’ ogni mese, in automatico. <a href="#h-30">Cos’è, in 30 secondi ↓</a></p>
     <svg class="w-ill-hero" viewBox="0 0 360 230" role="img" data-wa="heroAlt" aria-label="Un calendario manda monete in un barattolo, da cui cresce un albero">
       <ellipse cx="180" cy="212" rx="170" ry="16" fill="var(--mint)"></ellipse>
       <g class="w-float"><circle cx="312" cy="46" r="24" fill="var(--sun)" class="w-ink"></circle><path class="w-ink" d="M312 10v-6M312 88v-6M276 46h-6M354 46h-6M287 21l-4-4M341 75l-4-4M337 21l4-4M287 71l-4 4"></path></g>
@@ -477,7 +507,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="lead" data-t="lead">Guarda cosa succede ai tuoi soldi con un piano di accumulo (PAC) in ETF: ne investi una parte ogni mese invece di lasciarli in banca. Nessuna registrazione, niente da comprare.</p>
     <div class="three">
       <div class="card-base" data-t="e1"><b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.</div>
-      <div class="card-base" data-t="e2"><b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama PAC, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.</div>
+      <div class="card-base" data-t="e2"><b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama <a class="term" href="#g-pac">PAC</a>, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.</div>
       <div class="card-base" data-t="e3"><b>Il tuo pezzettino cresce con le aziende</b>Nel lungo periodo le aziende guadagnano di più e valgono di più, e con loro il tuo pezzettino. Non ogni anno, e a volte scende parecchio. Su 15–20 anni storicamente è cresciuto.</div>
     </div>
   </section>
@@ -543,8 +573,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section aria-labelledby="h-start" id="start">
     <h2 id="h-start" data-t="hStart">Come iniziare questa settimana</h2>
     <ol class="start">
-      <li><div data-t="st1"><b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in regime amministrato: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che offra il piano di accumulo (PAC) mensile.</div></li>
-      <li><div data-t="st2"><b>Cerca un ETF, per esempio uno mondiale</b>Una scelta comune per chi inizia segue tutto il mercato azionario mondiale, è ad <a class="term" href="#g-acc">accumulazione</a> e ha un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>. Sono criteri, non un consiglio: confrontane qualcuno prima di scegliere.</div></li>
+      <li><div data-t="st1"><b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in <a class="term" href="#g-amm">regime amministrato</a>: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che offra il piano di accumulo (PAC) mensile.</div></li>
+      <li><div data-t="st2"><b>Cerca un ETF, per esempio uno mondiale</b>Una scelta comune per chi inizia segue un <a class="term" href="#g-index">indice</a> di tutto il mercato azionario mondiale, è ad <a class="term" href="#g-acc">accumulazione</a> e ha un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>. Sono criteri, non un consiglio: confrontane qualcuno prima di scegliere.</div></li>
       <li><div data-t="st3"><b>Imposta il piano mensile e lascialo andare</b>Usa l'importo mensile del tuo piano qui sopra e una data subito dopo lo stipendio. Poi non guardarlo ogni giorno.</div></li>
     </ol>
   </section>
@@ -556,7 +586,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <details><summary data-t="q2">E se mi servono i soldi?</summary><div data-t="a2">Puoi vendere in qualsiasi giorno di borsa aperta e i soldi arrivano in pochi giorni. Ma vendere subito dopo un calo rende la perdita definitiva. A questo serve il fondo emergenza.</div></details>
       <details><summary data-t="q3">Si pagano tasse?</summary><div data-t="a3">In Italia paghi il 26% solo sui guadagni e solo quando vendi, più l'imposta di bollo dello 0,2% l'anno sul valore. Con un broker in regime amministrato se ne occupa lui. I risultati di questa pagina sono prima delle tasse.</div></details>
       <details><summary data-t="q4">Quando conviene iniziare?</summary><div data-t="a4">Appena hai il fondo emergenza, anche con poco. Conta più il tempo passato investiti che azzeccare il momento giusto, che nessuno sa prevedere.</div></details>
-      <details id="glossary"><summary data-t="glossTitle">Le parole spiegate</summary><div><dl class="gloss" id="gloss"><div id="g-etf"><dt>ETF</dt><dd>Un fondo che compri e vendi in borsa come una singola azione, ma che contiene tante aziende insieme.</dd></div><div id="g-acc"><dt>Accumulazione</dt><dd>I dividendi non ti vengono pagati: il fondo li reinveste in automatico. È il modo più semplice per far crescere i soldi.</dd></div><div id="g-bonds"><dt>Obbligazioni</dt><dd>Prestiti a stati o aziende che pagano un interesse. Si muovono meno delle azioni, quindi rendono il portafoglio più tranquillo, ma in media rendono meno.</dd></div><div id="g-infl"><dt>Inflazione</dt><dd>L'aumento dei prezzi nel tempo. Al 2% l'anno, quello che oggi costa 100 € tra 20 anni costerà circa 149 €.</dd></div><div id="g-ter"><dt>TER</dt><dd>Il costo annuo dell'ETF, in percentuale. Un TER dello 0,2% su 10.000 € sono circa 20 € l'anno, tolti in automatico dal valore del fondo.</dd></div><div id="g-broker"><dt>Broker</dt><dd>La banca o l'app dove compri, tieni e vendi i tuoi ETF.</dd></div></dl></div></details>
+      <details><summary data-t="q5">Quanto serve per iniziare?</summary><div data-t="a5">Meno di quanto pensi. Molti broker permettono un PAC da qualche decina di euro al mese, a volte anche meno, spesso senza commissioni sul piano. Inizia con poco e aumenta quando puoi. Prima però metti da parte il fondo emergenza.</div></details>
+      <details><summary data-t="q6">E se il broker fallisce?</summary><div data-t="a6">I tuoi ETF restano tuoi. Per legge il broker deve tenere gli investimenti dei clienti separati dai propri soldi e non può usarli per pagare i suoi debiti: in caso di fallimento ti vengono restituiti. Se mancasse qualcosa, il Fondo Nazionale di Garanzia indennizza fino a 20.000 € a persona. In più, i soldi dentro l’ETF sono custoditi da una banca depositaria separata dalla società che lo gestisce.</div></details>
+      <details><summary data-t="q7">Meglio un ETF o il fondo che mi propone la banca?</summary><div data-t="a7">Confronta i costi annui. In Europa gli ETF azionari costano in media circa lo 0,2% l’anno, i fondi azionari a gestione attiva circa l’1,2–1,4% (ESMA, 2026), e l’Italia è tra i paesi dove costano di più, spesso con commissioni d’ingresso in aggiunta. Su 20 anni la differenza può valere decine di migliaia di euro, e la maggior parte dei fondi attivi nel lungo periodo non batte il proprio indice. Chiedi alla banca il costo totale annuo del fondo, per iscritto.</div></details>
+      <details id="glossary"><summary data-t="glossTitle">Le parole spiegate</summary><div><dl class="gloss" id="gloss"><div id="g-etf"><dt>ETF</dt><dd>Un fondo che compri e vendi in borsa come una singola azione, ma che contiene tante aziende insieme.</dd></div><div id="g-acc"><dt>Accumulazione</dt><dd>I dividendi non ti vengono pagati: il fondo li reinveste in automatico. È il modo più semplice per far crescere i soldi.</dd></div><div id="g-bonds"><dt>Obbligazioni</dt><dd>Prestiti a stati o aziende che pagano un interesse. Si muovono meno delle azioni, quindi rendono il portafoglio più tranquillo, ma in media rendono meno.</dd></div><div id="g-infl"><dt>Inflazione</dt><dd>L'aumento dei prezzi nel tempo. Al 2% l'anno, quello che oggi costa 100 € tra 20 anni costerà circa 149 €.</dd></div><div id="g-ter"><dt>TER</dt><dd>Il costo annuo dell'ETF, in percentuale. Un TER dello 0,2% su 10.000 € sono circa 20 € l'anno, tolti in automatico dal valore del fondo.</dd></div><div id="g-broker"><dt>Broker</dt><dd>La banca o l'app dove compri, tieni e vendi i tuoi ETF.</dd></div><div id="g-pac"><dt>PAC (piano di accumulo)</dt><dd>Un acquisto automatico di ETF ogni mese, sempre della stessa cifra, come un abbonamento. Scegli tu importo e giorno; il broker fa il resto.</dd></div><div id="g-index"><dt>Indice</dt><dd>Un elenco di aziende che misura un mercato, per esempio l’MSCI World (circa 1.300 grandi aziende di 23 paesi sviluppati). Un ETF copia un indice, quindi contiene quelle aziende.</dd></div><div id="g-isin"><dt>ISIN</dt><dd>Un codice di 12 caratteri che identifica un ETF preciso, come una targa. Lo scrivi nell’app del broker per trovare proprio quell’ETF.</dd></div><div id="g-amm"><dt>Regime amministrato</dt><dd>Il broker calcola e paga per te le tasse sui guadagni quando vendi, e il bollo ogni anno. Tu non devi mettere niente in dichiarazione. Con i broker esteri di solito non c’è: allora tocca a te.</dd></div></dl></div></details>
     </div>
   </section>
 
@@ -576,10 +609,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
   
 
   <p class="taxnote"><span data-t="taxNote"><b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.</span></p>
-  <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.</p>
+  <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire in ETF comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire in ETF.</p>
   <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: niente cookie e niente dati personali. Per migliorare la pagina contiamo visite e click in forma anonima, con un codice che cambia ogni giorno e non permette di identificarti. I feedback vengono salvati senza nomi.</p>
   <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/" hreflang="en" lang="en">English</a> · <a href="/it/" hreflang="it" lang="it">Italiano</a> · <a href="/es/" hreflang="es" lang="es">Español</a></p>
 </div>
+
+<div class="tip" id="tip" role="note" aria-live="polite" hidden=""></div>
 
 <script>
 (function(){
@@ -609,7 +644,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       c5d:`Or invest the same money in ETFs?`,
       h30:`ETFs in 30 seconds`,
       e1:`<b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.`,
-      e2:`<b>You buy a bit every month</b>You set up an automatic monthly payment, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
+      e2:`<b>You buy a bit every month</b>You set up an automatic <a class="term" href="#g-pac">monthly plan</a>, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
       e3:`<b>Your slice grows with the companies</b>Over long periods companies earn more and become worth more, and so does your slice. Not every year, and sometimes it drops a lot. Over 15–20 years it has historically grown.`,
       change:`Change my answers`, ansEx:(sp,c,m)=>`Example: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`, ansYou:(sp,c,m)=>`Your answers: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`,
       hFut:`What you could have`, lYears:`See what you’d have in`, years:n=>`${n} years`,
@@ -637,7 +672,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ruleOther:(t,v)=>`${t}: ${v} a month`,
       hStart:`How to start this week`,
       st1:`<b>Open an account with a low-cost broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and hold ETFs. Pick one that is regulated in your country and lets you set up a monthly investment plan. Check how ETF taxes work where you live.`,
-      st2:`<b>Look for an ETF, for example a world one</b>A common choice for beginners follows the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> works too. These are criteria, not a recommendation: compare a few before you choose.`,
+      st2:`<b>Look for an ETF, for example a world one</b>A common choice for beginners follows an <a class="term" href="#g-index">index</a> of the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> works too. These are criteria, not a recommendation: compare a few before you choose.`,
       st3:`<b>Set up the monthly plan and leave it alone</b>Use the monthly amount from your plan above and a date right after payday. Then don't check it every day.`,
       hFaq:`Questions everyone asks`,
       q1:`Can I lose money?`,
@@ -648,6 +683,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       a3:`Usually you pay tax only on your gains, and only when you sell. Rates and rules depend on your country, so check before you start. The results on this page are before tax.`,
       q4:`When should I start?`,
       a4:`As soon as your emergency fund is in place, even with a small amount. Time in the market matters more than picking the right moment, and nobody can reliably pick it.`,
+      q5:`How much do I need to start?`,
+      a5:`Less than you think. Many brokers let you set up a monthly plan from a few tens of euros, sometimes less, often with no fee on the plan. Start small, then raise it when you can. Keep your emergency fund first.`,
+      q6:`What if the broker goes bust?`,
+      a6:`Your ETFs stay yours. In the EU a broker must keep clients’ investments separate from its own money and cannot use them to pay its debts, so they are given back to you. If something were missing, a national investor compensation scheme pays out at least €20,000 per person (more in some countries, such as €100,000 in Spain). The money inside the ETF is also held by a separate depositary bank, not by the company that runs the ETF.`,
+      q7:`ETF, or the fund my bank offers?`,
+      a7:`Compare the yearly costs. In the EU equity ETFs cost about 0.2% a year on average, while actively managed equity funds cost about 1.2–1.4% (ESMA, 2026), often plus entry fees. Over 20 years that difference can be worth tens of thousands of euros, and most active funds don’t beat their index over the long run. Ask your bank for the fund’s total yearly cost, in writing.`,
+      whatEtf:`An <b>ETF</b> is a basket with thousands of companies inside: you buy a small slice of all of them, even with a few euros. An <b>ETF plan</b> means buying a bit every month, automatically. <a href="#h-30">What it is, in 30 seconds ↓</a>`,
       glossTitle:`Words explained`,
       gloss:[
         ['g-etf',`ETF`,`A fund you buy and sell on the stock exchange like a single share, but it holds many companies at once.`],
@@ -655,7 +697,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
         ['g-bonds',`Bonds`,`Loans to governments or companies that pay interest. They move less than stocks, so they calm a portfolio down, but on average they earn less.`],
         ['g-infl',`Inflation`,`Prices going up over time. At 2% a year, something that costs €100 today will cost about €149 in 20 years.`],
         ['g-ter',`TER`,`The yearly cost of an ETF, as a percentage. A TER of 0.2% on €10,000 is about €20 a year, taken out of the fund's value automatically.`],
-        ['g-broker',`Broker`,`The bank or app where you buy, hold and sell your ETFs.`]
+        ['g-broker',`Broker`,`The bank or app where you buy, hold and sell your ETFs.`],
+        ['g-pac',`ETF plan (monthly plan)`,`An automatic purchase of ETFs every month, for the same amount, like a subscription. You choose the amount and the day; the broker does the rest.`],
+        ['g-index',`Index`,`A list of companies that measures a market, for example the MSCI World (about 1,300 large companies in 23 developed countries). An ETF copies an index, so it holds those companies.`],
+        ['g-isin',`ISIN`,`A 12-character code that identifies one specific ETF, like a number plate. You type it in your broker’s app to find exactly that ETF.`]
       ],
       hSup:`Found this useful?`,
       supTxt:`I’m Marco, an engineer who invests in ETFs myself. This page is free, with no ads and no affiliate links. If it helped you, you can buy me a coffee.`,
@@ -663,7 +708,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       supTxtNo:`I’m Marco, an engineer who invests in ETFs myself. This page is free, with no ads and no affiliate links.`,
       coffee:`Buy me a coffee`,
       taxNote:`<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.`,
-      disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing can lose money. Do your own research or talk to a qualified adviser before you invest.`,
+      disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing in ETFs can lose money. Do your own research or talk to a qualified adviser before you invest in ETFs.`,
       fbQ:`Is this result clear?`,
       fbYes:`Yes, it's clear`,
       fbNo:`No, not really`,
@@ -721,7 +766,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       c5d:`O investire gli stessi soldi in ETF?`,
       h30:`Gli ETF in 30 secondi`,
       e1:`<b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.`,
-      e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama PAC, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
+      e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama <a class="term" href="#g-pac">PAC</a>, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
       e3:`<b>Il tuo pezzettino cresce con le aziende</b>Nel lungo periodo le aziende guadagnano di più e valgono di più, e con loro il tuo pezzettino. Non ogni anno, e a volte scende parecchio. Su 15–20 anni storicamente è cresciuto.`,
       change:`Cambia le risposte`, ansEx:(sp,c,m)=>`Esempio: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`, ansYou:(sp,c,m)=>`Le tue risposte: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`,
       hFut:`Quanto potresti avere`, lYears:`Vedi quanto avresti tra`, years:n=>`${n} anni`,
@@ -748,8 +793,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ruleTxt:`Dopo questi anni potresti smettere di versare e prelevare ogni anno il 3% dei tuoi ETF come entrata mensile. Storicamente, prelevare il 3% l'anno da un portafoglio quasi tutto azionario è durato 30 anni o più in quasi tutti i periodi, e spesso il capitale ha continuato a crescere. È un riferimento, non una garanzia. Il fondo emergenza resta in banca.`,
       ruleOther:(t,v)=>`${t}: ${v} al mese`,
       hStart:`Come iniziare questa settimana`,
-      st1:`<b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in regime amministrato: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che offra il piano di accumulo (PAC) mensile.`,
-      st2:`<b>Cerca un ETF, per esempio uno mondiale</b>Una scelta comune per chi inizia segue tutto il mercato azionario mondiale, è ad <a class="term" href="#g-acc">accumulazione</a> e ha un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>. Sono criteri, non un consiglio: confrontane qualcuno prima di scegliere.`,
+      st1:`<b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in <a class="term" href="#g-amm">regime amministrato</a>: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che offra il piano di accumulo (PAC) mensile.`,
+      st2:`<b>Cerca un ETF, per esempio uno mondiale</b>Una scelta comune per chi inizia segue un <a class="term" href="#g-index">indice</a> di tutto il mercato azionario mondiale, è ad <a class="term" href="#g-acc">accumulazione</a> e ha un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>. Sono criteri, non un consiglio: confrontane qualcuno prima di scegliere.`,
       st3:`<b>Imposta il piano mensile e lascialo andare</b>Usa l'importo mensile del tuo piano qui sopra e una data subito dopo lo stipendio. Poi non guardarlo ogni giorno.`,
       hFaq:`Le domande che si fanno tutti`,
       q1:`Posso perdere soldi?`,
@@ -760,6 +805,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       a3:`In Italia paghi il 26% solo sui guadagni e solo quando vendi, più l'imposta di bollo dello 0,2% l'anno sul valore. Con un broker in regime amministrato se ne occupa lui. I risultati di questa pagina sono prima delle tasse.`,
       q4:`Quando conviene iniziare?`,
       a4:`Appena hai il fondo emergenza, anche con poco. Conta più il tempo passato investiti che azzeccare il momento giusto, che nessuno sa prevedere.`,
+      q5:`Quanto serve per iniziare?`,
+      a5:`Meno di quanto pensi. Molti broker permettono un PAC da qualche decina di euro al mese, a volte anche meno, spesso senza commissioni sul piano. Inizia con poco e aumenta quando puoi. Prima però metti da parte il fondo emergenza.`,
+      q6:`E se il broker fallisce?`,
+      a6:`I tuoi ETF restano tuoi. Per legge il broker deve tenere gli investimenti dei clienti separati dai propri soldi e non può usarli per pagare i suoi debiti: in caso di fallimento ti vengono restituiti. Se mancasse qualcosa, il Fondo Nazionale di Garanzia indennizza fino a 20.000 € a persona. In più, i soldi dentro l’ETF sono custoditi da una banca depositaria separata dalla società che lo gestisce.`,
+      q7:`Meglio un ETF o il fondo che mi propone la banca?`,
+      a7:`Confronta i costi annui. In Europa gli ETF azionari costano in media circa lo 0,2% l’anno, i fondi azionari a gestione attiva circa l’1,2–1,4% (ESMA, 2026), e l’Italia è tra i paesi dove costano di più, spesso con commissioni d’ingresso in aggiunta. Su 20 anni la differenza può valere decine di migliaia di euro, e la maggior parte dei fondi attivi nel lungo periodo non batte il proprio indice. Chiedi alla banca il costo totale annuo del fondo, per iscritto.`,
+      whatEtf:`Un <b>ETF</b> è un paniere con dentro migliaia di aziende: ne compri un pezzettino di tutte, anche con pochi euro. Un <b>PAC</b> è comprarne un po’ ogni mese, in automatico. <a href="#h-30">Cos’è, in 30 secondi ↓</a>`,
       glossTitle:`Le parole spiegate`,
       gloss:[
         ['g-etf',`ETF`,`Un fondo che compri e vendi in borsa come una singola azione, ma che contiene tante aziende insieme.`],
@@ -767,7 +819,11 @@ details > div{padding:0 0 14px;color:var(--muted)}
         ['g-bonds',`Obbligazioni`,`Prestiti a stati o aziende che pagano un interesse. Si muovono meno delle azioni, quindi rendono il portafoglio più tranquillo, ma in media rendono meno.`],
         ['g-infl',`Inflazione`,`L'aumento dei prezzi nel tempo. Al 2% l'anno, quello che oggi costa 100 € tra 20 anni costerà circa 149 €.`],
         ['g-ter',`TER`,`Il costo annuo dell'ETF, in percentuale. Un TER dello 0,2% su 10.000 € sono circa 20 € l'anno, tolti in automatico dal valore del fondo.`],
-        ['g-broker',`Broker`,`La banca o l'app dove compri, tieni e vendi i tuoi ETF.`]
+        ['g-broker',`Broker`,`La banca o l'app dove compri, tieni e vendi i tuoi ETF.`],
+        ['g-pac',`PAC (piano di accumulo)`,`Un acquisto automatico di ETF ogni mese, sempre della stessa cifra, come un abbonamento. Scegli tu importo e giorno; il broker fa il resto.`],
+        ['g-index',`Indice`,`Un elenco di aziende che misura un mercato, per esempio l’MSCI World (circa 1.300 grandi aziende di 23 paesi sviluppati). Un ETF copia un indice, quindi contiene quelle aziende.`],
+        ['g-isin',`ISIN`,`Un codice di 12 caratteri che identifica un ETF preciso, come una targa. Lo scrivi nell’app del broker per trovare proprio quell’ETF.`],
+        ['g-amm',`Regime amministrato`,`Il broker calcola e paga per te le tasse sui guadagni quando vendi, e il bollo ogni anno. Tu non devi mettere niente in dichiarazione. Con i broker esteri di solito non c’è: allora tocca a te.`]
       ],
       hSup:`Ti è stata utile?`,
       supTxt:`Sono Marco, un ingegnere che investe in ETF anch’io. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione. Se ti è servita, puoi offrirmi un caffè.`,
@@ -775,7 +831,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       supTxtNo:`Sono Marco, un ingegnere che investe in ETF anch’io. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione.`,
       coffee:`Offrimi un caffè`,
       taxNote:`<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.`,
-      disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.`,
+      disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire in ETF comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire in ETF.`,
       fbQ:`Questo risultato è chiaro?`,
       fbYes:`Sì, è chiaro`,
       fbNo:`No, non molto`,
@@ -833,7 +889,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       c5d:`¿O invertir el mismo dinero en ETF?`,
       h30:`Los ETF en 30 segundos`,
       e1:`<b>Una cesta de empresas</b>Un <a class="term" href="#g-etf">ETF</a> contiene cientos o miles de empresas a la vez, como Apple, Nestlé o Toyota. Con una sola compra tienes un trocito de todas.`,
-      e2:`<b>Compras un poco cada mes</b>Programas una aportación automática mensual, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
+      e2:`<b>Compras un poco cada mes</b>Programas una <a class="term" href="#g-pac">aportación automática mensual</a>, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
       e3:`<b>Tu trocito crece con las empresas</b>A largo plazo las empresas ganan más y valen más, y tu trocito con ellas. No todos los años, y a veces baja mucho. En 15–20 años, históricamente ha crecido.`,
       change:`Cambiar mis respuestas`, ansEx:(sp,c,m)=>`Ejemplo: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`, ansYou:(sp,c,m)=>`Tus respuestas: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`,
       hFut:`Lo que podrías tener`, lYears:`Mira lo que tendrías dentro de`, years:n=>`${n} años`,
@@ -861,7 +917,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ruleOther:(t,v)=>`${t}: ${v} al mes`,
       hStart:`Cómo empezar esta semana`,
       st1:`<b>Abre una cuenta en un bróker de bajo coste</b>El <a class="term" href="#g-broker">bróker</a> es el banco o la app donde compras y guardas tus ETF. Elige uno regulado en España o en la UE que permita programar aportaciones mensuales automáticas.`,
-      st2:`<b>Busca un ETF, por ejemplo uno mundial</b>Una opción habitual para empezar sigue todo el mercado de acciones mundial, es de <a class="term" href="#g-acc">acumulación</a> y tiene un coste anual bajo (<a class="term" href="#g-ter">TER</a>), idealmente por debajo del 0,25%. Si quieres menos sustos, también vale un ETF todo en uno que incluya <a class="term" href="#g-bonds">bonos</a>. Son criterios, no una recomendación: compara varios antes de elegir.`,
+      st2:`<b>Busca un ETF, por ejemplo uno mundial</b>Una opción habitual para empezar sigue un <a class="term" href="#g-index">índice</a> de todo el mercado de acciones mundial, es de <a class="term" href="#g-acc">acumulación</a> y tiene un coste anual bajo (<a class="term" href="#g-ter">TER</a>), idealmente por debajo del 0,25%. Si quieres menos sustos, también vale un ETF todo en uno que incluya <a class="term" href="#g-bonds">bonos</a>. Son criterios, no una recomendación: compara varios antes de elegir.`,
       st3:`<b>Programa la aportación mensual y olvídate</b>Usa el importe mensual de tu plan de arriba y una fecha justo después de cobrar. Y no lo mires todos los días.`,
       hFaq:`Las preguntas que todo el mundo se hace`,
       q1:`¿Puedo perder dinero?`,
@@ -872,6 +928,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       a3:`En España pagas entre el 19% y el 30% solo sobre las ganancias y solo cuando vendes, y lo declaras en la renta. Un detalle: los fondos indexados permiten traspasos entre fondos sin pagar impuestos y los ETF no. Los resultados de esta página son antes de impuestos.`,
       q4:`¿Cuándo conviene empezar?`,
       a4:`En cuanto tengas el fondo de emergencia, aunque sea con poco. Importa más el tiempo que pasas invertido que acertar el momento, y nadie sabe predecirlo.`,
+      q5:`¿Cuánto necesito para empezar?`,
+      a5:`Menos de lo que crees. Muchos brókers permiten aportaciones mensuales desde unas decenas de euros, a veces menos, a menudo sin comisión en el plan. Empieza con poco y súbelo cuando puedas. Antes, eso sí, guarda tu fondo de emergencia.`,
+      q6:`¿Y si el bróker quiebra?`,
+      a6:`Tus ETF siguen siendo tuyos. Por ley el bróker tiene que mantener las inversiones de los clientes separadas de su propio dinero y no puede usarlas para pagar sus deudas: si quiebra, te las devuelven. Si faltara algo, el FOGAIN cubre hasta 100.000 € por inversor. Además, el dinero dentro del ETF lo custodia un banco depositario, separado de la gestora.`,
+      q7:`¿ETF o el fondo que me ofrece el banco?`,
+      a7:`Compara los costes anuales. En Europa los ETF de acciones cuestan de media un 0,2% al año, y los fondos de acciones de gestión activa un 1,2–1,4% (ESMA, 2026), a menudo con comisiones de entrada aparte. En 20 años la diferencia puede valer decenas de miles de euros, y la mayoría de los fondos activos no bate a su índice a largo plazo. Pide al banco el coste total anual del fondo, por escrito.`,
+      whatEtf:`Un <b>ETF</b> es una cesta con miles de empresas dentro: compras un trocito de todas, incluso con pocos euros. Un <b>plan en ETF</b> es comprar un poco cada mes, de forma automática. <a href="#h-30">Qué es, en 30 segundos ↓</a>`,
       glossTitle:`Las palabras, explicadas`,
       gloss:[
         ['g-etf',`ETF`,`Un fondo que compras y vendes en bolsa como si fuera una acción, pero que contiene muchas empresas a la vez.`],
@@ -879,7 +942,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
         ['g-bonds',`Bonos`,`Préstamos a gobiernos o empresas que pagan un interés. Se mueven menos que las acciones, así que dan más tranquilidad a la cartera, pero de media rinden menos.`],
         ['g-infl',`Inflación`,`La subida de los precios con el tiempo. Al 2% anual, lo que hoy cuesta 100 € costará unos 149 € dentro de 20 años.`],
         ['g-ter',`TER`,`El coste anual del ETF, en porcentaje. Un TER del 0,2% sobre 10.000 € son unos 20 € al año, descontados automáticamente del valor del fondo.`],
-        ['g-broker',`Bróker`,`El banco o la app donde compras, guardas y vendes tus ETF.`]
+        ['g-broker',`Bróker`,`El banco o la app donde compras, guardas y vendes tus ETF.`],
+        ['g-pac',`Plan en ETF (aportación periódica)`,`Una compra automática de ETF cada mes, siempre por la misma cantidad, como una suscripción. Tú eliges la cantidad y el día; el bróker hace el resto.`],
+        ['g-index',`Índice`,`Una lista de empresas que mide un mercado, por ejemplo el MSCI World (unas 1.300 grandes empresas de 23 países desarrollados). Un ETF copia un índice, así que contiene esas empresas.`],
+        ['g-isin',`ISIN`,`Un código de 12 caracteres que identifica un ETF concreto, como una matrícula. Lo escribes en la app del bróker para encontrar justo ese ETF.`]
       ],
       hSup:`¿Te ha sido útil?`,
       supTxt:`Soy Marco, un ingeniero que también invierte en ETF. Esta página es gratuita, sin publicidad y sin enlaces de afiliado. Si te ha servido, puedes invitarme a un café.`,
@@ -887,7 +953,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       supTxtNo:`Soy Marco, un ingeniero que también invierte en ETF. Esta página es gratuita, sin publicidad y sin enlaces de afiliado.`,
       coffee:`Invítame a un café`,
       taxNote:`<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.`,
-      disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta educativa con estimaciones aproximadas. Las rentabilidades no están garantizadas y cambian cada año; aquí son medias constantes. Los impuestos y las comisiones no están incluidos en los resultados. La cuenta del banco se calcula sin intereses. Invertir conlleva el riesgo de perder dinero. Infórmate bien o habla con un asesor cualificado antes de invertir.`,
+      disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta educativa con estimaciones aproximadas. Las rentabilidades no están garantizadas y cambian cada año; aquí son medias constantes. Los impuestos y las comisiones no están incluidos en los resultados. La cuenta del banco se calcula sin intereses. Invertir en ETF conlleva el riesgo de perder dinero. Infórmate bien o habla con un asesor cualificado antes de invertir en ETF.`,
       fbQ:`¿Se entiende este resultado?`,
       fbYes:`Sí, se entiende`,
       fbNo:`No mucho`,
@@ -1204,15 +1270,25 @@ details > div{padding:0 0 14px;color:var(--muted)}
   $('l-en').addEventListener('click',()=>setLang('en'));
   $('l-it').addEventListener('click',()=>setLang('it'));
   $('l-es').addEventListener('click',()=>setLang('es'));
-  // glossary links open the glossary and highlight the word
+  // Words with a dotted underline open a short explanation right where you are (from the glossary).
+  const tip=$('tip'); let tipFor=null;
+  function closeTip(){tip.hidden=true;if(tipFor){tipFor.setAttribute('aria-expanded','false');tipFor=null}}
   document.addEventListener('click',e=>{
-    const a=e.target.closest('a.term'); if(!a)return;
+    if(e.target.closest('.tip-x')){const f=tipFor;closeTip();if(f)f.focus();return}
+    const a=e.target.closest('a.term');
+    if(!a){if(!e.target.closest('#tip'))closeTip();return}
     e.preventDefault();
-    const id=a.getAttribute('href').slice(1);
-    $('glossary').open=true;
-    document.querySelectorAll('.gloss .hl').forEach(n=>n.classList.remove('hl'));
-    const t=$(id); if(t){t.classList.add('hl');t.scrollIntoView({block:'center'})}
+    if(tipFor===a){closeTip();return}
+    const g=L.gloss.find(x=>x[0]===a.getAttribute('href').slice(1)); if(!g)return;
+    tip.innerHTML='<b>'+g[1]+'</b><span>'+g[2]+'</span><button type="button" class="tip-x" aria-label="OK">×</button>';
+    if(tipFor)tipFor.setAttribute('aria-expanded','false');
+    tip.hidden=false; tipFor=a; a.setAttribute('aria-expanded','true');
+    const r=a.getBoundingClientRect(), w=Math.min(340,innerWidth-32);
+    tip.style.width=w+'px';
+    tip.style.left=Math.max(16,Math.min(r.left+r.width/2-w/2,innerWidth-16-w))+scrollX+'px';
+    tip.style.top=(r.bottom+scrollY+8)+'px';
   });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&tipFor){const f=tipFor;closeTip();f.focus()}});
   let rt; window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{drawChart();drawRide()},120)});
   // Anonymous usage events and feedback: only on youretfplan.com (not in the claude.ai copy,
   // not during the build's pre-render). See worker/index.js for what is stored.
