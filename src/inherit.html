@@ -238,7 +238,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <p class="note" data-t="hrentNote"></p>
     </div>
     <div class="ctrl">
-      <div class="ctrl-head"><label for="hyears" data-t="lYears"></label><span class="ctrl-val num" id="hyears-out"></span></div>
+      <div class="ctrl-head"><label for="hyears" data-t="lHyears"></label><span class="ctrl-val num" id="hyears-out"></span></div>
       <input type="range" id="hyears" min="1" max="30" step="1" value="15">
     </div>
     <details class="assume">
@@ -336,7 +336,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       sub:'Money or a house: what it could become if you keep it, rent it out, or invest it in ETFs. In today’s money, without the jargon.',
       illAlt:'A gift box with arrows towards a small house and a jar where a tree grows',
       tabsAlt:'What did you inherit?', tabMoney:'Money', tabHouse:'A house',
-      mH:'You inherited money', lAmount:'Amount you received (after taxes)', lYears:'For how many years', years:n=>n+(n===1?' year':' years'),
+      mH:'You inherited money', lAmount:'Amount you received (after taxes)', lYears:'How long you won’t touch the money', lHyears:'Show the result in', years:n=>n+(n===1?' year':' years'),
       mHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
       bBank:'Left in the bank', bDca:'Invested in ETFs over 12 months <small>a little each month during the first year</small>', bNow:'Invested in ETFs all at once <small>7% historical average · range 5–9%</small>',
       today:v=>`You received ${v}`,
@@ -376,7 +376,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       sub:'Soldi o una casa: cosa potrebbero diventare se li tieni, se la affitti o se investi in ETF. In euro di oggi, senza paroloni.',
       illAlt:'Un pacco regalo con frecce verso una casetta e un barattolo dove cresce un albero',
       tabsAlt:'Cosa hai ereditato?', tabMoney:'Soldi', tabHouse:'Una casa',
-      mH:'Hai ereditato dei soldi', lAmount:'Quanto hai ricevuto (dopo le tasse)', lYears:'Per quanti anni', years:n=>n+(n===1?' anno':' anni'),
+      mH:'Hai ereditato dei soldi', lAmount:'Quanto hai ricevuto (dopo le tasse)', lYears:'Per quanti anni non tocchi i soldi', lHyears:'Vedi il risultato tra', years:n=>n+(n===1?' anno':' anni'),
       mHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
       bBank:'Lasciati in banca', bDca:'Investiti in ETF in 12 mesi <small>un po’ ogni mese durante il primo anno</small>', bNow:'Investiti in ETF tutti subito <small>media storica 7% · forbice 5–9%</small>',
       today:v=>`Hai ricevuto ${v}`,
@@ -416,7 +416,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       sub:'Dinero o una casa: en qué podría convertirse si lo guardas, si la alquilas o si inviertes en ETF. En euros de hoy, sin tecnicismos.',
       illAlt:'Una caja de regalo con flechas hacia una casita y un tarro donde crece un árbol',
       tabsAlt:'¿Qué has heredado?', tabMoney:'Dinero', tabHouse:'Una casa',
-      mH:'Has heredado dinero', lAmount:'Lo que has recibido (después de impuestos)', lYears:'Durante cuántos años', years:n=>n+(n===1?' año':' años'),
+      mH:'Has heredado dinero', lAmount:'Lo que has recibido (después de impuestos)', lYears:'Cuántos años no tocarás el dinero', lHyears:'Ver el resultado dentro de', years:n=>n+(n===1?' año':' años'),
       mHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
       bBank:'Dejado en el banco', bDca:'Invertido en ETF en 12 meses <small>un poco cada mes durante el primer año</small>', bNow:'Invertido en ETF de golpe <small>media histórica 7% · horquilla 5–9%</small>',
       today:v=>`Has recibido ${v}`,
