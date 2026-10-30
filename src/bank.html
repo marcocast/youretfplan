@@ -1,0 +1,475 @@
+<title>Bank vs ETF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Scenario 1: money in the bank vs investing in ETFs. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bank" viewBox="0 0 64 64"><path class="w-ink" d="M8 24 32 10l24 14Z" fill="var(--coral)"/><path class="w-ink" d="M14 28v20M26 28v20M38 28v20M50 28v20" fill="none"/><rect class="w-ink" x="8" y="48" width="48" height="8" rx="2" fill="var(--surface)"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="22" ry="4" fill="var(--mint)"/><path class="w-ink" d="M32 56V30" fill="none" stroke-width="4"/><circle class="w-ink" cx="32" cy="22" r="14" fill="var(--leaf)"/><circle class="w-ink" cx="20" cy="32" r="8" fill="var(--leaf2)"/><circle cx="28" cy="18" r="3" fill="var(--sun)"/><circle cx="38" cy="26" r="3" fill="var(--coral)"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en">EN</button>
+      <button type="button" id="l-it" lang="it">IT</button>
+      <button type="button" id="l-es" lang="es">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge"></span>
+    <h1 id="h1" data-t="h1"></h1>
+    <p class="sub" data-t="sub"></p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"/>
+      <!-- bank with a melting coin stack -->
+      <path class="w-ink" d="M22 78 92 40l70 38Z" fill="var(--coral)"/>
+      <path class="w-ink" d="M36 86v74M64 86v74M92 86v74M120 86v74M148 86v74" fill="none"/>
+      <rect class="w-ink" x="22" y="160" width="140" height="18" rx="4" fill="var(--surface)"/>
+      <rect class="w-ink" x="22" y="78" width="140" height="10" rx="3" fill="var(--surface)"/>
+      <g transform="translate(70 118)">
+        <ellipse class="w-ink" cx="22" cy="30" rx="20" ry="6" fill="var(--sun)"/>
+        <ellipse class="w-ink" cx="22" cy="22" rx="16" ry="5" fill="var(--sun)" opacity=".7"/>
+        <ellipse cx="22" cy="15" rx="11" ry="3.5" fill="var(--sun)" opacity=".35"/>
+      </g>
+      <path d="M170 110c20-14 36-16 52-8" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <path class="w-ink" d="M214 96l10 6-11 5" fill="none"/>
+      <!-- jar growing a tree -->
+      <rect class="w-ink" x="236" y="104" width="96" height="76" rx="20" fill="var(--surface)"/>
+      <rect class="w-ink" x="246" y="92" width="76" height="14" rx="6" fill="var(--coral)"/>
+      <ellipse class="w-ink" cx="284" cy="168" rx="34" ry="7" fill="var(--sun)"/>
+      <ellipse class="w-ink" cx="284" cy="158" rx="34" ry="7" fill="var(--sun)"/>
+      <path class="w-ink" d="M284 152V50" fill="none" stroke-width="5"/>
+      <circle class="w-ink" cx="284" cy="40" r="28" fill="var(--leaf)"/>
+      <circle class="w-ink" cx="258" cy="72" r="16" fill="var(--leaf2)"/>
+      <circle class="w-ink" cx="312" cy="64" r="18" fill="var(--leaf)"/>
+      <circle cx="274" cy="32" r="5" fill="var(--sun)"/><circle cx="298" cy="50" r="5" fill="var(--coral)"/><circle cx="316" cy="60" r="4" fill="var(--sun)"/>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH"></h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="amount" data-t="lAmount"></label><span class="ctrl-val num" id="amount-out"></span></div>
+      <input type="range" id="amount" min="0" max="1000" step="1" value="311">
+      <div class="ticks"><span id="tick-min"></span><span id="tick-max"></span></div>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="years" data-t="lYears"></label><span class="ctrl-val num" id="years-out"></span></div>
+      <input type="range" id="years" min="1" max="30" step="1" value="10">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="rate" data-t="lRate"></label><span class="ctrl-val num" id="rate-out"></span></div>
+      <input type="range" id="rate" min="0" max="5" step="0.25" value="2">
+      <p class="note" data-t="rateNote"></p>
+    </div>
+
+    <p class="res-head" id="res-head"></p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" data-t="bCur"></span><span class="val num" id="v-cur"></span><div class="track"><div class="fill" id="f-cur" style="background:var(--bank)"></div><span class="today" id="t-cur"></span></div></div>
+      <div class="bar"><span class="lab" id="lab-dep"></span><span class="val num" id="v-dep"></span><div class="track"><div class="fill" id="f-dep" style="background:var(--dep)"></div><span class="today" id="t-dep"></span></div></div>
+      <div class="bar"><span class="lab" id="lab-etf"></span><span class="val num" id="v-etf"></span><div class="track"><div class="fill" id="f-etf" style="background:var(--etf)"></div><span class="today" id="t-etf"></span></div></div>
+    </div>
+    <p class="legend-today"><i></i><span id="legend-today"></span></p>
+    <p class="verdict" id="verdict"></p>
+    <p class="note" data-t="calcNote"></p>
+  </section>
+
+  <section aria-labelledby="h-when">
+    <h2 id="h-when" data-t="whenH"></h2>
+    <div class="two">
+      <div class="box"><h3><svg><use href="#i-bank"/></svg><span data-t="keepH"></span></h3><ul data-t="keepL"></ul></div>
+      <div class="box"><h3><svg><use href="#i-tree"/></svg><span data-t="etfH"></span></h3><ul data-t="etfL"></ul></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cmp">
+    <h2 id="h-cmp" data-t="cmpH"></h2>
+    <div class="tbl-wrap"><table id="cmp"></table></div>
+    <p class="note" data-t="cmpNote"></p>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH"></h2>
+    <div class="faqs">
+      <details><summary data-t="q1"></summary><div data-t="a1"></div></details>
+      <details><summary data-t="q2"></summary><div data-t="a2"></div></details>
+      <details><summary data-t="q3"></summary><div data-t="a3"></div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH"></h2>
+    <p data-t="next"></p>
+    <a class="btn" id="next-btn" href="/"><span data-t="nextBtn"></span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden>
+    <span data-t="fbQ"></span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden></span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"></p>
+  <p class="foot" id="privacy" data-t="privacy" hidden></p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/bank-vs-etf/" hreflang="en" lang="en">English</a> · <a href="/it/banca-vs-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/banco-vs-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, ETF=0.07, ETF_LO=0.05, ETF_HI=0.09, MAX=1000000;
+  const PAGE_URLS={en:'/bank-vs-etf/',it:'/it/banca-vs-etf/',es:'/es/banco-vs-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+
+  const T={
+    en:{locale:'en-IE',
+      title:'Money in the bank or investing in ETFs? | Your ETF Plan',
+      badge:'Your case · money in the bank',
+      h1:'Money sitting in the bank, or <em>investing in ETFs</em>?',
+      sub:'Got savings in your account? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.',
+      illAlt:'A bank whose pile of coins shrinks, next to a jar where a tree grows',
+      calcH:'Your numbers',
+      lAmount:'Money in the bank today', lYears:'For how many years', lRate:'Savings deposit rate',
+      rateNote:'Example rate, change it to your bank’s offer. The current account is counted at 0%.',
+      years:n=>n===1?'1 year':n+' years',
+      resHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
+      bCur:'Current account', bDep:r=>`Savings deposit <small>at ${r} a year</small>`, bEtf:'Investing in ETFs <small>7% historical average · range 5–9%</small>',
+      today:v=>`Today you have ${v}`,
+      verdict:(hasLoss,loss,etfGain)=>hasLoss
+        ?`On the current account you would lose about <b class="loss">${loss}</b> of buying power. By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than today, in today’s money.`
+        :`By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than today, in today’s money.`,
+      calcNote:'Inflation 2% a year. Before taxes and costs. ETF returns are not guaranteed and change every year; these are constant averages.',
+      whenH:'When to keep it in the bank, and when to invest in ETFs',
+      keepH:'Keep it in the bank if…',
+      keepL:'<li>It’s your <b>emergency fund</b>: about 6 months of expenses.</li><li>You’ll need it within <b>3–5 years</b>: a house deposit, a car, studies.</li><li>A temporary drop of 30% would make you sell in a panic.</li>',
+      etfH:'Investing in ETFs makes sense if…',
+      etfL:'<li>You won’t need the money for <b>10 years or more</b>.</li><li>Your emergency fund is already in place.</li><li>You can leave it invested even when markets fall.</li>',
+      cmpH:'The differences at a glance',
+      cmpNote:'Taxes and rules depend on your country. Not financial advice.',
+      cols:['','Current account','Savings deposit','Investing in ETFs'],
+      rows:[
+        ['Return','About 0%','Fixed and known in advance','Varies; about 7% a year on average over the long run, not guaranteed'],
+        ['Risk','None, up to the deposit guarantee','None, up to the deposit guarantee','Can fall a lot in the short term'],
+        ['Protection','EU deposit guarantee up to €100,000 per person per bank','Same as the current account','Not a deposit. The ETF shares stay yours even if the broker fails, because they are held separately'],
+        ['Access','Any time','Often locked until the end of the term','Sell any trading day, cash in 2–3 days'],
+        ['Costs','Account fees','Often none','Yearly fund cost (TER) 0.1–0.3% plus broker fees'],
+        ['Taxes','Interest is taxed; rates depend on the country','Interest is taxed','Gains are taxed when you sell; rates depend on the country']
+      ],
+      faqH:'Questions',
+      q1:'Is a savings deposit safe?',
+      a1:'In the EU, deposits are guaranteed up to €100,000 per person per bank, current accounts and savings deposits included. Above that amount it makes sense to split the money across banks.',
+      q2:'Can I do half and half?',
+      a2:'Yes, and it’s often the most sensible choice: emergency fund and short-term money in the bank or a savings deposit, the long-term part invested in ETFs.',
+      q3:'What if markets crash right after I start investing in ETFs?',
+      a3:'It can happen. To reduce that risk you can spread a large amount over 6–12 months instead of investing it all on one day. And only invest money you won’t need for at least 10 years.',
+      nextH:'Next: your first plan for investing in ETFs',
+      next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.',
+      nextBtn:'Make my plan',
+      fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial advice.</strong> Educational estimates with constant average returns, before taxes and costs. Investing in ETFs can lose money. Check your country’s rules or talk to a qualified adviser.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT',
+      title:'Soldi in banca o investire in ETF? | Your ETF Plan',
+      badge:'Il tuo caso · soldi in banca',
+      h1:'Soldi fermi in banca o <em>investire in ETF</em>?',
+      sub:'Hai dei risparmi sul conto? Guarda cosa diventano sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi, cioè tolta l’inflazione.',
+      illAlt:'Una banca con una pila di monete che si rimpicciolisce, accanto a un barattolo dove cresce un albero',
+      calcH:'I tuoi numeri',
+      lAmount:'Soldi in banca oggi', lYears:'Per quanti anni', lRate:'Tasso del conto deposito',
+      rateNote:'Tasso di esempio, mettici quello offerto dalla tua banca. Il conto corrente è calcolato allo 0%.',
+      years:n=>n===1?'1 anno':n+' anni',
+      resHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
+      bCur:'Conto corrente', bDep:r=>`Conto deposito <small>al ${r} l’anno</small>`, bEtf:'Investendo in ETF <small>media storica 7% · forbice 5–9%</small>',
+      today:v=>`Oggi hai ${v}`,
+      verdict:(hasLoss,loss,etfGain)=>hasLoss
+        ?`Sul conto corrente perderesti circa <b class="loss">${loss}</b> di potere d’acquisto. Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di oggi, in euro di oggi.`
+        :`Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di oggi, in euro di oggi.`,
+      calcNote:'Inflazione al 2% l’anno. Prima di tasse e costi. I rendimenti degli ETF non sono garantiti e cambiano ogni anno; qui sono medie costanti.',
+      whenH:'Quando tenerli in banca, e quando investire in ETF',
+      keepH:'Tienili in banca se…',
+      keepL:'<li>Sono il tuo <b>fondo emergenza</b>: circa 6 mesi di spese.</li><li>Ti servono entro <b>3–5 anni</b>: anticipo della casa, auto, studi.</li><li>Un calo temporaneo del 30% ti farebbe vendere in preda al panico.</li>',
+      etfH:'Investire in ETF ha senso se…',
+      etfL:'<li>Non ti servono per <b>10 anni o più</b>.</li><li>Hai già il fondo emergenza.</li><li>Riesci a lasciarli investiti anche quando i mercati scendono.</li>',
+      cmpH:'Le differenze in breve',
+      cmpNote:'Le regole fiscali indicate sono quelle italiane per le persone fisiche. Non è consulenza finanziaria.',
+      cols:['','Conto corrente','Conto deposito','Investire in ETF'],
+      rows:[
+        ['Rendimento','Circa 0%','Fisso e noto in anticipo','Variabile; circa 7% l’anno di media nel lungo periodo, non garantito'],
+        ['Rischio','Nessuno, entro la garanzia dei depositi','Nessuno, entro la garanzia dei depositi','Può scendere molto nel breve periodo'],
+        ['Protezione','Garanzia dei depositi fino a 100.000 € per persona e per banca','Come il conto corrente','Non è un deposito. Le quote dell’ETF restano tue anche se il broker fallisce, perché sono tenute separate'],
+        ['Disponibilità','Sempre','Spesso vincolato fino alla scadenza','Vendi in qualsiasi giorno di borsa, soldi in 2–3 giorni'],
+        ['Costi','Canone del conto','Spesso nessuno','Costo annuo del fondo (TER) 0,1–0,3% più commissioni del broker'],
+        ['Tasse','26% sugli interessi; bollo di 34,20 € l’anno se la giacenza media supera 5.000 €','26% sugli interessi; bollo dello 0,2% l’anno','26% sui guadagni quando vendi; bollo dello 0,2% l’anno']
+      ],
+      faqH:'Domande',
+      q1:'Il conto deposito è sicuro?',
+      a1:'Nell’Unione europea i depositi sono garantiti fino a 100.000 € per persona e per banca, conti correnti e conti deposito compresi. Sopra quella cifra conviene dividere i soldi tra più banche.',
+      q2:'Posso fare metà e metà?',
+      a2:'Sì, ed è spesso la scelta più sensata: fondo emergenza e soldi che ti servono a breve in banca o su un conto deposito, la parte di lungo periodo investita in ETF.',
+      q3:'E se i mercati crollano appena inizio a investire in ETF?',
+      a3:'Può succedere. Per ridurre il rischio puoi investire una cifra grande in 6–12 rate mensili invece che tutta in un giorno. E investi solo soldi che non ti servono per almeno 10 anni.',
+      nextH:'Prossimo passo: il tuo primo piano per investire in ETF',
+      next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.',
+      nextBtn:'Crea il mio piano',
+      fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Stime educative con rendimenti medi costanti, prima di tasse e costi. Investire in ETF comporta il rischio di perdere denaro. Verifica le regole o parla con un consulente qualificato.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES',
+      title:'¿Dinero en el banco o invertir en ETF? | Your ETF Plan',
+      badge:'Tu caso · dinero en el banco',
+      h1:'¿Dinero parado en el banco o <em>invertir en ETF</em>?',
+      sub:'¿Tienes ahorros en la cuenta? Mira en qué se convierten en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy, es decir, descontando la inflación.',
+      illAlt:'Un banco con una pila de monedas que se encoge, junto a un tarro donde crece un árbol',
+      calcH:'Tus números',
+      lAmount:'Dinero en el banco hoy', lYears:'Durante cuántos años', lRate:'Interés del depósito',
+      rateNote:'Interés de ejemplo, pon el que te ofrece tu banco. La cuenta corriente se calcula al 0%.',
+      years:n=>n===1?'1 año':n+' años',
+      resHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
+      bCur:'Cuenta corriente', bDep:r=>`Depósito <small>al ${r} anual</small>`, bEtf:'Invirtiendo en ETF <small>media histórica 7% · horquilla 5–9%</small>',
+      today:v=>`Hoy tienes ${v}`,
+      verdict:(hasLoss,loss,etfGain)=>hasLoss
+        ?`En la cuenta corriente perderías unos <b class="loss">${loss}</b> de poder adquisitivo. Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más que hoy, en euros de hoy.`
+        :`Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más que hoy, en euros de hoy.`,
+      calcNote:'Inflación del 2% anual. Antes de impuestos y costes. Las rentabilidades de los ETF no están garantizadas y cambian cada año; aquí son medias constantes.',
+      whenH:'Cuándo dejarlo en el banco y cuándo invertir en ETF',
+      keepH:'Déjalo en el banco si…',
+      keepL:'<li>Es tu <b>fondo de emergencia</b>: unos 6 meses de gastos.</li><li>Lo vas a necesitar en <b>3–5 años</b>: entrada de una casa, coche, estudios.</li><li>Una caída temporal del 30% te haría vender con pánico.</li>',
+      etfH:'Invertir en ETF tiene sentido si…',
+      etfL:'<li>No vas a necesitar el dinero en <b>10 años o más</b>.</li><li>Ya tienes el fondo de emergencia.</li><li>Puedes dejarlo invertido aunque los mercados bajen.</li>',
+      cmpH:'Las diferencias, de un vistazo',
+      cmpNote:'La fiscalidad indicada es la española para personas físicas residentes. No es asesoramiento financiero.',
+      cols:['','Cuenta corriente','Depósito','Invertir en ETF'],
+      rows:[
+        ['Rentabilidad','Cerca del 0%','Fija y conocida de antemano','Variable; cerca del 7% anual de media a largo plazo, no garantizada'],
+        ['Riesgo','Ninguno, dentro de la garantía de depósitos','Ninguno, dentro de la garantía de depósitos','Puede bajar mucho a corto plazo'],
+        ['Protección','Fondo de Garantía de Depósitos hasta 100.000 € por persona y banco','Igual que la cuenta corriente','No es un depósito. Las participaciones del ETF siguen siendo tuyas aunque el bróker quiebre, porque se guardan por separado'],
+        ['Disponibilidad','Siempre','A menudo bloqueado hasta el vencimiento','Vendes cualquier día de bolsa, dinero en 2–3 días'],
+        ['Costes','Comisiones de la cuenta','A menudo ninguno','Coste anual del fondo (TER) 0,1–0,3% más comisiones del bróker'],
+        ['Impuestos','Los intereses tributan entre el 19% y el 30%','Los intereses tributan entre el 19% y el 30%','Las ganancias tributan entre el 19% y el 30% cuando vendes']
+      ],
+      faqH:'Preguntas',
+      q1:'¿Es seguro un depósito?',
+      a1:'En la Unión Europea los depósitos están garantizados hasta 100.000 € por persona y por banco, cuentas corrientes y depósitos incluidos. Por encima de esa cifra conviene repartir el dinero entre varios bancos.',
+      q2:'¿Puedo hacer mitad y mitad?',
+      a2:'Sí, y a menudo es lo más sensato: el fondo de emergencia y el dinero que necesitarás pronto en el banco o en un depósito, y la parte de largo plazo invertida en ETF.',
+      q3:'¿Y si los mercados caen justo cuando empiezo a invertir en ETF?',
+      a3:'Puede pasar. Para reducir ese riesgo puedes invertir una cantidad grande en 6–12 aportaciones mensuales en lugar de todo en un día. E invierte solo dinero que no vayas a necesitar en al menos 10 años.',
+      nextH:'Siguiente paso: tu primer plan para invertir en ETF',
+      next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.',
+      nextBtn:'Crear mi plan',
+      fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero.</strong> Estimaciones educativas con rentabilidades medias constantes, antes de impuestos y costes. Invertir en ETF conlleva el riesgo de perder dinero. Comprueba la normativa o habla con un asesor cualificado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  // Language: fixed by URL on the site (meta page-lang); switched in place in the claude.ai copy.
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
+
+  // Amount slider: curved (cube) scale from 0 to 1 million so small amounts stay precise.
+  function amountFromPos(p){const v=MAX*Math.pow(p/1000,3);const st=v<10000?100:v<100000?1000:v<1000000?5000:10000;return Math.round(v/st)*st}
+
+  function render(){
+    const A=amountFromPos(+$('amount').value), y=+$('years').value, r=+$('rate').value/100;
+    const d=Math.pow(1+INFL,y);
+    const cur=A/d, dep=A*Math.pow(1+r,y)/d, etf=A*Math.pow(1+ETF,y)/d;
+    const lo=A*Math.pow(1+ETF_LO,y)/d, hi=A*Math.pow(1+ETF_HI,y)/d;
+    $('amount-out').textContent=fmt(A);
+    $('tick-min').textContent=fmt(0); $('tick-max').textContent=fmt(MAX);
+    $('years-out').textContent=L.years(y);
+    $('rate-out').textContent=pct(r);
+    $('res-head').textContent=L.resHead(y);
+    $('lab-dep').innerHTML=L.bDep(pct(r));
+    $('lab-etf').innerHTML=L.bEtf;
+    $('v-cur').textContent=fmt(cur); $('v-dep').textContent=fmt(dep);
+    $('v-etf').textContent=fmt(etf);
+    const top=Math.max(etf,A,dep,1)*1.05;
+    [['cur',cur],['dep',dep],['etf',etf]].forEach(([k,v])=>{
+      $('f-'+k).style.width=Math.max(1,v/top*100).toFixed(1)+'%';
+      $('t-'+k).style.left=(A/top*100).toFixed(1)+'%';
+    });
+    $('legend-today').textContent=L.today(fmt(A));
+    $('verdict').innerHTML=A>0?L.verdict(A-cur>=1,fmt(A-cur),fmt(Math.max(0,etf-A))):'';
+    $('v-etf').title=fmt(lo)+' – '+fmt(hi);
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:2});
+    fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('cmp').innerHTML='<thead><tr>'+L.cols.map((c,i)=>i?'<th scope="col">'+c+'</th>':'<td></td>').join('')+'</tr></thead><tbody>'+
+      L.rows.map(r=>'<tr><th scope="row">'+r[0]+'</th>'+r.slice(1).map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody>';
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=FIXED?HOME[lang]:'/';
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  ['amount','years','rate'].forEach(id=>$(id).addEventListener('input',render));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_bank_view']);
+    ['amount','years','rate'].forEach(id=>$(id).addEventListener('input',()=>send(['sc_bank_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_bank',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>

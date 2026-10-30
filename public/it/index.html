@@ -154,6 +154,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 @media (prefers-reduced-motion:reduce){.w-tree-grow{transition:none}.w-pop,.w-float,.w-float2{animation:none}}
 @media print{body *{visibility:hidden}#result,#result *{visibility:visible}#result{position:absolute;inset:0 0 auto 0;box-shadow:none}.w-yrs,.w-actions{display:none!important}}
 
+/* scenario cards */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.case{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:14px;color:var(--ink);text-decoration:none;box-shadow:4px 4px 0 var(--ink);min-width:0}
+.case:hover{background:var(--accent-soft)}
+.case:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.case svg{width:48px;height:48px}
+.case b{display:block;font-family:var(--display);font-size:1.05rem;line-height:1.2}
+.case span.d{display:block;color:var(--muted);font-size:.88rem;margin-top:2px}
+.case .go{font-weight:800;font-size:1.2rem;color:var(--accent)}
+.case.soon{box-shadow:none;border-style:dashed;border-color:var(--line);opacity:.75;cursor:default}
+.case.soon:hover{background:var(--surface)}
+.case .tag{font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:var(--line);color:var(--muted);padding:3px 8px;border-radius:999px;white-space:nowrap}
 /* explainer */
 .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .three b{display:block;font-size:1.02rem;margin-bottom:4px}
@@ -435,6 +447,29 @@ details > div{padding:0 0 14px;color:var(--muted)}
   </section>
 
 
+  <section aria-labelledby="h-cases" id="cases">
+    <h2 id="h-cases" data-t="casesH">Qual è il tuo caso?</h2>
+    <p class="small" data-t="casesSub">Guide brevi con il loro calcolatore, per le domande più comuni su come investire in ETF.</p>
+    <div class="cases">
+      <a class="case" id="case-bank" href="/it/banca-vs-etf/">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 24 32 10l24 14Z" fill="var(--coral)"></path><path class="w-ink" d="M14 28v20M26 28v20M38 28v20M50 28v20" fill="none"></path><rect class="w-ink" x="8" y="48" width="48" height="8" rx="2" fill="var(--surface)"></rect></svg>
+        <span><b data-t="c1t">Soldi in banca o investire in ETF?</b><span class="d" data-t="c1d">Cosa diventano i tuoi risparmi sul conto, su un conto deposito o in ETF.</span></span><span class="go" aria-hidden="true">→</span>
+      </a>
+      <div class="case soon">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M10 30 32 12l22 18" fill="none"></path><rect class="w-ink" x="16" y="28" width="32" height="26" rx="3" fill="var(--sun)"></rect><rect class="w-ink" x="28" y="38" width="9" height="16" fill="var(--surface)"></rect></svg>
+        <span><b data-t="c2t">Comprare casa o affittare e investire in ETF?</b><span class="d" data-t="c2d">Comprare contro affittare e investire la differenza in ETF.</span></span><span class="tag" data-t="soon">In arrivo</span>
+      </div>
+      <div class="case soon">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="12" y="24" width="40" height="30" rx="5" fill="var(--coral)"></rect><path class="w-ink" d="M10 24h44v-8H10Z" fill="var(--sun)"></path><path class="w-ink" d="M32 16v38" fill="none"></path><path class="w-ink" d="M32 16c-6-10-16-6-10 0M32 16c6-10 16-6 10 0" fill="none"></path></svg>
+        <span><b data-t="c3t">Ho ricevuto un'eredità</b><span class="d" data-t="c3d">Soldi o una casa: tenerli o investire in ETF?</span></span><span class="tag" data-t="soon">In arrivo</span>
+      </div>
+      <div class="case soon">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 32 28 16l20 16" fill="none"></path><rect class="w-ink" x="13" y="30" width="30" height="24" rx="3" fill="var(--sky)"></rect><path class="w-ink" d="M44 22h12v10H44Z" fill="var(--surface)"></path><path d="M47 27h6" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"></path></svg>
+        <span><b data-t="c4t">Ho una casa: la affitto o la vendo e investo in ETF?</b><span class="d" data-t="c4d">L'affitto contro la vendita investita in ETF.</span></span><span class="tag" data-t="soon">In arrivo</span>
+      </div>
+    </div>
+  </section>
+
   <section aria-labelledby="h-30">
     <h2 id="h-30" data-t="h30">Gli ETF in 30 secondi</h2>
     <p class="lead" data-t="lead">Guarda cosa succede ai tuoi soldi con un piano di accumulo (PAC) in ETF: ne investi una parte ogni mese invece di lasciarli in banca. Nessuna registrazione, niente da comprare.</p>
@@ -555,6 +590,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
     en:{
       title:`Your ETF Plan`, locale:`en-IE`, taxRate:0.20,
       lead:`See what happens to your money if you invest part of it every month in ETFs instead of leaving it in the bank. A free ETF investment calculator: no sign-up, nothing to buy.`,
+      casesH:`What's your situation?`,
+      casesSub:`Short guides with their own calculator, for the most common questions about investing in ETFs.`,
+      c1t:`Money in the bank or investing in ETFs?`,
+      c1d:`What your savings become in a current account, a deposit or in ETFs.`,
+      c2t:`Buy a home or rent and invest in ETFs?`,
+      c2d:`Owning compared with renting and investing the difference in ETFs.`,
+      c3t:`I received an inheritance`,
+      c3d:`Money or a house: keep it, or invest in ETFs?`,
+      c4t:`I own a house: rent it or sell and invest in ETFs?`,
+      c4d:`Rental income compared with investing the sale in ETFs.`,
+      soon:`Coming soon`,
       h30:`ETFs in 30 seconds`,
       e1:`<b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.`,
       e2:`<b>You buy a bit every month</b>You set up an automatic monthly payment, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
@@ -652,6 +698,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
     it:{
       title:`Il tuo piano ETF · Your ETF Plan`, locale:`it-IT`, taxRate:0.26,
       lead:`Guarda cosa succede ai tuoi soldi con un piano di accumulo (PAC) in ETF: ne investi una parte ogni mese invece di lasciarli in banca. Nessuna registrazione, niente da comprare.`,
+      casesH:`Qual è il tuo caso?`,
+      casesSub:`Guide brevi con il loro calcolatore, per le domande più comuni su come investire in ETF.`,
+      c1t:`Soldi in banca o investire in ETF?`,
+      c1d:`Cosa diventano i tuoi risparmi sul conto, su un conto deposito o in ETF.`,
+      c2t:`Comprare casa o affittare e investire in ETF?`,
+      c2d:`Comprare contro affittare e investire la differenza in ETF.`,
+      c3t:`Ho ricevuto un'eredità`,
+      c3d:`Soldi o una casa: tenerli o investire in ETF?`,
+      c4t:`Ho una casa: la affitto o la vendo e investo in ETF?`,
+      c4d:`L'affitto contro la vendita investita in ETF.`,
+      soon:`In arrivo`,
       h30:`Gli ETF in 30 secondi`,
       e1:`<b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.`,
       e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama PAC, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
@@ -749,6 +806,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
     es:{
       title:`Tu plan ETF · Your ETF Plan`, locale:`es-ES`, taxRate:0.21,
       lead:`Mira qué pasa con tu dinero si inviertes una parte cada mes en ETF en lugar de dejarlo en el banco. Una calculadora gratuita: sin registro y sin nada que comprar.`,
+      casesH:`¿Cuál es tu caso?`,
+      casesSub:`Guías breves con su propia calculadora, para las preguntas más comunes sobre invertir en ETF.`,
+      c1t:`¿Dinero en el banco o invertir en ETF?`,
+      c1d:`En qué se convierten tus ahorros en la cuenta, en un depósito o en ETF.`,
+      c2t:`¿Comprar casa o alquilar e invertir en ETF?`,
+      c2d:`Comprar frente a alquilar e invertir la diferencia en ETF.`,
+      c3t:`He recibido una herencia`,
+      c3d:`Dinero o una casa: ¿quedármelo o invertir en ETF?`,
+      c4t:`Tengo una casa: ¿la alquilo o la vendo e invierto en ETF?`,
+      c4d:`El alquiler frente a la venta invertida en ETF.`,
+      soon:`Próximamente`,
       h30:`Los ETF en 30 segundos`,
       e1:`<b>Una cesta de empresas</b>Un <a class="term" href="#g-etf">ETF</a> contiene cientos o miles de empresas a la vez, como Apple, Nestlé o Toyota. Con una sola compra tienes un trocito de todas.`,
       e2:`<b>Compras un poco cada mes</b>Programas una aportación automática mensual, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
@@ -879,6 +947,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     grp=v=>gf.format(v);
     short=v=>v<=0?'€0':v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    $('case-bank').href=(FIXED?'':'https://youretfplan.com')+({en:'/bank-vs-etf/',it:'/it/banca-vs-etf/',es:'/es/banco-vs-etf/'})[lang];
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');

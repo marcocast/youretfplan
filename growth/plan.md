@@ -39,3 +39,6 @@
 - 2026-10-29: site live at youretfplan.com (EN `/`, IT `/it/`), sitemap submitted to Google Search Console, Cloudflare Web Analytics on, donate button switched off.
 - 2026-10-29: Spanish version live at `/es/` (Spain time zone or Spanish browser → `/es/`).
 - 2026-10-29: anonymous funnel counter and feedback (after results + bottom) live via Worker + D1; privacy line added.
+
+## Scenario pages (agreed with Marco 2026-10-30)
+Order: 1) money in the bank vs investing in ETFs (built, PR), 2) buy a home vs rent and invest in ETFs, 3) inheritance (money or a house), 4) I own a house: rent it or sell and invest in ETFs. Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".
