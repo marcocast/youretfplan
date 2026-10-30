@@ -269,7 +269,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section class="hero" aria-labelledby="h1">
     <span class="badge" data-t="badge">Guía · para empezar desde cero</span>
     <h1 id="h1" data-t="h1">Cómo comprar tu <em>primer ETF</em>, paso a paso</h1>
-    <p class="sub" data-t="sub">Desde elegir el bróker hasta tu primera compra automática. Más o menos una hora en total, sin prisa y sin tecnicismos. Marca cada paso cuando lo hayas hecho.</p>
+    <p class="sub" data-t="sub">Desde elegir el bróker hasta tu primera compra. Más o menos una hora en total, sin prisa y sin tecnicismos. Marca cada paso cuando lo hayas hecho.</p>
     <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Un móvil con la app del bróker y tres pasos numerados que llevan a una bandera">
       <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
       <!-- phone with the broker app -->
@@ -317,8 +317,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <label class="done"><input type="checkbox" data-step="4"><span data-t="done">Hecho</span></label>
     </li>
     <li class="card step" id="s5">
-      <h2><span class="n">5</span><span data-t="s5h">Programa la aportación mensual</span></h2>
-      <div data-t="s5"><p>En la app elige el ETF y luego <b>“plan de inversión”</b> o “inversión periódica”:</p><ul class="check"><li><b>Cantidad</b>: la mensual de tu plan.</li><li><b>Día</b>: justo después de cobrar, así el dinero siempre está.</li><li>Envía dinero al bróker, o programa una transferencia mensual desde tu banco.</li></ul><p>El día elegido el bróker compra solo. A menudo tendrás <b>fracciones de participación</b>: es normal, así funcionan las cantidades pequeñas.</p></div>
+      <h2><span class="n">5</span><span data-t="s5h">Compra, y luego añade cada mes</span></h2>
+      <div data-t="s5"><p>Envía dinero al bróker con una transferencia desde tu banco, busca el ETF por su ISIN y cómpralo.</p><ul class="check"><li><b>Cada mes</b>, después de cobrar, haz lo mismo con la cantidad de tu plan.</li><li>Si una participación del ETF cuesta más de lo que añades, algunos brókers te dejan comprar una <b>fracción</b>; si no, espera al mes siguiente y compra cuando tengas suficiente.</li></ul></div>
       <label class="done"><input type="checkbox" data-step="5"><span data-t="done">Hecho</span></label>
     </li>
     <li class="card step" id="s6">
@@ -337,9 +337,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section aria-labelledby="h-faq">
     <h2 id="h-faq" data-t="faqH">Preguntas</h2>
     <div class="faqs">
-      <details><summary data-t="q1">¿Puedo usar mi banco?</summary><div data-t="a1">Sí, si ofrece ETF y aportaciones periódicas. Compara los costes: muchos bancos cobran custodia anual y una comisión por compra que, con cantidades mensuales pequeñas, cuesta más que el propio ETF.</div></details>
+      <details><summary data-t="q1">¿Puedo usar mi banco?</summary><div data-t="a1">Sí, si ofrece ETF. Compara los costes: muchos bancos cobran custodia anual y una comisión por compra que, con cantidades mensuales pequeñas, cuesta más que el propio ETF.</div></details>
       <details><summary data-t="q2">¿Y si me equivoco de ETF?</summary><div data-t="a2">Con un ETF mundial amplio, barato y grande no hay una elección realmente mala: tienen más o menos las mismas empresas. Importa más elegir uno y empezar que encontrar el perfecto.</div></details>
-      <details><summary data-t="q3">¿Tengo que comprar todos los meses?</summary><div data-t="a3">No. Puedes pausar, cambiar o parar el plan cuando quieras, y vender cualquier día de bolsa abierta. Comprar cada mes solo sirve para que sea automático y para compensar subidas y bajadas.</div></details>
+      <details><summary data-t="q3">¿Tengo que comprar todos los meses?</summary><div data-t="a3">No. Puedes saltarte un mes, cambiar la cantidad o parar cuando quieras, y vender cualquier día de bolsa abierta. Añadir cada mes crea el hábito y compensa subidas y bajadas.</div></details>
     </div>
   </section>
 
@@ -374,7 +374,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     en:{locale:'en-IE', title:'How to buy your first ETF, step by step | Your ETF Plan',
       badge:'Guide · for complete beginners',
       h1:'How to buy your <em>first ETF</em>, step by step',
-      sub:'From choosing a broker to your first automatic purchase. About an hour in total, no rush, no jargon. Tick each step when it’s done.',
+      sub:'From choosing a broker to your first purchase. About an hour in total, no rush, no jargon. Tick each step when it’s done.',
       illAlt:'A phone with a broker app and three numbered steps leading to a flag',
       progH:'Your progress', prog:(d,n)=>d===n?`All ${n} steps done. Well done: now let time do the work.`:`${d} of ${n} steps done.`,
       done:'Done',
@@ -386,16 +386,16 @@ details > div{padding:0 0 14px;color:var(--muted)}
       s3:'<p>It takes <b>10–20 minutes</b> on your phone. You’ll need:</p><ul class="check"><li>An <b>ID document</b> (ID card or passport) and sometimes a selfie.</li><li>Your <b>tax number</b>.</li><li>A <b>bank account (IBAN) in your name</b>, to send money in and out.</li></ul><p>The broker will ask a few questions about your experience. It’s required by EU rules: answer honestly, it’s fine to be a beginner. The account is usually ready in 1–3 days.</p>',
       s4h:'Find your ETF',
       s4:'<p>You don’t need the “best” ETF, just a good one. In the app, search for <b>MSCI World</b> or <b>FTSE All-World</b> (thousands of companies around the world) and pick one that:</p><ul class="check"><li>has <b>“Acc”</b> in the name (it reinvests the dividends for you);</li><li>costs <b>little per year</b>: the “TER” is under 0.25%.</li></ul><p>Write down its <b>ISIN</b>, the 12-character code next to the name, so you can find exactly that one again.</p><p class="note">These are criteria, not a recommendation of a specific ETF.</p>',
-      s5h:'Set up the monthly plan',
-      s5:'<p>In the app, choose the ETF, then <b>“savings plan”</b> or “recurring investment”:</p><ul class="check"><li><b>Amount</b>: the monthly amount from your plan.</li><li><b>Day</b>: right after payday, so the money is always there.</li><li>Send money to the broker, or set a monthly transfer from your bank.</li></ul><p>On the chosen day the broker buys automatically. You’ll often own <b>fractions of a share</b>: that’s normal and how small amounts work.</p>',
+      s5h:'Buy, then add every month',
+      s5:'<p>Send money to the broker with a transfer from your bank, search for the ETF by its ISIN and buy it.</p><ul class="check"><li><b>Every month</b>, after payday, do the same with the amount from your plan.</li><li>If one share of the ETF costs more than you add, some brokers let you buy a <b>fraction</b>; otherwise wait a month and buy when you have enough.</li></ul>',
       s6h:'Then: leave it alone',
       s6:'<p>In the app you’ll see the value in euros and a + or − percentage. Some months it will be red: that’s normal, and with a monthly plan you’re buying at a discount.</p><ul class="check"><li><b>Don’t check it every day.</b> Once every few months is enough.</li><li><b>Once a year</b>: raise the monthly amount if you can.</li><li><b>Don’t sell in a crash.</b> Selling after a fall turns a temporary drop into a real loss.</li></ul>',
       countryH:'Taxes and accounts to check in your country',
       country:'Usually you pay tax only on gains, and only when you sell. Some brokers handle taxes for you; with others you declare them yourself. Rules depend on your country: check before you choose a broker.',
       faqH:'Questions',
-      q1:'Can I use my own bank?', a1:'Yes, if it offers ETFs and monthly plans. Compare the costs: many banks charge a yearly account fee and a fee per purchase that, on small monthly amounts, costs more than the ETF itself.',
+      q1:'Can I use my own bank?', a1:'Yes, if it offers ETFs. Compare the costs: many banks charge a yearly account fee and a fee per purchase that, on small monthly amounts, costs more than the ETF itself.',
       q2:'What if I pick the wrong ETF?', a2:'With a broad world ETF that’s cheap and large, there’s no really wrong choice: they hold much the same companies. Picking one and starting matters more than finding the perfect one.',
-      q3:'Do I have to buy every month?', a3:'No. You can pause, change or stop the plan whenever you want, and sell whenever the market is open. Buying every month simply makes it automatic and evens out the ups and downs.',
+      q3:'Do I have to buy every month?', a3:'No. You can skip a month, change the amount or stop whenever you want, and sell whenever the market is open. Adding every month builds the habit and evens out the ups and downs.',
       nextH:'First, your plan', next:'Answer 3 questions: how much to keep in the bank and how much to invest in ETFs each month. Then come back here and follow the steps.', nextBtn:'Make my plan',
       fbQ:'Was this guide useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
       taxNote:'<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.',
@@ -404,7 +404,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     it:{locale:'it-IT', title:'Come comprare il tuo primo ETF, passo per passo | Your ETF Plan',
       badge:'Guida · per chi parte da zero',
       h1:'Come comprare il tuo <em>primo ETF</em>, passo per passo',
-      sub:'Dalla scelta del broker al primo acquisto automatico. Circa un’ora in tutto, senza fretta e senza paroloni. Spunta ogni passo quando l’hai fatto.',
+      sub:'Dalla scelta del broker al tuo primo acquisto. Circa un’ora in tutto, senza fretta e senza paroloni. Spunta ogni passo quando l’hai fatto.',
       illAlt:'Un telefono con l’app del broker e tre passi numerati che portano a una bandierina',
       progH:'A che punto sei', prog:(d,n)=>d===n?`Tutti e ${n} i passi fatti. Ottimo: ora lascia lavorare il tempo.`:`${d} passi su ${n} fatti.`,
       done:'Fatto',
@@ -416,16 +416,16 @@ details > div{padding:0 0 14px;color:var(--muted)}
       s3:'<p>Ci vogliono <b>10–20 minuti</b> dal telefono. Ti servono:</p><ul class="check"><li>Un <b>documento</b> (carta d’identità o passaporto) e a volte un selfie.</li><li>Il <b>codice fiscale</b>.</li><li>Un <b>conto (IBAN) intestato a te</b>, per mandare e ritirare i soldi.</li></ul><p>Il broker ti farà qualche domanda sulla tua esperienza: è obbligatorio per legge (questionario MiFID). Rispondi onestamente, va benissimo essere principianti. Di solito il conto è pronto in 1–3 giorni.</p>',
       s4h:'Trova il tuo ETF',
       s4:'<p>Non serve l’ETF “migliore”, basta uno buono. Nell’app cerca <b>MSCI World</b> o <b>FTSE All-World</b> (migliaia di aziende in tutto il mondo) e prendine uno che:</p><ul class="check"><li>abbia <b>“Acc”</b> nel nome (reinveste i dividendi per te);</li><li>costi <b>poco all’anno</b>: il “TER” sotto lo 0,25%.</li></ul><p>Segnati il suo <b>ISIN</b>, il codice di 12 caratteri accanto al nome, così lo ritrovi sempre.</p><p class="note">Sono criteri, non il consiglio di un ETF preciso.</p>',
-      s5h:'Imposta il PAC',
-      s5:'<p>Nell’app scegli l’ETF, poi <b>“piano di accumulo”</b> o “investimento ricorrente”:</p><ul class="check"><li><b>Importo</b>: quello mensile del tuo piano.</li><li><b>Giorno</b>: subito dopo lo stipendio, così i soldi ci sono sempre.</li><li>Manda i soldi al broker, o imposta un bonifico mensile automatico dalla tua banca.</li></ul><p>Nel giorno scelto il broker compra da solo. Spesso avrai <b>frazioni di quota</b>: è normale, è così che funzionano le cifre piccole.</p>',
+      s5h:'Compra, poi aggiungi ogni mese',
+      s5:'<p>Manda i soldi al broker con un bonifico dalla tua banca, cerca l’ETF con il suo ISIN e compralo.</p><ul class="check"><li><b>Ogni mese</b>, dopo lo stipendio, rifai lo stesso con la cifra del tuo piano.</li><li>Se una quota dell’ETF costa più di quello che aggiungi, alcuni broker ti fanno comprare una <b>frazione</b>; altrimenti aspetti il mese dopo e compri quando hai abbastanza.</li></ul>',
       s6h:'Poi: lascialo andare',
       s6:'<p>Nell’app vedrai il valore in euro e una percentuale + o −. Alcuni mesi sarà rosso: è normale, e con il PAC stai comprando a sconto.</p><ul class="check"><li><b>Non guardarlo ogni giorno.</b> Una volta ogni qualche mese basta.</li><li><b>Una volta l’anno</b>: aumenta l’importo mensile se puoi.</li><li><b>Non vendere nei crolli.</b> Vendere dopo un calo trasforma una discesa temporanea in una perdita vera.</li></ul>',
       countryH:'Tasse e conto: cosa sapere in Italia',
       country:'<b>Broker italiano in regime amministrato:</b> il broker trattiene il 26% sui guadagni quando vendi e paga il bollo dello 0,2% l’anno; tu non dichiari niente. <b>Broker estero:</b> di solito niente regime amministrato. Allora tocca a te: quadro RW per gli investimenti all’estero, IVAFE dello 0,2% l’anno pagata con F24, il 26% sui guadagni nel quadro RT quando vendi. Si può fare, ma spesso serve un commercialista.',
       faqH:'Domande',
-      q1:'Posso usare la mia banca?', a1:'Sì, se offre ETF e PAC. Confronta i costi: molte banche hanno un canone annuo e una commissione per ogni acquisto che, su cifre mensili piccole, costa più dell’ETF stesso.',
+      q1:'Posso usare la mia banca?', a1:'Sì, se offre ETF. Confronta i costi: molte banche hanno un canone annuo e una commissione per ogni acquisto che, su cifre mensili piccole, costa più dell’ETF stesso.',
       q2:'E se sbaglio ETF?', a2:'Con un ETF mondiale ampio, economico e grande non c’è una scelta davvero sbagliata: contengono più o meno le stesse aziende. Conta più sceglierne uno e iniziare che trovare quello perfetto.',
-      q3:'Devo comprare per forza ogni mese?', a3:'No. Puoi sospendere, cambiare o fermare il PAC quando vuoi, e vendere in qualsiasi giorno di borsa aperta. Comprare ogni mese serve solo a renderlo automatico e a compensare su e giù.',
+      q3:'Devo comprare per forza ogni mese?', a3:'No. Puoi saltare un mese, cambiare cifra o fermarti quando vuoi, e vendere in qualsiasi giorno di borsa aperta. Aggiungere ogni mese serve a creare l’abitudine e a compensare su e giù.',
       nextH:'Prima, il tuo piano', next:'Rispondi a 3 domande: quanto tenere in banca e quanto investire in ETF ogni mese. Poi torna qui e segui i passi.', nextBtn:'Crea il mio piano',
       fbQ:'Ti è stata utile questa guida?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
       taxNote:'<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.',
@@ -434,7 +434,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     es:{locale:'es-ES', title:'Cómo comprar tu primer ETF, paso a paso | Your ETF Plan',
       badge:'Guía · para empezar desde cero',
       h1:'Cómo comprar tu <em>primer ETF</em>, paso a paso',
-      sub:'Desde elegir el bróker hasta tu primera compra automática. Más o menos una hora en total, sin prisa y sin tecnicismos. Marca cada paso cuando lo hayas hecho.',
+      sub:'Desde elegir el bróker hasta tu primera compra. Más o menos una hora en total, sin prisa y sin tecnicismos. Marca cada paso cuando lo hayas hecho.',
       illAlt:'Un móvil con la app del bróker y tres pasos numerados que llevan a una bandera',
       progH:'Cómo vas', prog:(d,n)=>d===n?`Los ${n} pasos hechos. Bien hecho: ahora deja que el tiempo trabaje.`:`${d} de ${n} pasos hechos.`,
       done:'Hecho',
@@ -446,16 +446,16 @@ details > div{padding:0 0 14px;color:var(--muted)}
       s3:'<p>Se tarda <b>10–20 minutos</b> desde el móvil. Necesitas:</p><ul class="check"><li>Tu <b>DNI o NIE</b> (o pasaporte) y a veces un selfi.</li><li>Tu <b>número de identificación fiscal</b>.</li><li>Una <b>cuenta (IBAN) a tu nombre</b>, para enviar y retirar dinero.</li></ul><p>El bróker te hará unas preguntas sobre tu experiencia: es obligatorio por ley (test MiFID). Responde con sinceridad, no pasa nada por ser principiante. La cuenta suele estar lista en 1–3 días.</p>',
       s4h:'Encuentra tu ETF',
       s4:'<p>No necesitas el “mejor” ETF, basta con uno bueno. En la app busca <b>MSCI World</b> o <b>FTSE All-World</b> (miles de empresas de todo el mundo) y elige uno que:</p><ul class="check"><li>tenga <b>“Acc”</b> en el nombre (reinvierte los dividendos por ti);</li><li>cueste <b>poco al año</b>: el “TER” por debajo del 0,25%.</li></ul><p>Apunta su <b>ISIN</b>, el código de 12 caracteres junto al nombre, para encontrarlo siempre.</p><p class="note">Son criterios, no la recomendación de un ETF concreto.</p>',
-      s5h:'Programa la aportación mensual',
-      s5:'<p>En la app elige el ETF y luego <b>“plan de inversión”</b> o “inversión periódica”:</p><ul class="check"><li><b>Cantidad</b>: la mensual de tu plan.</li><li><b>Día</b>: justo después de cobrar, así el dinero siempre está.</li><li>Envía dinero al bróker, o programa una transferencia mensual desde tu banco.</li></ul><p>El día elegido el bróker compra solo. A menudo tendrás <b>fracciones de participación</b>: es normal, así funcionan las cantidades pequeñas.</p>',
+      s5h:'Compra, y luego añade cada mes',
+      s5:'<p>Envía dinero al bróker con una transferencia desde tu banco, busca el ETF por su ISIN y cómpralo.</p><ul class="check"><li><b>Cada mes</b>, después de cobrar, haz lo mismo con la cantidad de tu plan.</li><li>Si una participación del ETF cuesta más de lo que añades, algunos brókers te dejan comprar una <b>fracción</b>; si no, espera al mes siguiente y compra cuando tengas suficiente.</li></ul>',
       s6h:'Después: déjalo trabajar',
       s6:'<p>En la app verás el valor en euros y un porcentaje + o −. Algunos meses estará en rojo: es normal, y con la aportación mensual estás comprando más barato.</p><ul class="check"><li><b>No lo mires todos los días.</b> Con una vez cada pocos meses basta.</li><li><b>Una vez al año</b>: sube la aportación si puedes.</li><li><b>No vendas en las caídas.</b> Vender tras una caída convierte una bajada temporal en una pérdida real.</li></ul>',
       countryH:'Impuestos y cuenta: qué saber en España',
       country:'<b>Al vender</b>, la ganancia tributa en la base del ahorro, del 19% al 30%. <b>Bróker español:</b> informa a Hacienda y lo verás en tus datos fiscales. <b>Bróker extranjero:</b> lo declaras tú, y si tus valores en el extranjero superan 50.000 € tienes que presentar el Modelo 720 (informativo). <b>Ojo:</b> los fondos indexados permiten traspasos de un fondo a otro sin pagar impuestos; los ETF no. Para muchos principiantes en España un fondo indexado mundial es igual de bueno.',
       faqH:'Preguntas',
-      q1:'¿Puedo usar mi banco?', a1:'Sí, si ofrece ETF y aportaciones periódicas. Compara los costes: muchos bancos cobran custodia anual y una comisión por compra que, con cantidades mensuales pequeñas, cuesta más que el propio ETF.',
+      q1:'¿Puedo usar mi banco?', a1:'Sí, si ofrece ETF. Compara los costes: muchos bancos cobran custodia anual y una comisión por compra que, con cantidades mensuales pequeñas, cuesta más que el propio ETF.',
       q2:'¿Y si me equivoco de ETF?', a2:'Con un ETF mundial amplio, barato y grande no hay una elección realmente mala: tienen más o menos las mismas empresas. Importa más elegir uno y empezar que encontrar el perfecto.',
-      q3:'¿Tengo que comprar todos los meses?', a3:'No. Puedes pausar, cambiar o parar el plan cuando quieras, y vender cualquier día de bolsa abierta. Comprar cada mes solo sirve para que sea automático y para compensar subidas y bajadas.',
+      q3:'¿Tengo que comprar todos los meses?', a3:'No. Puedes saltarte un mes, cambiar la cantidad o parar cuando quieras, y vender cualquier día de bolsa abierta. Añadir cada mes crea el hábito y compensa subidas y bajadas.',
       nextH:'Primero, tu plan', next:'Responde 3 preguntas: cuánto dejar en el banco y cuánto invertir en ETF cada mes. Luego vuelve aquí y sigue los pasos.', nextBtn:'Crear mi plan',
       fbQ:'¿Te ha sido útil esta guía?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
       taxNote:'<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.',
