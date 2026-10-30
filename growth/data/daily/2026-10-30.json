@@ -1,13 +1,275 @@
 {
- "generated_at": "2026-10-30T07:51:01+00:00",
+ "generated_at": "2026-10-30T08:20:02+00:00",
  "range": {
   "from": "2026-09-25",
   "to": "2026-10-30"
  },
- "errors": [
-  "missing settings: CF_API_TOKEN",
-  "web analytics: HTTP 400 on /graphql: {\"success\":false,\"errors\":[{\"code\":9106,\"message\":\"Missing X-Auth-Key, X-Auth-Email or Authorization headers\"}],\"messages\":[],\"result\":null}\n",
-  "funnel: HTTP 401 on /accounts/f133aba3f4f814dc075fe01d651b0908/d1/database/072aab7d-60cc-45cc-8203-670937089572/query: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}",
-  "feedback: HTTP 401 on /accounts/f133aba3f4f814dc075fe01d651b0908/d1/database/072aab7d-60cc-45cc-8203-670937089572/query: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}"
- ]
+ "errors": [],
+ "web_analytics": {
+  "by_day": [
+   {
+    "date": "2026-10-29",
+    "pageviews": 70,
+    "visits": 30
+   }
+  ],
+  "last_7_days": {
+   "pages": [
+    {
+     "requestPath": "/",
+     "pageviews": 59,
+     "visits": 47
+    },
+    {
+     "requestPath": "/it/",
+     "pageviews": 22,
+     "visits": 3
+    },
+    {
+     "requestPath": "/es/",
+     "pageviews": 9,
+     "visits": 0
+    },
+    {
+     "requestPath": "/v2/",
+     "pageviews": 5,
+     "visits": 5
+    }
+   ],
+   "referrers": [
+    {
+     "refererHost": "",
+     "pageviews": 55,
+     "visits": 55
+    },
+    {
+     "refererHost": "www.youretfplan.com",
+     "pageviews": 35,
+     "visits": 0
+    },
+    {
+     "refererHost": "youretfplan.com",
+     "pageviews": 5,
+     "visits": 0
+    }
+   ],
+   "countries": [
+    {
+     "countryName": "FR",
+     "pageviews": 29,
+     "visits": 9
+    },
+    {
+     "countryName": "ES",
+     "pageviews": 25,
+     "visits": 9
+    },
+    {
+     "countryName": "US",
+     "pageviews": 25,
+     "visits": 25
+    },
+    {
+     "countryName": "PL",
+     "pageviews": 4,
+     "visits": 4
+    },
+    {
+     "countryName": "DE",
+     "pageviews": 4,
+     "visits": 4
+    },
+    {
+     "countryName": "IT",
+     "pageviews": 3,
+     "visits": 1
+    },
+    {
+     "countryName": "NL",
+     "pageviews": 2,
+     "visits": 0
+    },
+    {
+     "countryName": "AE",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "SG",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "CA",
+     "pageviews": 1,
+     "visits": 1
+    }
+   ],
+   "devices": [
+    {
+     "deviceType": "mobile",
+     "pageviews": 43,
+     "visits": 27
+    },
+    {
+     "deviceType": "desktop",
+     "pageviews": 29,
+     "visits": 26
+    },
+    {
+     "deviceType": "tablet",
+     "pageviews": 23,
+     "visits": 2
+    }
+   ]
+  }
+ },
+ "funnel": {
+  "note": "Counts are unique visitors per day per step. Monthly figures sum daily uniques, so a person active on 3 days counts 3 times.",
+  "by_day": [
+   {
+    "day": "2026-10-29",
+    "view": 16,
+    "calc_seen": 15,
+    "active": 3,
+    "explore": 4,
+    "start_seen": 8,
+    "faq": 3,
+    "bottom": 7,
+    "feedback": 2
+   },
+   {
+    "day": "2026-10-30",
+    "view": 4,
+    "calc_seen": 4,
+    "active": 0,
+    "explore": 1,
+    "start_seen": 1,
+    "faq": 1,
+    "bottom": 1,
+    "feedback": 0
+   }
+  ],
+  "last_7_days_breakdown": [
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "desktop",
+    "source": "direct",
+    "n": 7
+   },
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 7
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "desktop",
+    "source": "direct",
+    "n": 6
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 6
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "active",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "es",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   }
+  ],
+  "monthly_active": [
+   {
+    "month": "2026-10",
+    "active_user_days": 3
+   }
+  ]
+ },
+ "new_feedback": 3
 }
