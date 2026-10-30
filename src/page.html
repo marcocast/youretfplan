@@ -979,10 +979,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
   // full calculator below; the answers are carried into it.
   const WQ=[
     {key:'spend', min:300, max:6000, step:50, ill:'#i-bag'},
-    {key:'cash',  min:0, max:100000, step:500, ill:'#i-pig'},
+    {key:'cash',  min:0, max:1000000, curve:true, ill:'#i-pig'},
     {key:'monthly', min:0, max:3000, step:25, ill:'#i-jar'}];
   const wAns={spend:1500,cash:8000,monthly:300};
   let wStep=0, wYears=10;
+  // Money in the bank: curved slider (position 0-1000, value = max·(pos/1000)³) so small amounts stay easy to pick up to 1 million.
+  const curveVal=(q,p)=>{const v=q.max*Math.pow(p/1000,3);const st=v<10000?100:v<100000?500:v<500000?5000:10000;return Math.min(q.max,Math.round(v/st)*st)};
+  const curvePos=(q,v)=>Math.round(1000*Math.cbrt(Math.max(0,v)/q.max));
 
   function showStep(focus){
     const q=WQ[wStep], t=W.qs[wStep], r=$('q-range');
@@ -990,9 +993,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
     document.querySelectorAll('.w-dots i').forEach((d,i)=>d.classList.toggle('on',i<=wStep));
     $('q-h').textContent=t.h; $('q-p').textContent=t.p;
     $('q-ill').innerHTML='<use href="'+q.ill+'"/>';
-    r.min=q.min; r.max=q.max; r.step=q.step; r.value=wAns[q.key];
+    if(q.curve){r.min=0;r.max=1000;r.step=1;r.value=curvePos(q,wAns[q.key])}else{r.min=q.min;r.max=q.max;r.step=q.step;r.value=wAns[q.key]}
     $('tk-lo').textContent=fmt(q.min); $('tk-hi').textContent=fmt(q.max)+(q.key==='cash'?'+':'');
-    $('q-val').textContent=fmt(wAns[q.key]);
+    $('q-val').textContent=fmt(wAns[q.key]); r.setAttribute('aria-valuetext',fmt(wAns[q.key]));
     $('back').style.visibility=wStep?'visible':'hidden';
     $('next-txt').textContent=wStep===2?W.last:W.next;
     if(focus){const w=$('wizard');w.classList.remove('w-pop');void w.offsetWidth;w.classList.add('w-pop');w.scrollIntoView({block:'start'});r.focus({preventScroll:true})}
@@ -1032,7 +1035,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('fruit').style.opacity=wYears>=10?1:0;
   }
 
-  $('q-range').addEventListener('input',e=>{wAns[WQ[wStep].key]=+e.target.value;$('q-val').textContent=fmt(wAns[WQ[wStep].key]);track('active')});
+  $('q-range').addEventListener('input',e=>{const q=WQ[wStep];wAns[q.key]=q.curve?curveVal(q,+e.target.value):+e.target.value;$('q-val').textContent=fmt(wAns[q.key]);e.target.setAttribute('aria-valuetext',fmt(wAns[q.key]));track('active')});
   $('start').addEventListener('click',()=>{track('hook');wStep=0;$('wizard').hidden=false;$('result').hidden=true;showStep(true)});
   $('next').addEventListener('click',()=>{
     if(wStep<2){wStep++;showStep(true);return}
