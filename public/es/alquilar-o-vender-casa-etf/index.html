@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="es">
+<title>Tengo una casa: ¿la alquilo o la vendo e invierto en ETF? | Your ETF Plan</title>
+<meta name="description" content="Calculadora gratuita: dejar la casa vacía, alquilarla o venderla e invertir en ETF. Rentabilidad neta del alquiler, impuestos de la venta e ingreso mensual, en euros de hoy.">
+<link rel="canonical" href="https://youretfplan.com/es/alquilar-o-vender-casa-etf/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/rent-or-sell-house-etf/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/affittare-o-vendere-casa-etf/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/alquilar-o-vender-casa-etf/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/rent-or-sell-house-etf/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/es/alquilar-o-vender-casa-etf/">
+<meta property="og:title" content="Tengo una casa: ¿la alquilo o la vendo e invierto en ETF? | Your ETF Plan">
+<meta property="og:description" content="Calculadora gratuita: dejar la casa vacía, alquilarla o venderla e invertir en ETF. Rentabilidad neta del alquiler, impuestos de la venta e ingreso mensual, en euros de hoy.">
+<meta property="og:image" content="https://youretfplan.com/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* Scenario 4: a house you own: rent it out or sell it and invest in ETFs. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Tengo una casa: ¿la alquilo o la vendo e invierto en ETF?",
+  "url": "https://youretfplan.com/es/alquilar-o-vender-casa-etf/",
+  "description": "Calculadora gratuita: dejar la casa vacía, alquilarla o venderla e invertir en ETF. Rentabilidad neta del alquiler, impuestos de la venta e ingreso mensual, en euros de hoy.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "¿Y si todavía tengo hipoteca?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Mejor vender ahora o esperar a que suban los precios?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Invierto todo el dinero de la venta de golpe?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-key" viewBox="0 0 64 64"><circle class="w-ink" cx="20" cy="32" r="12" fill="var(--sun)"></circle><circle cx="20" cy="32" r="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"></circle><path class="w-ink" d="M32 32h24M48 32v8M54 32v6" fill="none" stroke-width="4"></path></symbol>
+    <symbol id="i-tree" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="22" ry="4" fill="var(--mint)"></ellipse><path class="w-ink" d="M32 56V30" fill="none" stroke-width="4"></path><circle class="w-ink" cx="32" cy="22" r="14" fill="var(--leaf)"></circle><circle class="w-ink" cx="20" cy="32" r="8" fill="var(--leaf2)"></circle><circle cx="28" cy="18" r="3" fill="var(--sun)"></circle><circle cx="38" cy="26" r="3" fill="var(--coral)"></circle></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/es/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="false">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="true">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Tu caso · una casa que ya tienes</span>
+    <h1 id="h1" data-t="h1">Tengo una casa: ¿la alquilo o <em>la vendo e invierto en ETF?</em></h1>
+    <p class="sub" data-t="sub">El piso del que te mudaste, una segunda vivienda, una casa que no usas. Quedártela, alquilarla o venderla e invertir el dinero en ETF: cuánto podría valer cada opción, en euros de hoy.</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Una casa con dos flechas: una hacia una llave, para alquilarla, y otra hacia un tarro donde crece un árbol, para venderla e invertir en ETF">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <!-- the house you own -->
+      <path class="w-ink" d="M20 96 86 42l66 54" fill="none" stroke-width="4"></path>
+      <rect class="w-ink" x="36" y="88" width="100" height="90" rx="6" fill="var(--sky)"></rect>
+      <rect class="w-ink" x="72" y="124" width="28" height="54" rx="3" fill="var(--surface)"></rect>
+      <rect class="w-ink" x="48" y="104" width="18" height="16" rx="2" fill="var(--surface)"></rect>
+      <rect class="w-ink" x="106" y="104" width="18" height="16" rx="2" fill="var(--surface)"></rect>
+      <!-- arrows -->
+      <path d="M158 100c22-24 44-34 70-36" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"></path>
+      <path d="M158 146c24 8 46 10 76 6" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"></path>
+      <!-- key = rent it out -->
+      <circle class="w-ink" cx="252" cy="62" r="16" fill="var(--sun)"></circle>
+      <circle cx="252" cy="62" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"></circle>
+      <path class="w-ink" d="M268 62h52M306 62v12M316 62v9" fill="none" stroke-width="5"></path>
+      <!-- jar with tree = sell and invest in ETFs -->
+      <rect class="w-ink" x="250" y="124" width="64" height="54" rx="14" fill="var(--surface)"></rect>
+      <ellipse class="w-ink" cx="282" cy="168" rx="22" ry="5" fill="var(--sun)"></ellipse>
+      <path class="w-ink" d="M282 162V118" fill="none" stroke-width="4"></path>
+      <circle class="w-ink" cx="282" cy="110" r="16" fill="var(--leaf)"></circle>
+      <circle class="w-ink" cx="300" cy="122" r="9" fill="var(--leaf2)"></circle>
+      <circle cx="276" cy="104" r="3.5" fill="var(--sun)"></circle><circle cx="288" cy="114" r="3.5" fill="var(--coral)"></circle>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH">Tu casa</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hvalue" data-t="lValue">Lo que vale hoy la casa</label><span class="ctrl-val num" id="hvalue-out">250.000&nbsp;€</span></div>
+      <input type="range" id="hvalue" min="30000" max="2000000" step="5000" value="250000">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hrent" data-t="lHrent">Alquiler que podrías cobrar</label><span class="ctrl-val num" id="hrent-out">900&nbsp;€</span></div>
+      <input type="range" id="hrent" min="0" max="5000" step="25" value="900">
+      <p class="note" data-t="hrentNote">Al mes, antes de impuestos. Mira anuncios de casas parecidas en la zona.</p>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hyears" data-t="lYears">Durante cuántos años</label><span class="ctrl-val num" id="hyears-out">15 años</span></div>
+      <input type="range" id="hyears" min="1" max="30" step="1" value="15">
+    </div>
+    <details class="assume">
+      <summary data-t="assumeH">Venta, gastos y supuestos (toca para cambiarlos)</summary>
+      <div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="paid" data-t="lPaid">Lo que pagaste por ella</label><span class="ctrl-val num" id="paid-out">180.000&nbsp;€</span></div>
+          <input type="range" id="paid" min="0" max="2000000" step="5000" value="180000">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="gtax" data-t="lGtax">Impuestos sobre la ganancia al vender</label><span class="ctrl-val num" id="gtax-out">21&nbsp;%</span></div>
+          <input type="range" id="gtax" min="0" max="30" step="1" value="0">
+          <p class="note" data-t="gtaxNote">En España la ganancia tributa en el IRPF del ahorro, del 19% al 30%. Exenta si tienes más de 65 años y es tu vivienda habitual, o si reinviertes en una nueva vivienda habitual en 2 años.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Gastos de venta</label><span class="ctrl-val num" id="scost-out">5&nbsp;%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <p class="note" data-t="scostNote">Inmobiliaria, plusvalía municipal y otros gastos al vender, en % del precio.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="ocost" data-t="lOcost">Gastos anuales del propietario</label><span class="ctrl-val num" id="ocost-out">1&nbsp;%</span></div>
+          <input type="range" id="ocost" min="0" max="3" step="0.1" value="1">
+          <p class="note" data-t="ocostNote">Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor. Los pagas esté vacía o alquilada.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="rtax" data-t="lRtax">Impuestos sobre el alquiler</label><span class="ctrl-val num" id="rtax-out">15&nbsp;%</span></div>
+          <input type="range" id="rtax" min="0" max="45" step="1" value="21">
+          <p class="note" data-t="rtaxNote">El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Meses vacía al año</label><span class="ctrl-val num" id="empty-out">1</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Revalorización de la casa al año</label><span class="ctrl-val num" id="hgrow-out">2&nbsp;%</span></div>
+          <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
+        </div>
+      </div>
+    </details>
+    <div class="chips" id="h-chips"><span class="chip warn">Rentabilidad neta del alquiler 2,4&nbsp;% · baja</span></div>
+    <p class="res-head" id="h-head">Dentro de 15 años, lo que tendrías, en euros de hoy:</p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" data-t="bEmpty">Dejarla vacía <small>valor de la casa − gastos pagados</small></span><span class="val num" id="v-empty">217.583&nbsp;€</span><div class="track"><div class="fill" id="f-empty" style="background: var(--bank); width: 44.8%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bLet">Alquilarla <small>valor de la casa + alquiler neto invertido en ETF</small></span><span class="val num" id="v-let">377.663&nbsp;€</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 77.8%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bSell">Venderla e invertir en ETF <small>descontando gastos de venta e impuestos sobre la ganancia</small></span><span class="val num" id="v-sell">462.121&nbsp;€</span><div class="track"><div class="fill" id="f-sell" style="background: var(--etf); width: 95.2%;"></div></div></div>
+    </div>
+    <p class="verdict" id="h-verdict"><b class="gain">Venderla e invertir en ETF</b> sale ganando, por unos <b>84.458&nbsp;€</b> sobre la segunda opción.</p>
+    <h3 data-t="incH">Ingreso mensual desde hoy</h3>
+    <div class="income" id="income"><div><b>493&nbsp;€</b><span>al mes del alquiler, descontando impuestos, gastos y meses vacía</span></div><div><b>564&nbsp;€</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%)</span></div></div>
+    <p class="note" id="sale-note">Si vendes hoy tendrías unos 225.425&nbsp;€ para invertir en ETF, tras pagar 12.075&nbsp;€ de impuestos sobre la ganancia.</p>
+    <p class="note" data-t="hNote">En euros de hoy (inflación del 2%). El alquiler sube con la inflación; invertir en ETF rinde de media un 7% anual, no garantizado. No se incluyen los impuestos al vender los ETF más adelante, ni la casa al final.</p>
+  </section>
+
+  <section aria-labelledby="h-when">
+    <h2 id="h-when" data-t="whenH">Cuándo gana alquilarla y cuándo venderla e invertir en ETF</h2>
+    <div class="two">
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Alquilarla suele ganar si…</span></h3><ul data-t="letL"><li>El alquiler neto es al menos el <b>4%</b> del valor al año.</li><li>No te importa ser casero, o pagas a una agencia para que lo haga.</li><li>Quizá quieras volver a vivir en ella algún día.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="sellH">Venderla e invertir en ETF suele ganar si…</span></h3><ul data-t="sellL"><li>El alquiler neto es menor del <b>3%</b> del valor.</li><li>Vienen obras grandes: tejado, fachada, instalaciones.</li><li>La mayor parte de tu patrimonio ya está en casas.</li></ul></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-life">
+    <h2 id="h-life" data-t="lifeH">No es solo cuestión de dinero</h2>
+    <ul class="check" data-t="lifeL"><li><b>Ser casero es un trabajo:</b> inquilinos, reparaciones, impagos, meses vacía.</li><li><b>Una sola cesta:</b> una casa es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li><li><b>Vender lleva tiempo:</b> una casa tarda meses en venderse; los ETF se venden en un día.</li><li><b>Los recuerdos cuentan:</b> si la casa significa mucho para ti, es un buen motivo para quedártela.</li></ul>
+  </section>
+
+  <section aria-labelledby="h-country">
+    <h2 id="h-country" data-t="countryH">Los impuestos a tener en cuenta en España</h2>
+    <div class="country" data-t="country"><b>Alquiler:</b> tributa en el IRPF; las reducciones por alquilar vivienda habitual cambian con el RDL 29/2026 (contratos desde el 1 de diciembre de 2026) y pueden ser muy altas si mantienes o bajas la renta. <b>Vacía:</b> si no es tu vivienda habitual ni está alquilada, pagas en el IRPF una imputación de rentas, en general el 2% del valor catastral (1,1% si está revisado). <b>Venta:</b> la ganancia tributa del 19% al 30%; exenta si tienes más de 65 años y es tu vivienda habitual, o si reinviertes en otra vivienda habitual en 2 años. Además, la <b>plusvalía municipal</b>. Consulta siempre con un gestor.</div>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Preguntas</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">¿Y si todavía tengo hipoteca?</summary><div data-t="a1">Si vendes, la hipoteca se cancela con la venta e inviertes en ETF lo que queda. Si alquilas, el alquiler tiene que cubrir también la cuota. En la práctica: cuanto más bajo sea el tipo de la hipoteca frente al 7%, menos cambia la comparación.</div></details>
+      <details><summary data-t="q2">¿Mejor vender ahora o esperar a que suban los precios?</summary><div data-t="a2">Nadie sabe hacia dónde irán los precios de la vivienda. Si el alquiler neto es bajo, esperar te cuesta cada año el crecimiento perdido invirtiendo en ETF. Prueba el control de “revalorización” para ver cuánto tendrían que subir los precios para compensarlo.</div></details>
+      <details><summary data-t="q3">¿Invierto todo el dinero de la venta de golpe?</summary><div data-t="a3">Históricamente, de golpe salió mejor unas 2 de cada 3 veces. Repartirlo en 6–12 meses cuesta un poco de media, pero se lleva mejor. Antes guarda un fondo de emergencia, e invierte en ETF solo el dinero que no vayas a necesitar en al menos 10 años.</div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Siguiente paso: tu primer plan para invertir en ETF</h2>
+    <p data-t="next">Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.</p>
+    <a class="btn" id="next-btn" href="/es/"><span data-t="nextBtn">Crear mi plan</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">¿Te ha sido útil esta página?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sí, útil">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="No mucho">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">¡Gracias!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>No es asesoramiento financiero ni fiscal.</strong> Estimaciones educativas con rentabilidades medias constantes. Invertir en ETF conlleva el riesgo de perder dinero; los precios y alquileres de la vivienda también pueden bajar. Comprueba la normativa o habla con un asesor cualificado.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/rent-or-sell-house-etf/" hreflang="en" lang="en">English</a> · <a href="/it/affittare-o-vendere-casa-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/alquilar-o-vender-casa-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, ETF=0.07;
+  const PAGE_URLS={en:'/rent-or-sell-house-etf/',it:'/it/affittare-o-vendere-casa-etf/',es:'/es/alquilar-o-vender-casa-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
+  const GTAX={en:20,it:0,es:21};  // default tax on the gain when selling (% of the gain) per language
+
+  const T={
+    en:{locale:'en-IE', title:'I own a house: rent it out or sell it and invest in ETFs? | Your ETF Plan',
+      badge:'Your case · a house you own',
+      h1:'I own a house: rent it out or <em>sell it and invest in ETFs?</em>',
+      sub:'A flat you moved out of, a second home, a house you don’t use. Keep it, rent it out, or sell it and invest the money in ETFs: what each could be worth, in today’s money.',
+      illAlt:'A house with two arrows: one to a key, for renting it out, one to a jar where a tree grows, for selling and investing in ETFs',
+      calcH:'Your house', lValue:'What the house is worth today', lHrent:'Rent you could get', hrentNote:'Per month, before taxes. Check listings for similar homes in the area.',
+      lYears:'For how many years', years:n=>n+(n===1?' year':' years'),
+      assumeH:'Sale, costs and assumptions (tap to change)',
+      lPaid:'What you paid for it', lGtax:'Tax on the gain when you sell', gtaxNote:'It depends on your country, on how long you’ve owned it and on whether it was your home. Check the rules below.',
+      lScost:'Selling costs', scostNote:'Agency, notary and other costs when you sell, as % of the price.',
+      lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value. You pay them whether it’s empty or rented.',
+      lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.',
+      lEmpty:'Months empty per year', lHgrow:'House value growth per year',
+      yield:v=>`Net rental yield ${v}`, yieldGood:'good', yieldLow:'low',
+      hHead:y=>`In ${y===1?'1 year':y+' years'}, what you’d have, in today’s money:`,
+      bEmpty:'Keep it empty <small>house value − costs paid</small>', bLet:'Rent it out <small>house value + net rent invested in ETFs</small>', bSell:'Sell it and invest in ETFs <small>after selling costs and tax on the gain</small>',
+      hBest:{empty:'Keeping it empty',let:'Renting it out',sell:'Selling and investing in ETFs'},
+      hVerdict:(best,d)=>`<b class="gain">${best}</b> comes out ahead, by about <b>${d}</b> over the second option.`,
+      incH:'Monthly income from today',
+      incLet:v=>`<b>${v}</b><span>a month from rent, after tax, costs and empty months</span>`,
+      incSell:v=>`<b>${v}</b><span>a month taking 3% a year from the ETFs (the 3% rule)</span>`,
+      saleNote:(net,tax)=>`If you sell today you’d have about ${net} to invest in ETFs${tax?`, after ${tax} of tax on the gain`:''}.`,
+      hNote:'In today’s money (2% inflation). Rent grows with inflation; investing in ETFs at 7% a year on average, not guaranteed. Taxes on selling the ETFs later, or the house at the end, are not included.',
+      whenH:'When renting it out wins, and when selling and investing in ETFs wins',
+      letH:'Renting it out usually wins if…', letL:'<li>The net rent is <b>4% or more</b> of the value a year.</li><li>You’re fine being a landlord, or you pay an agency to do it.</li><li>You might want to live in it again one day.</li>',
+      sellH:'Selling and investing in ETFs usually wins if…', sellL:'<li>The net rent is under <b>3%</b> of the value.</li><li>Big repairs or a new roof are coming.</li><li>Most of your wealth is already in houses.</li>',
+      lifeH:'It’s not only about money',
+      lifeL:'<li><b>Being a landlord is a job:</b> tenants, repairs, late payments, empty months.</li><li><b>One basket:</b> a house is one asset in one city; ETFs spread your money over thousands of companies.</li><li><b>Selling takes time:</b> months to sell a house; ETFs can be sold in a day.</li><li><b>Memories matter:</b> if the house means a lot to you, that’s a fair reason to keep it.</li>',
+      countryH:'Taxes to check in your country',
+      country:'The tax on rent, the tax when you sell and the yearly property taxes depend on your country, and sometimes on your region. Ask a tax adviser before deciding.',
+      faqH:'Questions',
+      q1:'What if I still have a mortgage on it?', a1:'If you sell, the mortgage is paid off with the sale and you invest the rest in ETFs. If you rent it out, the rent has to cover the payments too. As a rule of thumb: the lower your mortgage rate compared with 7%, the less it changes the comparison.',
+      q2:'Is it better to sell now or wait for prices to rise?', a2:'Nobody knows where house prices will go. If the net rent is low, waiting costs you every year in lost growth from investing in ETFs. Use the “house value growth” slider to see how much prices would need to rise to make up for it.',
+      q3:'Should I invest the money from the sale all at once?', a3:'Historically, all at once came out ahead about 2 times out of 3. Spreading it over 6–12 months costs a little on average but is easier to live with. Keep an emergency fund first, and only invest in ETFs money you won’t need for at least 10 years.',
+      nextH:'Next: your first plan for investing in ETFs', next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.', nextBtn:'Make my plan',
+      fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial or tax advice.</strong> Educational estimates with constant average returns. Investing in ETFs can lose money; house prices and rents can fall too. Check the rules or talk to a qualified adviser.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'Ho una casa: la affitto o la vendo e investo in ETF? | Your ETF Plan',
+      badge:'Il tuo caso · una casa che hai già',
+      h1:'Ho una casa: la affitto o <em>la vendo e investo in ETF?</em>',
+      sub:'L’appartamento da cui ti sei trasferito, una seconda casa, una casa che non usi. Tenerla, affittarla o venderla e investire i soldi in ETF: quanto potrebbe valere ogni scelta, in euro di oggi.',
+      illAlt:'Una casa con due frecce: una verso una chiave, per affittarla, una verso un barattolo dove cresce un albero, per venderla e investire in ETF',
+      calcH:'La tua casa', lValue:'Quanto vale oggi la casa', lHrent:'Affitto che potresti ottenere', hrentNote:'Al mese, prima delle tasse. Guarda gli annunci di case simili in zona.',
+      lYears:'Per quanti anni', years:n=>n+(n===1?' anno':' anni'),
+      assumeH:'Vendita, costi e ipotesi (tocca per cambiarle)',
+      lPaid:'Quanto l’hai pagata', lGtax:'Tasse sul guadagno quando vendi', gtaxNote:'In Italia 0% se la possiedi da più di 5 anni o se ci hai abitato per la maggior parte del tempo; altrimenti 26% sulla plusvalenza (imposta sostitutiva dal notaio).',
+      lScost:'Costi di vendita', scostNote:'Agenzia e altri costi quando vendi, in % del prezzo.',
+      lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, spese condominiali, in % del valore. Li paghi sia se è vuota sia se è affittata.',
+      lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.',
+      lEmpty:'Mesi vuota all’anno', lHgrow:'Crescita del valore della casa all’anno',
+      yield:v=>`Rendimento netto dell’affitto ${v}`, yieldGood:'buono', yieldLow:'basso',
+      hHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, cosa avresti, in euro di oggi:`,
+      bEmpty:'Tenerla vuota <small>valore della casa − costi pagati</small>', bLet:'Affittarla <small>valore della casa + affitto netto investito in ETF</small>', bSell:'Venderla e investire in ETF <small>tolti costi di vendita e tasse sul guadagno</small>',
+      hBest:{empty:'Tenerla vuota',let:'Affittarla',sell:'Venderla e investire in ETF'},
+      hVerdict:(best,d)=>`<b class="gain">${best}</b> risulta avanti, di circa <b>${d}</b> sulla seconda scelta.`,
+      incH:'Entrata mensile da subito',
+      incLet:v=>`<b>${v}</b><span>al mese dall’affitto, tolte tasse, costi e mesi vuoti</span>`,
+      incSell:v=>`<b>${v}</b><span>al mese prelevando il 3% l’anno dagli ETF (la regola del 3%)</span>`,
+      saleNote:(net,tax)=>`Se vendi oggi avresti circa ${net} da investire in ETF${tax?`, dopo ${tax} di tasse sul guadagno`:''}.`,
+      hNote:'In euro di oggi (inflazione 2%). L’affitto cresce con l’inflazione; investire in ETF rende in media il 7% l’anno, non garantito. Non sono incluse le tasse quando vendi gli ETF più avanti, o la casa alla fine.',
+      whenH:'Quando conviene affittarla, e quando venderla e investire in ETF',
+      letH:'Affittarla di solito conviene se…', letL:'<li>L’affitto netto è almeno il <b>4%</b> del valore all’anno.</li><li>Fare il padrone di casa non ti pesa, o paghi un’agenzia che lo fa.</li><li>Un giorno potresti volerci tornare a vivere.</li>',
+      sellH:'Venderla e investire in ETF di solito conviene se…', sellL:'<li>L’affitto netto è sotto il <b>3%</b> del valore.</li><li>Arrivano lavori grossi, tetto, facciata, impianti.</li><li>Gran parte del tuo patrimonio è già in case.</li>',
+      lifeH:'Non è solo una questione di soldi',
+      lifeL:'<li><b>Fare il padrone di casa è un lavoro:</b> inquilini, riparazioni, ritardi nei pagamenti, mesi vuoti.</li><li><b>Un solo paniere:</b> una casa è un bene solo in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li><li><b>Vendere richiede tempo:</b> per una casa servono mesi; gli ETF si vendono in un giorno.</li><li><b>I ricordi contano:</b> se la casa per te significa molto, è un buon motivo per tenerla.</li>',
+      countryH:'Le tasse da sapere in Italia',
+      country:'<b>Affitto:</b> cedolare secca al 21% (10% a canone concordato), oppure IRPEF. <b>Vendita:</b> nessuna tassa sul guadagno se la possiedi da più di 5 anni, o se è stata la tua abitazione principale per la maggior parte del tempo; altrimenti imposta sostitutiva del 26% sulla plusvalenza, pagata dal notaio (o IRPEF). Le case ereditate sono esenti. <b>Ogni anno:</b> se non è la tua abitazione principale paghi l’IMU, anche se è vuota. Verifica sempre con un commercialista.',
+      faqH:'Domande',
+      q1:'E se ho ancora il mutuo?', a1:'Se vendi, il mutuo si chiude con la vendita e investi in ETF quello che resta. Se affitti, l’affitto deve coprire anche la rata. In pratica: più il tasso del mutuo è basso rispetto al 7%, meno cambia il confronto.',
+      q2:'Meglio vendere ora o aspettare che i prezzi salgano?', a2:'Nessuno sa dove andranno i prezzi delle case. Se l’affitto netto è basso, aspettare ti costa ogni anno la crescita persa investendo in ETF. Prova il cursore “crescita del valore della casa” per vedere quanto dovrebbero salire i prezzi per recuperare.',
+      q3:'I soldi della vendita li investo tutti subito?', a3:'Storicamente tutto subito è andato meglio circa 2 volte su 3. Dividerlo in 6–12 mesi costa un po’ in media, ma è più facile da vivere. Prima tieni un fondo emergenza, e investi in ETF solo i soldi che non ti servono per almeno 10 anni.',
+      nextH:'Prossimo passo: il tuo primo piano per investire in ETF', next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.', nextBtn:'Crea il mio piano',
+      fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria né fiscale.</strong> Stime educative con rendimenti medi costanti. Investire in ETF comporta il rischio di perdere denaro; anche prezzi e affitti delle case possono scendere. Verifica le regole o parla con un consulente qualificato.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'Tengo una casa: ¿la alquilo o la vendo e invierto en ETF? | Your ETF Plan',
+      badge:'Tu caso · una casa que ya tienes',
+      h1:'Tengo una casa: ¿la alquilo o <em>la vendo e invierto en ETF?</em>',
+      sub:'El piso del que te mudaste, una segunda vivienda, una casa que no usas. Quedártela, alquilarla o venderla e invertir el dinero en ETF: cuánto podría valer cada opción, en euros de hoy.',
+      illAlt:'Una casa con dos flechas: una hacia una llave, para alquilarla, y otra hacia un tarro donde crece un árbol, para venderla e invertir en ETF',
+      calcH:'Tu casa', lValue:'Lo que vale hoy la casa', lHrent:'Alquiler que podrías cobrar', hrentNote:'Al mes, antes de impuestos. Mira anuncios de casas parecidas en la zona.',
+      lYears:'Durante cuántos años', years:n=>n+(n===1?' año':' años'),
+      assumeH:'Venta, gastos y supuestos (toca para cambiarlos)',
+      lPaid:'Lo que pagaste por ella', lGtax:'Impuestos sobre la ganancia al vender', gtaxNote:'En España la ganancia tributa en el IRPF del ahorro, del 19% al 30%. Exenta si tienes más de 65 años y es tu vivienda habitual, o si reinviertes en una nueva vivienda habitual en 2 años.',
+      lScost:'Gastos de venta', scostNote:'Inmobiliaria, plusvalía municipal y otros gastos al vender, en % del precio.',
+      lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor. Los pagas esté vacía o alquilada.',
+      lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.',
+      lEmpty:'Meses vacía al año', lHgrow:'Revalorización de la casa al año',
+      yield:v=>`Rentabilidad neta del alquiler ${v}`, yieldGood:'buena', yieldLow:'baja',
+      hHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, lo que tendrías, en euros de hoy:`,
+      bEmpty:'Dejarla vacía <small>valor de la casa − gastos pagados</small>', bLet:'Alquilarla <small>valor de la casa + alquiler neto invertido en ETF</small>', bSell:'Venderla e invertir en ETF <small>descontando gastos de venta e impuestos sobre la ganancia</small>',
+      hBest:{empty:'Dejarla vacía',let:'Alquilarla',sell:'Venderla e invertir en ETF'},
+      hVerdict:(best,d)=>`<b class="gain">${best}</b> sale ganando, por unos <b>${d}</b> sobre la segunda opción.`,
+      incH:'Ingreso mensual desde hoy',
+      incLet:v=>`<b>${v}</b><span>al mes del alquiler, descontando impuestos, gastos y meses vacía</span>`,
+      incSell:v=>`<b>${v}</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%)</span>`,
+      saleNote:(net,tax)=>`Si vendes hoy tendrías unos ${net} para invertir en ETF${tax?`, tras pagar ${tax} de impuestos sobre la ganancia`:''}.`,
+      hNote:'En euros de hoy (inflación del 2%). El alquiler sube con la inflación; invertir en ETF rinde de media un 7% anual, no garantizado. No se incluyen los impuestos al vender los ETF más adelante, ni la casa al final.',
+      whenH:'Cuándo gana alquilarla y cuándo venderla e invertir en ETF',
+      letH:'Alquilarla suele ganar si…', letL:'<li>El alquiler neto es al menos el <b>4%</b> del valor al año.</li><li>No te importa ser casero, o pagas a una agencia para que lo haga.</li><li>Quizá quieras volver a vivir en ella algún día.</li>',
+      sellH:'Venderla e invertir en ETF suele ganar si…', sellL:'<li>El alquiler neto es menor del <b>3%</b> del valor.</li><li>Vienen obras grandes: tejado, fachada, instalaciones.</li><li>La mayor parte de tu patrimonio ya está en casas.</li>',
+      lifeH:'No es solo cuestión de dinero',
+      lifeL:'<li><b>Ser casero es un trabajo:</b> inquilinos, reparaciones, impagos, meses vacía.</li><li><b>Una sola cesta:</b> una casa es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li><li><b>Vender lleva tiempo:</b> una casa tarda meses en venderse; los ETF se venden en un día.</li><li><b>Los recuerdos cuentan:</b> si la casa significa mucho para ti, es un buen motivo para quedártela.</li>',
+      countryH:'Los impuestos a tener en cuenta en España',
+      country:'<b>Alquiler:</b> tributa en el IRPF; las reducciones por alquilar vivienda habitual cambian con el RDL 29/2026 (contratos desde el 1 de diciembre de 2026) y pueden ser muy altas si mantienes o bajas la renta. <b>Vacía:</b> si no es tu vivienda habitual ni está alquilada, pagas en el IRPF una imputación de rentas, en general el 2% del valor catastral (1,1% si está revisado). <b>Venta:</b> la ganancia tributa del 19% al 30%; exenta si tienes más de 65 años y es tu vivienda habitual, o si reinviertes en otra vivienda habitual en 2 años. Además, la <b>plusvalía municipal</b>. Consulta siempre con un gestor.',
+      faqH:'Preguntas',
+      q1:'¿Y si todavía tengo hipoteca?', a1:'Si vendes, la hipoteca se cancela con la venta e inviertes en ETF lo que queda. Si alquilas, el alquiler tiene que cubrir también la cuota. En la práctica: cuanto más bajo sea el tipo de la hipoteca frente al 7%, menos cambia la comparación.',
+      q2:'¿Mejor vender ahora o esperar a que suban los precios?', a2:'Nadie sabe hacia dónde irán los precios de la vivienda. Si el alquiler neto es bajo, esperar te cuesta cada año el crecimiento perdido invirtiendo en ETF. Prueba el control de “revalorización” para ver cuánto tendrían que subir los precios para compensarlo.',
+      q3:'¿Invierto todo el dinero de la venta de golpe?', a3:'Históricamente, de golpe salió mejor unas 2 de cada 3 veces. Repartirlo en 6–12 meses cuesta un poco de media, pero se lleva mejor. Antes guarda un fondo de emergencia, e invierte en ETF solo el dinero que no vayas a necesitar en al menos 10 años.',
+      nextH:'Siguiente paso: tu primer plan para invertir en ETF', next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.', nextBtn:'Crear mi plan',
+      fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero ni fiscal.</strong> Estimaciones educativas con rentabilidades medias constantes. Invertir en ETF conlleva el riesgo de perder dinero; los precios y alquileres de la vivienda también pueden bajar. Comprueba la normativa o habla con un asesor cualificado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
+  countryDefaults();
+
+  function render(){
+    const V0=+$('hvalue').value, R0=+$('hrent').value, y=+$('hyears').value, paid=+$('paid').value;
+    const oc=+$('ocost').value/100, tax=+$('rtax').value/100, emptyM=+$('empty').value, sc=+$('scost').value/100, g=+$('hgrow').value/100, gt=+$('gtax').value/100;
+    const gm=Math.pow(1+ETF,1/12)-1, gh=Math.pow(1+g,1/12)-1;
+    let V=V0, costs=0, letEtf=0;
+    for(let m=1;m<=y*12;m++){
+      const rent=R0*Math.pow(1+INFL,Math.floor((m-1)/12));
+      const ownerCost=V*oc/12;
+      costs+=ownerCost;
+      const netRent=rent*(12-emptyM)/12*(1-tax)-ownerCost;
+      letEtf=letEtf*(1+gm)+netRent;
+      V*=1+gh;
+    }
+    // Selling today: price minus selling costs, minus tax on the gain over what you paid.
+    const afterCosts=V0*(1-sc), gainTax=Math.max(0,afterCosts-paid)*gt, net=afterCosts-gainTax;
+    const d=Math.pow(1+INFL,y);
+    const empty=(V-costs)/d, let_=(V+letEtf)/d, sell=net*Math.pow(1+ETF,y)/d;
+    $('hvalue-out').textContent=fmt(V0); $('hrent-out').textContent=fmt(R0); $('hyears-out').textContent=L.years(y);
+    $('paid-out').textContent=fmt(paid); $('gtax-out').textContent=pct(gt);
+    $('ocost-out').textContent=pct(oc); $('rtax-out').textContent=pct(tax); $('empty-out').textContent=String(emptyM).replace('.',L.locale==='en-IE'?'.':',');
+    $('scost-out').textContent=pct(sc); $('hgrow-out').textContent=pct(g);
+    const netYear=R0*(12-emptyM)*(1-tax)-V0*oc, yld=V0>0?netYear/V0:0;
+    $('h-chips').innerHTML=`<span class="chip ${yld>=0.04?'good':'warn'}">${L.yield(pct(yld))} · ${yld>=0.04?L.yieldGood:L.yieldLow}</span>`;
+    $('h-head').textContent=L.hHead(y);
+    $('v-empty').textContent=fmt(empty); $('v-let').textContent=fmt(let_); $('v-sell').textContent=fmt(sell);
+    const top=Math.max(empty,let_,sell,1)*1.05;
+    [['empty',empty],['let',let_],['sell',sell]].forEach(([k,v])=>{$('f-'+k).style.width=Math.max(1,v/top*100).toFixed(1)+'%'});
+    const ranked=[['empty',empty],['let',let_],['sell',sell]].sort((a,b)=>b[1]-a[1]);
+    $('h-verdict').innerHTML=L.hVerdict(L.hBest[ranked[0][0]],fmt(ranked[0][1]-ranked[1][1]));
+    $('income').innerHTML='<div>'+L.incLet(fmt(Math.max(0,netYear/12)))+'</div><div>'+L.incSell(fmt(net*0.03/12))+'</div>';
+    $('sale-note').textContent=L.saleNote(fmt(net),gainTax>=1?fmt(gainTax):'');
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:1});
+    fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=FIXED?HOME[lang]:'/';
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;countryDefaults();applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  const INPUTS=['hvalue','hrent','hyears','paid','gtax','scost','ocost','rtax','empty','hgrow'];
+  INPUTS.forEach(id=>$(id).addEventListener('input',render));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_own_view']);
+    INPUTS.forEach(id=>$(id).addEventListener('input',()=>send(['sc_own_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_own',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>

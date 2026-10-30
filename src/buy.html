@@ -484,7 +484,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     drawChart(pts);
   }
 
-  const short=v=>{const a=Math.abs(v);return (v<0?'−':'')+'€'+(a>=1e6?(a/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':Math.round(a/1000)+'k')};
+  const short=v=>{const a=Math.abs(v);if(a<500)return '€0';return (v<0?'−':'')+'€'+(a>=1e6?(a/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':Math.round(a/1000)+'k')};
   function drawChart(pts){
     const svg=$('chart'), W=Math.max(280,svg.clientWidth||600), H=240, Lp=46, R=14, Tp=12, B=26, n=pts.length-1;
     const vals=pts.flatMap(p=>[p.buy,p.rent]); const max=Math.max(...vals,1), min=Math.min(0,...vals);
