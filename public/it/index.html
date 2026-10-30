@@ -248,6 +248,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
 .taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
+.w-quick{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.9rem}
+.w-quick span{width:100%;color:var(--muted);font-weight:600}
+.w-quick a{border:2px solid var(--ink);border-radius:999px;padding:6px 12px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;line-height:1.2}
+.w-quick a:hover{background:var(--sun);color:#17322a}
 </style>
 <script type="application/ld+json">
 [
@@ -379,11 +383,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </svg>
     <button type="button" class="w-btn" id="start"><span data-w="start">Crea il mio piano</span><span aria-hidden="true">→</span></button>
     <div class="w-trust"><span data-w="t1">Gratis</span><span data-w="t2">Senza registrazione</span><span data-w="t3">Senza pubblicità</span></div>
-  </section>
-
-  <section class="w-who" aria-labelledby="h-who">
-    <svg role="img" data-wa="whoAlt" aria-label="Due fratelli, uno abbraccia l’altro"><use href="#i-bros"></use></svg>
-    <div><h2 id="h-who" data-w="whoH">L’ho fatto per mio fratello, ora è per tutti</h2><p data-w="who">Sono Marco, un ingegnere che investe in ETF. Ho iniziato per spiegare a mio fratello come funzionano gli ETF, poi l’ho fatto per chiunque voglia capirli: gratis, senza pubblicità, senza link di affiliazione, senza registrazione.</p></div>
+    <nav class="w-quick" data-ta="quickH" aria-label="Hai un caso preciso?"><span data-t="quickH">Hai un caso preciso?</span><a data-case="bank" data-t="q1c" href="file:///it/banca-vs-etf/">Risparmi in banca</a><a data-case="buy" data-t="q2c" href="file:///it/comprare-casa-o-affitto-etf/">Comprare casa</a><a data-case="inherit" data-t="q3c" href="file:///it/eredita-investire-etf/">Un’eredità</a><a data-case="own" data-t="q4c" href="file:///it/affittare-o-vendere-casa-etf/">Una casa che non uso</a><a data-case="let" data-t="q5c" href="file:///it/comprare-casa-da-affittare-o-etf/">Comprare per affittare</a></nav>
   </section>
 
   <section id="wizard" class="w-card" aria-live="polite" tabindex="-1">
@@ -465,6 +465,11 @@ details > div{padding:0 0 14px;color:var(--muted)}
         <span><b data-t="c5t">Voglio comprare casa da affittare</b><span class="d" data-t="c5d">O investire gli stessi soldi in ETF?</span></span><span class="go" aria-hidden="true">→</span>
       </a>
     </div>
+  </section>
+
+  <section class="w-who" aria-labelledby="h-who">
+    <svg role="img" data-wa="whoAlt" aria-label="Due fratelli, uno abbraccia l’altro"><use href="#i-bros"></use></svg>
+    <div><h2 id="h-who" data-w="whoH">L’ho fatto per mio fratello, ora è per tutti</h2><p data-w="who">Sono Marco, un ingegnere che investe in ETF. Ho iniziato per spiegare a mio fratello come funzionano gli ETF, poi l’ho fatto per chiunque voglia capirli: gratis, senza pubblicità, senza link di affiliazione, senza registrazione.</p></div>
   </section>
 
   <section aria-labelledby="h-30">
@@ -588,6 +593,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     en:{
       title:`Your ETF Plan`, locale:`en-IE`, taxRate:0.20,
       lead:`See what happens to your money if you invest part of it every month in ETFs instead of leaving it in the bank. A free ETF investment calculator: no sign-up, nothing to buy.`,
+      quickH:`Got a specific case?`, q1c:`Savings in the bank`, q2c:`Buying a home`, q3c:`An inheritance`, q4c:`A house I don’t use`, q5c:`Buy to rent out`,
       casesH:`What's your situation?`,
       casesSub:`Short guides with their own calculator, for the most common questions about investing in ETFs.`,
       c1t:`I keep my savings in the bank`,
@@ -699,6 +705,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     it:{
       title:`Il tuo piano ETF · Your ETF Plan`, locale:`it-IT`, taxRate:0.26,
       lead:`Guarda cosa succede ai tuoi soldi con un piano di accumulo (PAC) in ETF: ne investi una parte ogni mese invece di lasciarli in banca. Nessuna registrazione, niente da comprare.`,
+      quickH:`Hai un caso preciso?`, q1c:`Risparmi in banca`, q2c:`Comprare casa`, q3c:`Un’eredità`, q4c:`Una casa che non uso`, q5c:`Comprare per affittare`,
       casesH:`Qual è il tuo caso?`,
       casesSub:`Guide brevi con il loro calcolatore, per le domande più comuni su come investire in ETF.`,
       c1t:`Tengo i miei risparmi in banca`,
@@ -810,6 +817,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     es:{
       title:`Tu plan ETF · Your ETF Plan`, locale:`es-ES`, taxRate:0.21,
       lead:`Mira qué pasa con tu dinero si inviertes una parte cada mes en ETF en lugar de dejarlo en el banco. Una calculadora gratuita: sin registro y sin nada que comprar.`,
+      quickH:`¿Tienes un caso concreto?`, q1c:`Ahorros en el banco`, q2c:`Comprar casa`, q3c:`Una herencia`, q4c:`Una casa que no uso`, q5c:`Comprar para alquilar`,
       casesH:`¿Cuál es tu caso?`,
       casesSub:`Guías breves con su propia calculadora, para las preguntas más comunes sobre invertir en ETF.`,
       c1t:`Tengo mis ahorros en el banco`,
@@ -959,6 +967,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('case-inherit').href=(FIXED?'':'https://youretfplan.com')+({en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'})[lang];
     $('case-own').href=(FIXED?'':'https://youretfplan.com')+({en:'/rent-or-sell-house-etf/',it:'/it/affittare-o-vendere-casa-etf/',es:'/es/alquilar-o-vender-casa-etf/'})[lang];
     $('case-let').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-to-let-vs-etf/',it:'/it/comprare-casa-da-affittare-o-etf/',es:'/es/comprar-para-alquilar-o-etf/'})[lang];
+    document.querySelectorAll('.w-quick a').forEach(a=>{a.href=$('case-'+a.dataset.case).href});
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');
