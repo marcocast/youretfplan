@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="it"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="it">
+<title>Comprare casa o affittare e investire in ETF? Calcolatore | Your ETF Plan</title>
+<meta name="description" content="Calcolatore gratuito: comprare casa con il mutuo contro stare in affitto e investire la differenza in ETF. Rapporto prezzo/affitto, anno di pareggio e patrimonio finale in euro di oggi.">
+<link rel="canonical" href="https://youretfplan.com/it/comprare-casa-o-affitto-etf/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/buy-vs-rent-etf/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/comprare-casa-o-affitto-etf/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/comprar-o-alquilar-etf/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/buy-vs-rent-etf/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/it/comprare-casa-o-affitto-etf/">
+<meta property="og:title" content="Comprare casa o affittare e investire in ETF? Calcolatore | Your ETF Plan">
+<meta property="og:description" content="Calcolatore gratuito: comprare casa con il mutuo contro stare in affitto e investire la differenza in ETF. Rapporto prezzo/affitto, anno di pareggio e patrimonio finale in euro di oggi.">
+<meta property="og:image" content="https://youretfplan.com/og-it.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* Scenario 2: buy a home vs rent and invest in ETFs. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Comprare casa o affittare e investire in ETF? Calcolatore",
+  "url": "https://youretfplan.com/it/comprare-casa-o-affitto-etf/",
+  "description": "Calcolatore gratuito: comprare casa con il mutuo contro stare in affitto e investire la differenza in ETF. Rapporto prezzo/affitto, anno di pareggio e patrimonio finale in euro di oggi.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "it",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "it",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Ma l’affitto non sono soldi buttati?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "E se i prezzi delle case salgono di più?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Chi affitta deve davvero investire la differenza?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Quale rapporto prezzo/affitto è \"buono\"?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-house" viewBox="0 0 64 64"><path class="w-ink" d="M10 30 32 12l22 18" fill="none"></path><rect class="w-ink" x="16" y="28" width="32" height="26" rx="3" fill="var(--sun)"></rect><rect class="w-ink" x="28" y="38" width="9" height="16" fill="var(--surface)"></rect></symbol>
+    <symbol id="i-tree" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="22" ry="4" fill="var(--mint)"></ellipse><path class="w-ink" d="M32 56V30" fill="none" stroke-width="4"></path><circle class="w-ink" cx="32" cy="22" r="14" fill="var(--leaf)"></circle><circle class="w-ink" cx="20" cy="32" r="8" fill="var(--leaf2)"></circle><circle cx="28" cy="18" r="3" fill="var(--sun)"></circle><circle cx="38" cy="26" r="3" fill="var(--coral)"></circle></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/it/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="true">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="false">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Il tuo caso · comprare o affittare</span>
+    <h1 id="h1" data-t="h1">Comprare casa o stare in affitto e <em>investire in ETF</em>?</h1>
+    <p class="sub" data-t="sub">Il dilemma classico, con numeri veri. Stesso budget per tutti e due: chi compra paga mutuo e costi, chi affitta paga l’affitto e investe il resto in ETF ogni mese. Chi si ritrova con di più?</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Una casa da una parte, un appartamento in affitto con un barattolo dove cresce un albero dall’altra">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <!-- house with keys -->
+      <path class="w-ink" d="M24 96 92 40l68 56" fill="none" stroke-width="4"></path>
+      <rect class="w-ink" x="40" y="88" width="104" height="90" rx="6" fill="var(--sun)"></rect>
+      <rect class="w-ink" x="78" y="124" width="28" height="54" rx="3" fill="var(--surface)"></rect>
+      <rect class="w-ink" x="52" y="104" width="20" height="18" rx="2" fill="var(--sky)"></rect>
+      <rect class="w-ink" x="114" y="104" width="20" height="18" rx="2" fill="var(--sky)"></rect>
+      <rect class="w-ink" x="118" y="44" width="14" height="28" fill="var(--coral)"></rect>
+      <!-- versus -->
+      <circle class="w-ink" cx="180" cy="120" r="20" fill="var(--surface)"></circle>
+      <text x="180" y="127" text-anchor="middle" font-family="Bricolage Grotesque, Figtree, sans-serif" font-weight="800" font-size="18" fill="var(--ink)">vs</text>
+      <!-- rented flat + growing jar -->
+      <rect class="w-ink" x="214" y="70" width="58" height="108" rx="6" fill="var(--sky)"></rect>
+      <path class="w-ink" d="M226 86h12M248 86h12M226 106h12M248 106h12M226 126h12M248 126h12" fill="none"></path>
+      <rect class="w-ink" x="234" y="148" width="18" height="30" rx="2" fill="var(--surface)"></rect>
+      <rect class="w-ink" x="284" y="120" width="60" height="58" rx="14" fill="var(--surface)"></rect>
+      <ellipse class="w-ink" cx="314" cy="168" rx="22" ry="5" fill="var(--sun)"></ellipse>
+      <path class="w-ink" d="M314 162V92" fill="none" stroke-width="4"></path>
+      <circle class="w-ink" cx="314" cy="84" r="20" fill="var(--leaf)"></circle>
+      <circle class="w-ink" cx="296" cy="106" r="11" fill="var(--leaf2)"></circle>
+      <circle cx="308" cy="78" r="4" fill="var(--sun)"></circle><circle cx="322" cy="90" r="4" fill="var(--coral)"></circle>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH">I tuoi numeri</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="price" data-t="lPrice">Prezzo della casa</label><span class="ctrl-val num" id="price-out">250.000&nbsp;€</span></div>
+      <input type="range" id="price" min="50000" max="1500000" step="5000" value="250000">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="rent" data-t="lRent">Affitto di una casa simile</label><span class="ctrl-val num" id="rent-out">900&nbsp;€</span></div>
+      <input type="range" id="rent" min="200" max="5000" step="25" value="900">
+      <p class="note" data-t="rentNote">Al mese. Guarda gli annunci della stessa zona e metratura.</p>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="down" data-t="lDown">Anticipo</label><span class="ctrl-val num" id="down-out">20% · 50.000&nbsp;€</span></div>
+      <input type="range" id="down" min="0" max="100" step="5" value="20">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="years" data-t="lYears">Confronto su</label><span class="ctrl-val num" id="years-out">20 anni</span></div>
+      <input type="range" id="years" min="3" max="30" step="1" value="20">
+    </div>
+
+    <details class="assume">
+      <summary data-t="assumeH">Mutuo e ipotesi (tocca per cambiarle)</summary>
+      <div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="mrate" data-t="lMrate">Tasso del mutuo</label><span class="ctrl-val num" id="mrate-out">3,5%</span></div>
+          <input type="range" id="mrate" min="0" max="8" step="0.1" value="3.5">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="mterm" data-t="lMterm">Durata del mutuo</label><span class="ctrl-val num" id="mterm-out">25 anni</span></div>
+          <input type="range" id="mterm" min="5" max="35" step="1" value="25">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="pcost" data-t="lPcost">Costi di acquisto</label><span class="ctrl-val num" id="pcost-out">6%</span></div>
+          <input type="range" id="pcost" min="0" max="15" step="0.5" value="7">
+          <p class="note" data-t="pcostNote">Imposte, notaio, agenzia. Per la prima casa da privato: registro 2% del valore catastale, notaio e agenzia (spesso intorno al 3% + IVA).</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="ocost" data-t="lOcost">Costi annui del proprietario</label><span class="ctrl-val num" id="ocost-out">1%</span></div>
+          <input type="range" id="ocost" min="0" max="3" step="0.1" value="1">
+          <p class="note" data-t="ocostNote">Manutenzione, assicurazione, spese straordinarie, IMU se dovuta, in % del valore della casa.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Crescita del valore della casa all’anno</label><span class="ctrl-val num" id="hgrow-out">2%</span></div>
+          <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
+          <p class="note" data-t="hgrowNote">2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.</p>
+        </div>
+      </div>
+    </details>
+
+    <div class="chips" id="chips"><span class="chip warn">Prezzo = 23 anni di affitto · di solito conviene l’affitto</span></div>
+
+    <p class="res-head" id="res-head">Dopo 20 anni, quanto possiede ciascuno, in euro di oggi:</p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" data-t="bBuy">Compra casa <small>valore della casa − mutuo residuo + eventuali ETF</small></span><span class="val num" id="v-buy">212.991&nbsp;€</span><div class="track"><div class="fill" id="f-buy" style="background: var(--coral); width: 85.5%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bRent">Affitta e investe in ETF <small>portafoglio di ETF</small></span><span class="val num" id="v-rent">237.298&nbsp;€</span><div class="track"><div class="fill" id="f-rent" style="background: var(--etf); width: 95.2%;"></div></div></div>
+    </div>
+    <p class="verdict" id="verdict"><b class="gain">Affittare e investire in ETF</b> risulta avanti di circa <b>24.307&nbsp;€</b>. In questo periodo chi compra non recupera mai.</p>
+
+    <div class="chart-box">
+      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Patrimonio negli anni di chi compra e di chi affitta e investe in ETF" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0k</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€79k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€158k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€237k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 171.4 L76.4 163.8 L106.8 156.3 L137.2 148.9 L167.6 141.6 L198.0 134.3 L228.4 127.1 L258.8 120.0 L289.2 112.9 L319.6 105.9 L350.0 99.0 L380.4 92.1 L410.8 85.3 L441.2 78.6 L471.6 71.9 L502.0 65.2 L532.4 58.6 L562.8 52.1 L593.2 45.6 L623.6 39.1 L654.0 32.7" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 158.7 L76.4 152.7 L106.8 146.7 L137.2 140.6 L167.6 134.4 L198.0 128.1 L228.4 121.6 L258.8 115.0 L289.2 108.3 L319.6 101.4 L350.0 94.3 L380.4 87.1 L410.8 79.7 L441.2 72.1 L471.6 64.3 L502.0 56.2 L532.4 47.9 L562.8 39.4 L593.2 30.5 L623.6 21.4 L654.0 12.0" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="32.69151138132176" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="12" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
+      <div class="legend"><span><i style="background:var(--coral)"></i><span data-t="lgBuy">Compra</span></span><span><i style="background:var(--etf)"></i><span data-t="lgRent">Affitta e investe in ETF</span></span></div>
+    </div>
+
+    <div class="monthly" id="monthly"><div class="mbox"><b>Il primo giorno</b><span>Chi affitta investe 65.000&nbsp;€ in ETF: l’anticipo e i costi che chi compra spende</span></div><div class="mbox"><b>Chi compra paga</b><span>Rata 1.001&nbsp;€ + costi 208&nbsp;€ al mese</span></div><div class="mbox"><b>Chi affitta paga</b><span>Affitto 900&nbsp;€ al mese e investe 310&nbsp;€ in ETF</span></div></div>
+    <p class="note" data-t="calcNote">In euro di oggi (inflazione 2%). Prima delle tasse: i guadagni degli ETF si tassano quando vendi, la vendita della casa dopo 5 anni o della prima casa spesso non è tassata. Non sono inclusi i costi di vendita della casa. Stima educativa, non consulenza.</p>
+  </section>
+
+  <section aria-labelledby="h-when">
+    <h2 id="h-when" data-t="whenH">Quando conviene comprare, e quando affittare e investire in ETF</h2>
+    <div class="two">
+      <div class="box"><h3><svg><use href="#i-house"></use></svg><span data-t="buyH">Comprare di solito conviene se…</span></h3><ul data-t="buyL"><li>Resti almeno <b>10 anni</b>.</li><li>I prezzi sono bassi rispetto agli affitti (prezzo sotto ~15 anni di affitto).</li><li>I tassi del mutuo sono bassi e la rata è vicina all’affitto.</li></ul></div>
+      <div class="box"><h3><svg><use href="#i-tree"></use></svg><span data-t="rentH">Affittare e investire in ETF di solito conviene se…</span></h3><ul data-t="rentL"><li>Potresti cambiare città entro pochi anni.</li><li>I prezzi sono alti rispetto agli affitti (oltre ~20 anni di affitto).</li><li>Investi davvero la differenza in ETF ogni mese.</li></ul></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-life">
+    <h2 id="h-life" data-t="lifeH">Non è solo una questione di soldi</h2>
+    <ul class="check" data-t="lifeL"><li><b>Stabilità:</b> nessuno può chiederti di andare via; puoi ristrutturare come vuoi.</li><li><b>Libertà:</b> in affitto puoi trasferirti per lavoro o per cambiare vita in poche settimane.</li><li><b>Tutte le uova in un paniere:</b> una casa è un solo bene in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li><li><b>Disciplina:</b> il mutuo ti obbliga a risparmiare; l’affitto funziona solo se investi in ETF in automatico.</li></ul>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Domande</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">Ma l’affitto non sono soldi buttati?</summary><div data-t="a1">Anche gli interessi del mutuo, le tasse sulla casa, la manutenzione e i costi di acquisto sono soldi che non tornano. Conta il confronto completo, ed è quello che fa questo calcolatore.</div></details>
+      <details><summary data-t="q2">E se i prezzi delle case salgono di più?</summary><div data-t="a2">Apri "Mutuo e ipotesi" e alza la crescita del valore della casa. Nel lungo periodo in molti paesi i prezzi delle case hanno seguito più o meno l’inflazione, con un po’ in più; alcune città sono andate molto meglio, altre molto peggio.</div></details>
+      <details><summary data-t="q3">Chi affitta deve davvero investire la differenza?</summary><div data-t="a3">Sì. Il confronto vale solo se i soldi che andrebbero nella casa vanno ogni mese in ETF, in automatico. Se vengono spesi, comprare vince facilmente.</div></details>
+      <details><summary data-t="q4">Quale rapporto prezzo/affitto è "buono"?</summary><div data-t="a4">Una regola pratica diffusa: sotto circa 15 anni di affitto di solito conviene comprare, sopra circa 20 conviene l’affitto. In mezzo decidono i dettagli.</div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Prossimo passo: il tuo primo piano per investire in ETF</h2>
+    <p data-t="next">Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.</p>
+    <a class="btn" id="next-btn" href="/it/"><span data-t="nextBtn">Crea il mio piano</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">Ti è stata utile questa pagina?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sì, utile">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="Non molto">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">Grazie!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria.</strong> Stime educative con rendimenti medi costanti, prima delle tasse. Investire in ETF comporta il rischio di perdere denaro; anche i prezzi delle case possono scendere. Verifica le regole o parla con un consulente qualificato.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/buy-vs-rent-etf/" hreflang="en" lang="en">English</a> · <a href="/it/comprare-casa-o-affitto-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/comprar-o-alquilar-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, ETF=0.07, RENT_GROWTH=0.02;
+  const PAGE_URLS={en:'/buy-vs-rent-etf/',it:'/it/comprare-casa-o-affitto-etf/',es:'/es/comprar-o-alquilar-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const PCOST={en:7,it:6,es:11}; // default purchase costs (% of price) per language
+
+  const T={
+    en:{locale:'en-IE', title:'Buy a home or rent and invest in ETFs? | Your ETF Plan',
+      badge:'Your case · buy or rent',
+      h1:'Buy a home, or rent and <em>invest in ETFs</em>?',
+      sub:'The classic dilemma, with real numbers. Same budget for both: the buyer pays mortgage and costs, the renter pays rent and invests the rest in ETFs every month. Who ends up with more?',
+      illAlt:'A house on one side, a rented flat with a jar growing a tree on the other',
+      calcH:'Your numbers',
+      lPrice:'Price of the home', lRent:'Rent for a similar home', rentNote:'Per month. Check listings for the same area and size.',
+      lDown:'Down payment', lYears:'Compare over', years:n=>n+(n===1?' year':' years'),
+      assumeH:'Mortgage and assumptions (tap to change)',
+      lMrate:'Mortgage rate', lMterm:'Mortgage length', lPcost:'Purchase costs', pcostNote:'Taxes, notary, agency. Often 5–10% of the price, more in some countries.',
+      lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the home value.',
+      lHgrow:'Home value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs at 7% a year on average.',
+      ratio:(r)=>`Price = ${r} years of rent`, ratioGood:'buying tends to pay off', ratioBad:'renting tends to pay off', ratioMid:'it depends on the details',
+      resHead:y=>`After ${y===1?'1 year':y+' years'}, what each one owns, in today’s money:`,
+      bBuy:'Buys the home <small>home value − remaining mortgage + any ETFs</small>', bRent:'Rents and invests in ETFs <small>ETF portfolio</small>',
+      lgBuy:'Buys', lgRent:'Rents and invests in ETFs', chartAlt:'Wealth over the years for the buyer and the renter who invests in ETFs',
+      vBuy:(d)=>`<b class="gain">Buying</b> comes out ahead by about <b>${d}</b>.`,
+      vRent:(d)=>`<b class="gain">Renting and investing in ETFs</b> comes out ahead by about <b>${d}</b>.`,
+      be:(y)=>` Buying catches up after about <b>${y} ${y===1?'year':'years'}</b>.`, beNone:' In this period buying never catches up.', beStart:'',
+      mBuy:(pay,cost)=>`<b>Who buys pays</b><span>Mortgage ${pay} + costs ${cost} a month</span>`,
+      mRent:(rent,inv)=>`<b>Who rents pays</b><span>Rent ${rent} a month and invests ${inv} in ETFs</span>`,
+      mRentNeg:(rent)=>`<b>Who rents pays</b><span>Rent ${rent} a month (more than the buyer: the buyer invests the difference in ETFs)</span>`,
+      mStart:(v)=>`<b>On day one</b><span>The renter invests ${v} in ETFs: the down payment and purchase costs the buyer spends</span>`,
+      calcNote:'In today’s money (2% inflation). Before taxes: ETF gains are taxed when you sell, selling a main home is often tax-free under conditions. Selling costs of the home are not included. Educational estimate, not advice.',
+      whenH:'When buying wins, and when renting and investing in ETFs wins',
+      buyH:'Buying tends to win if…', buyL:'<li>You stay at least <b>10 years</b>.</li><li>Prices are low compared with rents (price under ~15 years of rent).</li><li>Mortgage rates are low and the payment is close to the rent.</li>',
+      rentH:'Renting and investing in ETFs tends to win if…', rentL:'<li>You might move within a few years.</li><li>Prices are high compared with rents (over ~20 years of rent).</li><li>You really invest the difference in ETFs every month.</li>',
+      lifeH:'It’s not only about money',
+      lifeL:'<li><b>Stability:</b> nobody can ask you to leave; you can renovate as you like.</li><li><b>Freedom:</b> renting lets you move for a job or a change of life in weeks.</li><li><b>Eggs in one basket:</b> a home is one asset in one city; ETFs spread your money over thousands of companies.</li><li><b>Discipline:</b> a mortgage forces you to save; renting only works if you invest in ETFs automatically.</li>',
+      faqH:'Questions',
+      q1:'Isn’t rent just throwing money away?', a1:'Mortgage interest, property taxes, maintenance and purchase costs are also money you never get back. What matters is the full comparison, which is what this calculator does.',
+      q2:'What if home prices rise faster?', a2:'Open "Mortgage and assumptions" and raise the home value growth. Over long periods, home prices in many countries have roughly followed inflation plus a little, but some cities did much better and others much worse.',
+      q3:'Does the renter really have to invest the difference?', a3:'Yes. The comparison only holds if the money that would go into the home goes into ETFs every month, automatically. If it gets spent, buying wins easily.',
+      q4:'What price-to-rent ratio is "good"?', a4:'A common rule of thumb: under about 15 years of rent buying tends to pay off, over about 20 renting does. In between, the details decide.',
+      nextH:'Next: your first plan for investing in ETFs', next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.', nextBtn:'Make my plan',
+      fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial advice.</strong> Educational estimates with constant average returns, before taxes. Investing in ETFs can lose money; home prices can fall too. Check your country’s rules or talk to a qualified adviser.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'Comprare casa o affittare e investire in ETF? | Your ETF Plan',
+      badge:'Il tuo caso · comprare o affittare',
+      h1:'Comprare casa o stare in affitto e <em>investire in ETF</em>?',
+      sub:'Il dilemma classico, con numeri veri. Stesso budget per tutti e due: chi compra paga mutuo e costi, chi affitta paga l’affitto e investe il resto in ETF ogni mese. Chi si ritrova con di più?',
+      illAlt:'Una casa da una parte, un appartamento in affitto con un barattolo dove cresce un albero dall’altra',
+      calcH:'I tuoi numeri',
+      lPrice:'Prezzo della casa', lRent:'Affitto di una casa simile', rentNote:'Al mese. Guarda gli annunci della stessa zona e metratura.',
+      lDown:'Anticipo', lYears:'Confronto su', years:n=>n+(n===1?' anno':' anni'),
+      assumeH:'Mutuo e ipotesi (tocca per cambiarle)',
+      lMrate:'Tasso del mutuo', lMterm:'Durata del mutuo', lPcost:'Costi di acquisto', pcostNote:'Imposte, notaio, agenzia. Per la prima casa da privato: registro 2% del valore catastale, notaio e agenzia (spesso intorno al 3% + IVA).',
+      lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, spese straordinarie, IMU se dovuta, in % del valore della casa.',
+      lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
+      ratio:(r)=>`Prezzo = ${r} anni di affitto`, ratioGood:'di solito conviene comprare', ratioBad:'di solito conviene l’affitto', ratioMid:'dipende dai dettagli',
+      resHead:y=>`Dopo ${y===1?'1 anno':y+' anni'}, quanto possiede ciascuno, in euro di oggi:`,
+      bBuy:'Compra casa <small>valore della casa − mutuo residuo + eventuali ETF</small>', bRent:'Affitta e investe in ETF <small>portafoglio di ETF</small>',
+      lgBuy:'Compra', lgRent:'Affitta e investe in ETF', chartAlt:'Patrimonio negli anni di chi compra e di chi affitta e investe in ETF',
+      vBuy:(d)=>`<b class="gain">Comprare</b> risulta avanti di circa <b>${d}</b>.`,
+      vRent:(d)=>`<b class="gain">Affittare e investire in ETF</b> risulta avanti di circa <b>${d}</b>.`,
+      be:(y)=>` Chi compra recupera dopo circa <b>${y} ${y===1?'anno':'anni'}</b>.`, beNone:' In questo periodo chi compra non recupera mai.', beStart:'',
+      mBuy:(pay,cost)=>`<b>Chi compra paga</b><span>Rata ${pay} + costi ${cost} al mese</span>`,
+      mRent:(rent,inv)=>`<b>Chi affitta paga</b><span>Affitto ${rent} al mese e investe ${inv} in ETF</span>`,
+      mRentNeg:(rent)=>`<b>Chi affitta paga</b><span>Affitto ${rent} al mese (più di chi compra: è chi compra a investire la differenza in ETF)</span>`,
+      mStart:(v)=>`<b>Il primo giorno</b><span>Chi affitta investe ${v} in ETF: l’anticipo e i costi che chi compra spende</span>`,
+      calcNote:'In euro di oggi (inflazione 2%). Prima delle tasse: i guadagni degli ETF si tassano quando vendi, la vendita della casa dopo 5 anni o della prima casa spesso non è tassata. Non sono inclusi i costi di vendita della casa. Stima educativa, non consulenza.',
+      whenH:'Quando conviene comprare, e quando affittare e investire in ETF',
+      buyH:'Comprare di solito conviene se…', buyL:'<li>Resti almeno <b>10 anni</b>.</li><li>I prezzi sono bassi rispetto agli affitti (prezzo sotto ~15 anni di affitto).</li><li>I tassi del mutuo sono bassi e la rata è vicina all’affitto.</li>',
+      rentH:'Affittare e investire in ETF di solito conviene se…', rentL:'<li>Potresti cambiare città entro pochi anni.</li><li>I prezzi sono alti rispetto agli affitti (oltre ~20 anni di affitto).</li><li>Investi davvero la differenza in ETF ogni mese.</li>',
+      lifeH:'Non è solo una questione di soldi',
+      lifeL:'<li><b>Stabilità:</b> nessuno può chiederti di andare via; puoi ristrutturare come vuoi.</li><li><b>Libertà:</b> in affitto puoi trasferirti per lavoro o per cambiare vita in poche settimane.</li><li><b>Tutte le uova in un paniere:</b> una casa è un solo bene in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li><li><b>Disciplina:</b> il mutuo ti obbliga a risparmiare; l’affitto funziona solo se investi in ETF in automatico.</li>',
+      faqH:'Domande',
+      q1:'Ma l’affitto non sono soldi buttati?', a1:'Anche gli interessi del mutuo, le tasse sulla casa, la manutenzione e i costi di acquisto sono soldi che non tornano. Conta il confronto completo, ed è quello che fa questo calcolatore.',
+      q2:'E se i prezzi delle case salgono di più?', a2:'Apri "Mutuo e ipotesi" e alza la crescita del valore della casa. Nel lungo periodo in molti paesi i prezzi delle case hanno seguito più o meno l’inflazione, con un po’ in più; alcune città sono andate molto meglio, altre molto peggio.',
+      q3:'Chi affitta deve davvero investire la differenza?', a3:'Sì. Il confronto vale solo se i soldi che andrebbero nella casa vanno ogni mese in ETF, in automatico. Se vengono spesi, comprare vince facilmente.',
+      q4:'Quale rapporto prezzo/affitto è "buono"?', a4:'Una regola pratica diffusa: sotto circa 15 anni di affitto di solito conviene comprare, sopra circa 20 conviene l’affitto. In mezzo decidono i dettagli.',
+      nextH:'Prossimo passo: il tuo primo piano per investire in ETF', next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.', nextBtn:'Crea il mio piano',
+      fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Stime educative con rendimenti medi costanti, prima delle tasse. Investire in ETF comporta il rischio di perdere denaro; anche i prezzi delle case possono scendere. Verifica le regole o parla con un consulente qualificato.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'¿Comprar casa o alquilar e invertir en ETF? | Your ETF Plan',
+      badge:'Tu caso · comprar o alquilar',
+      h1:'¿Comprar casa o alquilar e <em>invertir en ETF</em>?',
+      sub:'El dilema de siempre, con números reales. El mismo presupuesto para los dos: quien compra paga hipoteca y gastos, quien alquila paga el alquiler e invierte el resto en ETF cada mes. ¿Quién acaba con más?',
+      illAlt:'Una casa a un lado y un piso de alquiler con un tarro donde crece un árbol al otro',
+      calcH:'Tus números',
+      lPrice:'Precio de la casa', lRent:'Alquiler de una casa parecida', rentNote:'Al mes. Mira anuncios de la misma zona y tamaño.',
+      lDown:'Entrada', lYears:'Comparar durante', years:n=>n+(n===1?' año':' años'),
+      assumeH:'Hipoteca y supuestos (toca para cambiarlos)',
+      lMrate:'Interés de la hipoteca', lMterm:'Plazo de la hipoteca', lPcost:'Gastos de compra', pcostNote:'ITP entre el 4% y el 10% según la comunidad en segunda mano (o IVA del 10% en obra nueva), más notaría, registro y gestoría. En total suele ser un 10–15%.',
+      lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, derramas, en % del valor de la casa.',
+      lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% al año.',
+      ratio:(r)=>`Precio = ${r} años de alquiler`, ratioGood:'suele compensar comprar', ratioBad:'suele compensar alquilar', ratioMid:'depende de los detalles',
+      resHead:y=>`Después de ${y===1?'1 año':y+' años'}, lo que tiene cada uno, en euros de hoy:`,
+      bBuy:'Compra la casa <small>valor de la casa − hipoteca pendiente + ETF si los hay</small>', bRent:'Alquila e invierte en ETF <small>cartera de ETF</small>',
+      lgBuy:'Compra', lgRent:'Alquila e invierte en ETF', chartAlt:'Patrimonio a lo largo de los años de quien compra y de quien alquila e invierte en ETF',
+      vBuy:(d)=>`<b class="gain">Comprar</b> sale ganando por unos <b>${d}</b>.`,
+      vRent:(d)=>`<b class="gain">Alquilar e invertir en ETF</b> sale ganando por unos <b>${d}</b>.`,
+      be:(y)=>` Quien compra se pone por delante tras unos <b>${y} ${y===1?'año':'años'}</b>.`, beNone:' En este periodo quien compra no llega a alcanzarle.', beStart:'',
+      mBuy:(pay,cost)=>`<b>Quien compra paga</b><span>Cuota ${pay} + gastos ${cost} al mes</span>`,
+      mRent:(rent,inv)=>`<b>Quien alquila paga</b><span>Alquiler ${rent} al mes e invierte ${inv} en ETF</span>`,
+      mRentNeg:(rent)=>`<b>Quien alquila paga</b><span>Alquiler ${rent} al mes (más que quien compra: es quien compra quien invierte la diferencia en ETF)</span>`,
+      mStart:(v)=>`<b>El primer día</b><span>Quien alquila invierte ${v} en ETF: la entrada y los gastos que quien compra gasta</span>`,
+      calcNote:'En euros de hoy (inflación del 2%). Antes de impuestos: las ganancias de los ETF tributan al vender; vender la vivienda habitual a menudo está exento con condiciones. No se incluyen los gastos de venta de la casa. Estimación educativa, no asesoramiento.',
+      whenH:'Cuándo gana comprar y cuándo alquilar e invertir en ETF',
+      buyH:'Comprar suele ganar si…', buyL:'<li>Te quedas al menos <b>10 años</b>.</li><li>Los precios son bajos frente a los alquileres (precio por debajo de ~15 años de alquiler).</li><li>Los tipos son bajos y la cuota se parece al alquiler.</li>',
+      rentH:'Alquilar e invertir en ETF suele ganar si…', rentL:'<li>Puede que te mudes en pocos años.</li><li>Los precios son altos frente a los alquileres (más de ~20 años de alquiler).</li><li>De verdad inviertes la diferencia en ETF cada mes.</li>',
+      lifeH:'No es solo cuestión de dinero',
+      lifeL:'<li><b>Estabilidad:</b> nadie puede pedirte que te vayas; puedes reformar a tu gusto.</li><li><b>Libertad:</b> de alquiler puedes mudarte por trabajo o por un cambio de vida en semanas.</li><li><b>Todos los huevos en una cesta:</b> una casa es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li><li><b>Disciplina:</b> la hipoteca te obliga a ahorrar; alquilar solo funciona si inviertes en ETF de forma automática.</li>',
+      faqH:'Preguntas',
+      q1:'¿Alquilar no es tirar el dinero?', a1:'Los intereses de la hipoteca, el IBI, el mantenimiento y los gastos de compra también son dinero que no vuelve. Lo que cuenta es la comparación completa, y es lo que hace esta calculadora.',
+      q2:'¿Y si los precios de las casas suben más?', a2:'Abre "Hipoteca y supuestos" y sube la revalorización. A largo plazo, en muchos países los precios de la vivienda han seguido más o menos la inflación, con algo más; algunas ciudades lo hicieron mucho mejor y otras mucho peor.',
+      q3:'¿De verdad quien alquila tiene que invertir la diferencia?', a3:'Sí. La comparación solo vale si el dinero que iría a la casa va cada mes a ETF, de forma automática. Si se gasta, comprar gana con facilidad.',
+      q4:'¿Qué relación precio/alquiler es "buena"?', a4:'Una regla práctica habitual: por debajo de unos 15 años de alquiler suele compensar comprar; por encima de unos 20, alquilar. En medio deciden los detalles.',
+      nextH:'Siguiente paso: tu primer plan para invertir en ETF', next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.', nextBtn:'Crear mi plan',
+      fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero.</strong> Estimaciones educativas con rentabilidades medias constantes, antes de impuestos. Invertir en ETF conlleva el riesgo de perder dinero; los precios de la vivienda también pueden bajar. Comprueba la normativa o habla con un asesor cualificado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
+  $('pcost').value=PCOST[lang];
+
+  // Month-by-month: both people spend the same each month. The buyer pays mortgage + owner
+  // costs; the renter pays rent. Whoever pays less invests the difference in ETFs. On day one
+  // the renter invests what the buyer spends on down payment + purchase costs.
+  function simulate(o){
+    const mi=o.mrate/12, n=o.mterm*12, loan=o.price*(1-o.down);
+    const pay=loan>0?(mi>0?loan*mi/(1-Math.pow(1+mi,-n)):loan/n):0;
+    const gE=Math.pow(1+ETF,1/12)-1, gH=Math.pow(1+o.hgrow,1/12)-1;
+    let bal=loan, value=o.price, buyEtf=0, rentEtf=o.price*o.down+o.price*o.pcost;
+    const pts=[{buy:value-bal,rent:rentEtf}], first={};
+    for(let m=1;m<=o.years*12;m++){
+      buyEtf*=1+gE; rentEtf*=1+gE;
+      const p=m<=n?pay:0;
+      if(p){const int=bal*mi; bal=Math.max(0,bal-(p-int))}
+      const ownerCost=value*o.ocost/12;
+      const rent=o.rent*Math.pow(1+RENT_GROWTH,Math.floor((m-1)/12));
+      const diff=(p+ownerCost)-rent;
+      if(diff>0)rentEtf+=diff; else buyEtf+=-diff;
+      if(m===1){first.pay=p;first.cost=ownerCost;first.rent=rent;first.diff=diff}
+      value*=1+gH;
+      if(m%12===0){const d=Math.pow(1+INFL,m/12);pts.push({buy:(value-bal+buyEtf)/d,rent:rentEtf/d})}
+    }
+    return {pts,first};
+  }
+
+  function read(){
+    return {price:+$('price').value, rent:+$('rent').value, down:+$('down').value/100, years:+$('years').value,
+      mrate:+$('mrate').value/100, mterm:+$('mterm').value, pcost:+$('pcost').value/100, ocost:+$('ocost').value/100, hgrow:+$('hgrow').value/100};
+  }
+
+  function render(){
+    const o=read(), {pts,first}=simulate(o), end=pts[o.years];
+    $('price-out').textContent=fmt(o.price); $('rent-out').textContent=fmt(o.rent);
+    $('down-out').textContent=pct(o.down)+' · '+fmt(o.price*o.down);
+    $('years-out').textContent=L.years(o.years);
+    $('mrate-out').textContent=pct(o.mrate); $('mterm-out').textContent=L.years(o.mterm);
+    $('pcost-out').textContent=pct(o.pcost); $('ocost-out').textContent=pct(o.ocost); $('hgrow-out').textContent=pct(o.hgrow);
+    const ratio=Math.round(o.price/(o.rent*12));
+    const cls=ratio<15?'good':ratio>20?'warn':'', txt=ratio<15?L.ratioGood:ratio>20?L.ratioBad:L.ratioMid;
+    $('chips').innerHTML=`<span class="chip ${cls}">${L.ratio(ratio)} · ${txt}</span>`;
+    $('res-head').textContent=L.resHead(o.years);
+    $('v-buy').textContent=fmt(end.buy); $('v-rent').textContent=fmt(end.rent);
+    const top=Math.max(end.buy,end.rent,1)*1.05;
+    $('f-buy').style.width=Math.max(1,end.buy/top*100).toFixed(1)+'%';
+    $('f-rent').style.width=Math.max(1,end.rent/top*100).toFixed(1)+'%';
+    let be=null; for(let y=1;y<pts.length;y++){if(pts[y].buy>=pts[y].rent){be=y;break}}
+    const lead=end.buy>=end.rent?L.vBuy(fmt(end.buy-end.rent)):L.vRent(fmt(end.rent-end.buy));
+    $('verdict').innerHTML=lead+(be?L.be(be):L.beNone);
+    $('monthly').innerHTML='<div class="mbox">'+L.mStart(fmt(o.price*o.down+o.price*o.pcost))+'</div>'+
+      '<div class="mbox">'+L.mBuy(fmt(first.pay),fmt(first.cost))+'</div>'+
+      '<div class="mbox">'+(first.diff>=0?L.mRent(fmt(first.rent),fmt(first.diff)):L.mRentNeg(fmt(first.rent)))+'</div>';
+    drawChart(pts);
+  }
+
+  const short=v=>{const a=Math.abs(v);return (v<0?'−':'')+'€'+(a>=1e6?(a/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':Math.round(a/1000)+'k')};
+  function drawChart(pts){
+    const svg=$('chart'), W=Math.max(280,svg.clientWidth||600), H=240, Lp=46, R=14, Tp=12, B=26, n=pts.length-1;
+    const vals=pts.flatMap(p=>[p.buy,p.rent]); const max=Math.max(...vals,1), min=Math.min(0,...vals);
+    const x=i=>Lp+(W-Lp-R)*i/Math.max(1,n), y=v=>Tp+(H-Tp-B)*(1-(v-min)/(max-min||1));
+    const t=(xx,yy,a,s)=>`<text x="${xx.toFixed(1)}" y="${yy.toFixed(1)}" text-anchor="${a}" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">${s}</text>`;
+    let g='';
+    for(let k=0;k<=3;k++){const v=min+(max-min)*k/3;g+=`<line x1="${Lp}" x2="${W-R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--line)"/>`+t(Lp-6,y(v)+4,'end',short(v))}
+    const step=n<=10?Math.max(1,Math.round(n/5)):5;
+    for(let i=0;i<=n;i+=step)g+=t(x(i),H-6,'middle',i);
+    const path=k=>pts.map((p,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(p[k]).toFixed(1)).join(' ');
+    g+=`<path d="${path('buy')}" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"/>`;
+    g+=`<path d="${path('rent')}" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"/>`;
+    g+=`<circle cx="${x(n)}" cy="${y(pts[n].buy)}" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"/><circle cx="${x(n)}" cy="${y(pts[n].rent)}" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"/>`;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.innerHTML=g;
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:1});
+    fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=FIXED?HOME[lang]:'/';
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;$('pcost').value=PCOST[lang];applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  const INPUTS=['price','rent','down','years','mrate','mterm','pcost','ocost','hgrow'];
+  INPUTS.forEach(id=>$(id).addEventListener('input',render));
+  let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(render,120)});
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_buy_view']);
+    INPUTS.forEach(id=>$(id).addEventListener('input',()=>send(['sc_buy_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_buy',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>
