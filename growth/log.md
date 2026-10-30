@@ -10,3 +10,12 @@ One dated entry per daily growth session. Newest at the bottom.
 - Sliders added for salary, spending, savings and the monthly ETF amount (Marco's request: faster on phones). Moving a slider counts as `active`.
 - Evening: Marco felt the page isn't catchy for first-time investors. Built a hook-first preview at /v2/ (one question, monthly-savings and age sliders, big animated result at 60 with 5–9% range, invest-vs-bank bars, second-salary line, 3 short points, honest risk note, CTA to the full plan). Not indexed, no tracking. Waiting for Marco's verdict before replacing the main page; then compare the `active` rate before/after.
 - Marco on /v2/: "not bad", but showing "at 60" may scare people in their 30s. On hold while he thinks. Idea to try: replace age with near milestones (in 5 / 10 / 20 years, default 10) so the first number feels close.
+
+## 2026-10-30
+- **No data yet.** The 04:30 UTC scheduled export did not fire (first schedule of a new workflow; GitHub often skips it). Triggered it by hand: [run 41022593671](https://github.com/marcocast/youretfplan/actions/runs/41022593671) succeeded but every source failed with `missing settings: CF_API_TOKEN` → the repo secret `CLOUDFLARE_API_TOKEN` is not set. Blocked on Marco.
+- Token needs: Account → D1 → Read, and Account → Account Analytics → Read, for account f133aba3…0908. Save as repo secret `CLOUDFLARE_API_TOKEN` (Settings → Secrets and variables → Actions), then re-run "Daily data export".
+- Key numbers: none (active yesterday / 7d / MTD unknown). Pace needed for 100k by 2027-09-30: ~299 active users/day on average (334 days left).
+- Funnel / feedback: no data.
+- Checked `/`, `/it/`, `/es/` locally at 390px, light and dark: 200, no horizontal overflow, no JS errors (only the blocked analytics beacon). The live site is not reachable from the session sandbox.
+- Changed: nothing on the site. Without data, and with /v2/ on hold for Marco's decision, no funnel change today.
+- Watch tomorrow: first real export (if the secret is set); confirm the scheduled 04:30 UTC run fires.
