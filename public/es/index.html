@@ -459,10 +459,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M10 30 32 12l22 18" fill="none"></path><rect class="w-ink" x="16" y="28" width="32" height="26" rx="3" fill="var(--sun)"></rect><rect class="w-ink" x="28" y="38" width="9" height="16" fill="var(--surface)"></rect></svg>
         <span><b data-t="c2t">¿Comprar tu casa o vivir de alquiler e invertir en ETF?</b><span class="d" data-t="c2d">Comprar frente a alquilar e invertir la diferencia en ETF.</span></span><span class="go" aria-hidden="true">→</span>
       </a>
-      <div class="case soon">
+      <a class="case" id="case-inherit" href="/es/herencia-invertir-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="12" y="24" width="40" height="30" rx="5" fill="var(--coral)"></rect><path class="w-ink" d="M10 24h44v-8H10Z" fill="var(--sun)"></path><path class="w-ink" d="M32 16v38" fill="none"></path><path class="w-ink" d="M32 16c-6-10-16-6-10 0M32 16c6-10 16-6 10 0" fill="none"></path></svg>
-        <span><b data-t="c3t">He recibido una herencia</b><span class="d" data-t="c3d">Dinero o una casa: ¿quedármelo o invertir en ETF?</span></span><span class="tag" data-t="soon">Próximamente</span>
-      </div>
+        <span><b data-t="c3t">He recibido una herencia</b><span class="d" data-t="c3d">Dinero o una casa: ¿quedármelo o invertir en ETF?</span></span><span class="go" aria-hidden="true">→</span>
+      </a>
       <div class="case soon">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 32 28 16l20 16" fill="none"></path><rect class="w-ink" x="13" y="30" width="30" height="24" rx="3" fill="var(--sky)"></rect><path class="w-ink" d="M44 22h12v10H44Z" fill="var(--surface)"></path><path d="M47 27h6" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"></path></svg>
         <span><b data-t="c4t">Tengo una casa: ¿la alquilo o la vendo e invierto en ETF?</b><span class="d" data-t="c4d">El alquiler frente a la venta invertida en ETF.</span></span><span class="tag" data-t="soon">Próximamente</span>
@@ -959,6 +959,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
     $('case-bank').href=(FIXED?'':'https://youretfplan.com')+({en:'/bank-vs-etf/',it:'/it/banca-vs-etf/',es:'/es/banco-vs-etf/'})[lang];
     $('case-buy').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-vs-rent-etf/',it:'/it/comprare-casa-o-affitto-etf/',es:'/es/comprar-o-alquilar-etf/'})[lang];
+    $('case-inherit').href=(FIXED?'':'https://youretfplan.com')+({en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'})[lang];
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');

@@ -369,10 +369,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M10 30 32 12l22 18" fill="none"/><rect class="w-ink" x="16" y="28" width="32" height="26" rx="3" fill="var(--sun)"/><rect class="w-ink" x="28" y="38" width="9" height="16" fill="var(--surface)"/></svg>
         <span><b data-t="c2t"></b><span class="d" data-t="c2d"></span></span><span class="go" aria-hidden="true">→</span>
       </a>
-      <div class="case soon">
+      <a class="case" id="case-inherit" href="/inheritance-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="12" y="24" width="40" height="30" rx="5" fill="var(--coral)"/><path class="w-ink" d="M10 24h44v-8H10Z" fill="var(--sun)"/><path class="w-ink" d="M32 16v38" fill="none"/><path class="w-ink" d="M32 16c-6-10-16-6-10 0M32 16c6-10 16-6 10 0" fill="none"/></svg>
-        <span><b data-t="c3t"></b><span class="d" data-t="c3d"></span></span><span class="tag" data-t="soon"></span>
-      </div>
+        <span><b data-t="c3t"></b><span class="d" data-t="c3d"></span></span><span class="go" aria-hidden="true">→</span>
+      </a>
       <div class="case soon">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 32 28 16l20 16" fill="none"/><rect class="w-ink" x="13" y="30" width="30" height="24" rx="3" fill="var(--sky)"/><path class="w-ink" d="M44 22h12v10H44Z" fill="var(--surface)"/><path d="M47 27h6" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/></svg>
         <span><b data-t="c4t"></b><span class="d" data-t="c4d"></span></span><span class="tag" data-t="soon"></span>
@@ -875,6 +875,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
     $('case-bank').href=(FIXED?'':'https://youretfplan.com')+({en:'/bank-vs-etf/',it:'/it/banca-vs-etf/',es:'/es/banco-vs-etf/'})[lang];
     $('case-buy').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-vs-rent-etf/',it:'/it/comprare-casa-o-affitto-etf/',es:'/es/comprar-o-alquilar-etf/'})[lang];
+    $('case-inherit').href=(FIXED?'':'https://youretfplan.com')+({en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'})[lang];
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');
