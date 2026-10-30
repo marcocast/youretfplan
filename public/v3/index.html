@@ -106,9 +106,10 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .honest{background:#33271a;color:#f3d7ac;border-color:#a87a36}}
 :root[data-theme="dark"] .honest{background:#33271a;color:#f3d7ac;border-color:#a87a36}
 .actions{display:flex;flex-direction:column;gap:12px}
-.who{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
-.who svg{width:64px;height:64px}
-.who p{color:var(--muted);font-size:.95rem}
+.who{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center;background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:14px 16px}
+.who svg{width:110px;height:84px}
+.who h2{font-size:1.2rem;margin-bottom:4px}
+.who p{color:var(--muted);font-size:.93rem}
 .disc{font-size:.8rem;color:var(--muted)}
 
 /* motion */
@@ -136,6 +137,11 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
     <symbol id="i-pig" viewBox="0 0 64 64"><ellipse class="ink" cx="31" cy="36" rx="20" ry="15" fill="#f6b3c0"/><path class="ink" d="M48 33h6v8h-5" fill="#f6b3c0"/><path class="ink" d="M20 24l-2-8 8 5" fill="#f6b3c0"/><path class="ink" d="M20 49v6M40 49v6"/><circle cx="42" cy="31" r="2.2" fill="var(--ink)"/><path class="ink" d="M26 23h10"/><circle class="ink" cx="31" cy="12" r="6" fill="var(--sun)"/></symbol>
     <symbol id="i-jar" viewBox="0 0 64 64"><rect class="ink" x="14" y="20" width="36" height="38" rx="9" fill="var(--surface)"/><rect class="ink" x="18" y="13" width="28" height="8" rx="3" fill="var(--coral)"/><ellipse class="ink" cx="32" cy="50" rx="11" ry="3.5" fill="var(--sun)"/><ellipse class="ink" cx="32" cy="44" rx="11" ry="3.5" fill="var(--sun)"/><circle class="ink" cx="45" cy="7" r="5" fill="var(--sun)"/></symbol>
     <symbol id="i-me" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--mint)"/><circle class="ink" cx="32" cy="26" r="11" fill="#f2c9a5"/><path class="ink" d="M21 24c2-9 20-11 22 0-5-3-15-3-22 0Z" fill="#6b4a32"/><path class="ink" d="M14 56c3-11 10-15 18-15s15 4 18 15" fill="var(--accent)"/><circle cx="28" cy="27" r="1.6" fill="var(--ink)"/><circle cx="36" cy="27" r="1.6" fill="var(--ink)"/><path class="ink" d="M29 32c2 2 4 2 6 0" fill="none" stroke-width="2"/></symbol>
+    <symbol id="i-bros" viewBox="0 0 110 84"><ellipse cx="55" cy="78" rx="50" ry="6" fill="var(--mint)"/>
+      <path class="ink" d="M10 78c2-17 10-25 22-25s20 8 22 25" fill="var(--accent)"/><circle class="ink" cx="32" cy="34" r="13" fill="#f2c9a5"/><path class="ink" d="M19 32c1-12 25-14 26 0-6-4-19-4-26 0Z" fill="#6b4a32"/><circle cx="27" cy="35" r="1.7" fill="var(--ink)"/><circle cx="37" cy="35" r="1.7" fill="var(--ink)"/><path class="ink" d="M28 41c2.5 2 5.5 2 8 0" fill="none" stroke-width="2"/>
+      <path class="ink" d="M56 78c2-14 9-21 20-21s18 7 20 21" fill="var(--coral)"/><circle class="ink" cx="76" cy="41" r="11" fill="#e9b98f"/><path class="ink" d="M65 39c0-11 22-12 22 0-5-6-17-6-22 0Z" fill="#3d2a1e"/><circle cx="72" cy="42" r="1.6" fill="var(--ink)"/><circle cx="80" cy="42" r="1.6" fill="var(--ink)"/><path class="ink" d="M73 47c2 1.6 4 1.6 6 0" fill="none" stroke-width="2"/>
+      <path class="ink" d="M48 62c6-4 12-6 18-4" fill="none" stroke-width="5"/>
+      <path d="M55 12c-3-5-10-2-7 4l7 6 7-6c3-6-4-9-7-4Z" fill="var(--coral)" class="ink" stroke-width="2"/></symbol>
   </defs>
 </svg>
 
@@ -192,6 +198,11 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
     </div>
   </section>
 
+  <section class="who" aria-labelledby="h-who">
+    <svg role="img" data-ta="whoAlt"><use href="#i-bros"/></svg>
+    <div><h2 id="h-who" data-t="whoH"></h2><p data-t="who"></p></div>
+  </section>
+
   <section id="wizard" class="card" aria-live="polite" tabindex="-1">
     <div class="progress"><span id="prog-txt"></span><span class="dots"><i></i><i></i><i></i></span></div>
     <div class="q">
@@ -245,11 +256,6 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
     </div>
   </section>
 
-  <section class="who" aria-label="Marco">
-    <svg><use href="#i-me"/></svg>
-    <p data-t="who"></p>
-  </section>
-
   <p class="disc" data-t="disc"></p>
 </div>
 
@@ -282,7 +288,7 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
       years:n=>`${n} years`, yrsAria:'Years',
       honest:'Honestly: some years will be red. In 2008 world markets roughly halved and came back within a few years. The plan works if you keep going.',
       full:'See every detail in the full calculator', print:'Save / print my plan', again:'Start again',
-      who:'Made by Marco, an engineer who invests in ETFs himself. Free, no ads, no affiliate links.',
+      whoH:'Made by Marco for his brother', who:'Marco is an engineer who invests in ETFs. He made this for his brother, and now it’s free for anyone: no ads, no affiliate links, no sign-up.', whoAlt:'Two brothers, one with an arm around the other',
       disc:'Educational estimates, not financial advice. Returns are not guaranteed; here they are constant averages before tax and fees. The bank is calculated at zero interest. Investing can lose money.'},
     it:{locale:'it-IT', full:'/it/#numbers',
       badge:'Gratis · 10 minuti', h1:'Il tuo primo <em>PAC in ETF</em>, in 10 minuti.',
@@ -308,7 +314,7 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
       years:n=>`${n} anni`, yrsAria:'Anni',
       honest:'Onestamente: ci saranno anni in rosso. Nel 2008 le borse mondiali si sono quasi dimezzate e si sono riprese in pochi anni. Il piano funziona se continui.',
       full:'Vedi tutti i dettagli nel calcolatore completo', print:'Salva / stampa il mio piano', again:'Ricomincia',
-      who:'L’ha fatto Marco, un ingegnere che investe in ETF lui stesso. Gratis, senza pubblicità, senza link di affiliazione.',
+      whoH:'Fatto da Marco per suo fratello', who:'Marco è un ingegnere che investe in ETF. L’ha fatto per suo fratello, e ora è gratis per chiunque: senza pubblicità, senza link di affiliazione, senza registrazione.', whoAlt:'Due fratelli, uno abbraccia l’altro',
       disc:'Stime educative, non consulenza finanziaria. I rendimenti non sono garantiti; qui sono medie costanti prima di tasse e commissioni. La banca è calcolata a interesse zero. Investire comporta il rischio di perdere denaro.'},
     es:{locale:'es-ES', full:'/es/#numbers',
       badge:'Gratis · 10 minutos', h1:'Tu primer <em>plan en ETF</em>, en 10 minutos.',
@@ -334,7 +340,7 @@ input[type=range]{width:100%;height:40px;margin:0;accent-color:var(--coral);curs
       years:n=>`${n} años`, yrsAria:'Años',
       honest:'Con sinceridad: habrá años en rojo. En 2008 las bolsas mundiales casi se redujeron a la mitad y se recuperaron en pocos años. El plan funciona si sigues.',
       full:'Ver todos los detalles en la calculadora completa', print:'Guardar / imprimir mi plan', again:'Empezar de nuevo',
-      who:'La ha hecho Marco, un ingeniero que invierte en ETF él mismo. Gratis, sin publicidad, sin enlaces de afiliado.',
+      whoH:'Hecho por Marco para su hermano', who:'Marco es un ingeniero que invierte en ETF. Lo hizo para su hermano y ahora es gratis para cualquiera: sin publicidad, sin enlaces de afiliado, sin registro.', whoAlt:'Dos hermanos, uno abraza al otro',
       disc:'Estimaciones educativas, no asesoramiento financiero. Las rentabilidades no están garantizadas; aquí son medias constantes antes de impuestos y comisiones. El banco se calcula sin intereses. Invertir conlleva el riesgo de perder dinero.'}
   };
   // question sliders: spend, cash, monthly
