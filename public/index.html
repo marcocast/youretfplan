@@ -403,8 +403,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
     <div class="w-val num" id="q-val">€1,500</div>
     <div>
-      <input type="range" id="q-range" aria-labelledby="q-h" min="300" max="6000" step="50" aria-valuetext="€1,500">
-      <div class="w-ticks num"><span id="tk-lo">€300</span><span id="tk-hi">€6,000</span></div>
+      <input type="range" id="q-range" aria-labelledby="q-h" min="0" max="1000" step="1" aria-valuetext="€1,500">
+      <div class="w-ticks num"><span id="tk-lo">€300</span><span id="tk-hi">€10,000</span></div>
     </div>
     <div class="w-nav">
       <button type="button" class="w-back" id="back" data-w="back" style="visibility: hidden;">Back</button>
@@ -1062,14 +1062,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
   // Guided start: 3 questions (spend, bank, monthly) -> one-page plan. Same 5/7/9% and 6-month cushion as the
   // full calculator below; the answers are carried into it.
   const WQ=[
-    {key:'spend', min:300, max:6000, step:50, ill:'#i-bag'},
-    {key:'cash',  min:0, max:1000000, curve:true, ill:'#i-pig'},
-    {key:'monthly', min:0, max:3000, step:25, ill:'#i-jar'}];
+    {key:'spend', min:300, max:10000, curve:2, ill:'#i-bag'},
+    {key:'cash',  min:0, max:1000000, curve:3, ill:'#i-pig'},
+    {key:'monthly', min:0, max:10000, curve:2, ill:'#i-jar'}];
   const wAns={spend:1500,cash:8000,monthly:300};
   let wStep=0, wYears=10;
-  // Money in the bank: curved slider (position 0-1000, value = max·(pos/1000)³) so small amounts stay easy to pick up to 1 million.
-  const curveVal=(q,p)=>{const v=q.max*Math.pow(p/1000,3);const st=v<10000?100:v<100000?500:v<500000?5000:10000;return Math.min(q.max,Math.round(v/st)*st)};
-  const curvePos=(q,v)=>Math.round(1000*Math.cbrt(Math.max(0,v)/q.max));
+  // Curved sliders (position 0-1000, value = min + (max-min)·(pos/1000)^curve): small amounts stay easy to pick
+  // while the top goes to 10,000 € a month and 1 million in the bank.
+  const curveVal=(q,p)=>{const v=q.min+(q.max-q.min)*Math.pow(p/1000,q.curve);const st=v<1000?25:v<10000?50:v<100000?500:v<500000?5000:10000;return Math.min(q.max,Math.max(q.min,Math.round(v/st)*st))};
+  const curvePos=(q,v)=>Math.round(1000*Math.pow(Math.max(0,v-q.min)/(q.max-q.min),1/q.curve));
 
   function showStep(focus){
     const q=WQ[wStep], t=W.qs[wStep], r=$('q-range');
