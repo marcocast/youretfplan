@@ -6,7 +6,7 @@
 // (random salt of the day + IP + user agent). The salt is replaced every day and old
 // salts are deleted, so visitors cannot be linked across days or traced back.
 
-const STEPS = new Set(['view', 'calc_seen', 'active', 'explore', 'start_seen', 'faq', 'bottom', 'feedback']);
+const STEPS = new Set(['view', 'hook', 'calc_seen', 'active', 'explore', 'start_seen', 'faq', 'bottom', 'feedback']);
 const LANGS = new Set(['en', 'it', 'es']);
 const MAX_COMMENT = 1000;
 const MAX_FEEDBACK_PER_VISITOR_PER_DAY = 10;
