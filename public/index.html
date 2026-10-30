@@ -390,7 +390,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   <section class="w-who" aria-labelledby="h-who">
     <svg role="img" data-wa="whoAlt" aria-label="Two brothers, one with an arm around the other"><use href="#i-bros"></use></svg>
-    <div><h2 id="h-who" data-w="whoH">Made by Marco for his brother</h2><p data-w="who">Marco is an engineer who invests in ETFs. He made this for his brother, and now it’s free for anyone: no ads, no affiliate links, no sign-up.</p></div>
+    <div><h2 id="h-who" data-w="whoH">Started for Marco’s brother, made for everyone</h2><p data-w="who">Marco is an engineer who invests in ETFs. He started it to show his brother how ETFs work, then built it for anyone who wants to understand them: free, no ads, no affiliate links, no sign-up.</p></div>
   </section>
 
   <section id="wizard" class="w-card" aria-live="polite" tabindex="-1">
@@ -463,14 +463,14 @@ details > div{padding:0 0 14px;color:var(--muted)}
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="12" y="24" width="40" height="30" rx="5" fill="var(--coral)"></rect><path class="w-ink" d="M10 24h44v-8H10Z" fill="var(--sun)"></path><path class="w-ink" d="M32 16v38" fill="none"></path><path class="w-ink" d="M32 16c-6-10-16-6-10 0M32 16c6-10 16-6 10 0" fill="none"></path></svg>
         <span><b data-t="c3t">I received an inheritance</b><span class="d" data-t="c3d">Money or a house: keep it, or invest in ETFs?</span></span><span class="go" aria-hidden="true">→</span>
       </a>
-      <div class="case soon">
+      <a class="case" id="case-own" href="/rent-or-sell-house-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 32 28 16l20 16" fill="none"></path><rect class="w-ink" x="13" y="30" width="30" height="24" rx="3" fill="var(--sky)"></rect><path class="w-ink" d="M44 22h12v10H44Z" fill="var(--surface)"></path><path d="M47 27h6" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"></path></svg>
-        <span><b data-t="c4t">I own a house: rent it or sell and invest in ETFs?</b><span class="d" data-t="c4d">Rental income compared with investing the sale in ETFs.</span></span><span class="tag" data-t="soon">Coming soon</span>
-      </div>
-      <div class="case soon">
+        <span><b data-t="c4t">I own a house: rent it or sell and invest in ETFs?</b><span class="d" data-t="c4d">Rental income compared with investing the sale in ETFs.</span></span><span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="case" id="case-let" href="/buy-to-let-vs-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 30 26 16l18 14" fill="none"></path><rect class="w-ink" x="12" y="28" width="28" height="26" rx="3" fill="var(--sun)"></rect><circle class="w-ink" cx="48" cy="40" r="10" fill="var(--sun)"></circle><path d="M45 40h6M46 37h4M46 43h4" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"></path></svg>
-        <span><b data-t="c5t">Buy a home to rent out, or invest in ETFs?</b><span class="d" data-t="c5d">Rental income and costs compared with investing the same money in ETFs.</span></span><span class="tag" data-t="soon">Coming soon</span>
-      </div>
+        <span><b data-t="c5t">Buy a home to rent out, or invest in ETFs?</b><span class="d" data-t="c5d">Rental income and costs compared with investing the same money in ETFs.</span></span><span class="go" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
@@ -489,7 +489,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="small"><span id="answers">Example: spending €1,500 a month, €8,000 in the bank, €300 a month into ETFs.</span> <button type="button" class="link-btn" id="change" data-t="change">Change my answers</button></p>
     <div class="slider">
       <div class="slider-head">
-        <label for="years" data-t="lYears">In how many years</label>
+        <label for="years" data-t="lYears">See what you’d have in</label>
         <strong class="num" id="years-out">10 years</strong>
       </div>
       <input id="years" type="range" min="5" max="25" step="1" value="10">
@@ -612,7 +612,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       e2:`<b>You buy a bit every month</b>You set up an automatic monthly payment, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
       e3:`<b>Your slice grows with the companies</b>Over long periods companies earn more and become worth more, and so does your slice. Not every year, and sometimes it drops a lot. Over 15–20 years it has historically grown.`,
       change:`Change my answers`, ansEx:(sp,c,m)=>`Example: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`, ansYou:(sp,c,m)=>`Your answers: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`,
-      hFut:`What you could have`, lYears:`In how many years`, years:n=>`${n} years`,
+      hFut:`What you could have`, lYears:`See what you’d have in`, years:n=>`${n} years`,
       real:`Show in today's euros (with 2% <a class="term" href="#g-infl">inflation</a> per year)`,
       scen:[[`All in the bank`,`Do nothing`],[`ETFs at 5%`,`Cautious`],[`ETFs at 7%`,`Historical normal`],[`ETFs at 9%`,`Good decades`]],
       paidIn:p=>`You put in ${p} in total.`,
@@ -698,7 +698,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       years:n=>`${n} years`, yrsAria:'Years',
       honest:'Honestly: some years will be red. In 2008 world markets roughly halved and came back within a few years. The plan works if you keep going.',
       full:'See every detail below', print:'Save / print my plan', again:'Start again',
-      whoH:'Made by Marco for his brother', who:'Marco is an engineer who invests in ETFs. He made this for his brother, and now it’s free for anyone: no ads, no affiliate links, no sign-up.', whoAlt:'Two brothers, one with an arm around the other'
+      whoH:'Started for Marco’s brother, made for everyone', who:'Marco is an engineer who invests in ETFs. He started it to show his brother how ETFs work, then built it for anyone who wants to understand them: free, no ads, no affiliate links, no sign-up.', whoAlt:'Two brothers, one with an arm around the other'
       }
     },
     it:{
@@ -722,7 +722,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama PAC, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
       e3:`<b>Il tuo pezzettino cresce con le aziende</b>Nel lungo periodo le aziende guadagnano di più e valgono di più, e con loro il tuo pezzettino. Non ogni anno, e a volte scende parecchio. Su 15–20 anni storicamente è cresciuto.`,
       change:`Cambia le risposte`, ansEx:(sp,c,m)=>`Esempio: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`, ansYou:(sp,c,m)=>`Le tue risposte: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`,
-      hFut:`Quanto potresti avere`, lYears:`Tra quanti anni`, years:n=>`${n} anni`,
+      hFut:`Quanto potresti avere`, lYears:`Vedi quanto avresti tra`, years:n=>`${n} anni`,
       real:`Mostra in euro di oggi (con <a class="term" href="#g-infl">inflazione</a> al 2% l'anno)`,
       scen:[[`Tutto in banca`,`Non fare nulla`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Storico normale`],[`ETF al 9%`,`Decenni buoni`]],
       paidIn:p=>`Hai versato ${p} in tutto.`,
@@ -808,7 +808,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       years:n=>`${n} anni`, yrsAria:'Anni',
       honest:'Onestamente: ci saranno anni in rosso. Nel 2008 le borse mondiali si sono quasi dimezzate e si sono riprese in pochi anni. Il piano funziona se continui.',
       full:'Vedi tutti i dettagli qui sotto', print:'Salva / stampa il mio piano', again:'Ricomincia',
-      whoH:'Fatto da Marco per suo fratello', who:'Marco è un ingegnere che investe in ETF. L’ha fatto per suo fratello, e ora è gratis per chiunque: senza pubblicità, senza link di affiliazione, senza registrazione.', whoAlt:'Due fratelli, uno abbraccia l’altro'
+      whoH:'Nato per il fratello di Marco, fatto per tutti', who:'Marco è un ingegnere che investe in ETF. L’ha iniziato per spiegare a suo fratello come funzionano gli ETF, poi l’ha fatto per chiunque voglia capirli: gratis, senza pubblicità, senza link di affiliazione, senza registrazione.', whoAlt:'Due fratelli, uno abbraccia l’altro'
       }
     },
     es:{
@@ -832,7 +832,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       e2:`<b>Compras un poco cada mes</b>Programas una aportación automática mensual, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
       e3:`<b>Tu trocito crece con las empresas</b>A largo plazo las empresas ganan más y valen más, y tu trocito con ellas. No todos los años, y a veces baja mucho. En 15–20 años, históricamente ha crecido.`,
       change:`Cambiar mis respuestas`, ansEx:(sp,c,m)=>`Ejemplo: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`, ansYou:(sp,c,m)=>`Tus respuestas: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`,
-      hFut:`Lo que podrías tener`, lYears:`Dentro de cuántos años`, years:n=>`${n} años`,
+      hFut:`Lo que podrías tener`, lYears:`Mira lo que tendrías dentro de`, years:n=>`${n} años`,
       real:`Mostrar en euros de hoy (con un 2% de <a class="term" href="#g-infl">inflación</a> al año)`,
       scen:[[`Todo en el banco`,`No hacer nada`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Histórico normal`],[`ETF al 9%`,`Décadas buenas`]],
       paidIn:p=>`Has aportado ${p} en total.`,
@@ -918,7 +918,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       years:n=>`${n} años`, yrsAria:'Años',
       honest:'Con sinceridad: habrá años en rojo. En 2008 las bolsas mundiales casi se redujeron a la mitad y se recuperaron en pocos años. El plan funciona si sigues.',
       full:'Ver todos los detalles abajo', print:'Guardar / imprimir mi plan', again:'Empezar de nuevo',
-      whoH:'Hecho por Marco para su hermano', who:'Marco es un ingeniero que invierte en ETF. Lo hizo para su hermano y ahora es gratis para cualquiera: sin publicidad, sin enlaces de afiliado, sin registro.', whoAlt:'Dos hermanos, uno abraza al otro'
+      whoH:'Nació para el hermano de Marco, hecho para todos', who:'Marco es un ingeniero que invierte en ETF. Lo empezó para explicarle a su hermano cómo funcionan los ETF, y luego lo hizo para cualquiera que quiera entenderlos: gratis, sin publicidad, sin enlaces de afiliado, sin registro.', whoAlt:'Dos hermanos, uno abraza al otro'
       }
     }
   };
@@ -960,6 +960,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('case-bank').href=(FIXED?'':'https://youretfplan.com')+({en:'/bank-vs-etf/',it:'/it/banca-vs-etf/',es:'/es/banco-vs-etf/'})[lang];
     $('case-buy').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-vs-rent-etf/',it:'/it/comprare-casa-o-affitto-etf/',es:'/es/comprar-o-alquilar-etf/'})[lang];
     $('case-inherit').href=(FIXED?'':'https://youretfplan.com')+({en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'})[lang];
+    $('case-own').href=(FIXED?'':'https://youretfplan.com')+({en:'/rent-or-sell-house-etf/',it:'/it/affittare-o-vendere-casa-etf/',es:'/es/alquilar-o-vender-casa-etf/'})[lang];
+    $('case-let').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-to-let-vs-etf/',it:'/it/comprare-casa-da-affittare-o-etf/',es:'/es/comprar-para-alquilar-o-etf/'})[lang];
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');
     $('l-en').setAttribute('aria-pressed',lang==='en');

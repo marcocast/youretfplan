@@ -123,6 +123,34 @@ GROUPS = {
             "es": "Calculadora gratuita para una herencia: dinero en el banco o invertido en ETF, o una casa vacía, alquilada o vendida para invertir en ETF. En euros de hoy, con los pasos previos y los impuestos.",
         },
     ),
+    "own": scenario(
+        "own.html",
+        {"en": "/rent-or-sell-house-etf/", "it": "/it/affittare-o-vendere-casa-etf/", "es": "/es/alquilar-o-vender-casa-etf/"},
+        {
+            "en": "I own a house: rent it out or sell it and invest in ETFs? | Your ETF Plan",
+            "it": "Ho una casa: la affitto o la vendo e investo in ETF? | Your ETF Plan",
+            "es": "Tengo una casa: ¿la alquilo o la vendo e invierto en ETF? | Your ETF Plan",
+        },
+        {
+            "en": "Free calculator: keep your house empty, rent it out, or sell it and invest in ETFs. Net rental yield, tax on the sale and monthly income, in today's money.",
+            "it": "Calcolatore gratuito: tenere la casa vuota, affittarla o venderla e investire in ETF. Rendimento netto dell'affitto, tasse sulla vendita ed entrata mensile, in euro di oggi.",
+            "es": "Calculadora gratuita: dejar la casa vacía, alquilarla o venderla e invertir en ETF. Rentabilidad neta del alquiler, impuestos de la venta e ingreso mensual, en euros de hoy.",
+        },
+    ),
+    "let": scenario(
+        "let.html",
+        {"en": "/buy-to-let-vs-etf/", "it": "/it/comprare-casa-da-affittare-o-etf/", "es": "/es/comprar-para-alquilar-o-etf/"},
+        {
+            "en": "Buy a home to rent out, or invest in ETFs? Buy-to-let vs ETF calculator | Your ETF Plan",
+            "it": "Comprare una casa da affittare o investire in ETF? Calcolatore | Your ETF Plan",
+            "es": "¿Comprar una casa para alquilar o invertir en ETF? Calculadora | Your ETF Plan",
+        },
+        {
+            "en": "Free calculator: buy a flat with a mortgage and rent it out, or invest the same money in ETFs. Rental yield, monthly cash flow and who ends up with more, in today's money.",
+            "it": "Calcolatore gratuito: comprare un appartamento con il mutuo e affittarlo, o investire gli stessi soldi in ETF. Rendimento, flusso mensile e chi si ritrova con di più, in euro di oggi.",
+            "es": "Calculadora gratuita: comprar un piso con hipoteca y alquilarlo, o invertir el mismo dinero en ETF. Rentabilidad, flujo mensual y quién acaba con más, en euros de hoy.",
+        },
+    ),
 }
 PAGES = MAIN  # kept for older references
 
