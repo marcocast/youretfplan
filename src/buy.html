@@ -135,6 +135,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
 .legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
 .check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
+.taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -288,6 +290,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <span class="fb-thanks" data-t="fbThanks" hidden></span>
   </div>
 
+  <p class="taxnote"><span data-t="taxNote"></span></p>
   <p class="disclaimer" data-t="disc"></p>
   <p class="foot" id="privacy" data-t="privacy" hidden></p>
   <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/buy-vs-rent-etf/" hreflang="en" lang="en">English</a> · <a href="/it/comprare-casa-o-affitto-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/comprar-o-alquilar-etf/" hreflang="es" lang="es">Español</a></p>
@@ -338,6 +341,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q4:'What price-to-rent ratio is "good"?', a4:'A common rule of thumb: under about 15 years of rent buying tends to pay off, over about 20 renting does. In between, the details decide.',
       nextH:'Next: your first plan for investing in ETFs', next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.', nextBtn:'Make my plan',
       fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      taxNote:'<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.',
       disc:'<strong>Not financial advice.</strong> Educational estimates with constant average returns, before taxes. Investing in ETFs can lose money; home prices can fall too. Check your country’s rules or talk to a qualified adviser.',
       privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
     it:{locale:'it-IT', title:'Comprare casa o affittare e investire in ETF? | Your ETF Plan',
@@ -376,6 +380,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q4:'Quale rapporto prezzo/affitto è "buono"?', a4:'Una regola pratica diffusa: sotto circa 15 anni di affitto di solito conviene comprare, sopra circa 20 conviene l’affitto. In mezzo decidono i dettagli.',
       nextH:'Prossimo passo: il tuo primo piano per investire in ETF', next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.', nextBtn:'Crea il mio piano',
       fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      taxNote:'<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.',
       disc:'<strong>Non è una consulenza finanziaria.</strong> Stime educative con rendimenti medi costanti, prima delle tasse. Investire in ETF comporta il rischio di perdere denaro; anche i prezzi delle case possono scendere. Verifica le regole o parla con un consulente qualificato.',
       privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
     es:{locale:'es-ES', title:'¿Comprar casa o alquilar e invertir en ETF? | Your ETF Plan',
@@ -414,6 +419,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q4:'¿Qué relación precio/alquiler es "buena"?', a4:'Una regla práctica habitual: por debajo de unos 15 años de alquiler suele compensar comprar; por encima de unos 20, alquilar. En medio deciden los detalles.',
       nextH:'Siguiente paso: tu primer plan para invertir en ETF', next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.', nextBtn:'Crear mi plan',
       fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      taxNote:'<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.',
       disc:'<strong>No es asesoramiento financiero.</strong> Estimaciones educativas con rentabilidades medias constantes, antes de impuestos. Invertir en ETF conlleva el riesgo de perder dinero; los precios de la vivienda también pueden bajar. Comprueba la normativa o habla con un asesor cualificado.',
       privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
   };

@@ -10,7 +10,7 @@
 - No money spent for now (no ads, no paid tools).
 - No donations or paid services until the Beckham-regime tax question is cleared with an asesor fiscal.
 - Audience (Marco, 2026-10-30): not only young beginners but also adults and retirees. The current illustrated design may speak mostly to young people; revisit later (e.g. a calmer variant or sections for people with savings already).
-- Content changes about finance go through pull requests that Marco approves; small fixes (typos, bugs, speed) can go straight to `main`.
+- Marco (30 Oct 2026): merge everything directly, no need to wait for his OK, finance content included. Still use a branch + PR for bigger changes so there is a record, then merge it yourself after testing. Every page with tax rules keeps the visible "taxes change, and they vary" note (`taxNote`); re-check tax facts against recent sources before changing them.
 
 ## Roadmap (ideas, in rough priority)
 1. ~~Measurement~~ (counter and feedback live 2026-10-29; daily export pending): anonymous "plan created" counter + 👍/👎 feedback box (Cloudflare Worker + D1), daily export to `growth/data/` via GitHub Action, privacy note on the page.

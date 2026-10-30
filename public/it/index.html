@@ -246,6 +246,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .fb-err{font-size:.88rem;color:var(--down)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
+.taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
 </style>
 <script type="application/ld+json">
 [
@@ -577,6 +579,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   
 
+  <p class="taxnote"><span data-t="taxNote"><b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.</span></p>
   <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.</p>
   <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: niente cookie e niente dati personali. Per migliorare la pagina contiamo visite e click in forma anonima, con un codice che cambia ogni giorno e non permette di identificarti. I feedback vengono salvati senza nomi.</p>
   <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/" hreflang="en" lang="en">English</a> · <a href="/it/" hreflang="it" lang="it">Italiano</a> · <a href="/es/" hreflang="es" lang="es">Español</a></p>
@@ -662,6 +665,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       hSupNo:`Who made this`,
       supTxtNo:`Made by Marco, an engineer who invests in ETFs himself. This page is free, with no ads and no affiliate links.`,
       coffee:`Buy me a coffee`,
+      taxNote:`<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.`,
       disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing can lose money. Do your own research or talk to a qualified adviser before you invest.`,
       fbQ:`Is this result clear?`,
       fbYes:`Yes, it's clear`,
@@ -772,6 +776,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       hSupNo:`Chi l'ha fatta`,
       supTxtNo:`L'ha fatta Marco, un ingegnere che investe in ETF lui stesso. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione.`,
       coffee:`Offrimi un caffè`,
+      taxNote:`<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.`,
       disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire.`,
       fbQ:`Questo risultato è chiaro?`,
       fbYes:`Sì, è chiaro`,
@@ -882,6 +887,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       hSupNo:`Quién la ha hecho`,
       supTxtNo:`La ha hecho Marco, un ingeniero que invierte en ETF él mismo. Esta página es gratuita, sin publicidad y sin enlaces de afiliado.`,
       coffee:`Invítame a un café`,
+      taxNote:`<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.`,
       disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta educativa con estimaciones aproximadas. Las rentabilidades no están garantizadas y cambian cada año; aquí son medias constantes. Los impuestos y las comisiones no están incluidos en los resultados. La cuenta del banco se calcula sin intereses. Invertir conlleva el riesgo de perder dinero. Infórmate bien o habla con un asesor cualificado antes de invertir.`,
       fbQ:`¿Se entiende este resultado?`,
       fbYes:`Sí, se entiende`,

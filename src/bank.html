@@ -117,6 +117,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .fb-thanks{color:var(--accent)}
 .disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+.taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
+.taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -207,6 +209,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <h2 id="h-cmp" data-t="cmpH"></h2>
     <div class="tbl-wrap"><table id="cmp"></table></div>
     <p class="note" data-t="cmpNote"></p>
+    <p class="taxnote"><span data-t="taxNote"></span></p>
   </section>
 
   <section aria-labelledby="h-faq">
@@ -290,6 +293,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.',
       nextBtn:'Make my plan',
       fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      taxNote:'<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.',
       disc:'<strong>Not financial advice.</strong> Educational estimates with constant average returns, before taxes and costs. Investing in ETFs can lose money. Check your country’s rules or talk to a qualified adviser.',
       privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
     it:{locale:'it-IT',
@@ -336,6 +340,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.',
       nextBtn:'Crea il mio piano',
       fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      taxNote:'<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.',
       disc:'<strong>Non è una consulenza finanziaria.</strong> Stime educative con rendimenti medi costanti, prima di tasse e costi. Investire in ETF comporta il rischio di perdere denaro. Verifica le regole o parla con un consulente qualificato.',
       privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
     es:{locale:'es-ES',
@@ -382,6 +387,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.',
       nextBtn:'Crear mi plan',
       fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      taxNote:'<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.',
       disc:'<strong>No es asesoramiento financiero.</strong> Estimaciones educativas con rentabilidades medias constantes, antes de impuestos y costes. Invertir en ETF conlleva el riesgo de perder dinero. Comprueba la normativa o habla con un asesor cualificado.',
       privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
   };
