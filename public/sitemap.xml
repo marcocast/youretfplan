@@ -24,4 +24,28 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/"/>
   </url>
+  <url>
+    <loc>https://youretfplan.com/bank-vs-etf/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/bank-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/banca-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/banco-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/bank-vs-etf/"/>
+  </url>
+  <url>
+    <loc>https://youretfplan.com/it/banca-vs-etf/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/bank-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/banca-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/banco-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/bank-vs-etf/"/>
+  </url>
+  <url>
+    <loc>https://youretfplan.com/es/banco-vs-etf/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/bank-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/banca-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/banco-vs-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/bank-vs-etf/"/>
+  </url>
 </urlset>

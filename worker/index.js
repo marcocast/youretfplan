@@ -7,6 +7,9 @@
 // salts are deleted, so visitors cannot be linked across days or traced back.
 
 const STEPS = new Set(['view', 'hook', 'plan', 'calc_seen', 'active', 'explore', 'start_seen', 'faq', 'bottom', 'feedback']);
+// Scenario pages (bank vs ETF, ...): sc_<scenario>_view and sc_<scenario>_active.
+const SCENARIO_STEP = /^sc_(bank|buy|inherit|own)_(view|active)$/;
+const isStep = s => STEPS.has(s) || SCENARIO_STEP.test(s);
 const LANGS = new Set(['en', 'it', 'es']);
 const MAX_COMMENT = 1000;
 const MAX_FEEDBACK_PER_VISITOR_PER_DAY = 10;
@@ -97,7 +100,7 @@ export default {
     const country = (request.cf && request.cf.country) || null;
 
     if (url.pathname === '/api/e') {
-      const steps = Array.isArray(body.steps) ? body.steps.filter(s => STEPS.has(s)).slice(0, STEPS.size) : [];
+      const steps = Array.isArray(body.steps) ? body.steps.filter(s => typeof s === 'string' && isStep(s)).slice(0, 12) : [];
       const source = clean(body.source, 80);
       if (!steps.length) return noContent();
       await db.batch(steps.map(step =>
@@ -110,7 +113,7 @@ export default {
       if (body.website) return noContent(); // honeypot field filled in: a bot
       const vote = body.vote === 1 || body.vote === -1 ? body.vote : null;
       const comment = clean(body.comment, MAX_COMMENT) || null;
-      const place = ['result', 'result_comment', 'bottom'].includes(body.place) ? body.place : null;
+      const place = ['result', 'result_comment', 'bottom'].includes(body.place) || /^sc_(bank|buy|inherit|own)$/.test(body.place || '') ? body.place : null;
       if (vote === null && !comment) return new Response('Empty', { status: 400 });
       const { n } = await db.prepare('SELECT COUNT(*) AS n FROM feedback WHERE day = ? AND vid = ?').bind(day, vid).first();
       if (n >= MAX_FEEDBACK_PER_VISITOR_PER_DAY) return noContent();

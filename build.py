@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Build the static site from src/page.html.
+"""Build the static site from src/page.html and the scenario pages (src/bank.html, ...).
 
-Writes public/index.html (English) and public/it/index.html (Italian). Each page gets its
+Writes one page per language for each group in GROUPS (main page at /, /it/, /es/;
+scenarios at their localized paths). Each page gets its
 own <head> for search engines (title, description, canonical, hreflang, Open Graph,
 JSON-LD), and the visible text is pre-rendered into the HTML with a headless browser so
 crawlers and link previews see real content. The page script still runs in the browser
@@ -23,7 +24,7 @@ PUBLIC = ROOT / "public"
 SITE = "https://youretfplan.com"
 LASTMOD = "2026-10-30"
 
-PAGES = {
+MAIN = {
     "en": {
         "path": "/",
         "file": PUBLIC / "index.html",
@@ -56,16 +57,61 @@ PAGES = {
     },
 }
 
+LOCALE = {
+    "en": {"timezone": "Europe/London", "locale": "en-GB", "og_locale": "en_GB", "og_image": "/og-en.png"},
+    "it": {"timezone": "Europe/Rome", "locale": "it-IT", "og_locale": "it_IT", "og_image": "/og-it.png"},
+    "es": {"timezone": "Europe/Madrid", "locale": "es-ES", "og_locale": "es_ES", "og_image": "/og-es.png"},
+}
 
-def head_for(lang: str) -> str:
-    p = PAGES[lang]
+
+def scenario(src: str, paths: dict, titles: dict, descriptions: dict) -> dict:
+    """A scenario page in three languages, e.g. bank vs ETF."""
+    return {
+        lang: dict(
+            LOCALE[lang],
+            path=paths[lang],
+            file=PUBLIC / paths[lang].strip("/") / "index.html",
+            title=titles[lang],
+            description=descriptions[lang],
+        )
+        for lang in ("en", "it", "es")
+    } | {"_src": ROOT / "src" / src}
+
+
+# Every indexed page group: one source file, one URL per language (linked with hreflang).
+GROUPS = {
+    "main": MAIN | {"_src": SRC},
+    "bank": scenario(
+        "bank.html",
+        {"en": "/bank-vs-etf/", "it": "/it/banca-vs-etf/", "es": "/es/banco-vs-etf/"},
+        {
+            "en": "Money in the bank or investing in ETFs? Savings vs ETF calculator | Your ETF Plan",
+            "it": "Soldi in banca o investire in ETF? Calcolatore conto deposito vs ETF | Your ETF Plan",
+            "es": "¿Dinero en el banco o invertir en ETF? Calculadora depósito vs ETF | Your ETF Plan",
+        },
+        {
+            "en": "Free calculator: see what your savings become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
+            "it": "Calcolatore gratuito: guarda cosa diventano i tuoi risparmi sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi. Rischi, costi, tasse e quando tenerli in banca.",
+            "es": "Calculadora gratuita: mira en qué se convierten tus ahorros en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy. Riesgos, costes, impuestos y cuándo dejarlos en el banco.",
+        },
+    ),
+}
+PAGES = MAIN  # kept for older references
+
+
+def langs(group: dict) -> list:
+    return [k for k in group if not k.startswith("_")]
+
+
+def head_for(group: dict, lang: str) -> str:
+    p = group[lang]
     url = SITE + p["path"]
     e = html.escape
     alt = "".join(
-        f'<link rel="alternate" hreflang="{l}" href="{SITE}{PAGES[l]["path"]}">\n'
-        for l in PAGES
+        f'<link rel="alternate" hreflang="{l}" href="{SITE}{group[l]["path"]}">\n'
+        for l in langs(group)
     )
-    alt += f'<link rel="alternate" hreflang="x-default" href="{SITE}/">\n'
+    alt += f'<link rel="alternate" hreflang="x-default" href="{SITE}{group["en"]["path"]}">\n'
     return f"""<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="page-lang" content="{lang}">
@@ -89,13 +135,13 @@ def head_for(lang: str) -> str:
 """
 
 
-def json_ld(lang: str, faqs: list) -> str:
-    p = PAGES[lang]
+def json_ld(group: dict, lang: str, faqs: list) -> str:
+    p = group[lang]
     data = [
         {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Your ETF Plan",
+            "name": p["title"].split(" | ")[0] if group is not GROUPS["main"] else "Your ETF Plan",
             "url": SITE + p["path"],
             "description": p["description"],
             "applicationCategory": "FinanceApplication",
@@ -123,13 +169,13 @@ def json_ld(lang: str, faqs: list) -> str:
     return f'<script type="application/ld+json">\n{body}\n</script>\n'
 
 
-def wrap(lang: str, fragment: str) -> str:
+def wrap(group: dict, lang: str, fragment: str) -> str:
     # Drop the fragment's own <title>; the per-language head carries the SEO title.
     fragment = re.sub(r"<title>.*?</title>\s*", "", fragment, count=1, flags=re.S)
     style_end = fragment.index("</style>") + len("</style>")
     head_part, body_part = fragment[:style_end], fragment[style_end:]
     return (
-        f'<!doctype html>\n<html lang="{lang}">\n<head>\n{head_for(lang)}{head_part}\n'
+        f'<!doctype html>\n<html lang="{lang}">\n<head>\n{head_for(group, lang)}{head_part}\n'
         f"</head>\n<body>{body_part}\n</body>\n</html>\n"
     )
 
@@ -144,50 +190,55 @@ FOOTER_SITE = (
 
 
 async def main() -> None:
-    fragment = SRC.read_text(encoding="utf-8")
-    assert FOOTER in fragment, "footer line not found in src/page.html"
-    fragment = fragment.replace(FOOTER, FOOTER_SITE)
     tmp = ROOT / ".build"
     tmp.mkdir(exist_ok=True)
     async with async_playwright() as pw:
         browser = await pw.chromium.launch()
-        for lang, p in PAGES.items():
-            raw = tmp / f"{lang}.html"
-            raw.write_text(wrap(lang, fragment), encoding="utf-8")
-            ctx = await browser.new_context(
-                viewport={"width": 820, "height": 1000},
-                timezone_id=p["timezone"],
-                locale=p["locale"],
-            )
-            page = await ctx.new_page()
-            errors = []
-            page.on("pageerror", lambda exc: errors.append(str(exc)))
-            await page.goto(raw.as_uri())
-            await page.wait_for_timeout(300)
-            if errors:
-                raise SystemExit(f"[{lang}] script error: {errors}")
-            faqs = await page.eval_on_selector_all(
-                "details:not(#glossary)",
-                "els => els.map(d => [d.querySelector('summary').innerText.trim(), d.querySelector('div').innerText.trim()])",
-            )
-            out = "<!doctype html>\n" + await page.evaluate("document.documentElement.outerHTML")
-            out = out.replace("</head>", json_ld(lang, faqs) + "</head>", 1)
-            p["file"].parent.mkdir(parents=True, exist_ok=True)
-            p["file"].write_text(out + "\n", encoding="utf-8")
-            await ctx.close()
-            print(f"built {p['file'].relative_to(ROOT)} ({len(out)//1024} KB, {len(faqs)} FAQs)")
+        for gname, group in GROUPS.items():
+            fragment = group["_src"].read_text(encoding="utf-8")
+            if gname == "main":
+                assert FOOTER in fragment, "footer line not found in src/page.html"
+                fragment = fragment.replace(FOOTER, FOOTER_SITE)
+            for lang in langs(group):
+                p = group[lang]
+                raw = tmp / f"{gname}-{lang}.html"
+                raw.write_text(wrap(group, lang, fragment), encoding="utf-8")
+                ctx = await browser.new_context(
+                    viewport={"width": 820, "height": 1000},
+                    timezone_id=p["timezone"],
+                    locale=p["locale"],
+                )
+                page = await ctx.new_page()
+                errors = []
+                page.on("pageerror", lambda exc: errors.append(str(exc)))
+                await page.goto(raw.as_uri())
+                await page.wait_for_timeout(300)
+                if errors:
+                    raise SystemExit(f"[{gname} {lang}] script error: {errors}")
+                faqs = await page.eval_on_selector_all(
+                    "details:not(#glossary)",
+                    "els => els.map(d => [d.querySelector('summary').innerText.trim(), d.querySelector('div').innerText.trim()])",
+                )
+                out = "<!doctype html>\n" + await page.evaluate("document.documentElement.outerHTML")
+                out = out.replace("</head>", json_ld(group, lang, faqs) + "</head>", 1)
+                p["file"].parent.mkdir(parents=True, exist_ok=True)
+                p["file"].write_text(out + "\n", encoding="utf-8")
+                await ctx.close()
+                print(f"built {p['file'].relative_to(ROOT)} ({len(out)//1024} KB, {len(faqs)} FAQs)")
         await browser.close()
 
     urls = []
-    for lang, p in PAGES.items():
-        alts = "".join(
-            f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{PAGES[l]["path"]}"/>'
-            for l in PAGES
-        )
-        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/"/>'
-        urls.append(
-            f"  <url>\n    <loc>{SITE}{p['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>{alts}\n  </url>"
-        )
+    for group in GROUPS.values():
+        for lang in langs(group):
+            p = group[lang]
+            alts = "".join(
+                f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{group[l]["path"]}"/>'
+                for l in langs(group)
+            )
+            alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{group["en"]["path"]}"/>'
+            urls.append(
+                f"  <url>\n    <loc>{SITE}{p['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>{alts}\n  </url>"
+            )
     (PUBLIC / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
