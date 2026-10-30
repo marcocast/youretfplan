@@ -19,3 +19,8 @@ One dated entry per daily growth session. Newest at the bottom.
 - Checked `/`, `/it/`, `/es/` locally at 390px, light and dark: 200, no horizontal overflow, no JS errors (only the blocked analytics beacon). The live site is not reachable from the session sandbox.
 - Changed: nothing on the site. Without data, and with /v2/ on hold for Marco's decision, no funnel change today.
 - Watch tomorrow: first real export (if the secret is set); confirm the scheduled 04:30 UTC run fires.
+- **Update 09:20 Madrid:** Marco added `CLOUDFLARE_API_TOKEN` (D1 Read + Account Analytics Read, no expiry, no IP filter). Re-run of the export succeeded with no errors.
+- First numbers (launch day 2026-10-29, mostly Marco and testers): funnel view 16 → calc_seen 15 → active 3 → explore 4, start_seen 8, bottom 7, feedback 2. Today so far: view 4, active 0. Month to date: 3 active user-days.
+- Biggest drop: calc_seen → active (15 → 3, 20%). Too few visitors to read anything by language/device yet.
+- Web Analytics 7d: 55 visits, all direct (no search referrers yet); US 25 visits with no referrer probably bots/crawlers. Mobile 27, desktop 26.
+- Feedback: 3 votes on "is this result clear?": 2 👍 (IT, mobile), 1 👎 (EN, mobile, DE), no comments.
