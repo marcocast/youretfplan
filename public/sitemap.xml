@@ -72,4 +72,28 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/comprar-o-alquilar-etf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/buy-vs-rent-etf/"/>
   </url>
+  <url>
+    <loc>https://youretfplan.com/inheritance-etf/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/inheritance-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/eredita-investire-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/herencia-invertir-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/inheritance-etf/"/>
+  </url>
+  <url>
+    <loc>https://youretfplan.com/it/eredita-investire-etf/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/inheritance-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/eredita-investire-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/herencia-invertir-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/inheritance-etf/"/>
+  </url>
+  <url>
+    <loc>https://youretfplan.com/es/herencia-invertir-etf/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/inheritance-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/eredita-investire-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/herencia-invertir-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/inheritance-etf/"/>
+  </url>
 </urlset>

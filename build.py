@@ -109,6 +109,20 @@ GROUPS = {
             "es": "Calculadora gratuita: comprar casa con hipoteca frente a alquilar e invertir la diferencia en ETF. Relación precio/alquiler, año de equilibrio y patrimonio final en euros de hoy.",
         },
     ),
+    "inherit": scenario(
+        "inherit.html",
+        {"en": "/inheritance-etf/", "it": "/it/eredita-investire-etf/", "es": "/es/herencia-invertir-etf/"},
+        {
+            "en": "I received an inheritance: keep it, rent it or invest in ETFs? | Your ETF Plan",
+            "it": "Ho ricevuto un'eredità: tenerla, affittarla o investire in ETF? | Your ETF Plan",
+            "es": "He recibido una herencia: ¿guardarla, alquilarla o invertir en ETF? | Your ETF Plan",
+        },
+        {
+            "en": "Free calculator for an inheritance: money left in the bank or invested in ETFs, or a house kept empty, rented out or sold and invested in ETFs. In today's money, with the steps to take first.",
+            "it": "Calcolatore gratuito per un'eredità: soldi lasciati in banca o investiti in ETF, oppure una casa tenuta vuota, affittata o venduta per investire in ETF. In euro di oggi, con i passi da fare prima e le tasse di successione.",
+            "es": "Calculadora gratuita para una herencia: dinero en el banco o invertido en ETF, o una casa vacía, alquilada o vendida para invertir en ETF. En euros de hoy, con los pasos previos y los impuestos.",
+        },
+    ),
 }
 PAGES = MAIN  # kept for older references
 

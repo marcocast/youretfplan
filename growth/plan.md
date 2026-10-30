@@ -41,4 +41,4 @@
 - 2026-10-29: anonymous funnel counter and feedback (after results + bottom) live via Worker + D1; privacy line added.
 
 ## Scenario pages (agreed with Marco 2026-10-30)
-Order: 1) money in the bank vs investing in ETFs (live), 2) buy your home vs rent and invest in ETFs (live), 3) inheritance (money or a house), 4) I own a house: rent it or sell and invest in ETFs, 5) buy a home to rent out vs invest in ETFs (Marco's idea, shares the calculator with 4). Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".
+Order: 1) money in the bank vs investing in ETFs (live), 2) buy your home vs rent and invest in ETFs (live), 3) inheritance (money or a house; PR open), 4) I own a house: rent it or sell and invest in ETFs, 5) buy a home to rent out vs invest in ETFs (Marco's idea, shares the calculator with 4). Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".

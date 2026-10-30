@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="it"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="it">
+<title>Ho ricevuto un'eredità: tenerla, affittarla o investire in ETF? | Your ETF Plan</title>
+<meta name="description" content="Calcolatore gratuito per un'eredità: soldi lasciati in banca o investiti in ETF, oppure una casa tenuta vuota, affittata o venduta per investire in ETF. In euro di oggi, con i passi da fare prima e le tasse di successione.">
+<link rel="canonical" href="https://youretfplan.com/it/eredita-investire-etf/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/inheritance-etf/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/eredita-investire-etf/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/herencia-invertir-etf/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/inheritance-etf/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/it/eredita-investire-etf/">
+<meta property="og:title" content="Ho ricevuto un'eredità: tenerla, affittarla o investire in ETF? | Your ETF Plan">
+<meta property="og:description" content="Calcolatore gratuito per un'eredità: soldi lasciati in banca o investiti in ETF, oppure una casa tenuta vuota, affittata o venduta per investire in ETF. In euro di oggi, con i passi da fare prima e le tasse di successione.">
+<meta property="og:image" content="https://youretfplan.com/og-it.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* Scenario 3: an inheritance (money or a house) and investing in ETFs. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Ho ricevuto un'eredità: tenerla, affittarla o investire in ETF?",
+  "url": "https://youretfplan.com/it/eredita-investire-etf/",
+  "description": "Calcolatore gratuito per un'eredità: soldi lasciati in banca o investiti in ETF, oppure una casa tenuta vuota, affittata o venduta per investire in ETF. In euro di oggi, con i passi da fare prima e le tasse di successione.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "it",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "it",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Meglio investire tutto subito o un po’ alla volta?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Conviene tenere la casa o venderla?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "E se mi servono i soldi tra pochi anni?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-coins" viewBox="0 0 64 64"><ellipse class="w-ink" cx="32" cy="48" rx="20" ry="7" fill="var(--sun)"></ellipse><ellipse class="w-ink" cx="32" cy="38" rx="20" ry="7" fill="var(--sun)"></ellipse><ellipse class="w-ink" cx="32" cy="28" rx="20" ry="7" fill="var(--sun)"></ellipse></symbol>
+    <symbol id="i-house" viewBox="0 0 64 64"><path class="w-ink" d="M10 30 32 12l22 18" fill="none"></path><rect class="w-ink" x="16" y="28" width="32" height="26" rx="3" fill="var(--sun)"></rect><rect class="w-ink" x="28" y="38" width="9" height="16" fill="var(--surface)"></rect></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/it/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="true">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="false">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Il tuo caso · un’eredità</span>
+    <h1 id="h1" data-t="h1">Ho ricevuto un’eredità: <em>e adesso?</em></h1>
+    <p class="sub" data-t="sub">Soldi o una casa: cosa potrebbero diventare se li tieni, se la affitti o se investi in ETF. In euro di oggi, senza paroloni.</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Un pacco regalo con frecce verso una casetta e un barattolo dove cresce un albero">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <!-- gift box -->
+      <rect class="w-ink" x="40" y="96" width="110" height="84" rx="8" fill="var(--coral)"></rect>
+      <rect class="w-ink" x="32" y="78" width="126" height="22" rx="6" fill="var(--sun)"></rect>
+      <path class="w-ink" d="M95 78v102" fill="none" stroke-width="5"></path>
+      <path class="w-ink" d="M95 78c-12-24-40-20-30-2 6 8 22 4 30 2Zm0 0c12-24 40-20 30-2-6 8-22 4-30 2Z" fill="var(--sun)"></path>
+      <!-- arrows to house and jar -->
+      <path d="M160 108c22-22 44-30 66-30" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"></path>
+      <path d="M160 140c22 8 44 12 66 10" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"></path>
+      <!-- small house -->
+      <path class="w-ink" d="M228 74 262 46l34 28" fill="none" stroke-width="4"></path>
+      <rect class="w-ink" x="238" y="70" width="48" height="40" rx="4" fill="var(--sky)"></rect>
+      <rect class="w-ink" x="256" y="86" width="12" height="24" fill="var(--surface)"></rect>
+      <!-- jar with tree -->
+      <rect class="w-ink" x="250" y="128" width="64" height="52" rx="14" fill="var(--surface)"></rect>
+      <ellipse class="w-ink" cx="282" cy="170" rx="22" ry="5" fill="var(--sun)"></ellipse>
+      <path class="w-ink" d="M282 164V120" fill="none" stroke-width="4"></path>
+      <circle class="w-ink" cx="282" cy="112" r="16" fill="var(--leaf)"></circle>
+      <circle class="w-ink" cx="300" cy="124" r="9" fill="var(--leaf2)"></circle>
+      <circle cx="276" cy="106" r="3.5" fill="var(--sun)"></circle><circle cx="288" cy="116" r="3.5" fill="var(--coral)"></circle>
+    </svg>
+  </section>
+
+  <div class="tabs" role="tablist" data-ta="tabsAlt" aria-label="Cosa hai ereditato?">
+    <button type="button" role="tab" id="tab-money" aria-controls="panel-money" aria-selected="true"><svg aria-hidden="true"><use href="#i-coins"></use></svg><span data-t="tabMoney">Soldi</span></button>
+    <button type="button" role="tab" id="tab-house" aria-controls="panel-house" aria-selected="false"><svg aria-hidden="true"><use href="#i-house"></use></svg><span data-t="tabHouse">Una casa</span></button>
+  </div>
+
+  <!-- MONEY -->
+  <section class="card" id="panel-money" role="tabpanel" aria-labelledby="tab-money">
+    <h2 data-t="mH">Hai ereditato dei soldi</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="amount" data-t="lAmount">Quanto hai ricevuto (dopo le tasse)</label><span class="ctrl-val num" id="amount-out">100.000&nbsp;€</span></div>
+      <input type="range" id="amount" min="0" max="1000" step="1" value="368">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="myears" data-t="lYears">Per quanti anni</label><span class="ctrl-val num" id="myears-out">15 anni</span></div>
+      <input type="range" id="myears" min="1" max="30" step="1" value="15">
+    </div>
+    <p class="res-head" id="m-head">Tra 15 anni, in euro di oggi:</p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" data-t="bBank">Lasciati in banca</span><span class="val num" id="v-bank">74.301&nbsp;€</span><div class="track"><div class="fill" id="f-bank" style="background: var(--bank); width: 34.5%;"></div><span class="today" id="t-bank" style="left: 46.5%;"></span></div></div>
+      <div class="bar"><span class="lab" data-t="bDca">Investiti in ETF in 12 mesi <small>un po’ ogni mese durante il primo anno</small></span><span class="val num" id="v-dca">198.778&nbsp;€</span><div class="track"><div class="fill" id="f-dca" style="background: var(--dep); width: 92.3%;"></div><span class="today" id="t-dca" style="left: 46.5%;"></span></div></div>
+      <div class="bar"><span class="lab" data-t="bNow">Investiti in ETF tutti subito <small>media storica 7% · forbice 5–9%</small></span><span class="val num" id="v-now">205.000&nbsp;€</span><div class="track"><div class="fill" id="f-now" style="background: var(--etf); width: 95.2%;"></div><span class="today" id="t-now" style="left: 46.5%;"></span></div></div>
+    </div>
+    <p class="legend-today"><i></i><span id="m-today">Hai ricevuto 100.000&nbsp;€</span></p>
+    <p class="verdict" id="m-verdict">Lasciati in banca perderebbero circa <b class="loss">25.699&nbsp;€</b> di potere d’acquisto. Investiti in ETF potrebbero crescere di circa <b class="gain">105.000&nbsp;€</b> in euro di oggi (tra 154.467&nbsp;€ e 270.642&nbsp;€ a seconda dei mercati).</p>
+    <p class="note" data-t="mNote">Investire tutto subito ha battuto l’ingresso graduale circa 2 volte su 3 nelle ricerche di Vanguard (1976–2022), ma 12 rate mensili sono più facili da sopportare se i mercati scendono appena hai iniziato. La differenza attesa è piccola. Inflazione al 2%, prima di tasse e costi.</p>
+    <h3 data-t="stepsH">Prima di investire in ETF</h3>
+    <ol class="steps" data-t="stepsL"><li><span>Aspetta che la successione sia chiusa e le imposte pagate.</span></li><li><span>Tieni un <b>fondo emergenza</b> di circa 6 mesi di spese.</span></li><li><span>Chiudi prima i debiti costosi (carte, prestiti personali).</span></li><li><span>I soldi che ti servono entro 3–5 anni: conto deposito.</span></li><li><span>Il resto: <b>investilo in ETF</b>, tutto subito o in 6–12 rate.</span></li></ol>
+  </section>
+
+  <!-- HOUSE -->
+  <section class="card" id="panel-house" role="tabpanel" aria-labelledby="tab-house" hidden="">
+    <h2 data-t="hH">Hai ereditato una casa</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hvalue" data-t="lValue">Quanto vale la casa</label><span class="ctrl-val num" id="hvalue-out">200.000&nbsp;€</span></div>
+      <input type="range" id="hvalue" min="30000" max="2000000" step="5000" value="200000">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hrent" data-t="lHrent">Affitto che potresti ottenere</label><span class="ctrl-val num" id="hrent-out">700&nbsp;€</span></div>
+      <input type="range" id="hrent" min="0" max="5000" step="25" value="700">
+      <p class="note" data-t="hrentNote">Al mese, prima delle tasse. Guarda gli annunci della zona.</p>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hyears" data-t="lYears">Per quanti anni</label><span class="ctrl-val num" id="hyears-out">15 anni</span></div>
+      <input type="range" id="hyears" min="1" max="30" step="1" value="15">
+    </div>
+    <details class="assume">
+      <summary data-t="assumeH">Costi e ipotesi (tocca per cambiarle)</summary>
+      <div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="ocost" data-t="lOcost">Costi annui del proprietario</label><span class="ctrl-val num" id="ocost-out">1%</span></div>
+          <input type="range" id="ocost" min="0" max="3" step="0.1" value="1">
+          <p class="note" data-t="ocostNote">Manutenzione, assicurazione, IMU, spese condominiali, in % del valore. Li paghi sia se è vuota sia se è affittata.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="rtax" data-t="lRtax">Tasse sull’affitto</label><span class="ctrl-val num" id="rtax-out">21%</span></div>
+          <input type="range" id="rtax" min="0" max="45" step="1" value="21">
+          <p class="note" data-t="rtaxNote">Con la cedolare secca: 21%, oppure 10% a canone concordato.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Mesi vuota all’anno</label><span class="ctrl-val num" id="empty-out">1</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Costi di vendita</label><span class="ctrl-val num" id="scost-out">5%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <p class="note" data-t="scostNote">Agenzia e altri costi quando vendi.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Crescita del valore della casa all’anno</label><span class="ctrl-val num" id="hgrow-out">2%</span></div>
+          <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
+        </div>
+      </div>
+    </details>
+    <div class="chips" id="h-chips"><span class="chip warn">Rendimento netto dell’affitto 2% · basso</span></div>
+    <p class="res-head" id="h-head">Tra 15 anni, cosa avresti, in euro di oggi:</p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" data-t="bEmpty">Tenerla vuota <small>valore della casa − costi pagati</small></span><span class="val num" id="v-empty">174.067&nbsp;€</span><div class="track"><div class="fill" id="f-empty" style="background: var(--bank); width: 42.6%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bLet">Affittarla <small>valore della casa + affitto netto investito in ETF</small></span><span class="val num" id="v-let">288.069&nbsp;€</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 70.4%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bSell">Venderla e investire in ETF <small>tolti i costi di vendita</small></span><span class="val num" id="v-sell">389.500&nbsp;€</span><div class="track"><div class="fill" id="f-sell" style="background: var(--etf); width: 95.2%;"></div></div></div>
+    </div>
+    <p class="verdict" id="h-verdict"><b class="gain">Venderla e investire in ETF</b> risulta avanti, di circa <b>101.431&nbsp;€</b> sulla seconda scelta.</p>
+    <h3 data-t="incH">Entrata mensile da subito</h3>
+    <div class="income" id="income"><div><b>340&nbsp;€</b><span>al mese dall’affitto, tolte tasse, costi e mesi vuoti</span></div><div><b>475&nbsp;€</b><span>al mese prelevando il 3% l’anno dagli ETF (la regola del 3%)</span></div></div>
+    <p class="note" data-t="hNote">In euro di oggi (inflazione 2%). L’affitto cresce con l’inflazione; investire in ETF rende in media il 7% l’anno, non garantito. Non sono incluse le tasse sulla vendita degli ETF.</p>
+  </section>
+
+  <section aria-labelledby="h-life">
+    <h2 id="h-life" data-t="lifeH">Non è solo una questione di soldi</h2>
+    <ul class="check" data-t="lifeL"><li><b>Più eredi?</b> Ogni decisione va presa insieme: vendere è spesso la soluzione più pulita.</li><li><b>Fare il padrone di casa è un lavoro:</b> inquilini, riparazioni, ritardi nei pagamenti, mesi vuoti.</li><li><b>I ricordi contano:</b> la casa di famiglia può valere per te più del suo prezzo, ed è giusto così.</li><li><b>Un solo paniere:</b> una casa è un bene solo in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li></ul>
+  </section>
+
+  <section aria-labelledby="h-country">
+    <h2 id="h-country" data-t="countryH">Le tasse da sapere in Italia</h2>
+    <div class="country" data-t="country"><b>Imposta di successione</b> (per ogni erede): coniuge e figli 4% sopra 1.000.000 €; fratelli e sorelle 6% sopra 100.000 €; altri parenti fino al 4° grado 6% senza franchigia; tutti gli altri 8%. Sugli immobili anche <b>ipotecaria 2% e catastale 1%</b> del valore catastale, che diventano 200 € fisse ciascuna se la casa diventa la tua prima casa. <b>Affitto:</b> cedolare secca al 21% (10% a canone concordato). <b>Vendita:</b> una casa ricevuta in eredità, se la vendi, non genera plusvalenza tassabile. Verifica sempre con un notaio o un commercialista.</div>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Domande</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">Meglio investire tutto subito o un po’ alla volta?</summary><div data-t="a1">Storicamente tutto subito è andato meglio circa 2 volte su 3, perché i mercati salgono più spesso di quanto scendano. Dividerlo in 6–12 mesi costa un po’ in media, ma ti protegge dal momento sbagliato ed è più facile da vivere.</div></details>
+      <details><summary data-t="q2">Conviene tenere la casa o venderla?</summary><div data-t="a2">Se l’affitto netto è basso rispetto al valore della casa (sotto il 3–4% l’anno), vendere e investire in ETF spesso conviene, e non hai inquilini da gestire. Se la casa si affitta bene, o per te significa molto, tenerla può avere senso.</div></details>
+      <details><summary data-t="q3">E se mi servono i soldi tra pochi anni?</summary><div data-t="a3">Tieni quella parte su un conto deposito. Investi in ETF solo i soldi che non ti servono per almeno 10 anni.</div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Prossimo passo: il tuo primo piano per investire in ETF</h2>
+    <p data-t="next">Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.</p>
+    <a class="btn" id="next-btn" href="/it/"><span data-t="nextBtn">Crea il mio piano</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">Ti è stata utile questa pagina?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sì, utile">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="Non molto">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">Grazie!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>Non è una consulenza finanziaria né fiscale.</strong> Stime educative con rendimenti medi costanti. Investire in ETF comporta il rischio di perdere denaro; anche prezzi e affitti delle case possono scendere. Per la tua successione parla con un notaio o un consulente qualificato.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/inheritance-etf/" hreflang="en" lang="en">English</a> · <a href="/it/eredita-investire-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/herencia-invertir-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, ETF=0.07, ETF_LO=0.05, ETF_HI=0.09, MAX=2000000;
+  const PAGE_URLS={en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
+
+  const T={
+    en:{locale:'en-IE', title:'I received an inheritance: keep it, rent it or invest in ETFs? | Your ETF Plan',
+      badge:'Your case · an inheritance',
+      h1:'I received an inheritance: <em>now what?</em>',
+      sub:'Money or a house: what it could become if you keep it, rent it out, or invest it in ETFs. In today’s money, without the jargon.',
+      illAlt:'A gift box with arrows towards a small house and a jar where a tree grows',
+      tabsAlt:'What did you inherit?', tabMoney:'Money', tabHouse:'A house',
+      mH:'You inherited money', lAmount:'Amount you received (after taxes)', lYears:'For how many years', years:n=>n+(n===1?' year':' years'),
+      mHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
+      bBank:'Left in the bank', bDca:'Invested in ETFs over 12 months <small>a little each month during the first year</small>', bNow:'Invested in ETFs all at once <small>7% historical average · range 5–9%</small>',
+      today:v=>`You received ${v}`,
+      mVerdict:(loss,gain,lo,hi)=>`Left in the bank it would lose about <b class="loss">${loss}</b> of buying power. Invested in ETFs it could grow by about <b class="gain">${gain}</b> in today’s money (between ${lo} and ${hi} depending on the markets).`,
+      mNote:'All at once beat investing gradually about 2 times out of 3 in Vanguard’s research (1976–2022), but 12 monthly instalments feel easier if markets fall right after you start. The expected difference is small. 2% inflation, before taxes and costs.',
+      stepsH:'Before investing it in ETFs',
+      stepsL:'<li><span>Wait until the estate is settled and the inheritance tax is paid.</span></li><li><span>Keep an <b>emergency fund</b> of about 6 months of expenses.</span></li><li><span>Pay off expensive debt first (cards, personal loans).</span></li><li><span>Money you need within 3–5 years: a savings deposit.</span></li><li><span>The rest: <b>invest it in ETFs</b>, all at once or in 6–12 instalments.</span></li>',
+      hH:'You inherited a house', lValue:'What the house is worth', lHrent:'Rent you could get', hrentNote:'Per month, before taxes. Check listings in the area.',
+      assumeH:'Costs and assumptions (tap to change)',
+      lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value. You pay them whether it’s empty or rented.',
+      lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.',
+      lEmpty:'Months empty per year', lScost:'Selling costs', scostNote:'Agency and other costs when you sell.', lHgrow:'House value growth per year',
+      yield:v=>`Net rental yield ${v}`, yieldGood:'good', yieldLow:'low',
+      hHead:y=>`In ${y===1?'1 year':y+' years'}, what you’d have, in today’s money:`,
+      bEmpty:'Keep it empty <small>house value − costs paid</small>', bLet:'Rent it out <small>house value + net rent invested in ETFs</small>', bSell:'Sell it and invest in ETFs <small>after selling costs</small>',
+      hBest:{empty:'Keeping it empty',let:'Renting it out',sell:'Selling and investing in ETFs'},
+      hVerdict:(best,d)=>`<b class="gain">${best}</b> comes out ahead, by about <b>${d}</b> over the second option.`,
+      incH:'Monthly income from today',
+      incLet:v=>`<b>${v}</b><span>a month from rent, after tax, costs and empty months</span>`,
+      incSell:v=>`<b>${v}</b><span>a month taking 3% a year from the ETFs (the 3% rule)</span>`,
+      hNote:'In today’s money (2% inflation). Rent grows with inflation; investing in ETFs at 7% a year on average, not guaranteed. Taxes on selling the ETFs or the house are not included.',
+      lifeH:'It’s not only about money',
+      lifeL:'<li><b>More heirs?</b> Every decision needs everyone’s agreement: selling is often the cleanest solution.</li><li><b>Being a landlord is a job:</b> tenants, repairs, late payments, empty months.</li><li><b>Memories matter:</b> a family home can be worth more than its price to you, and that’s fine.</li><li><b>One basket:</b> a house is one asset in one city; ETFs spread your money over thousands of companies.</li>',
+      countryH:'Taxes to check in your country',
+      country:'Inheritance tax, the tax on rent and the tax when you sell depend on your country, and sometimes on your region. Ask a notary or a tax adviser before deciding.',
+      faqH:'Questions',
+      q1:'Should I invest everything at once or a little at a time?', a1:'Historically, all at once came out ahead about 2 times out of 3, because markets rise more often than they fall. Spreading it over 6–12 months costs a little on average but protects you from bad timing and is easier to live with.',
+      q2:'Is it better to keep the house or sell it?', a2:'If the net rent is low compared with the value of the house (under 3–4% a year), selling and investing in ETFs often comes out ahead, with no tenants to manage. If the house rents well, or it means a lot to you, keeping it can make sense.',
+      q3:'What if I need the money in a few years?', a3:'Keep that part in a savings deposit. Only invest in ETFs money you won’t need for at least 10 years.',
+      nextH:'Next: your first plan for investing in ETFs', next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.', nextBtn:'Make my plan',
+      fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial or tax advice.</strong> Educational estimates with constant average returns. Investing in ETFs can lose money; house prices and rents can fall too. Talk to a notary or a qualified adviser about your inheritance.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'Ho ricevuto un’eredità: tenerla, affittarla o investire in ETF? | Your ETF Plan',
+      badge:'Il tuo caso · un’eredità',
+      h1:'Ho ricevuto un’eredità: <em>e adesso?</em>',
+      sub:'Soldi o una casa: cosa potrebbero diventare se li tieni, se la affitti o se investi in ETF. In euro di oggi, senza paroloni.',
+      illAlt:'Un pacco regalo con frecce verso una casetta e un barattolo dove cresce un albero',
+      tabsAlt:'Cosa hai ereditato?', tabMoney:'Soldi', tabHouse:'Una casa',
+      mH:'Hai ereditato dei soldi', lAmount:'Quanto hai ricevuto (dopo le tasse)', lYears:'Per quanti anni', years:n=>n+(n===1?' anno':' anni'),
+      mHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
+      bBank:'Lasciati in banca', bDca:'Investiti in ETF in 12 mesi <small>un po’ ogni mese durante il primo anno</small>', bNow:'Investiti in ETF tutti subito <small>media storica 7% · forbice 5–9%</small>',
+      today:v=>`Hai ricevuto ${v}`,
+      mVerdict:(loss,gain,lo,hi)=>`Lasciati in banca perderebbero circa <b class="loss">${loss}</b> di potere d’acquisto. Investiti in ETF potrebbero crescere di circa <b class="gain">${gain}</b> in euro di oggi (tra ${lo} e ${hi} a seconda dei mercati).`,
+      mNote:'Investire tutto subito ha battuto l’ingresso graduale circa 2 volte su 3 nelle ricerche di Vanguard (1976–2022), ma 12 rate mensili sono più facili da sopportare se i mercati scendono appena hai iniziato. La differenza attesa è piccola. Inflazione al 2%, prima di tasse e costi.',
+      stepsH:'Prima di investire in ETF',
+      stepsL:'<li><span>Aspetta che la successione sia chiusa e le imposte pagate.</span></li><li><span>Tieni un <b>fondo emergenza</b> di circa 6 mesi di spese.</span></li><li><span>Chiudi prima i debiti costosi (carte, prestiti personali).</span></li><li><span>I soldi che ti servono entro 3–5 anni: conto deposito.</span></li><li><span>Il resto: <b>investilo in ETF</b>, tutto subito o in 6–12 rate.</span></li>',
+      hH:'Hai ereditato una casa', lValue:'Quanto vale la casa', lHrent:'Affitto che potresti ottenere', hrentNote:'Al mese, prima delle tasse. Guarda gli annunci della zona.',
+      assumeH:'Costi e ipotesi (tocca per cambiarle)',
+      lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, spese condominiali, in % del valore. Li paghi sia se è vuota sia se è affittata.',
+      lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.',
+      lEmpty:'Mesi vuota all’anno', lScost:'Costi di vendita', scostNote:'Agenzia e altri costi quando vendi.', lHgrow:'Crescita del valore della casa all’anno',
+      yield:v=>`Rendimento netto dell’affitto ${v}`, yieldGood:'buono', yieldLow:'basso',
+      hHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, cosa avresti, in euro di oggi:`,
+      bEmpty:'Tenerla vuota <small>valore della casa − costi pagati</small>', bLet:'Affittarla <small>valore della casa + affitto netto investito in ETF</small>', bSell:'Venderla e investire in ETF <small>tolti i costi di vendita</small>',
+      hBest:{empty:'Tenerla vuota',let:'Affittarla',sell:'Venderla e investire in ETF'},
+      hVerdict:(best,d)=>`<b class="gain">${best}</b> risulta avanti, di circa <b>${d}</b> sulla seconda scelta.`,
+      incH:'Entrata mensile da subito',
+      incLet:v=>`<b>${v}</b><span>al mese dall’affitto, tolte tasse, costi e mesi vuoti</span>`,
+      incSell:v=>`<b>${v}</b><span>al mese prelevando il 3% l’anno dagli ETF (la regola del 3%)</span>`,
+      hNote:'In euro di oggi (inflazione 2%). L’affitto cresce con l’inflazione; investire in ETF rende in media il 7% l’anno, non garantito. Non sono incluse le tasse sulla vendita degli ETF.',
+      lifeH:'Non è solo una questione di soldi',
+      lifeL:'<li><b>Più eredi?</b> Ogni decisione va presa insieme: vendere è spesso la soluzione più pulita.</li><li><b>Fare il padrone di casa è un lavoro:</b> inquilini, riparazioni, ritardi nei pagamenti, mesi vuoti.</li><li><b>I ricordi contano:</b> la casa di famiglia può valere per te più del suo prezzo, ed è giusto così.</li><li><b>Un solo paniere:</b> una casa è un bene solo in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li>',
+      countryH:'Le tasse da sapere in Italia',
+      country:'<b>Imposta di successione</b> (per ogni erede): coniuge e figli 4% sopra 1.000.000 €; fratelli e sorelle 6% sopra 100.000 €; altri parenti fino al 4° grado 6% senza franchigia; tutti gli altri 8%. Sugli immobili anche <b>ipotecaria 2% e catastale 1%</b> del valore catastale, che diventano 200 € fisse ciascuna se la casa diventa la tua prima casa. <b>Affitto:</b> cedolare secca al 21% (10% a canone concordato). <b>Vendita:</b> una casa ricevuta in eredità, se la vendi, non genera plusvalenza tassabile. Verifica sempre con un notaio o un commercialista.',
+      faqH:'Domande',
+      q1:'Meglio investire tutto subito o un po’ alla volta?', a1:'Storicamente tutto subito è andato meglio circa 2 volte su 3, perché i mercati salgono più spesso di quanto scendano. Dividerlo in 6–12 mesi costa un po’ in media, ma ti protegge dal momento sbagliato ed è più facile da vivere.',
+      q2:'Conviene tenere la casa o venderla?', a2:'Se l’affitto netto è basso rispetto al valore della casa (sotto il 3–4% l’anno), vendere e investire in ETF spesso conviene, e non hai inquilini da gestire. Se la casa si affitta bene, o per te significa molto, tenerla può avere senso.',
+      q3:'E se mi servono i soldi tra pochi anni?', a3:'Tieni quella parte su un conto deposito. Investi in ETF solo i soldi che non ti servono per almeno 10 anni.',
+      nextH:'Prossimo passo: il tuo primo piano per investire in ETF', next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.', nextBtn:'Crea il mio piano',
+      fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria né fiscale.</strong> Stime educative con rendimenti medi costanti. Investire in ETF comporta il rischio di perdere denaro; anche prezzi e affitti delle case possono scendere. Per la tua successione parla con un notaio o un consulente qualificato.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'He recibido una herencia: ¿guardarla, alquilarla o invertir en ETF? | Your ETF Plan',
+      badge:'Tu caso · una herencia',
+      h1:'He recibido una herencia: <em>¿y ahora qué?</em>',
+      sub:'Dinero o una casa: en qué podría convertirse si lo guardas, si la alquilas o si inviertes en ETF. En euros de hoy, sin tecnicismos.',
+      illAlt:'Una caja de regalo con flechas hacia una casita y un tarro donde crece un árbol',
+      tabsAlt:'¿Qué has heredado?', tabMoney:'Dinero', tabHouse:'Una casa',
+      mH:'Has heredado dinero', lAmount:'Lo que has recibido (después de impuestos)', lYears:'Durante cuántos años', years:n=>n+(n===1?' año':' años'),
+      mHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
+      bBank:'Dejado en el banco', bDca:'Invertido en ETF en 12 meses <small>un poco cada mes durante el primer año</small>', bNow:'Invertido en ETF de golpe <small>media histórica 7% · horquilla 5–9%</small>',
+      today:v=>`Has recibido ${v}`,
+      mVerdict:(loss,gain,lo,hi)=>`En el banco perdería unos <b class="loss">${loss}</b> de poder adquisitivo. Invertido en ETF podría crecer unos <b class="gain">${gain}</b> en euros de hoy (entre ${lo} y ${hi} según los mercados).`,
+      mNote:'Invertir todo de golpe superó a la entrada gradual unas 2 de cada 3 veces en los estudios de Vanguard (1976–2022), pero 12 aportaciones mensuales se llevan mejor si los mercados caen justo al empezar. La diferencia esperada es pequeña. Inflación del 2%, antes de impuestos y costes.',
+      stepsH:'Antes de invertir en ETF',
+      stepsL:'<li><span>Espera a que la herencia esté aceptada y los impuestos pagados.</span></li><li><span>Guarda un <b>fondo de emergencia</b> de unos 6 meses de gastos.</span></li><li><span>Cancela antes las deudas caras (tarjetas, préstamos personales).</span></li><li><span>El dinero que necesites en 3–5 años: a un depósito.</span></li><li><span>El resto: <b>inviértelo en ETF</b>, de golpe o en 6–12 aportaciones.</span></li>',
+      hH:'Has heredado una casa', lValue:'Lo que vale la casa', lHrent:'Alquiler que podrías cobrar', hrentNote:'Al mes, antes de impuestos. Mira anuncios de la zona.',
+      assumeH:'Gastos y supuestos (toca para cambiarlos)',
+      lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor. Los pagas esté vacía o alquilada.',
+      lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.',
+      lEmpty:'Meses vacía al año', lScost:'Gastos de venta', scostNote:'Inmobiliaria, plusvalía municipal y otros gastos al vender.', lHgrow:'Revalorización de la casa al año',
+      yield:v=>`Rentabilidad neta del alquiler ${v}`, yieldGood:'buena', yieldLow:'baja',
+      hHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, lo que tendrías, en euros de hoy:`,
+      bEmpty:'Dejarla vacía <small>valor de la casa − gastos pagados</small>', bLet:'Alquilarla <small>valor de la casa + alquiler neto invertido en ETF</small>', bSell:'Venderla e invertir en ETF <small>descontando los gastos de venta</small>',
+      hBest:{empty:'Dejarla vacía',let:'Alquilarla',sell:'Venderla e invertir en ETF'},
+      hVerdict:(best,d)=>`<b class="gain">${best}</b> sale ganando, por unos <b>${d}</b> sobre la segunda opción.`,
+      incH:'Ingreso mensual desde hoy',
+      incLet:v=>`<b>${v}</b><span>al mes del alquiler, descontando impuestos, gastos y meses vacía</span>`,
+      incSell:v=>`<b>${v}</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%)</span>`,
+      hNote:'En euros de hoy (inflación del 2%). El alquiler sube con la inflación; invertir en ETF rinde de media un 7% anual, no garantizado. No se incluyen los impuestos al vender los ETF ni la ganancia al vender la casa.',
+      lifeH:'No es solo cuestión de dinero',
+      lifeL:'<li><b>¿Más herederos?</b> Cada decisión hay que tomarla juntos: vender suele ser la solución más limpia.</li><li><b>Ser casero es un trabajo:</b> inquilinos, reparaciones, impagos, meses vacía.</li><li><b>Los recuerdos cuentan:</b> la casa familiar puede valer para ti más que su precio, y está bien.</li><li><b>Una sola cesta:</b> una casa es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li>',
+      countryH:'Los impuestos a tener en cuenta en España',
+      country:'<b>Impuesto de Sucesiones:</b> depende de la comunidad autónoma; muchas aplican bonificaciones muy altas (hasta el 99%) para hijos y cónyuge. En inmuebles, además, la <b>plusvalía municipal</b>. <b>Alquiler:</b> tributa en el IRPF, con posibles reducciones si es vivienda habitual del inquilino. <b>Venta:</b> la ganancia se calcula sobre el valor declarado en la herencia. Consulta siempre con un notario o un gestor.',
+      faqH:'Preguntas',
+      q1:'¿Es mejor invertir todo de golpe o poco a poco?', a1:'Históricamente, de golpe salió mejor unas 2 de cada 3 veces, porque los mercados suben más a menudo de lo que bajan. Repartirlo en 6–12 meses cuesta un poco de media, pero te protege de un mal momento y se lleva mejor.',
+      q2:'¿Conviene quedarse la casa o venderla?', a2:'Si el alquiler neto es bajo frente al valor de la casa (menos del 3–4% al año), vender e invertir en ETF suele salir mejor, y sin inquilinos que gestionar. Si se alquila bien, o significa mucho para ti, quedártela puede tener sentido.',
+      q3:'¿Y si necesito el dinero en pocos años?', a3:'Deja esa parte en un depósito. Invierte en ETF solo el dinero que no vayas a necesitar en al menos 10 años.',
+      nextH:'Siguiente paso: tu primer plan para invertir en ETF', next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.', nextBtn:'Crear mi plan',
+      fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero ni fiscal.</strong> Estimaciones educativas con rentabilidades medias constantes. Invertir en ETF conlleva el riesgo de perder dinero; los precios y alquileres de la vivienda también pueden bajar. Habla de tu herencia con un notario o un asesor cualificado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
+  $('rtax').value=RTAX[lang];
+
+  // Money received: curved (cube) slider from 0 to 2 million.
+  function amountFromPos(p){const v=MAX*Math.pow(p/1000,3);const st=v<10000?100:v<100000?1000:v<1000000?5000:10000;return Math.round(v/st)*st}
+
+  function renderMoney(){
+    const A=amountFromPos(+$('amount').value), y=+$('myears').value, d=Math.pow(1+INFL,y);
+    const gm=Math.pow(1+ETF,1/12)-1;
+    // 12 monthly instalments: one twelfth goes in at the start of each month of year 1.
+    let dca=0; for(let m=0;m<12*y;m++){ if(m<12)dca+=A/12; dca*=1+gm }
+    const bank=A/d, now=A*Math.pow(1+ETF,y)/d, lo=A*Math.pow(1+ETF_LO,y)/d, hi=A*Math.pow(1+ETF_HI,y)/d; dca/=d;
+    $('amount-out').textContent=fmt(A); $('myears-out').textContent=L.years(y);
+    $('m-head').textContent=L.mHead(y);
+    $('v-bank').textContent=fmt(bank); $('v-dca').textContent=fmt(dca); $('v-now').textContent=fmt(now);
+    const top=Math.max(now,A,1)*1.05;
+    [['bank',bank],['dca',dca],['now',now]].forEach(([k,v])=>{$('f-'+k).style.width=Math.max(1,v/top*100).toFixed(1)+'%';$('t-'+k).style.left=(A/top*100).toFixed(1)+'%'});
+    $('m-today').textContent=L.today(fmt(A));
+    $('m-verdict').innerHTML=A>0?L.mVerdict(fmt(A-bank),fmt(Math.max(0,now-A)),fmt(lo),fmt(hi)):'';
+  }
+
+  function renderHouse(){
+    const V0=+$('hvalue').value, R0=+$('hrent').value, y=+$('hyears').value;
+    const oc=+$('ocost').value/100, tax=+$('rtax').value/100, emptyM=+$('empty').value, sc=+$('scost').value/100, g=+$('hgrow').value/100;
+    const gm=Math.pow(1+ETF,1/12)-1, gh=Math.pow(1+g,1/12)-1;
+    let V=V0, costs=0, letEtf=0;
+    for(let m=1;m<=y*12;m++){
+      const rent=R0*Math.pow(1+INFL,Math.floor((m-1)/12));
+      const ownerCost=V*oc/12;
+      costs+=ownerCost;
+      const netRent=rent*(12-emptyM)/12*(1-tax)-ownerCost;
+      letEtf=letEtf*(1+gm)+netRent;
+      V*=1+gh;
+    }
+    const d=Math.pow(1+INFL,y);
+    const empty=(V-costs)/d, let_=(V+letEtf)/d, sell=V0*(1-sc)*Math.pow(1+ETF,y)/d;
+    $('hvalue-out').textContent=fmt(V0); $('hrent-out').textContent=fmt(R0); $('hyears-out').textContent=L.years(y);
+    $('ocost-out').textContent=pct(oc); $('rtax-out').textContent=pct(tax); $('empty-out').textContent=String(emptyM).replace('.',L.locale==='en-IE'?'.':',');
+    $('scost-out').textContent=pct(sc); $('hgrow-out').textContent=pct(g);
+    const netYear=R0*(12-emptyM)*(1-tax)-V0*oc, yld=V0>0?netYear/V0:0;
+    $('h-chips').innerHTML=`<span class="chip ${yld>=0.04?'good':'warn'}">${L.yield(pct(yld))} · ${yld>=0.04?L.yieldGood:L.yieldLow}</span>`;
+    $('h-head').textContent=L.hHead(y);
+    $('v-empty').textContent=fmt(empty); $('v-let').textContent=fmt(let_); $('v-sell').textContent=fmt(sell);
+    const top=Math.max(empty,let_,sell,1)*1.05;
+    [['empty',empty],['let',let_],['sell',sell]].forEach(([k,v])=>{$('f-'+k).style.width=Math.max(1,v/top*100).toFixed(1)+'%'});
+    const ranked=[['empty',empty],['let',let_],['sell',sell]].sort((a,b)=>b[1]-a[1]);
+    $('h-verdict').innerHTML=L.hVerdict(L.hBest[ranked[0][0]],fmt(ranked[0][1]-ranked[1][1]));
+    $('income').innerHTML='<div>'+L.incLet(fmt(Math.max(0,netYear/12)))+'</div><div>'+L.incSell(fmt(V0*(1-sc)*0.03/12))+'</div>';
+  }
+
+  function render(){renderMoney();renderHouse()}
+
+  function showTab(which){
+    const money=which==='money';
+    $('tab-money').setAttribute('aria-selected',money); $('tab-house').setAttribute('aria-selected',!money);
+    $('panel-money').hidden=!money; $('panel-house').hidden=money;
+  }
+  $('tab-money').addEventListener('click',()=>showTab('money'));
+  $('tab-house').addEventListener('click',()=>showTab('house'));
+  if(location.hash==='#house')showTab('house');
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:1});
+    fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=FIXED?HOME[lang]:'/';
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;$('rtax').value=RTAX[lang];applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  const MONEY_IN=['amount','myears'], HOUSE_IN=['hvalue','hrent','hyears','ocost','rtax','empty','scost','hgrow'];
+  MONEY_IN.forEach(id=>$(id).addEventListener('input',renderMoney));
+  HOUSE_IN.forEach(id=>$(id).addEventListener('input',renderHouse));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_inherit_view']);
+    MONEY_IN.concat(HOUSE_IN).forEach(id=>$(id).addEventListener('input',()=>send(['sc_inherit_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_inherit',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>
