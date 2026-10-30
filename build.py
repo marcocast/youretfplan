@@ -160,9 +160,9 @@ GROUPS = {
             "es": "Cómo comprar tu primer ETF, paso a paso (guía para principiantes) | Your ETF Plan",
         },
         {
-            "en": "Beginner guide: choose a broker, open the account, find a world ETF by its ISIN and set up a monthly plan. With a fee calculator and a checklist.",
-            "it": "Guida per principianti: scegliere il broker, aprire il conto, trovare un ETF mondiale con l'ISIN e impostare il PAC. Con calcolo delle commissioni e checklist.",
-            "es": "Guía para principiantes: elegir bróker, abrir la cuenta, encontrar un ETF mundial por su ISIN y programar aportaciones mensuales. Con calculadora de comisiones y checklist.",
+            "en": "Beginner guide: choose a broker, open the account, find a world ETF by its ISIN and set up a monthly plan. With a simple checklist.",
+            "it": "Guida per principianti: scegliere il broker, aprire il conto, trovare un ETF mondiale con l'ISIN e impostare il PAC. Con una checklist semplice.",
+            "es": "Guía para principiantes: elegir bróker, abrir la cuenta, encontrar un ETF mundial por su ISIN y programar aportaciones mensuales. Con una checklist sencilla.",
         },
     ),
     "fund": scenario(
