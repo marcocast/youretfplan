@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="page-lang" content="en">
 <title>Money in the bank or investing in ETFs? Savings vs ETF calculator | Your ETF Plan</title>
-<meta name="description" content="Free calculator: see what your savings become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.">
+<meta name="description" content="Free calculator: see what your savings, and what you save each month, become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.">
 <link rel="canonical" href="https://youretfplan.com/bank-vs-etf/">
 <link rel="alternate" hreflang="en" href="https://youretfplan.com/bank-vs-etf/">
 <link rel="alternate" hreflang="it" href="https://youretfplan.com/it/banca-vs-etf/">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Your ETF Plan">
 <meta property="og:url" content="https://youretfplan.com/bank-vs-etf/">
 <meta property="og:title" content="Money in the bank or investing in ETFs? Savings vs ETF calculator | Your ETF Plan">
-<meta property="og:description" content="Free calculator: see what your savings become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.">
+<meta property="og:description" content="Free calculator: see what your savings, and what you save each month, become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.">
 <meta property="og:image" content="https://youretfplan.com/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -152,7 +152,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   "@type": "WebApplication",
   "name": "Money in the bank or investing in ETFs? Savings vs ETF calculator",
   "url": "https://youretfplan.com/bank-vs-etf/",
-  "description": "Free calculator: see what your savings become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
+  "description": "Free calculator: see what your savings, and what you save each month, become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "inLanguage": "en",
@@ -223,7 +223,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section class="hero" aria-labelledby="h1">
     <span class="badge" data-t="badge">Your case · money in the bank</span>
     <h1 id="h1" data-t="h1">Money sitting in the bank, or <em>investing in ETFs</em>?</h1>
-    <p class="sub" data-t="sub">Got savings in your account? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.</p>
+    <p class="sub" data-t="sub">Got savings in your account, or put some aside every month? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.</p>
     <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="A bank whose pile of coins shrinks, next to a jar where a tree grows">
       <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
       <!-- bank with a melting coin stack -->
@@ -259,6 +259,11 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="ticks"><span id="tick-min">€0</span><span id="tick-max">€1,000,000</span></div>
     </div>
     <div class="ctrl">
+      <div class="ctrl-head"><label for="monthly" data-t="lMonthly">And each month you add</label><span class="ctrl-val num" id="monthly-out">€200</span></div>
+      <input type="range" id="monthly" min="0" max="1000" step="1" value="141">
+      <p class="note" data-t="monthlyNote">What you usually save each month. Put 0 if you don’t add anything.</p>
+    </div>
+    <div class="ctrl">
       <div class="ctrl-head"><label for="years" data-t="lYears">How long you leave the money</label><span class="ctrl-val num" id="years-out">10 years</span></div>
       <input type="range" id="years" min="1" max="30" step="1" value="10">
     </div>
@@ -270,12 +275,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
     <p class="res-head" id="res-head">In 10 years, in today’s money:</p>
     <div class="bars" aria-live="polite">
-      <div class="bar"><span class="lab" data-t="bCur">Current account</span><span class="val num" id="v-cur">€24,610</span><div class="track"><div class="fill" id="f-cur" style="background: var(--bank); width: 48.4%;"></div><span class="today" id="t-cur" style="left: 59%;"></span></div></div>
-      <div class="bar"><span class="lab" id="lab-dep">Savings deposit <small>at 2% a year</small></span><span class="val num" id="v-dep">€30,000</span><div class="track"><div class="fill" id="f-dep" style="background: var(--dep); width: 59%;"></div><span class="today" id="t-dep" style="left: 59%;"></span></div></div>
-      <div class="bar"><span class="lab" id="lab-etf">Investing in ETFs <small>7% historical average · range 5–9%</small></span><span class="val num" id="v-etf" title="€40,088 – €58,262">€48,412</span><div class="track"><div class="fill" id="f-etf" style="background: var(--etf); width: 95.2%;"></div><span class="today" id="t-etf" style="left: 59%;"></span></div></div>
+      <div class="bar"><span class="lab" data-t="bCur">Current account</span><span class="val num" id="v-cur">€44,299</span><div class="track"><div class="fill" id="f-cur" style="background: var(--bank); width: 55.2%;"></div><span class="today" id="t-cur" style="left: 67.2%;"></span></div></div>
+      <div class="bar"><span class="lab" id="lab-dep">Savings deposit <small>at 2% a year</small></span><span class="val num" id="v-dep">€51,755</span><div class="track"><div class="fill" id="f-dep" style="background: var(--dep); width: 64.5%;"></div><span class="today" id="t-dep" style="left: 67.2%;"></span></div></div>
+      <div class="bar"><span class="lab" id="lab-etf">Investing in ETFs <small>7% historical average · range 5–9%</small></span><span class="val num" id="v-etf" title="€65,414 – €89,389">€76,477</span><div class="track"><div class="fill" id="f-etf" style="background: var(--etf); width: 95.2%;"></div><span class="today" id="t-etf" style="left: 67.2%;"></span></div></div>
     </div>
-    <p class="legend-today"><i></i><span id="legend-today">Today you have €30,000</span></p>
-    <p class="verdict" id="verdict">On the current account you would lose about <b class="loss">€5,390</b> of buying power. By investing in ETFs you could have about <b class="gain">€18,412</b> more than today, in today’s money.</p>
+    <p class="legend-today"><i></i><span id="legend-today">You put in €54,000 in total (€30,000 today + €200 a month)</span></p>
+    <p class="verdict" id="verdict">On the current account you would lose about <b class="loss">€9,701</b> of buying power. By investing in ETFs you could have about <b class="gain">€22,477</b> more than you put in, in today’s money.</p>
     <p class="note" data-t="calcNote">Inflation 2% a year. Before taxes and costs. ETF returns are not guaranteed and change every year; these are constant averages.</p>
   </section>
 
@@ -335,18 +340,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
       title:'Money in the bank or investing in ETFs? | Your ETF Plan',
       badge:'Your case · money in the bank',
       h1:'Money sitting in the bank, or <em>investing in ETFs</em>?',
-      sub:'Got savings in your account? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.',
+      sub:'Got savings in your account, or put some aside every month? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.',
       illAlt:'A bank whose pile of coins shrinks, next to a jar where a tree grows',
       calcH:'Your numbers',
-      lAmount:'Money in the bank today', lYears:'How long you leave the money', lRate:'Savings deposit rate',
+      lAmount:'Money in the bank today', lMonthly:'And each month you add', monthlyNote:'What you usually save each month. Put 0 if you don’t add anything.', lYears:'How long you leave the money', lRate:'Savings deposit rate',
       rateNote:'Example rate, change it to your bank’s offer. The current account is counted at 0%.',
       years:n=>n===1?'1 year':n+' years',
       resHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
       bCur:'Current account', bDep:r=>`Savings deposit <small>at ${r} a year</small>`, bEtf:'Investing in ETFs <small>7% historical average · range 5–9%</small>',
-      today:v=>`Today you have ${v}`,
+      today:(a,m,t)=>m?`You put in ${t} in total (${a} today + ${m} a month)`:`Today you have ${a}`,
       verdict:(hasLoss,loss,etfGain)=>hasLoss
-        ?`On the current account you would lose about <b class="loss">${loss}</b> of buying power. By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than today, in today’s money.`
-        :`By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than today, in today’s money.`,
+        ?`On the current account you would lose about <b class="loss">${loss}</b> of buying power. By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than you put in, in today’s money.`
+        :`By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than you put in, in today’s money.`,
       calcNote:'Inflation 2% a year. Before taxes and costs. ETF returns are not guaranteed and change every year; these are constant averages.',
       whenH:'When to keep it in the bank, and when to invest in ETFs',
       keepH:'Keep it in the bank if…',
@@ -382,18 +387,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
       title:'Soldi in banca o investire in ETF? | Your ETF Plan',
       badge:'Il tuo caso · soldi in banca',
       h1:'Soldi fermi in banca o <em>investire in ETF</em>?',
-      sub:'Hai dei risparmi sul conto? Guarda cosa diventano sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi, cioè tolta l’inflazione.',
+      sub:'Hai dei risparmi sul conto, o ne metti da parte ogni mese? Guarda cosa diventano sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi, cioè tolta l’inflazione.',
       illAlt:'Una banca con una pila di monete che si rimpicciolisce, accanto a un barattolo dove cresce un albero',
       calcH:'I tuoi numeri',
-      lAmount:'Soldi in banca oggi', lYears:'Per quanti anni lasci i soldi', lRate:'Tasso del conto deposito',
+      lAmount:'Soldi in banca oggi', lMonthly:'E ogni mese ci aggiungi', monthlyNote:'Quello che di solito metti da parte ogni mese. Metti 0 se non aggiungi niente.', lYears:'Per quanti anni lasci i soldi', lRate:'Tasso del conto deposito',
       rateNote:'Tasso di esempio, mettici quello offerto dalla tua banca. Il conto corrente è calcolato allo 0%.',
       years:n=>n===1?'1 anno':n+' anni',
       resHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
       bCur:'Conto corrente', bDep:r=>`Conto deposito <small>al ${r} l’anno</small>`, bEtf:'Investendo in ETF <small>media storica 7% · forbice 5–9%</small>',
-      today:v=>`Oggi hai ${v}`,
+      today:(a,m,t)=>m?`Ci metti ${t} in tutto (${a} oggi + ${m} al mese)`:`Oggi hai ${a}`,
       verdict:(hasLoss,loss,etfGain)=>hasLoss
-        ?`Sul conto corrente perderesti circa <b class="loss">${loss}</b> di potere d’acquisto. Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di oggi, in euro di oggi.`
-        :`Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di oggi, in euro di oggi.`,
+        ?`Sul conto corrente perderesti circa <b class="loss">${loss}</b> di potere d’acquisto. Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di quanto ci hai messo, in euro di oggi.`
+        :`Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di quanto ci hai messo, in euro di oggi.`,
       calcNote:'Inflazione al 2% l’anno. Prima di tasse e costi. I rendimenti degli ETF non sono garantiti e cambiano ogni anno; qui sono medie costanti.',
       whenH:'Quando tenerli in banca, e quando investire in ETF',
       keepH:'Tienili in banca se…',
@@ -429,18 +434,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
       title:'¿Dinero en el banco o invertir en ETF? | Your ETF Plan',
       badge:'Tu caso · dinero en el banco',
       h1:'¿Dinero parado en el banco o <em>invertir en ETF</em>?',
-      sub:'¿Tienes ahorros en la cuenta? Mira en qué se convierten en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy, es decir, descontando la inflación.',
+      sub:'¿Tienes ahorros en la cuenta, o apartas algo cada mes? Mira en qué se convierten en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy, es decir, descontando la inflación.',
       illAlt:'Un banco con una pila de monedas que se encoge, junto a un tarro donde crece un árbol',
       calcH:'Tus números',
-      lAmount:'Dinero en el banco hoy', lYears:'Cuántos años dejas el dinero', lRate:'Interés del depósito',
+      lAmount:'Dinero en el banco hoy', lMonthly:'Y cada mes añades', monthlyNote:'Lo que sueles ahorrar cada mes. Pon 0 si no añades nada.', lYears:'Cuántos años dejas el dinero', lRate:'Interés del depósito',
       rateNote:'Interés de ejemplo, pon el que te ofrece tu banco. La cuenta corriente se calcula al 0%.',
       years:n=>n===1?'1 año':n+' años',
       resHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
       bCur:'Cuenta corriente', bDep:r=>`Depósito <small>al ${r} anual</small>`, bEtf:'Invirtiendo en ETF <small>media histórica 7% · horquilla 5–9%</small>',
-      today:v=>`Hoy tienes ${v}`,
+      today:(a,m,t)=>m?`Pones ${t} en total (${a} hoy + ${m} al mes)`:`Hoy tienes ${a}`,
       verdict:(hasLoss,loss,etfGain)=>hasLoss
-        ?`En la cuenta corriente perderías unos <b class="loss">${loss}</b> de poder adquisitivo. Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más que hoy, en euros de hoy.`
-        :`Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más que hoy, en euros de hoy.`,
+        ?`En la cuenta corriente perderías unos <b class="loss">${loss}</b> de poder adquisitivo. Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más de lo que has puesto, en euros de hoy.`
+        :`Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más de lo que has puesto, en euros de hoy.`,
       calcNote:'Inflación del 2% anual. Antes de impuestos y costes. Las rentabilidades de los ETF no están garantizadas y cambian cada año; aquí son medias constantes.',
       whenH:'Cuándo dejarlo en el banco y cuándo invertir en ETF',
       keepH:'Déjalo en el banco si…',
@@ -488,14 +493,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
 
   // Amount slider: curved (cube) scale from 0 to 1 million so small amounts stay precise.
+  // Monthly amount: curved slider from 0 to 10,000 € a month (position 141 ≈ 200 €).
+  function monthlyFromPos(p){const v=10000*Math.pow(p/1000,2);const st=v<1000?25:v<5000?50:100;return Math.round(v/st)*st}
   function amountFromPos(p){const v=MAX*Math.pow(p/1000,3);const st=v<10000?100:v<100000?1000:v<1000000?5000:10000;return Math.round(v/st)*st}
 
   function render(){
-    const A=amountFromPos(+$('amount').value), y=+$('years').value, r=+$('rate').value/100;
+    const A=amountFromPos(+$('amount').value), M=monthlyFromPos(+$('monthly').value), y=+$('years').value, r=+$('rate').value/100;
     const d=Math.pow(1+INFL,y);
-    const cur=A/d, dep=A*Math.pow(1+r,y)/d, etf=A*Math.pow(1+ETF,y)/d;
-    const lo=A*Math.pow(1+ETF_LO,y)/d, hi=A*Math.pow(1+ETF_HI,y)/d;
-    $('amount-out').textContent=fmt(A);
+    // Money today plus the same amount added at the end of every month, grown at each rate, then shown in today's money.
+    const grow=rate=>{const g=Math.pow(1+rate,1/12)-1;let v=A;for(let m=0;m<y*12;m++)v=v*(1+g)+M;return v/d};
+    const put=A+M*12*y, cur=grow(0), dep=grow(r), etf=grow(ETF), lo=grow(ETF_LO), hi=grow(ETF_HI);
+    $('amount-out').textContent=fmt(A); $('monthly-out').textContent=fmt(M);
     $('tick-min').textContent=fmt(0); $('tick-max').textContent=fmt(MAX);
     $('years-out').textContent=L.years(y);
     $('rate-out').textContent=pct(r);
@@ -504,13 +512,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('lab-etf').innerHTML=L.bEtf;
     $('v-cur').textContent=fmt(cur); $('v-dep').textContent=fmt(dep);
     $('v-etf').textContent=fmt(etf);
-    const top=Math.max(etf,A,dep,1)*1.05;
+    const top=Math.max(etf,put,dep,1)*1.05;
     [['cur',cur],['dep',dep],['etf',etf]].forEach(([k,v])=>{
       $('f-'+k).style.width=Math.max(1,v/top*100).toFixed(1)+'%';
-      $('t-'+k).style.left=(A/top*100).toFixed(1)+'%';
+      $('t-'+k).style.left=(put/top*100).toFixed(1)+'%';
     });
-    $('legend-today').textContent=L.today(fmt(A));
-    $('verdict').innerHTML=A>0?L.verdict(A-cur>=1,fmt(A-cur),fmt(Math.max(0,etf-A))):'';
+    $('legend-today').textContent=L.today(fmt(A),M>0?fmt(M):0,fmt(put));
+    $('verdict').innerHTML=put>0?L.verdict(put-cur>=1,fmt(put-cur),fmt(Math.max(0,etf-put))):'';
     $('v-etf').title=fmt(lo)+' – '+fmt(hi);
   }
 
@@ -535,7 +543,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     lang=k;applyLang();
   }
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
-  ['amount','years','rate'].forEach(id=>$(id).addEventListener('input',render));
+  ['amount','monthly','years','rate'].forEach(id=>$(id).addEventListener('input',render));
 
   // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
   const TRACK=!!FIXED&&!navigator.webdriver;
@@ -550,7 +558,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   if(TRACK){
     $('fb').hidden=false; $('privacy').hidden=false;
     send(['sc_bank_view']);
-    ['amount','years','rate'].forEach(id=>$(id).addEventListener('input',()=>send(['sc_bank_active','active'])));
+    ['amount','monthly','years','rate'].forEach(id=>$(id).addEventListener('input',()=>send(['sc_bank_active','active'])));
     document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
       document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
       document.querySelector('.fb-thanks').hidden=false;

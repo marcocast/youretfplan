@@ -90,9 +90,9 @@ GROUPS = {
             "es": "¿Dinero en el banco o invertir en ETF? Calculadora depósito vs ETF | Your ETF Plan",
         },
         {
-            "en": "Free calculator: see what your savings become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
-            "it": "Calcolatore gratuito: guarda cosa diventano i tuoi risparmi sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi. Rischi, costi, tasse e quando tenerli in banca.",
-            "es": "Calculadora gratuita: mira en qué se convierten tus ahorros en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy. Riesgos, costes, impuestos y cuándo dejarlos en el banco.",
+            "en": "Free calculator: see what your savings, and what you save each month, become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
+            "it": "Calcolatore gratuito: guarda cosa diventano i tuoi risparmi, e quello che metti da parte ogni mese, sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi. Rischi, costi, tasse e quando tenerli in banca.",
+            "es": "Calculadora gratuita: mira en qué se convierten tus ahorros, y lo que apartas cada mes, en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy. Riesgos, costes, impuestos y cuándo dejarlos en el banco.",
         },
     ),
     "buy": scenario(
