@@ -8,7 +8,7 @@
 
 const STEPS = new Set(['view', 'hook', 'plan', 'calc_seen', 'active', 'explore', 'start_seen', 'faq', 'bottom', 'feedback']);
 // Scenario pages (bank vs ETF, ...): sc_<scenario>_view and sc_<scenario>_active.
-const SCENARIO_STEP = /^sc_(bank|buy|inherit|own)_(view|active)$/;
+const SCENARIO_STEP = /^sc_(bank|buy|inherit|own|let)_(view|active)$/;
 const isStep = s => STEPS.has(s) || SCENARIO_STEP.test(s);
 const LANGS = new Set(['en', 'it', 'es']);
 const MAX_COMMENT = 1000;
@@ -113,7 +113,7 @@ export default {
       if (body.website) return noContent(); // honeypot field filled in: a bot
       const vote = body.vote === 1 || body.vote === -1 ? body.vote : null;
       const comment = clean(body.comment, MAX_COMMENT) || null;
-      const place = ['result', 'result_comment', 'bottom'].includes(body.place) || /^sc_(bank|buy|inherit|own)$/.test(body.place || '') ? body.place : null;
+      const place = ['result', 'result_comment', 'bottom'].includes(body.place) || /^sc_(bank|buy|inherit|own|let)$/.test(body.place || '') ? body.place : null;
       if (vote === null && !comment) return new Response('Empty', { status: 400 });
       const { n } = await db.prepare('SELECT COUNT(*) AS n FROM feedback WHERE day = ? AND vid = ?').bind(day, vid).first();
       if (n >= MAX_FEEDBACK_PER_VISITOR_PER_DAY) return noContent();

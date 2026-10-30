@@ -95,6 +95,20 @@ GROUPS = {
             "es": "Calculadora gratuita: mira en qué se convierten tus ahorros en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy. Riesgos, costes, impuestos y cuándo dejarlos en el banco.",
         },
     ),
+    "buy": scenario(
+        "buy.html",
+        {"en": "/buy-vs-rent-etf/", "it": "/it/comprare-casa-o-affitto-etf/", "es": "/es/comprar-o-alquilar-etf/"},
+        {
+            "en": "Buy a home or rent and invest in ETFs? Calculator | Your ETF Plan",
+            "it": "Comprare casa o affittare e investire in ETF? Calcolatore | Your ETF Plan",
+            "es": "¿Comprar casa o alquilar e invertir en ETF? Calculadora | Your ETF Plan",
+        },
+        {
+            "en": "Free calculator: buying a home with a mortgage compared with renting and investing the difference in ETFs. Price-to-rent ratio, break-even year and what each one owns, in today's money.",
+            "it": "Calcolatore gratuito: comprare casa con il mutuo contro stare in affitto e investire la differenza in ETF. Rapporto prezzo/affitto, anno di pareggio e patrimonio finale in euro di oggi.",
+            "es": "Calculadora gratuita: comprar casa con hipoteca frente a alquilar e invertir la diferencia en ETF. Relación precio/alquiler, año de equilibrio y patrimonio final en euros de hoy.",
+        },
+    ),
 }
 PAGES = MAIN  # kept for older references
 
@@ -216,7 +230,7 @@ async def main() -> None:
                 if errors:
                     raise SystemExit(f"[{gname} {lang}] script error: {errors}")
                 faqs = await page.eval_on_selector_all(
-                    "details:not(#glossary)",
+                    "details:not(#glossary):not(.assume)",
                     "els => els.map(d => [d.querySelector('summary').innerText.trim(), d.querySelector('div').innerText.trim()])",
                 )
                 out = "<!doctype html>\n" + await page.evaluate("document.documentElement.outerHTML")
