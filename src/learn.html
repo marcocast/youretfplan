@@ -1,0 +1,442 @@
+<title>What is an ETF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Guide: what is an ETF, in 5 minutes, with a short quiz. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+/* guide pages: numbered steps, progress, small calculator */
+.guide{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{gap:12px}
+.step h2{display:flex;align-items:center;gap:12px;font-size:1.3rem}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-size:1rem;color:#17322a}
+.step p{margin:0 0 8px}
+.step p:last-child{margin-bottom:0}
+.step a{color:var(--ink);font-weight:700}
+.step.is-done{border-color:var(--leaf2);box-shadow:6px 6px 0 var(--leaf2)}
+.step.is-done .n{background:var(--leaf);color:#fff}
+.done{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;background:var(--bg)}
+.done input{width:20px;height:20px;accent-color:var(--leaf2);margin:0}
+.progress{height:14px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--leaf);transition:width .3s}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:1.05rem;margin:0}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+.toc ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--ink);font-weight:700}
+.q{border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 0 12px;display:flex;flex-direction:column;gap:10px}
+.q legend{font-weight:800;padding:0 4px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{text-align:left;border:2px solid var(--ink);border-radius:12px;background:var(--bg);color:var(--ink);font:600 .98rem var(--body);padding:10px 12px;cursor:pointer}
+.opt:disabled{cursor:default;opacity:.75}
+.opt.right{background:var(--accent-soft);border-color:var(--leaf2);opacity:1}
+.opt.wrong{background:var(--surface);border-color:var(--down);text-decoration:line-through;opacity:1}
+.q-fb{margin:0;font-size:.93rem}
+.q-fb:empty{display:none}
+.again{display:block;margin-top:10px;width:auto}
+</style>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en">EN</button>
+      <button type="button" id="l-it" lang="it">IT</button>
+      <button type="button" id="l-es" lang="es">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge"></span>
+    <h1 id="h1" data-t="h1"></h1>
+    <p class="sub" data-t="sub"></p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"/>
+      <!-- a basket full of small company buildings -->
+      <path class="w-ink" d="M60 110h240l-26 66H86Z" fill="var(--sun)"/>
+      <path class="w-ink" d="M60 110c0-60 240-60 240 0" fill="none" stroke-width="5"/>
+      <path d="M100 124l8 44M140 124l4 44M180 124v44M220 124l-4 44M260 124l-8 44" stroke="var(--ink)" stroke-width="2" opacity=".35"/>
+      <rect class="w-ink" x="92" y="74" width="26" height="40" rx="3" fill="var(--sky)"/>
+      <rect class="w-ink" x="124" y="60" width="30" height="54" rx="3" fill="var(--coral)"/>
+      <rect class="w-ink" x="160" y="80" width="24" height="34" rx="3" fill="var(--leaf)"/>
+      <rect class="w-ink" x="190" y="52" width="32" height="62" rx="3" fill="var(--sky)"/>
+      <rect class="w-ink" x="228" y="70" width="26" height="44" rx="3" fill="var(--coral)"/>
+      <rect class="w-ink" x="258" y="86" width="22" height="28" rx="3" fill="var(--leaf2)"/>
+      <path d="M130 70h6M142 70h6M130 84h6M142 84h6M196 62h6M210 62h6M196 76h6M210 76h6M196 90h6M210 90h6" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </section>
+
+  <nav class="card toc" aria-labelledby="h-toc">
+    <h2 id="h-toc" data-t="tocH"></h2>
+    <ol id="toc"></ol>
+  </nav>
+
+  <ol class="guide" id="lessons"></ol>
+
+  <section class="card" aria-labelledby="h-quiz" id="quiz">
+    <h2 id="h-quiz" data-t="quizH"></h2>
+    <p class="note" data-t="quizSub"></p>
+    <div id="qs"></div>
+    <p class="verdict" id="quiz-score" hidden></p>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH"></h2>
+    <div class="faqs">
+      <details><summary data-t="q1"></summary><div data-t="a1"></div></details>
+      <details><summary data-t="q2"></summary><div data-t="a2"></div></details>
+      <details><summary data-t="q3"></summary><div data-t="a3"></div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH"></h2>
+    <p data-t="next"></p>
+    <a class="btn" id="next-btn" href="/"><span data-t="nextBtn"></span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden>
+    <span data-t="fbQ"></span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden></span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"></p>
+  <p class="foot" id="privacy" data-t="privacy" hidden></p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/what-is-an-etf/" hreflang="en" lang="en">English</a> · <a href="/it/cosa-sono-gli-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/que-es-un-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const PAGE_URLS={en:'/what-is-an-etf/',it:'/it/cosa-sono-gli-etf/',es:'/es/que-es-un-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const LINKS={first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},fund:{en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'}};
+
+  const T={
+    en:{locale:'en-IE', title:'What is an ETF? Explained simply, in 5 minutes | Your ETF Plan',
+      badge:'Guide · 5 minutes',
+      h1:'What is an ETF? <em>Explained simply, in 5 minutes</em>',
+      sub:'Seven short lessons, no jargon, and a 4-question quiz at the end. It’s not rocket science.',
+      illAlt:'A basket full of small buildings: many companies in one basket',
+      tocH:'In this guide',
+      lessons:[
+        ['What an ETF is','<p>ETF stands for <b>Exchange Traded Fund</b>: a fund you buy and sell on the stock exchange, like a single share.</p><p>Inside there isn’t one company but <b>hundreds or thousands</b>. With €100 in a world ETF you own a tiny slice of about 1,300 large companies in 23 countries: Apple, Nestlé, Toyota, and all the others.</p>'],
+        ['What an index is','<p>An <b>index</b> is a list of companies chosen with fixed rules. The ETF simply copies it: no one picks the “best” companies.</p><ul class="check"><li><b>MSCI World</b>: about 1,300 large companies in 23 developed countries.</li><li><b>MSCI ACWI</b>: also adds emerging countries, about 2,500 companies.</li><li><b>FTSE All-World</b>: developed and emerging, over 4,000 companies.</li></ul><p>Bigger companies weigh more. Today the US is about two thirds of a world index.</p>'],
+        ['Stocks and bonds','<p><b>Stocks</b> are slices of companies: they grow more over the long run, and fall more in bad years.</p><p><b>Bonds</b> are loans to governments or companies that pay interest: calmer, but on average they earn less.</p><p>There are stock ETFs, bond ETFs and <b>all-in-one</b> ETFs that mix both (for example 80% stocks and 20% bonds) and keep the mix for you.</p>'],
+        ['Accumulating or distributing','<p>Companies pay part of their profits as dividends. An ETF can:</p><ul class="check"><li><b>Accumulating (Acc)</b>: reinvest them automatically. The simplest way to let your money grow, and usually no tax until you sell.</li><li><b>Distributing (Dist)</b>: pay them into your account a few times a year. Useful if you want an income, but they are taxed each time.</li></ul>'],
+        ['Risk: why one basket is safer than one company','<p>One company can go bust and its shares go to zero. For a world index to go to zero, <b>thousands of companies</b> in dozens of countries would all have to fail together.</p><p>The value still moves a lot: world stocks fell by about half in 2007–2009 and by about a third in a few weeks in 2020. Both times they recovered. That’s why you only invest in ETFs money you won’t need for <b>10 years or more</b>.</p>'],
+        ['Costs','<p>An ETF has a yearly cost, the <b>TER</b>: for a world ETF often 0.1–0.25% a year, taken from the fund automatically. Then there may be broker fees per purchase, and taxes when you sell.</p><p>A fund from your bank can cost 1.5–2% a year. It looks small but adds up: <a data-link="fund" href="#">see how much</a>.</p>'],
+        ['Is my money safe?','<p>In the EU most ETFs are <b>UCITS</b>: a set of strict rules on diversification and safety. The money inside the ETF is held by a <b>depositary bank</b>, separate from the company that runs it.</p><p>At the broker, your ETFs are kept <b>separate</b> from the broker’s own money: if it goes bust, they are given back to you, and an investor compensation scheme covers you if something is missing.</p><p>What is <b>not</b> protected: the market going down. That’s the risk you take for the growth.</p>']
+      ],
+      lessonLink:'<a data-link="first" href="#">How to buy your first ETF, step by step →</a>',
+      quizH:'Quick quiz: did it stick?', quizSub:'4 questions. Tap an answer.',
+      quiz:[
+        ['With €100 in an MSCI World ETF you own…',['One Apple share','A tiny slice of about 1,300 companies','A loan to your bank'],1,'An ETF is a basket, and you own a slice of everything inside it.'],
+        ['An “Acc” (accumulating) ETF…',['Pays dividends into your account','Reinvests dividends for you','Has no dividends'],1,'It reinvests them automatically, which is the simplest way to grow.'],
+        ['Markets fall 30% a month after you start. The usual advice is…',['Sell everything to stop the losses','Keep your monthly plan going','Switch to a single company'],1,'With a monthly plan you buy at a discount. Selling turns a temporary drop into a real loss.'],
+        ['Which cost matters most over 20 years?',['The yearly cost (TER or ongoing costs)','The colour of the app','The price of one ETF share'],0,'The yearly cost is taken every year from all your money.']
+      ],
+      right:'Right! ', wrong:'Not quite. ', again:'Try the quiz again', score:(n,t)=>`${n} out of ${t}. ${n===t?'Perfect: you know more than many people who already invest.':'Have another look at the lessons and try again, no rush.'}`,
+      faqH:'Questions',
+      q1:'Is an ETF the same as a stock?', a1:'You buy and sell it like a stock, on the exchange. But a stock is one company, while an ETF holds hundreds or thousands of them.',
+      q2:'Do I need a lot of money?', a2:'No. Many brokers let you invest from a few tens of euros a month, and you often get fractions of a share.',
+      q3:'Is an ETF the same as an index fund?', a3:'Very similar: both copy an index at low cost. An ETF is traded on the stock exchange during the day; an index fund is bought directly from the fund company at the end-of-day price.',
+      nextH:'Now: your plan', next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.', nextBtn:'Make my plan',
+      fbQ:'Was this guide clear?', fbYes:'Yes, clear', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial advice.</strong> An educational guide. Investing in ETFs can lose money. Index figures are approximate, as of 2026.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'Cosa sono gli ETF? Spiegati semplice, in 5 minuti | Your ETF Plan',
+      badge:'Guida · 5 minuti',
+      h1:'Cosa sono gli ETF? <em>Spiegati semplice, in 5 minuti</em>',
+      sub:'Sette lezioni brevi, senza paroloni, e un quiz di 4 domande alla fine. Non è fisica nucleare.',
+      illAlt:'Un cesto pieno di piccoli palazzi: tante aziende in un solo paniere',
+      tocH:'In questa guida',
+      lessons:[
+        ['Cos’è un ETF','<p>ETF sta per <b>Exchange Traded Fund</b>: un fondo che compri e vendi in borsa, come una singola azione.</p><p>Dentro però non c’è un’azienda sola ma <b>centinaia o migliaia</b>. Con 100 € in un ETF mondiale possiedi un pezzettino di circa 1.300 grandi aziende di 23 paesi: Apple, Nestlé, Toyota e tutte le altre.</p>'],
+        ['Cos’è un indice','<p>Un <b>indice</b> è un elenco di aziende scelto con regole fisse. L’ETF lo copia e basta: nessuno sceglie le aziende “migliori”.</p><ul class="check"><li><b>MSCI World</b>: circa 1.300 grandi aziende di 23 paesi sviluppati.</li><li><b>MSCI ACWI</b>: aggiunge anche i paesi emergenti, circa 2.500 aziende.</li><li><b>FTSE All-World</b>: sviluppati ed emergenti, oltre 4.000 aziende.</li></ul><p>Le aziende più grandi pesano di più. Oggi gli Stati Uniti sono circa due terzi di un indice mondiale.</p>'],
+        ['Azioni e obbligazioni','<p>Le <b>azioni</b> sono pezzi di aziende: nel lungo periodo crescono di più, e negli anni brutti scendono di più.</p><p>Le <b>obbligazioni</b> sono prestiti a stati o aziende che pagano un interesse: più tranquille, ma in media rendono meno.</p><p>Ci sono ETF azionari, ETF obbligazionari ed ETF <b>tutto-in-uno</b> che mescolano le due cose (per esempio 80% azioni e 20% obbligazioni) e tengono il mix al posto tuo.</p>'],
+        ['Accumulazione o distribuzione','<p>Le aziende pagano una parte degli utili come dividendi. Un ETF può:</p><ul class="check"><li><b>Ad accumulazione (Acc)</b>: reinvestirli in automatico. Il modo più semplice per far crescere i soldi, e di solito niente tasse finché non vendi.</li><li><b>A distribuzione (Dist)</b>: versarteli sul conto qualche volta l’anno. Utile se vuoi un’entrata, ma ogni volta paghi le tasse.</li></ul>'],
+        ['Rischio: perché un paniere è più sicuro di un’azienda','<p>Un’azienda può fallire e le sue azioni andare a zero. Perché un indice mondiale vada a zero dovrebbero fallire tutte insieme <b>migliaia di aziende</b> in decine di paesi.</p><p>Il valore però si muove parecchio: le borse mondiali sono scese di circa la metà nel 2007–2009 e di circa un terzo in poche settimane nel 2020. Entrambe le volte si sono riprese. Per questo investi in ETF solo soldi che non ti servono per <b>10 anni o più</b>.</p>'],
+        ['I costi','<p>Un ETF ha un costo annuo, il <b>TER</b>: per un ETF mondiale spesso lo 0,1–0,25% l’anno, tolto in automatico dal fondo. Poi ci possono essere commissioni del broker per ogni acquisto, e le tasse quando vendi.</p><p>Un fondo della banca può costare l’1,5–2% l’anno. Sembra poco ma si somma: <a data-link="fund" href="#">guarda quanto</a>.</p>'],
+        ['I miei soldi sono al sicuro?','<p>In Europa quasi tutti gli ETF sono <b>UCITS</b>: regole severe su diversificazione e sicurezza. I soldi dentro l’ETF sono custoditi da una <b>banca depositaria</b>, separata dalla società che lo gestisce.</p><p>Dal broker i tuoi ETF sono tenuti <b>separati</b> dai soldi del broker: se fallisce ti vengono restituiti, e se mancasse qualcosa c’è il Fondo Nazionale di Garanzia.</p><p>Cosa <b>non</b> è protetto: il mercato che scende. È il rischio che prendi in cambio della crescita.</p>']
+      ],
+      lessonLink:'<a data-link="first" href="#">Come comprare il tuo primo ETF, passo per passo →</a>',
+      quizH:'Quiz veloce: ti è rimasto?', quizSub:'4 domande. Tocca una risposta.',
+      quiz:[
+        ['Con 100 € in un ETF MSCI World possiedi…',['Un’azione di Apple','Un pezzettino di circa 1.300 aziende','Un prestito alla tua banca'],1,'Un ETF è un paniere, e possiedi un pezzettino di tutto quello che c’è dentro.'],
+        ['Un ETF “Acc” (ad accumulazione)…',['Ti versa i dividendi sul conto','Reinveste i dividendi per te','Non ha dividendi'],1,'Li reinveste in automatico, il modo più semplice per crescere.'],
+        ['Un mese dopo che hai iniziato le borse scendono del 30%. Il consiglio di solito è…',['Vendere tutto per fermare le perdite','Continuare il PAC','Passare a una sola azienda'],1,'Con il PAC compri a sconto. Vendere trasforma un calo temporaneo in una perdita vera.'],
+        ['Quale costo conta di più in 20 anni?',['Il costo annuo (TER o costi correnti)','Il colore dell’app','Il prezzo di una quota dell’ETF'],0,'Il costo annuo lo paghi ogni anno su tutti i tuoi soldi.']
+      ],
+      right:'Esatto! ', wrong:'Non proprio. ', again:'Rifai il quiz', score:(n,t)=>`${n} su ${t}. ${n===t?'Perfetto: ne sai più di tanti che investono già in ETF.':'Dai un’altra occhiata alle lezioni e riprova, con calma.'}`,
+      faqH:'Domande',
+      q1:'Un ETF è come un’azione?', a1:'Lo compri e vendi come un’azione, in borsa. Ma un’azione è un’azienda sola, mentre un ETF ne contiene centinaia o migliaia.',
+      q2:'Servono tanti soldi?', a2:'No. Molti broker permettono di investire da qualche decina di euro al mese, e spesso compri anche frazioni di quota.',
+      q3:'ETF e fondo indicizzato sono la stessa cosa?', a3:'Quasi: tutti e due copiano un indice con costi bassi. L’ETF si compra e vende in borsa durante il giorno; il fondo indicizzato si compra direttamente dalla società di gestione, al prezzo di fine giornata.',
+      nextH:'Ora: il tuo piano', next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.', nextBtn:'Crea il mio piano',
+      fbQ:'Ti è stata chiara questa guida?', fbYes:'Sì, chiara', fbNo:'Non molto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Una guida educativa. Investire in ETF comporta il rischio di perdere denaro. I numeri degli indici sono indicativi, aggiornati al 2026.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'¿Qué es un ETF? Explicado fácil, en 5 minutos | Your ETF Plan',
+      badge:'Guía · 5 minutos',
+      h1:'¿Qué es un ETF? <em>Explicado fácil, en 5 minutos</em>',
+      sub:'Siete lecciones cortas, sin tecnicismos, y un test de 4 preguntas al final. No es tan complicado como parece.',
+      illAlt:'Una cesta llena de pequeños edificios: muchas empresas en una sola cesta',
+      tocH:'En esta guía',
+      lessons:[
+        ['Qué es un ETF','<p>ETF significa <b>Exchange Traded Fund</b>: un fondo que compras y vendes en bolsa, como una acción.</p><p>Pero dentro no hay una sola empresa sino <b>cientos o miles</b>. Con 100 € en un ETF mundial tienes un trocito de unas 1.300 grandes empresas de 23 países: Apple, Nestlé, Toyota y todas las demás.</p>'],
+        ['Qué es un índice','<p>Un <b>índice</b> es una lista de empresas elegida con reglas fijas. El ETF simplemente la copia: nadie elige las “mejores” empresas.</p><ul class="check"><li><b>MSCI World</b>: unas 1.300 grandes empresas de 23 países desarrollados.</li><li><b>MSCI ACWI</b>: añade los países emergentes, unas 2.500 empresas.</li><li><b>FTSE All-World</b>: desarrollados y emergentes, más de 4.000 empresas.</li></ul><p>Las empresas más grandes pesan más. Hoy Estados Unidos es cerca de dos tercios de un índice mundial.</p>'],
+        ['Acciones y bonos','<p>Las <b>acciones</b> son trozos de empresas: a largo plazo crecen más, y en los años malos caen más.</p><p>Los <b>bonos</b> son préstamos a gobiernos o empresas que pagan un interés: más tranquilos, pero de media rinden menos.</p><p>Hay ETF de acciones, ETF de bonos y ETF <b>todo en uno</b> que mezclan ambos (por ejemplo 80% acciones y 20% bonos) y mantienen la mezcla por ti.</p>'],
+        ['Acumulación o distribución','<p>Las empresas reparten parte de sus beneficios como dividendos. Un ETF puede:</p><ul class="check"><li><b>De acumulación (Acc)</b>: reinvertirlos automáticamente. La forma más sencilla de hacer crecer el dinero, y normalmente sin impuestos hasta que vendes.</li><li><b>De distribución (Dist)</b>: ingresártelos en la cuenta varias veces al año. Útil si quieres una renta, pero tributan cada vez.</li></ul>'],
+        ['Riesgo: por qué una cesta es más segura que una empresa','<p>Una empresa puede quebrar y sus acciones quedarse en cero. Para que un índice mundial llegue a cero tendrían que quebrar a la vez <b>miles de empresas</b> en decenas de países.</p><p>Aun así el valor se mueve bastante: las bolsas mundiales cayeron cerca de la mitad en 2007–2009 y cerca de un tercio en pocas semanas en 2020. Las dos veces se recuperaron. Por eso inviertes en ETF solo el dinero que no vayas a necesitar en <b>10 años o más</b>.</p>'],
+        ['Los costes','<p>Un ETF tiene un coste anual, el <b>TER</b>: en un ETF mundial a menudo del 0,1–0,25% al año, descontado automáticamente del fondo. Luego puede haber comisiones del bróker por compra, e impuestos al vender.</p><p>Un fondo del banco puede costar el 1,5–2% al año. Parece poco pero suma: <a data-link="fund" href="#">mira cuánto</a>.</p>'],
+        ['¿Mi dinero está seguro?','<p>En Europa casi todos los ETF son <b>UCITS</b>: normas estrictas de diversificación y seguridad. El dinero dentro del ETF lo custodia un <b>banco depositario</b>, separado de la gestora.</p><p>En el bróker tus ETF están <b>separados</b> del dinero del bróker: si quiebra te los devuelven, y si faltara algo te cubre el FOGAIN hasta 100.000 €.</p><p>Lo que <b>no</b> está protegido: que el mercado baje. Es el riesgo que asumes a cambio del crecimiento.</p>']
+      ],
+      lessonLink:'<a data-link="first" href="#">Cómo comprar tu primer ETF, paso a paso →</a>',
+      quizH:'Test rápido: ¿se te ha quedado?', quizSub:'4 preguntas. Toca una respuesta.',
+      quiz:[
+        ['Con 100 € en un ETF MSCI World tienes…',['Una acción de Apple','Un trocito de unas 1.300 empresas','Un préstamo a tu banco'],1,'Un ETF es una cesta, y tienes un trocito de todo lo que hay dentro.'],
+        ['Un ETF “Acc” (de acumulación)…',['Te ingresa los dividendos en la cuenta','Reinvierte los dividendos por ti','No tiene dividendos'],1,'Los reinvierte automáticamente, la forma más sencilla de crecer.'],
+        ['Un mes después de empezar, la bolsa cae un 30%. Lo que se suele aconsejar es…',['Venderlo todo para frenar las pérdidas','Seguir con la aportación mensual','Pasarte a una sola empresa'],1,'Con la aportación mensual compras más barato. Vender convierte una caída temporal en una pérdida real.'],
+        ['¿Qué coste importa más en 20 años?',['El coste anual (TER o costes corrientes)','El color de la app','El precio de una participación del ETF'],0,'El coste anual se paga cada año sobre todo tu dinero.']
+      ],
+      right:'¡Exacto! ', wrong:'No exactamente. ', again:'Repetir el test', score:(n,t)=>`${n} de ${t}. ${n===t?'Perfecto: sabes más que mucha gente que ya invierte en ETF.':'Echa otro vistazo a las lecciones e inténtalo otra vez, sin prisa.'}`,
+      faqH:'Preguntas',
+      q1:'¿Un ETF es como una acción?', a1:'Lo compras y vendes como una acción, en bolsa. Pero una acción es una sola empresa, y un ETF tiene cientos o miles.',
+      q2:'¿Hace falta mucho dinero?', a2:'No. Muchos brókers permiten invertir desde unas decenas de euros al mes, y a menudo compras fracciones de participación.',
+      q3:'¿ETF y fondo indexado son lo mismo?', a3:'Casi: los dos copian un índice con costes bajos. El ETF se compra y vende en bolsa durante el día; el fondo indexado se compra directamente a la gestora, al precio del cierre. En España el fondo indexado tiene una ventaja: permite traspasos sin pagar impuestos.',
+      nextH:'Ahora: tu plan', next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.', nextBtn:'Crear mi plan',
+      fbQ:'¿Te ha quedado clara esta guía?', fbYes:'Sí, clara', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero.</strong> Una guía educativa. Invertir en ETF conlleva el riesgo de perder dinero. Las cifras de los índices son aproximadas, de 2026.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang];
+  const answered={};
+
+  function renderLessons(){
+    $('toc').innerHTML=L.lessons.map((l,i)=>'<li><a href="#l'+(i+1)+'">'+l[0]+'</a></li>').join('');
+    $('lessons').innerHTML=L.lessons.map((l,i)=>'<li class="card step" id="l'+(i+1)+'"><h2><span class="n">'+(i+1)+'</span><span>'+l[0]+'</span></h2><div>'+l[1]+(i===L.lessons.length-1?'<p>'+L.lessonLink+'</p>':'')+'</div></li>').join('');
+    document.querySelectorAll('[data-link]').forEach(a=>{a.href=(FIXED?'':'https://youretfplan.com')+LINKS[a.dataset.link][lang]});
+  }
+  function renderQuiz(){
+    $('qs').innerHTML=L.quiz.map((q,i)=>'<fieldset class="q" id="q'+i+'"><legend>'+(i+1)+'. '+q[0]+'</legend><div class="opts">'+
+      q[1].map((o,j)=>'<button type="button" class="opt" data-q="'+i+'" data-o="'+j+'">'+o+'</button>').join('')+'</div><p class="q-fb" aria-live="polite"></p></fieldset>').join('');
+    Object.keys(answered).forEach(k=>showAnswer(+k,answered[k]));
+    renderScore();
+  }
+  function showAnswer(i,o){
+    const q=L.quiz[i], fs=$('q'+i), ok=o===q[2];
+    fs.querySelectorAll('.opt').forEach(b=>{const j=+b.dataset.o;b.disabled=true;b.classList.toggle('right',j===q[2]);b.classList.toggle('wrong',j===o&&!ok)});
+    fs.querySelector('.q-fb').textContent=(ok?L.right:L.wrong)+q[3];
+  }
+  function renderScore(){
+    const n=Object.keys(answered).length, el=$('quiz-score');
+    if(n<L.quiz.length){el.hidden=true;return}
+    const right=Object.keys(answered).filter(k=>answered[k]===L.quiz[k][2]).length;
+    el.hidden=false; el.innerHTML=L.score(right,L.quiz.length)+' <button type="button" class="opt again" id="again">'+L.again+'</button>';
+    $('again').onclick=()=>{Object.keys(answered).forEach(k=>delete answered[k]);renderQuiz();$('quiz').scrollIntoView({block:'start'})};
+  }
+  $('qs').addEventListener('click',e=>{
+    const b=e.target.closest('.opt'); if(!b||b.disabled)return;
+    const i=+b.dataset.q, o=+b.dataset.o; answered[i]=o; showAnswer(i,o); renderScore(); send(['sc_learn_active']);
+  });
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=FIXED?HOME[lang]:'/';
+    renderLessons(); renderQuiz();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_learn_view']);
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_learn',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>

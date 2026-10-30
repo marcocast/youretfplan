@@ -151,6 +151,48 @@ GROUPS = {
             "es": "Calculadora gratuita: comprar un piso con hipoteca y alquilarlo, o invertir el mismo dinero en ETF. Rentabilidad, flujo mensual y quién acaba con más, en euros de hoy.",
         },
     ),
+    "first": scenario(
+        "first.html",
+        {"en": "/how-to-buy-etf/", "it": "/it/come-comprare-etf/", "es": "/es/como-comprar-etf/"},
+        {
+            "en": "How to buy your first ETF, step by step (beginner guide) | Your ETF Plan",
+            "it": "Come comprare il tuo primo ETF, passo per passo (guida per principianti) | Your ETF Plan",
+            "es": "Cómo comprar tu primer ETF, paso a paso (guía para principiantes) | Your ETF Plan",
+        },
+        {
+            "en": "Beginner guide: choose a broker, open the account, find a world ETF by its ISIN and set up a monthly plan. With a fee calculator and a checklist.",
+            "it": "Guida per principianti: scegliere il broker, aprire il conto, trovare un ETF mondiale con l'ISIN e impostare il PAC. Con calcolo delle commissioni e checklist.",
+            "es": "Guía para principiantes: elegir bróker, abrir la cuenta, encontrar un ETF mundial por su ISIN y programar aportaciones mensuales. Con calculadora de comisiones y checklist.",
+        },
+    ),
+    "fund": scenario(
+        "fund.html",
+        {"en": "/etf-vs-bank-fund/", "it": "/it/etf-o-fondo-della-banca/", "es": "/es/etf-o-fondo-del-banco/"},
+        {
+            "en": "ETF or your bank's fund? What the yearly costs add up to | Your ETF Plan",
+            "it": "ETF o fondo della banca? Quanto ti costano davvero i costi annui | Your ETF Plan",
+            "es": "¿ETF o el fondo de tu banco? Cuánto suman de verdad los costes anuales | Your ETF Plan",
+        },
+        {
+            "en": "Free calculator: compare a bank fund at about 1.5% a year with an ETF at 0.2%, with your amounts. The 5 questions to ask your bank and how to read the KID.",
+            "it": "Calcolatore gratuito: confronta un fondo della banca a circa l'1,5% l'anno con un ETF allo 0,2%, con le tue cifre. Le 5 domande da fare in banca e come leggere il KID.",
+            "es": "Calculadora gratuita: compara un fondo del banco a cerca del 1,5% anual con un ETF al 0,2%, con tus cantidades. Las 5 preguntas para tu banco y cómo leer el KID.",
+        },
+    ),
+    "learn": scenario(
+        "learn.html",
+        {"en": "/what-is-an-etf/", "it": "/it/cosa-sono-gli-etf/", "es": "/es/que-es-un-etf/"},
+        {
+            "en": "What is an ETF? Explained simply, in 5 minutes | Your ETF Plan",
+            "it": "Cosa sono gli ETF? Spiegati semplice, in 5 minuti | Your ETF Plan",
+            "es": "¿Qué es un ETF? Explicado fácil, en 5 minutos | Your ETF Plan",
+        },
+        {
+            "en": "ETFs for beginners in 7 short lessons: what an ETF and an index are, stocks and bonds, accumulating or distributing, risk, costs and safety. With a 4-question quiz.",
+            "it": "Gli ETF per principianti in 7 lezioni brevi: cos'è un ETF, cos'è un indice, azioni e obbligazioni, accumulazione o distribuzione, rischio, costi e sicurezza. Con un quiz.",
+            "es": "Los ETF para principiantes en 7 lecciones cortas: qué es un ETF y un índice, acciones y bonos, acumulación o distribución, riesgo, costes y seguridad. Con un test.",
+        },
+    ),
 }
 PAGES = MAIN  # kept for older references
 

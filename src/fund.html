@@ -1,0 +1,504 @@
+<title>ETF or bank fund</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* ETF or the bank's fund: yearly cost calculator. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+/* guide pages: numbered steps, progress, small calculator */
+.guide{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{gap:12px}
+.step h2{display:flex;align-items:center;gap:12px;font-size:1.3rem}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-size:1rem;color:#17322a}
+.step p{margin:0 0 8px}
+.step p:last-child{margin-bottom:0}
+.step a{color:var(--ink);font-weight:700}
+.step.is-done{border-color:var(--leaf2);box-shadow:6px 6px 0 var(--leaf2)}
+.step.is-done .n{background:var(--leaf);color:#fff}
+.done{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;background:var(--bg)}
+.done input{width:20px;height:20px;accent-color:var(--leaf2);margin:0}
+.progress{height:14px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--leaf);transition:width .3s}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:1.05rem;margin:0}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bank" viewBox="0 0 64 64"><path class="w-ink" d="M8 24 32 10l24 14Z" fill="var(--coral)"/><path class="w-ink" d="M14 28v20M26 28v20M38 28v20M50 28v20" fill="none"/><rect class="w-ink" x="8" y="50" width="48" height="6" rx="2" fill="var(--surface)"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="22" ry="4" fill="var(--mint)"/><path class="w-ink" d="M32 56V30" fill="none" stroke-width="4"/><circle class="w-ink" cx="32" cy="22" r="14" fill="var(--leaf)"/><circle class="w-ink" cx="20" cy="32" r="8" fill="var(--leaf2)"/><circle cx="28" cy="18" r="3" fill="var(--sun)"/><circle cx="38" cy="26" r="3" fill="var(--coral)"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en">EN</button>
+      <button type="button" id="l-it" lang="it">IT</button>
+      <button type="button" id="l-es" lang="es">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge"></span>
+    <h1 id="h1" data-t="h1"></h1>
+    <p class="sub" data-t="sub"></p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"/>
+      <!-- bank fund jar with a leak -->
+      <path class="w-ink" d="M28 70 86 40l58 30Z" fill="var(--coral)"/>
+      <rect class="w-ink" x="40" y="76" width="92" height="96" rx="18" fill="var(--surface)"/>
+      <ellipse class="w-ink" cx="86" cy="160" rx="30" ry="6" fill="var(--sun)"/>
+      <ellipse class="w-ink" cx="86" cy="150" rx="30" ry="6" fill="var(--sun)"/>
+      <path class="w-ink" d="M132 148h18" fill="none"/>
+      <circle cx="156" cy="160" r="5" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"/><circle cx="160" cy="176" r="4" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"/>
+      <!-- versus -->
+      <circle class="w-ink" cx="196" cy="112" r="20" fill="var(--surface)"/>
+      <text x="196" y="119" text-anchor="middle" font-family="Bricolage Grotesque, Figtree, sans-serif" font-weight="800" font-size="18" fill="var(--ink)">vs</text>
+      <!-- ETF jar with a full tree -->
+      <rect class="w-ink" x="240" y="100" width="84" height="76" rx="18" fill="var(--surface)"/>
+      <ellipse class="w-ink" cx="282" cy="164" rx="28" ry="6" fill="var(--sun)"/>
+      <ellipse class="w-ink" cx="282" cy="154" rx="28" ry="6" fill="var(--sun)"/>
+      <ellipse class="w-ink" cx="282" cy="144" rx="28" ry="6" fill="var(--sun)"/>
+      <path class="w-ink" d="M282 138V60" fill="none" stroke-width="4"/>
+      <circle class="w-ink" cx="282" cy="50" r="26" fill="var(--leaf)"/>
+      <circle class="w-ink" cx="258" cy="80" r="14" fill="var(--leaf2)"/>
+      <circle class="w-ink" cx="306" cy="76" r="14" fill="var(--leaf2)"/>
+      <circle cx="274" cy="42" r="4" fill="var(--sun)"/><circle cx="292" cy="56" r="4" fill="var(--coral)"/>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH"></h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="start" data-t="lStart"></label><span class="ctrl-val num" id="start-out"></span></div>
+      <input type="range" id="start" min="0" max="1000" step="1" value="216">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="monthly" data-t="lMonthly"></label><span class="ctrl-val num" id="monthly-out"></span></div>
+      <input type="range" id="monthly" min="0" max="1000" step="1" value="141">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="years" data-t="lYears"></label><span class="ctrl-val num" id="years-out"></span></div>
+      <input type="range" id="years" min="1" max="40" step="1" value="20">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="fcost" data-t="lFcost"></label><span class="ctrl-val num" id="fcost-out"></span></div>
+      <input type="range" id="fcost" min="0" max="3" step="0.05" value="1.5">
+      <p class="note" data-t="fcostNote"></p>
+    </div>
+    <details class="assume">
+      <summary data-t="assumeH"></summary>
+      <div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="ecost" data-t="lEcost"></label><span class="ctrl-val num" id="ecost-out"></span></div>
+          <input type="range" id="ecost" min="0" max="0.6" step="0.01" value="0.2">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="entry" data-t="lEntry"></label><span class="ctrl-val num" id="entry-out"></span></div>
+          <input type="range" id="entry" min="0" max="5" step="0.25" value="0">
+          <p class="note" data-t="entryNote"></p>
+        </div>
+      </div>
+    </details>
+
+    <p class="res-head" id="res-head"></p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" id="lab-fund"></span><span class="val num" id="v-fund"></span><div class="track"><div class="fill" id="f-fund" style="background:var(--coral)"></div></div></div>
+      <div class="bar"><span class="lab" id="lab-etf"></span><span class="val num" id="v-etf"></span><div class="track"><div class="fill" id="f-etf" style="background:var(--etf)"></div></div></div>
+    </div>
+    <p class="verdict" id="verdict"></p>
+    <div class="income" id="costs"></div>
+    <p class="note" data-t="calcNote"></p>
+  </section>
+
+  <section aria-labelledby="h-why">
+    <h2 id="h-why" data-t="whyH"></h2>
+    <ul class="check" data-t="whyL"></ul>
+  </section>
+
+  <section aria-labelledby="h-ask">
+    <h2 id="h-ask" data-t="askH"></h2>
+    <div class="two">
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-bank"/></svg><span data-t="askBankH"></span></h3><ol data-t="askBankL"></ol></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"/></svg><span data-t="kidH"></span></h3><ul data-t="kidL"></ul></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-country">
+    <h2 id="h-country" data-t="countryH"></h2>
+    <div class="country" data-t="country"></div>
+    <p class="taxnote"><span data-t="taxNote"></span></p>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH"></h2>
+    <div class="faqs">
+      <details><summary data-t="q1"></summary><div data-t="a1"></div></details>
+      <details><summary data-t="q2"></summary><div data-t="a2"></div></details>
+      <details><summary data-t="q3"></summary><div data-t="a3"></div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH"></h2>
+    <p data-t="next"></p>
+    <a class="btn" id="next-btn" href="/how-to-buy-etf/"><span data-t="nextBtn"></span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden>
+    <span data-t="fbQ"></span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden></span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"></p>
+  <p class="foot" id="privacy" data-t="privacy" hidden></p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/etf-vs-bank-fund/" hreflang="en" lang="en">English</a> · <a href="/it/etf-o-fondo-della-banca/" hreflang="it" lang="it">Italiano</a> · <a href="/es/etf-o-fondo-del-banco/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, GROSS=0.07, MAXSTART=1000000;
+  const PAGE_URLS={en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const GUIDE={en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'};
+
+  const T={
+    en:{locale:'en-IE', title:'ETF or your bank’s fund? Cost calculator | Your ETF Plan',
+      badge:'Your case · the bank’s fund',
+      h1:'ETF, or <em>the fund your bank offers?</em>',
+      sub:'The difference is mostly the yearly cost. It looks small, 0.2% against 1.5%, but it is taken every year from all your money. See what it adds up to.',
+      illAlt:'A bank jar leaking coins next to a jar with a big tree',
+      calcH:'Your numbers',
+      lStart:'Money you invest today', lMonthly:'And each month', lYears:'For how many years', years:n=>n+(n===1?' year':' years'),
+      lFcost:'Yearly cost of the bank’s fund', fcostNote:'Look for “ongoing costs” in the fund’s KID. In the EU, actively managed equity funds cost about 1.2–1.4% a year on average; in Italy they are among the most expensive.',
+      assumeH:'ETF cost and entry fees (tap to change)',
+      lEcost:'Yearly cost of the ETF (TER)', lEntry:'Entry fee of the fund, on every payment', entryNote:'Some bank funds charge 1–3% on each payment. Put 0 if yours doesn’t.',
+      resHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
+      lFund:c=>`Bank fund <small>${c} a year</small>`, lEtf:c=>`ETF <small>${c} a year</small>`,
+      verdict:(d,yrs)=>`With the ETF you’d have about <b class="gain">${d}</b> more. That’s what the higher costs take, year after year, over ${yrs}.`,
+      same:'With these costs the result is the same.',
+      costFund:v=>`<b>${v}</b><span>lost to the fund’s costs, including the growth that money would have made</span>`,
+      costEtf:v=>`<b>${v}</b><span>lost to the ETF’s costs</span>`,
+      calcNote:'Both earn the same 7% a year before costs, which is generous to the fund: over 10 years more than 9 in 10 active European equity funds did worse than their index (SPIVA Europe, 2025). In today’s money (2% inflation), before taxes.',
+      whyH:'Why the cost matters so much',
+      whyL:'<li><b>It’s taken every year, on everything:</b> 1.5% of €50,000 is €750 this year, and again next year on a bigger amount.</li><li><b>It doesn’t depend on results:</b> you pay it even in years when the fund loses money.</li><li><b>Active funds rarely win:</b> to be worth it, the fund manager has to beat the index by more than the extra cost, every year. Over 10 years more than 9 in 10 don’t.</li><li><b>An ETF just copies the index:</b> no star manager to pay, so it costs a fraction.</li>',
+      askH:'Before you sign at the bank',
+      askBankH:'Ask these 5 questions', askBankL:'<li>What is the <b>total yearly cost</b> of the fund, in %?</li><li>Are there <b>entry or exit fees</b>?</li><li>Is it an <b>active</b> fund or an index fund?</li><li>How did it do <b>against its index</b> over the last 10 years, after costs?</li><li>Can I buy a <b>similar ETF</b> or index fund through you?</li>',
+      kidH:'Read the KID', kidL:'<li>Every fund and ETF has a <b>KID</b>, a 3-page official sheet. Ask for it, or search the ISIN online.</li><li><b>“Ongoing costs”</b>: the yearly cost. Compare it with an ETF’s TER.</li><li><b>“Entry costs”</b> and <b>“exit costs”</b>: paid when you put money in or take it out.</li><li><b>Risk indicator</b> from 1 to 7: world equity funds and ETFs are usually 4.</li>',
+      countryH:'Switching from a fund to an ETF',
+      country:'Selling a fund that has gained usually means paying tax on the gain, so check the numbers before you switch. Rules depend on your country.',
+      faqH:'Questions',
+      q1:'Isn’t a professional manager better than an index?', a1:'Some years, some managers do better. But picking in advance which ones will do better for 10 or 20 years almost never works, and the extra cost is certain. Over 10 years more than 9 in 10 active European equity funds did worse than their index.',
+      q2:'My bank says its fund is safer. Is it?', a2:'Look at the risk indicator in the KID, from 1 to 7. A world equity fund and a world equity ETF hold much the same companies and usually have the same risk. If you want less risk, there are ETFs that also hold bonds, still with low costs.',
+      q3:'What is an index fund?', a3:'A normal fund, not traded on the stock exchange, that copies an index just like an ETF does. It has low costs too. It’s a good alternative to an ETF, especially where the tax rules favour funds.',
+      nextH:'Next: how to buy your first ETF', next:'Step by step: choose a broker, open the account, find the ETF and set up the monthly plan.', nextBtn:'Read the guide',
+      fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
+      taxNote:'<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.',
+      disc:'<strong>Not financial advice.</strong> Educational estimates with the same constant return for both. Real fund and ETF returns differ, and investing in ETFs can lose money. No ties to any bank, broker or fund provider.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'ETF o fondo della banca? Calcolatore dei costi | Your ETF Plan',
+      badge:'Il tuo caso · il fondo della banca',
+      h1:'ETF o <em>il fondo che ti propone la banca?</em>',
+      sub:'La differenza è soprattutto il costo annuo. Sembra poco, 0,2% contro 1,5%, ma lo paghi ogni anno su tutti i tuoi soldi. Guarda quanto fa alla fine.',
+      illAlt:'Un barattolo della banca che perde monete accanto a un barattolo con un grande albero',
+      calcH:'I tuoi numeri',
+      lStart:'Soldi che investi oggi', lMonthly:'E ogni mese', lYears:'Per quanti anni', years:n=>n+(n===1?' anno':' anni'),
+      lFcost:'Costo annuo del fondo della banca', fcostNote:'Lo trovi come “costi correnti” nel KID del fondo. In Europa i fondi azionari a gestione attiva costano in media circa l’1,2–1,4% l’anno; in Italia sono tra i più cari.',
+      assumeH:'Costo dell’ETF e commissioni d’ingresso (tocca per cambiarle)',
+      lEcost:'Costo annuo dell’ETF (TER)', lEntry:'Commissione d’ingresso del fondo, su ogni versamento', entryNote:'Alcuni fondi bancari prendono l’1–3% su ogni versamento. Metti 0 se il tuo non lo fa.',
+      resHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
+      lFund:c=>`Fondo della banca <small>${c} l’anno</small>`, lEtf:c=>`ETF <small>${c} l’anno</small>`,
+      verdict:(d,yrs)=>`Con l’ETF avresti circa <b class="gain">${d}</b> in più. È quello che si mangiano i costi più alti, anno dopo anno, in ${yrs}.`,
+      same:'Con questi costi il risultato è uguale.',
+      costFund:v=>`<b>${v}</b><span>persi in costi del fondo, compresa la crescita che quei soldi avrebbero fatto</span>`,
+      costEtf:v=>`<b>${v}</b><span>persi in costi dell’ETF</span>`,
+      calcNote:'Tutti e due rendono lo stesso 7% l’anno prima dei costi, ed è generoso col fondo: in 10 anni oltre 9 fondi azionari attivi europei su 10 hanno fatto peggio del loro indice (SPIVA Europe, 2025). In euro di oggi (inflazione 2%), prima delle tasse.',
+      whyH:'Perché il costo conta così tanto',
+      whyL:'<li><b>Lo paghi ogni anno, su tutto:</b> l’1,5% di 50.000 € sono 750 € quest’anno, e di nuovo l’anno dopo su una cifra più grande.</li><li><b>Non dipende dai risultati:</b> lo paghi anche negli anni in cui il fondo perde.</li><li><b>I fondi attivi vincono raramente:</b> per valerne la pena il gestore deve battere l’indice di più del costo in più, ogni anno. In 10 anni oltre 9 su 10 non ci riescono.</li><li><b>Un ETF copia solo l’indice:</b> nessun gestore star da pagare, quindi costa una frazione.</li>',
+      askH:'Prima di firmare in banca',
+      askBankH:'Fai queste 5 domande', askBankL:'<li>Qual è il <b>costo totale annuo</b> del fondo, in %?</li><li>Ci sono <b>commissioni d’ingresso o d’uscita</b>?</li><li>È un fondo <b>attivo</b> o indicizzato?</li><li>Com’è andato <b>rispetto al suo indice</b> negli ultimi 10 anni, tolti i costi?</li><li>Posso comprare da voi un <b>ETF simile</b> o un fondo indicizzato?</li>',
+      kidH:'Leggi il KID', kidL:'<li>Ogni fondo ed ETF ha un <b>KID</b>, una scheda ufficiale di 3 pagine. Chiedila, o cerca l’ISIN online.</li><li><b>“Costi correnti”</b>: il costo annuo. Confrontalo con il TER di un ETF.</li><li><b>“Costi di ingresso”</b> e <b>“di uscita”</b>: li paghi quando metti o togli i soldi.</li><li><b>Indicatore di rischio</b> da 1 a 7: fondi ed ETF azionari mondiali di solito sono a 4.</li>',
+      countryH:'Passare da un fondo a un ETF, in Italia',
+      country:'Vendere il fondo fa pagare il <b>26% sul guadagno</b>, come per gli ETF. Se il fondo è in perdita, attenzione: le perdite dei fondi in Italia non si possono usare per compensare i guadagni futuri degli ETF. Fai i conti, o chiedi a un commercialista, prima di spostare cifre importanti.',
+      faqH:'Domande',
+      q1:'Un gestore professionista non è meglio di un indice?', a1:'Alcuni anni alcuni gestori fanno meglio. Ma scegliere in anticipo quali faranno meglio per 10 o 20 anni non funziona quasi mai, mentre il costo in più è sicuro. In 10 anni oltre 9 fondi azionari attivi europei su 10 hanno fatto peggio del loro indice.',
+      q2:'La banca dice che il suo fondo è più sicuro. È vero?', a2:'Guarda l’indicatore di rischio nel KID, da 1 a 7. Un fondo azionario mondiale e un ETF azionario mondiale contengono più o meno le stesse aziende e di solito hanno lo stesso rischio. Se vuoi meno rischio esistono ETF che contengono anche obbligazioni, sempre con costi bassi.',
+      q3:'Cos’è un fondo indicizzato?', a3:'Un fondo normale, non quotato in borsa, che copia un indice proprio come un ETF. Anche lui costa poco. È una buona alternativa all’ETF.',
+      nextH:'Prossimo passo: come comprare il tuo primo ETF', next:'Passo per passo: scegliere il broker, aprire il conto, trovare l’ETF e impostare il PAC.', nextBtn:'Leggi la guida',
+      fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
+      taxNote:'<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Stime educative con lo stesso rendimento costante per tutti e due. I rendimenti reali di fondi ed ETF sono diversi, e investire in ETF comporta il rischio di perdere denaro. Nessun legame con banche, broker o case di fondi.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'¿ETF o el fondo de tu banco? Calculadora de costes | Your ETF Plan',
+      badge:'Tu caso · el fondo del banco',
+      h1:'¿ETF o <em>el fondo que te ofrece el banco?</em>',
+      sub:'La diferencia es sobre todo el coste anual. Parece poco, 0,2% frente a 1,5%, pero lo pagas cada año sobre todo tu dinero. Mira cuánto suma al final.',
+      illAlt:'Un tarro del banco que pierde monedas junto a un tarro con un gran árbol',
+      calcH:'Tus números',
+      lStart:'Dinero que inviertes hoy', lMonthly:'Y cada mes', lYears:'Durante cuántos años', years:n=>n+(n===1?' año':' años'),
+      lFcost:'Coste anual del fondo del banco', fcostNote:'Búscalo como “costes corrientes” en el KID del fondo. En Europa los fondos de acciones de gestión activa cuestan de media un 1,2–1,4% al año.',
+      assumeH:'Coste del ETF y comisiones de suscripción (toca para cambiarlos)',
+      lEcost:'Coste anual del ETF (TER)', lEntry:'Comisión de suscripción del fondo, en cada aportación', entryNote:'Algunos fondos de banco cobran un 1–3% en cada aportación. Pon 0 si el tuyo no lo hace.',
+      resHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
+      lFund:c=>`Fondo del banco <small>${c} al año</small>`, lEtf:c=>`ETF <small>${c} al año</small>`,
+      verdict:(d,yrs)=>`Con el ETF tendrías unos <b class="gain">${d}</b> más. Es lo que se comen los costes más altos, año tras año, en ${yrs}.`,
+      same:'Con estos costes el resultado es el mismo.',
+      costFund:v=>`<b>${v}</b><span>perdidos en costes del fondo, incluido lo que ese dinero habría crecido</span>`,
+      costEtf:v=>`<b>${v}</b><span>perdidos en costes del ETF</span>`,
+      calcNote:'Los dos rinden el mismo 7% anual antes de costes, y es generoso con el fondo: en 10 años más de 9 de cada 10 fondos de acciones activos europeos lo hicieron peor que su índice (SPIVA Europe, 2025). En euros de hoy (inflación del 2%), antes de impuestos.',
+      whyH:'Por qué el coste importa tanto',
+      whyL:'<li><b>Se paga cada año, sobre todo:</b> el 1,5% de 50.000 € son 750 € este año, y otra vez el año que viene sobre una cantidad mayor.</li><li><b>No depende de los resultados:</b> lo pagas incluso los años en que el fondo pierde.</li><li><b>Los fondos activos rara vez ganan:</b> para que compense, el gestor tiene que batir al índice por más de lo que cuesta de más, cada año. En 10 años más de 9 de cada 10 no lo consiguen.</li><li><b>Un ETF solo copia el índice:</b> no hay gestor estrella que pagar, así que cuesta una fracción.</li>',
+      askH:'Antes de firmar en el banco',
+      askBankH:'Haz estas 5 preguntas', askBankL:'<li>¿Cuál es el <b>coste total anual</b> del fondo, en %?</li><li>¿Hay <b>comisiones de suscripción o reembolso</b>?</li><li>¿Es un fondo <b>activo</b> o indexado?</li><li>¿Cómo lo ha hecho <b>frente a su índice</b> en los últimos 10 años, después de costes?</li><li>¿Puedo contratar con vosotros un <b>ETF parecido</b> o un fondo indexado?</li>',
+      kidH:'Lee el KID', kidL:'<li>Cada fondo y ETF tiene un <b>KID</b> (DFI), una ficha oficial de 3 páginas. Pídela, o busca el ISIN en internet.</li><li><b>“Costes corrientes”</b>: el coste anual. Compáralo con el TER de un ETF.</li><li><b>“Costes de entrada”</b> y <b>“de salida”</b>: los pagas al meter o sacar dinero.</li><li><b>Indicador de riesgo</b> del 1 al 7: los fondos y ETF de acciones mundiales suelen estar en 4.</li>',
+      countryH:'Pasar de un fondo caro a uno barato, en España',
+      country:'<b>Buena noticia:</b> en España puedes pasar de un fondo a otro con un <b>traspaso, sin pagar impuestos</b> hasta que vendas de verdad. Así que desde un fondo caro del banco puedes traspasar a un <b>fondo indexado</b> barato sin tributar. Con los ETF no se puede: vender el fondo para comprar un ETF hace tributar la ganancia (del 19% al 30%). Por eso, para quien ya tiene un fondo de banco, un fondo indexado suele ser el camino más sencillo.',
+      faqH:'Preguntas',
+      q1:'¿Un gestor profesional no es mejor que un índice?', a1:'Algunos años algunos gestores lo hacen mejor. Pero elegir de antemano cuáles lo harán mejor durante 10 o 20 años casi nunca funciona, y el coste de más es seguro. En 10 años más de 9 de cada 10 fondos de acciones activos europeos lo hicieron peor que su índice.',
+      q2:'El banco dice que su fondo es más seguro. ¿Es verdad?', a2:'Mira el indicador de riesgo en el KID, del 1 al 7. Un fondo de acciones mundial y un ETF de acciones mundial tienen más o menos las mismas empresas y suelen tener el mismo riesgo. Si quieres menos riesgo hay ETF y fondos indexados que también llevan bonos, igual de baratos.',
+      q3:'¿Qué es un fondo indexado?', a3:'Un fondo normal, que no cotiza en bolsa, que copia un índice igual que un ETF. También es barato. En España tiene una ventaja fiscal: permite traspasos sin pagar impuestos.',
+      nextH:'Siguiente paso: cómo comprar tu primer ETF', next:'Paso a paso: elegir bróker, abrir la cuenta, encontrar el ETF y programar la aportación mensual.', nextBtn:'Leer la guía',
+      fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      taxNote:'<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.',
+      disc:'<strong>No es asesoramiento financiero.</strong> Estimaciones educativas con la misma rentabilidad constante para los dos. Las rentabilidades reales de fondos y ETF son distintas, e invertir en ETF conlleva el riesgo de perder dinero. Sin relación con ningún banco, bróker ni gestora.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
+
+  // Curved sliders: start 0–1M (cube), monthly 0–10k (square).
+  function startFromPos(p){const v=MAXSTART*Math.pow(p/1000,3);const st=v<10000?100:v<100000?1000:v<1000000?5000:10000;return Math.round(v/st)*st}
+  function monthlyFromPos(p){const v=10000*Math.pow(p/1000,2);const st=v<1000?25:v<5000?50:100;return Math.round(v/st)*st}
+
+  // Month by month at the same 7% before costs; each product takes its yearly cost from the whole
+  // amount; the fund also takes the entry fee from every payment. Shown in today's money.
+  function grow(A,M,y,cost,entry){
+    const g=Math.pow(1+GROSS,1/12)*Math.pow(1-cost,1/12)-1;
+    let v=A*(1-entry); for(let m=0;m<y*12;m++)v=v*(1+g)+M*(1-entry);
+    return v/Math.pow(1+INFL,y);
+  }
+
+  function render(){
+    const A=startFromPos(+$('start').value), M=monthlyFromPos(+$('monthly').value), y=+$('years').value;
+    const fc=+$('fcost').value/100, ec=+$('ecost').value/100, en=+$('entry').value/100;
+    const fund=grow(A,M,y,fc,en), etf=grow(A,M,y,ec,0), none=grow(A,M,y,0,0);
+    $('start-out').textContent=fmt(A); $('monthly-out').textContent=fmt(M); $('years-out').textContent=L.years(y);
+    $('fcost-out').textContent=pct(fc); $('ecost-out').textContent=pct(ec); $('entry-out').textContent=pct(en);
+    $('res-head').textContent=L.resHead(y);
+    $('lab-fund').innerHTML=L.lFund(pct(fc)); $('lab-etf').innerHTML=L.lEtf(pct(ec));
+    $('v-fund').textContent=fmt(fund); $('v-etf').textContent=fmt(etf);
+    const top=Math.max(fund,etf,1)*1.05;
+    $('f-fund').style.width=Math.max(1,fund/top*100).toFixed(1)+'%'; $('f-etf').style.width=Math.max(1,etf/top*100).toFixed(1)+'%';
+    const d=etf-fund;
+    $('verdict').innerHTML=Math.abs(d)<1?L.same:L.verdict(fmt(d),L.years(y));
+    $('costs').innerHTML='<div>'+L.costFund(fmt(none-fund))+'</div><div>'+L.costEtf(fmt(none-etf))+'</div>';
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:2});
+    fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=(FIXED?'':'https://youretfplan.com')+GUIDE[lang];
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  const INPUTS=['start','monthly','years','fcost','ecost','entry'];
+  INPUTS.forEach(id=>$(id).addEventListener('input',render));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_fund_view']);
+    INPUTS.forEach(id=>$(id).addEventListener('input',()=>send(['sc_fund_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_fund',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
