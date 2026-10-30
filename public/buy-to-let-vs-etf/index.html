@@ -339,7 +339,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       </div>
     </details>
 
-    <div class="chips" id="chips"><span class="chip ">Gross rental yield 5.4% · average</span></div>
+    <div class="chips" id="chips"><span class="chip ">Rent per year, before tax = 5.4% of the price · average</span></div>
 
     <p class="res-head" id="res-head">After 20 years, what each path owns, in today’s money:</p>
     <div class="bars" aria-live="polite">
@@ -360,8 +360,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section aria-labelledby="h-when">
     <h2 id="h-when" data-t="whenH">When buying to rent out wins, and when investing in ETFs wins</h2>
     <div class="two">
-      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Buying to rent out usually wins if…</span></h3><ul data-t="letL"><li>The gross rent is <b>6% or more</b> of the price a year.</li><li>The mortgage rate is low and the rent covers the payments.</li><li>You hold it for <b>10 years or more</b> and you don’t mind managing it.</li></ul></div>
-      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="etfH">Investing in ETFs usually wins if…</span></h3><ul data-t="etfL"><li>The gross rent is under <b>4%</b> of the price.</li><li>Mortgage rates are high, or the purchase costs are heavy.</li><li>You want something simple that you can sell in a day.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Buying to rent out usually wins if…</span></h3><ul id="letL"><li>The rent of one year, before tax and costs, is at least <b>6%</b> of the price. For a €200,000 home: at least <b>€12,000</b> a year, that is €1,000 a month.</li><li>The mortgage rate is low and the rent covers the payments.</li><li>You hold it for <b>10 years or more</b> and you don’t mind managing it.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="etfH">Investing in ETFs usually wins if…</span></h3><ul id="etfL"><li>The rent of one year, before tax and costs, is less than <b>4%</b> of the price. For a €200,000 home: less than <b>€8,000</b> a year, that is €667 a month.</li><li>Mortgage rates are high, or the purchase costs are heavy.</li><li>You want something simple that you can sell in a day.</li></ul></div>
     </div>
   </section>
 
@@ -381,7 +381,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <div class="faqs">
       <details><summary data-t="q1">Why does the ETF path invest more when the rent doesn’t cover the costs?</summary><div data-t="a1">To compare like for like: if the flat costs you money each month, that money comes out of your pocket. The ETF path puts exactly the same amount into ETFs, so both paths use the same money.</div></details>
       <details><summary data-t="q2">Isn’t the mortgage an advantage?</summary><div data-t="a2">It can be: you control a flat worth more than your money. But you pay interest on it, and if prices fall you lose on the whole value. Try a different mortgage rate and house growth under “Mortgage, costs and assumptions”.</div></details>
-      <details><summary data-t="q3">What gross yield is “good”?</summary><div data-t="a3">A common rule of thumb: 6% or more gross a year is good, under 4% is low. After taxes, costs and empty months, what’s left is usually much less.</div></details>
+      <details><summary data-t="q3">What gross yield is “good”?</summary><div data-t="a3">Take the rent of one year, before tax and costs, and divide it by the price. Example: €900 a month on a €200,000 flat is €10,800 a year, so 5.4%. A common rule of thumb: 6% or more is good, under 4% is low. After taxes, costs and empty months, what you keep is usually much less.</div></details>
     </div>
   </section>
 
@@ -429,7 +429,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value.',
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.', lEmpty:'Months empty per year',
       lHgrow:'House value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs returns 7% a year on average.',
-      yield:v=>`Gross rental yield ${v}`, yGood:'good', yMid:'average', yLow:'low',
+      yield:v=>`Rent per year, before tax = ${v} of the price`, yGood:'good', yMid:'average', yLow:'low',
       resHead:y=>`After ${y===1?'1 year':y+' years'}, what each path owns, in today’s money:`,
       bLet:'Buy and rent out <small>flat value − mortgage left + ETFs from the extra rent</small>', bEtf:'Invest in ETFs <small>the same money, in ETFs</small>',
       lgLet:'Buy and rent out', lgEtf:'Invest in ETFs', chartAlt:'Wealth over the years when buying a flat to rent out and when investing the same money in ETFs',
@@ -442,8 +442,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       mMinus:v=>`<b>${v} a month from your pocket</b><span>The rent doesn’t cover the costs. The ETF path invests the same ${v} each month.</span>`,
       calcNote:'In today’s money (2% inflation). Before the tax when you sell the flat or the ETFs, and without selling costs. Rent tax is applied to the rent as a simple %. Educational estimate, not advice.',
       whenH:'When buying to rent out wins, and when investing in ETFs wins',
-      letH:'Buying to rent out usually wins if…', letL:'<li>The gross rent is <b>6% or more</b> of the price a year.</li><li>The mortgage rate is low and the rent covers the payments.</li><li>You hold it for <b>10 years or more</b> and you don’t mind managing it.</li>',
-      etfH:'Investing in ETFs usually wins if…', etfL:'<li>The gross rent is under <b>4%</b> of the price.</li><li>Mortgage rates are high, or the purchase costs are heavy.</li><li>You want something simple that you can sell in a day.</li>',
+      letH:'Buying to rent out usually wins if…', letL:(v,y,m)=>`<li>The rent of one year, before tax and costs, is at least <b>6%</b> of the price. For a ${v} home: at least <b>${y}</b> a year, that is ${m} a month.</li><li>The mortgage rate is low and the rent covers the payments.</li><li>You hold it for <b>10 years or more</b> and you don’t mind managing it.</li>`,
+      etfH:'Investing in ETFs usually wins if…', etfL:(v,y,m)=>`<li>The rent of one year, before tax and costs, is less than <b>4%</b> of the price. For a ${v} home: less than <b>${y}</b> a year, that is ${m} a month.</li><li>Mortgage rates are high, or the purchase costs are heavy.</li><li>You want something simple that you can sell in a day.</li>`,
       lifeH:'It’s not only about money',
       lifeL:'<li><b>Debt works both ways:</b> a mortgage multiplies gains when prices rise, and losses when they fall.</li><li><b>Being a landlord is a job:</b> tenants, repairs, late payments, empty months.</li><li><b>One basket:</b> a flat is one asset in one city; ETFs spread your money over thousands of companies.</li><li><b>Something you can touch:</b> for many people a flat feels safer than a fund, and that matters too.</li>',
       countryH:'Taxes to check in your country',
@@ -451,7 +451,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       faqH:'Questions',
       q1:'Why does the ETF path invest more when the rent doesn’t cover the costs?', a1:'To compare like for like: if the flat costs you money each month, that money comes out of your pocket. The ETF path puts exactly the same amount into ETFs, so both paths use the same money.',
       q2:'Isn’t the mortgage an advantage?', a2:'It can be: you control a flat worth more than your money. But you pay interest on it, and if prices fall you lose on the whole value. Try a different mortgage rate and house growth under “Mortgage, costs and assumptions”.',
-      q3:'What gross yield is “good”?', a3:'A common rule of thumb: 6% or more gross a year is good, under 4% is low. After taxes, costs and empty months, what’s left is usually much less.',
+      q3:'What gross yield is “good”?', a3:'Take the rent of one year, before tax and costs, and divide it by the price. Example: €900 a month on a €200,000 flat is €10,800 a year, so 5.4%. A common rule of thumb: 6% or more is good, under 4% is low. After taxes, costs and empty months, what you keep is usually much less.',
       nextH:'Next: your first plan for investing in ETFs', next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.', nextBtn:'Make my plan',
       fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
       taxNote:'<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.',
@@ -471,7 +471,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, spese condominiali, in % del valore.',
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi vuota all’anno',
       lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
-      yield:v=>`Rendimento lordo dell’affitto ${v}`, yGood:'buono', yMid:'nella media', yLow:'basso',
+      yield:v=>`Affitto di un anno, prima delle tasse = ${v} del prezzo`, yGood:'buono', yMid:'nella media', yLow:'basso',
       resHead:y=>`Dopo ${y===1?'1 anno':y+' anni'}, quanto possiede ciascuna strada, in euro di oggi:`,
       bLet:'Compra e affitta <small>valore della casa − mutuo residuo + ETF dall’affitto in più</small>', bEtf:'Investe in ETF <small>gli stessi soldi, in ETF</small>',
       lgLet:'Compra e affitta', lgEtf:'Investe in ETF', chartAlt:'Patrimonio negli anni comprando una casa da affittare e investendo gli stessi soldi in ETF',
@@ -484,8 +484,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       mMinus:v=>`<b>${v} al mese di tasca tua</b><span>L’affitto non copre i costi. La strada ETF investe gli stessi ${v} ogni mese.</span>`,
       calcNote:'In euro di oggi (inflazione 2%). Prima delle tasse quando vendi la casa o gli ETF, e senza costi di vendita. Le tasse sull’affitto sono una semplice % dell’affitto. Stima educativa, non consulenza.',
       whenH:'Quando conviene comprare per affittare, e quando investire in ETF',
-      letH:'Comprare per affittare di solito conviene se…', letL:'<li>L’affitto lordo è almeno il <b>6%</b> del prezzo all’anno.</li><li>Il tasso del mutuo è basso e l’affitto copre la rata.</li><li>La tieni per <b>10 anni o più</b> e non ti pesa gestirla.</li>',
-      etfH:'Investire in ETF di solito conviene se…', etfL:'<li>L’affitto lordo è sotto il <b>4%</b> del prezzo.</li><li>I tassi del mutuo sono alti, o i costi di acquisto pesano.</li><li>Vuoi una cosa semplice, che puoi vendere in un giorno.</li>',
+      letH:'Comprare per affittare di solito conviene se…', letL:(v,y,m)=>`<li>L’affitto di un anno, prima di tasse e spese, è almeno il <b>6%</b> del prezzo. Per una casa da ${v}: almeno <b>${y}</b> l’anno, cioè ${m} al mese.</li><li>Il tasso del mutuo è basso e l’affitto copre la rata.</li><li>La tieni per <b>10 anni o più</b> e non ti pesa gestirla.</li>`,
+      etfH:'Investire in ETF di solito conviene se…', etfL:(v,y,m)=>`<li>L’affitto di un anno, prima di tasse e spese, è meno del <b>4%</b> del prezzo. Per una casa da ${v}: meno di <b>${y}</b> l’anno, cioè ${m} al mese.</li><li>I tassi del mutuo sono alti, o i costi di acquisto pesano.</li><li>Vuoi una cosa semplice, che puoi vendere in un giorno.</li>`,
       lifeH:'Non è solo una questione di soldi',
       lifeL:'<li><b>Il debito funziona nei due sensi:</b> il mutuo moltiplica i guadagni quando i prezzi salgono, e le perdite quando scendono.</li><li><b>Fare il padrone di casa è un lavoro:</b> inquilini, riparazioni, ritardi nei pagamenti, mesi vuoti.</li><li><b>Un solo paniere:</b> una casa è un bene solo in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li><li><b>Una cosa che puoi toccare:</b> per molti una casa sembra più sicura di un fondo, e anche questo conta.</li>',
       countryH:'Le tasse da sapere in Italia',
@@ -493,7 +493,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       faqH:'Domande',
       q1:'Perché la strada ETF investe di più quando l’affitto non copre i costi?', a1:'Per confrontare cose uguali: se la casa ti costa soldi ogni mese, quei soldi escono dalla tua tasca. La strada ETF mette esattamente la stessa cifra in ETF, così tutte e due usano gli stessi soldi.',
       q2:'Ma il mutuo non è un vantaggio?', a2:'Può esserlo: controlli una casa che vale più dei tuoi soldi. Però ci paghi gli interessi, e se i prezzi scendono perdi sull’intero valore. Prova un altro tasso e un’altra crescita della casa in “Mutuo, costi e ipotesi”.',
-      q3:'Quale rendimento lordo è “buono”?', a3:'Una regola pratica diffusa: dal 6% lordo l’anno in su è buono, sotto il 4% è basso. Tolte tasse, costi e mesi vuoti, quello che resta di solito è molto meno.',
+      q3:'Quale rendimento lordo è “buono”?', a3:'Prendi l’affitto di un anno, prima di tasse e spese, e dividilo per il prezzo. Esempio: 900 € al mese su una casa da 200.000 € sono 10.800 € l’anno, cioè il 5,4%. Una regola pratica diffusa: dal 6% in su è buono, sotto il 4% è basso. Tolte tasse, spese e mesi vuoti, quello che ti resta di solito è molto meno.',
       nextH:'Prossimo passo: il tuo primo piano per investire in ETF', next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.', nextBtn:'Crea il mio piano',
       fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
       taxNote:'<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.',
@@ -513,7 +513,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor.',
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.', lEmpty:'Meses vacía al año',
       lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% anual.',
-      yield:v=>`Rentabilidad bruta del alquiler ${v}`, yGood:'buena', yMid:'en la media', yLow:'baja',
+      yield:v=>`Alquiler de un año, antes de impuestos = ${v} del precio`, yGood:'buena', yMid:'en la media', yLow:'baja',
       resHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, lo que tiene cada camino, en euros de hoy:`,
       bLet:'Comprar y alquilar <small>valor del piso − hipoteca pendiente + ETF del alquiler sobrante</small>', bEtf:'Invertir en ETF <small>el mismo dinero, en ETF</small>',
       lgLet:'Comprar y alquilar', lgEtf:'Invertir en ETF', chartAlt:'Patrimonio a lo largo de los años comprando un piso para alquilar e invirtiendo el mismo dinero en ETF',
@@ -526,8 +526,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       mMinus:v=>`<b>${v} al mes de tu bolsillo</b><span>El alquiler no cubre los gastos. El camino ETF invierte los mismos ${v} cada mes.</span>`,
       calcNote:'En euros de hoy (inflación del 2%). Antes de los impuestos al vender el piso o los ETF, y sin gastos de venta. El impuesto sobre el alquiler se aplica como un % simple del alquiler. Estimación educativa, no asesoramiento.',
       whenH:'Cuándo gana comprar para alquilar y cuándo invertir en ETF',
-      letH:'Comprar para alquilar suele ganar si…', letL:'<li>El alquiler bruto es al menos el <b>6%</b> del precio al año.</li><li>El tipo de la hipoteca es bajo y el alquiler cubre la cuota.</li><li>Lo mantienes <b>10 años o más</b> y no te importa gestionarlo.</li>',
-      etfH:'Invertir en ETF suele ganar si…', etfL:'<li>El alquiler bruto es menor del <b>4%</b> del precio.</li><li>Los tipos de la hipoteca son altos, o los gastos de compra pesan mucho.</li><li>Quieres algo sencillo, que puedas vender en un día.</li>',
+      letH:'Comprar para alquilar suele ganar si…', letL:(v,y,m)=>`<li>El alquiler de un año, antes de impuestos y gastos, es al menos el <b>6%</b> del precio. Para una casa de ${v}: al menos <b>${y}</b> al año, es decir ${m} al mes.</li><li>El tipo de la hipoteca es bajo y el alquiler cubre la cuota.</li><li>Lo mantienes <b>10 años o más</b> y no te importa gestionarlo.</li>`,
+      etfH:'Invertir en ETF suele ganar si…', etfL:(v,y,m)=>`<li>El alquiler de un año, antes de impuestos y gastos, es menos del <b>4%</b> del precio. Para una casa de ${v}: menos de <b>${y}</b> al año, es decir ${m} al mes.</li><li>Los tipos de la hipoteca son altos, o los gastos de compra pesan mucho.</li><li>Quieres algo sencillo, que puedas vender en un día.</li>`,
       lifeH:'No es solo cuestión de dinero',
       lifeL:'<li><b>La deuda funciona en los dos sentidos:</b> la hipoteca multiplica las ganancias cuando los precios suben, y las pérdidas cuando bajan.</li><li><b>Ser casero es un trabajo:</b> inquilinos, reparaciones, impagos, meses vacío.</li><li><b>Una sola cesta:</b> un piso es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li><li><b>Algo que puedes tocar:</b> para mucha gente un piso parece más seguro que un fondo, y eso también cuenta.</li>',
       countryH:'Los impuestos a tener en cuenta en España',
@@ -535,7 +535,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       faqH:'Preguntas',
       q1:'¿Por qué el camino ETF invierte más cuando el alquiler no cubre los gastos?', a1:'Para comparar lo mismo: si el piso te cuesta dinero cada mes, ese dinero sale de tu bolsillo. El camino ETF pone exactamente la misma cantidad en ETF, así los dos usan el mismo dinero.',
       q2:'¿La hipoteca no es una ventaja?', a2:'Puede serlo: controlas un piso que vale más que tu dinero. Pero pagas intereses, y si los precios bajan pierdes sobre todo el valor. Prueba otro tipo y otra revalorización en “Hipoteca, gastos y supuestos”.',
-      q3:'¿Qué rentabilidad bruta es “buena”?', a3:'Una regla práctica habitual: del 6% bruto anual para arriba es buena; por debajo del 4%, baja. Después de impuestos, gastos y meses vacío, lo que queda suele ser bastante menos.',
+      q3:'¿Qué rentabilidad bruta es “buena”?', a3:'Coge el alquiler de un año, antes de impuestos y gastos, y divídelo entre el precio. Ejemplo: 900 € al mes sobre un piso de 200.000 € son 10.800 € al año, es decir un 5,4%. Una regla práctica habitual: del 6% para arriba es buena; por debajo del 4%, baja. Después de impuestos, gastos y meses vacío, lo que te queda suele ser bastante menos.',
       nextH:'Siguiente paso: tu primer plan para invertir en ETF', next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.', nextBtn:'Crear mi plan',
       fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
       taxNote:'<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.',
@@ -599,6 +599,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('empty-out').textContent=String(o.empty).replace('.',L.locale==='en-IE'?'.':','); $('hgrow-out').textContent=pct(o.hgrow);
     const gy=o.rent*12/o.price, cls=gy>=0.06?'good':gy<0.04?'warn':'', txt=gy>=0.06?L.yGood:gy<0.04?L.yLow:L.yMid;
     $('chips').innerHTML=`<span class="chip ${cls}">${L.yield(pct(gy))} · ${txt}</span>`;
+    $('letL').innerHTML=L.letL(fmt(o.price),fmt(o.price*0.06),fmt(o.price*0.06/12)); $('etfL').innerHTML=L.etfL(fmt(o.price),fmt(o.price*0.04),fmt(o.price*0.04/12));
     $('res-head').textContent=L.resHead(o.years);
     $('v-let').textContent=fmt(end.let); $('v-etf').textContent=fmt(end.etf);
     const top=Math.max(end.let,end.etf,1)*1.05;

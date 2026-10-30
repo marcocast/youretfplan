@@ -174,6 +174,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
 .income b{display:block;font-family:var(--display);font-size:1.35rem}
 .income span{font-size:.88rem;color:var(--muted)}
+.income span b{display:inline;font:inherit;font-weight:800;color:var(--ink)}
 .country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
 .taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
 .taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
@@ -334,7 +335,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
       </div>
     </details>
-    <div class="chips" id="h-chips"><span class="chip warn">Rentabilidad neta del alquiler 2,4&nbsp;% · baja</span></div>
+    <div class="chips" id="h-chips"><span class="chip warn">Alquiler neto al año = 2,4&nbsp;% del valor de la casa · baja</span></div>
     <p class="res-head" id="h-head">Dentro de 15 años, lo que tendrías, en euros de hoy:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bEmpty">Dejarla vacía <small>valor de la casa − gastos pagados</small></span><span class="val num" id="v-empty">217.583&nbsp;€</span><div class="track"><div class="fill" id="f-empty" style="background: var(--bank); width: 44.8%;"></div></div></div>
@@ -342,17 +343,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="bar"><span class="lab" data-t="bSell">Venderla e invertir en ETF <small>descontando gastos de venta e impuestos sobre la ganancia</small></span><span class="val num" id="v-sell">462.121&nbsp;€</span><div class="track"><div class="fill" id="f-sell" style="background: var(--etf); width: 95.2%;"></div></div></div>
     </div>
     <p class="verdict" id="h-verdict"><b class="gain">Venderla e invertir en ETF</b> sale ganando, por unos <b>84.458&nbsp;€</b> sobre la segunda opción.</p>
-    <h3 data-t="incH">Ingreso mensual, después de impuestos</h3>
-    <div class="income" id="income"><div><b>483&nbsp;€</b><span>al mes del alquiler, descontando impuestos, gastos y meses vacía</span></div><div><b>603&nbsp;€</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%), descontando los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy. Con los ETF solo pagas impuestos por la parte de ganancia de lo que vendes: poco al principio, más con los años.</p></div>
-    <p class="note" id="sale-note">Si vendes hoy tendrías unos 225.425&nbsp;€ para invertir en ETF, tras pagar 12.075&nbsp;€ de impuestos sobre la ganancia.</p>
+    <h3 data-t="incH">Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)</h3>
+    <div class="income" id="income"><div><b>483&nbsp;€</b><span>al mes si la <b>alquilas</b>: el alquiler, menos el impuesto sobre el alquiler, los gastos de la casa y los meses vacía</span></div><div><b>603&nbsp;€</b><span>al mes si la <b>vendes e inviertes en ETF</b>: retiras el 3% al año, menos los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy. Con los ETF solo pagas impuestos por la parte de ganancia de lo que vendes: poco al principio, más con los años.</p></div>
+    <p class="note" id="sale-note">Si vendes hoy, después de los gastos de venta y 12.075&nbsp;€ de impuestos sobre la ganancia, te quedan unos <b>225.425&nbsp;€</b> para invertir en ETF.</p>
     <p class="note" data-t="hNote">En euros de hoy (inflación del 2%). El alquiler sube con la inflación; invertir en ETF rinde de media un 7% anual, no garantizado. No se incluyen los impuestos al vender los ETF más adelante, ni la casa al final.</p>
   </section>
 
   <section aria-labelledby="h-when">
     <h2 id="h-when" data-t="whenH">Cuándo gana alquilarla y cuándo venderla e invertir en ETF</h2>
     <div class="two">
-      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Alquilarla suele ganar si…</span></h3><ul data-t="letL"><li>El alquiler neto es al menos el <b>4%</b> del valor al año.</li><li>No te importa ser casero, o pagas a una agencia para que lo haga.</li><li>Quizá quieras volver a vivir en ella algún día.</li></ul></div>
-      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="sellH">Venderla e invertir en ETF suele ganar si…</span></h3><ul data-t="sellL"><li>El alquiler neto es menor del <b>3%</b> del valor.</li><li>Vienen obras grandes: tejado, fachada, instalaciones.</li><li>La mayor parte de tu patrimonio ya está en casas.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Alquilarla suele ganar si…</span></h3><ul id="letL"><li>El alquiler que te queda en un año, después de impuestos y gastos, es al menos el <b>4%</b> de lo que vale la casa. Para tu casa de 250.000&nbsp;€: al menos <b>10.000&nbsp;€</b> al año, unos 833&nbsp;€ al mes.</li><li>No te importa ser casero, o pagas a una agencia para que lo haga.</li><li>Quizá quieras volver a vivir en ella algún día.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="sellH">Venderla e invertir en ETF suele ganar si…</span></h3><ul id="sellL"><li>El alquiler que te queda en un año, después de impuestos y gastos, es menos del <b>3%</b> de lo que vale la casa. Para tu casa de 250.000&nbsp;€: menos de <b>7500&nbsp;€</b> al año, unos 625&nbsp;€ al mes.</li><li>Vienen obras grandes: tejado, fachada, instalaciones.</li><li>La mayor parte de tu patrimonio ya está en casas.</li></ul></div>
     </div>
   </section>
 
@@ -421,20 +422,20 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value. You pay them whether it’s empty or rented.',
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.',
       lEmpty:'Months empty per year', lHgrow:'House value growth per year',
-      yield:v=>`Net rental yield ${v}`, yieldGood:'good', yieldLow:'low',
+      yield:v=>`Net rent per year = ${v} of the house value`, yieldGood:'good', yieldLow:'low',
       hHead:y=>`In ${y===1?'1 year':y+' years'}, what you’d have, in today’s money:`,
       bEmpty:'Keep it empty <small>house value − costs paid</small>', bLet:'Rent it out <small>house value + net rent invested in ETFs</small>', bSell:'Sell it and invest in ETFs <small>after selling costs and tax on the gain</small>',
       hBest:{empty:'Keeping it empty',let:'Renting it out',sell:'Selling and investing in ETFs'},
       hVerdict:(best,d)=>`<b class="gain">${best}</b> comes out ahead, by about <b>${d}</b> over the second option.`,
-      incH:'Monthly income, after tax',
-      incLet:v=>`<b>${v}</b><span>a month from rent, after tax, costs and empty months</span>`,
+      incH:'Money in your pocket each month (after taxes and costs)',
+      incLet:v=>`<b>${v}</b><span>a month if you <b>rent it out</b>: the rent, minus the tax on rent, the house costs and the empty months</span>`,
       incNote:'Average of the first 10 years, in today’s money. With ETFs you only pay tax on the gain part of what you sell: little at first, more as the years go by.',
-      incSell:v=>`<b>${v}</b><span>a month taking 3% a year from the ETFs (the 3% rule), after tax on the gains</span>`,
-      saleNote:(net,tax)=>`If you sell today you’d have about ${net} to invest in ETFs${tax?`, after ${tax} of tax on the gain`:''}.`,
+      incSell:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>: you take out 3% a year, minus the tax on the gains</span>`,
+      saleNote:(net,tax)=>`If you sell today, after the selling costs${tax?` and ${tax} of tax on the gain`:''}, you’d have about <b>${net}</b> to invest in ETFs.`,
       hNote:'In today’s money (2% inflation). Rent grows with inflation; investing in ETFs at 7% a year on average, not guaranteed. Taxes on selling the ETFs later, or the house at the end, are not included.',
       whenH:'When renting it out wins, and when selling and investing in ETFs wins',
-      letH:'Renting it out usually wins if…', letL:'<li>The net rent is <b>4% or more</b> of the value a year.</li><li>You’re fine being a landlord, or you pay an agency to do it.</li><li>You might want to live in it again one day.</li>',
-      sellH:'Selling and investing in ETFs usually wins if…', sellL:'<li>The net rent is under <b>3%</b> of the value.</li><li>Big repairs or a new roof are coming.</li><li>Most of your wealth is already in houses.</li>',
+      letH:'Renting it out usually wins if…', letL:(v,y,m)=>`<li>The rent you keep in a year, after tax and costs, is at least <b>4%</b> of what the house is worth. For your ${v} house: at least <b>${y}</b> a year, about ${m} a month.</li><li>You’re fine being a landlord, or you pay an agency to do it.</li><li>You might want to live in it again one day.</li>`,
+      sellH:'Selling and investing in ETFs usually wins if…', sellL:(v,y,m)=>`<li>The rent you keep in a year, after tax and costs, is less than <b>3%</b> of what the house is worth. For your ${v} house: less than <b>${y}</b> a year, about ${m} a month.</li><li>Big repairs or a new roof are coming.</li><li>Most of your wealth is already in houses.</li>`,
       lifeH:'It’s not only about money',
       lifeL:'<li><b>Being a landlord is a job:</b> tenants, repairs, late payments, empty months.</li><li><b>One basket:</b> a house is one asset in one city; ETFs spread your money over thousands of companies.</li><li><b>Selling takes time:</b> months to sell a house; ETFs can be sold in a day.</li><li><b>Memories matter:</b> if the house means a lot to you, that’s a fair reason to keep it.</li>',
       countryH:'Taxes to check in your country',
@@ -461,20 +462,20 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, spese condominiali, in % del valore. Li paghi sia se è vuota sia se è affittata.',
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.',
       lEmpty:'Mesi vuota all’anno', lHgrow:'Crescita del valore della casa all’anno',
-      yield:v=>`Rendimento netto dell’affitto ${v}`, yieldGood:'buono', yieldLow:'basso',
+      yield:v=>`Affitto netto all’anno = ${v} del valore della casa`, yieldGood:'buono', yieldLow:'basso',
       hHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, cosa avresti, in euro di oggi:`,
       bEmpty:'Tenerla vuota <small>valore della casa − costi pagati</small>', bLet:'Affittarla <small>valore della casa + affitto netto investito in ETF</small>', bSell:'Venderla e investire in ETF <small>tolti costi di vendita e tasse sul guadagno</small>',
       hBest:{empty:'Tenerla vuota',let:'Affittarla',sell:'Venderla e investire in ETF'},
       hVerdict:(best,d)=>`<b class="gain">${best}</b> risulta avanti, di circa <b>${d}</b> sulla seconda scelta.`,
-      incH:'Entrata mensile, tolte le tasse',
-      incLet:v=>`<b>${v}</b><span>al mese dall’affitto, tolte tasse, costi e mesi vuoti</span>`,
+      incH:'Quanto ti entra in tasca ogni mese (tolte tasse e costi)',
+      incLet:v=>`<b>${v}</b><span>al mese se la <b>affitti</b>: l’affitto, meno le tasse sull’affitto, le spese della casa e i mesi vuoti</span>`,
       incNote:'Media dei primi 10 anni, in euro di oggi. Con gli ETF paghi le tasse solo sulla parte di guadagno di quello che vendi: poco all’inizio, di più con gli anni.',
-      incSell:v=>`<b>${v}</b><span>al mese prelevando il 3% l’anno dagli ETF (la regola del 3%), tolte le tasse sui guadagni e il bollo</span>`,
-      saleNote:(net,tax)=>`Se vendi oggi avresti circa ${net} da investire in ETF${tax?`, dopo ${tax} di tasse sul guadagno`:''}.`,
+      incSell:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>: prelevi il 3% l’anno, meno le tasse sui guadagni e il bollo</span>`,
+      saleNote:(net,tax)=>`Se vendi oggi, tolti i costi di vendita${tax?` e ${tax} di tasse sul guadagno`:''}, ti restano circa <b>${net}</b> da investire in ETF.`,
       hNote:'In euro di oggi (inflazione 2%). L’affitto cresce con l’inflazione; investire in ETF rende in media il 7% l’anno, non garantito. Non sono incluse le tasse quando vendi gli ETF più avanti, o la casa alla fine.',
       whenH:'Quando conviene affittarla, e quando venderla e investire in ETF',
-      letH:'Affittarla di solito conviene se…', letL:'<li>L’affitto netto è almeno il <b>4%</b> del valore all’anno.</li><li>Fare il padrone di casa non ti pesa, o paghi un’agenzia che lo fa.</li><li>Un giorno potresti volerci tornare a vivere.</li>',
-      sellH:'Venderla e investire in ETF di solito conviene se…', sellL:'<li>L’affitto netto è sotto il <b>3%</b> del valore.</li><li>Arrivano lavori grossi, tetto, facciata, impianti.</li><li>Gran parte del tuo patrimonio è già in case.</li>',
+      letH:'Affittarla di solito conviene se…', letL:(v,y,m)=>`<li>L’affitto che ti resta in un anno, tolte tasse e spese, è almeno il <b>4%</b> di quanto vale la casa. Per la tua casa da ${v}: almeno <b>${y}</b> l’anno, circa ${m} al mese.</li><li>Fare il padrone di casa non ti pesa, o paghi un’agenzia che lo fa.</li><li>Un giorno potresti volerci tornare a vivere.</li>`,
+      sellH:'Venderla e investire in ETF di solito conviene se…', sellL:(v,y,m)=>`<li>L’affitto che ti resta in un anno, tolte tasse e spese, è meno del <b>3%</b> di quanto vale la casa. Per la tua casa da ${v}: meno di <b>${y}</b> l’anno, circa ${m} al mese.</li><li>Arrivano lavori grossi, tetto, facciata, impianti.</li><li>Gran parte del tuo patrimonio è già in case.</li>`,
       lifeH:'Non è solo una questione di soldi',
       lifeL:'<li><b>Fare il padrone di casa è un lavoro:</b> inquilini, riparazioni, ritardi nei pagamenti, mesi vuoti.</li><li><b>Un solo paniere:</b> una casa è un bene solo in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li><li><b>Vendere richiede tempo:</b> per una casa servono mesi; gli ETF si vendono in un giorno.</li><li><b>I ricordi contano:</b> se la casa per te significa molto, è un buon motivo per tenerla.</li>',
       countryH:'Le tasse da sapere in Italia',
@@ -501,20 +502,20 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor. Los pagas esté vacía o alquilada.',
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.',
       lEmpty:'Meses vacía al año', lHgrow:'Revalorización de la casa al año',
-      yield:v=>`Rentabilidad neta del alquiler ${v}`, yieldGood:'buena', yieldLow:'baja',
+      yield:v=>`Alquiler neto al año = ${v} del valor de la casa`, yieldGood:'buena', yieldLow:'baja',
       hHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, lo que tendrías, en euros de hoy:`,
       bEmpty:'Dejarla vacía <small>valor de la casa − gastos pagados</small>', bLet:'Alquilarla <small>valor de la casa + alquiler neto invertido en ETF</small>', bSell:'Venderla e invertir en ETF <small>descontando gastos de venta e impuestos sobre la ganancia</small>',
       hBest:{empty:'Dejarla vacía',let:'Alquilarla',sell:'Venderla e invertir en ETF'},
       hVerdict:(best,d)=>`<b class="gain">${best}</b> sale ganando, por unos <b>${d}</b> sobre la segunda opción.`,
-      incH:'Ingreso mensual, después de impuestos',
-      incLet:v=>`<b>${v}</b><span>al mes del alquiler, descontando impuestos, gastos y meses vacía</span>`,
+      incH:'Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)',
+      incLet:v=>`<b>${v}</b><span>al mes si la <b>alquilas</b>: el alquiler, menos el impuesto sobre el alquiler, los gastos de la casa y los meses vacía</span>`,
       incNote:'Media de los primeros 10 años, en euros de hoy. Con los ETF solo pagas impuestos por la parte de ganancia de lo que vendes: poco al principio, más con los años.',
-      incSell:v=>`<b>${v}</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%), descontando los impuestos sobre la ganancia</span>`,
-      saleNote:(net,tax)=>`Si vendes hoy tendrías unos ${net} para invertir en ETF${tax?`, tras pagar ${tax} de impuestos sobre la ganancia`:''}.`,
+      incSell:v=>`<b>${v}</b><span>al mes si la <b>vendes e inviertes en ETF</b>: retiras el 3% al año, menos los impuestos sobre la ganancia</span>`,
+      saleNote:(net,tax)=>`Si vendes hoy, después de los gastos de venta${tax?` y ${tax} de impuestos sobre la ganancia`:''}, te quedan unos <b>${net}</b> para invertir en ETF.`,
       hNote:'En euros de hoy (inflación del 2%). El alquiler sube con la inflación; invertir en ETF rinde de media un 7% anual, no garantizado. No se incluyen los impuestos al vender los ETF más adelante, ni la casa al final.',
       whenH:'Cuándo gana alquilarla y cuándo venderla e invertir en ETF',
-      letH:'Alquilarla suele ganar si…', letL:'<li>El alquiler neto es al menos el <b>4%</b> del valor al año.</li><li>No te importa ser casero, o pagas a una agencia para que lo haga.</li><li>Quizá quieras volver a vivir en ella algún día.</li>',
-      sellH:'Venderla e invertir en ETF suele ganar si…', sellL:'<li>El alquiler neto es menor del <b>3%</b> del valor.</li><li>Vienen obras grandes: tejado, fachada, instalaciones.</li><li>La mayor parte de tu patrimonio ya está en casas.</li>',
+      letH:'Alquilarla suele ganar si…', letL:(v,y,m)=>`<li>El alquiler que te queda en un año, después de impuestos y gastos, es al menos el <b>4%</b> de lo que vale la casa. Para tu casa de ${v}: al menos <b>${y}</b> al año, unos ${m} al mes.</li><li>No te importa ser casero, o pagas a una agencia para que lo haga.</li><li>Quizá quieras volver a vivir en ella algún día.</li>`,
+      sellH:'Venderla e invertir en ETF suele ganar si…', sellL:(v,y,m)=>`<li>El alquiler que te queda en un año, después de impuestos y gastos, es menos del <b>3%</b> de lo que vale la casa. Para tu casa de ${v}: menos de <b>${y}</b> al año, unos ${m} al mes.</li><li>Vienen obras grandes: tejado, fachada, instalaciones.</li><li>La mayor parte de tu patrimonio ya está en casas.</li>`,
       lifeH:'No es solo cuestión de dinero',
       lifeL:'<li><b>Ser casero es un trabajo:</b> inquilinos, reparaciones, impagos, meses vacía.</li><li><b>Una sola cesta:</b> una casa es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li><li><b>Vender lleva tiempo:</b> una casa tarda meses en venderse; los ETF se venden en un día.</li><li><b>Los recuerdos cuentan:</b> si la casa significa mucho para ti, es un buen motivo para quedártela.</li>',
       countryH:'Los impuestos a tener en cuenta en España',
@@ -567,6 +568,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('scost-out').textContent=pct(sc); $('hgrow-out').textContent=pct(g);
     const netYear=R0*(12-emptyM)*(1-tax)-V0*oc, yld=V0>0?netYear/V0:0;
     $('h-chips').innerHTML=`<span class="chip ${yld>=0.04?'good':'warn'}">${L.yield(pct(yld))} · ${yld>=0.04?L.yieldGood:L.yieldLow}</span>`;
+    $('letL').innerHTML=L.letL(fmt(V0),fmt(V0*0.04),fmt(V0*0.04/12)); $('sellL').innerHTML=L.sellL(fmt(V0),fmt(V0*0.03),fmt(V0*0.03/12));
     $('h-head').textContent=L.hHead(y);
     $('v-empty').textContent=fmt(empty); $('v-let').textContent=fmt(let_); $('v-sell').textContent=fmt(sell);
     const top=Math.max(empty,let_,sell,1)*1.05;
@@ -583,7 +585,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       etfSum+=(w-tx-b)/d;
     }
     $('income').innerHTML='<div>'+L.incLet(fmt(Math.max(0,letSum/120)))+'</div><div>'+L.incSell(fmt(etfSum/120))+'</div><p class="note inc-note">'+L.incNote+'</p>';
-    $('sale-note').textContent=L.saleNote(fmt(net),gainTax>=1?fmt(gainTax):'');
+    $('sale-note').innerHTML=L.saleNote(fmt(net),gainTax>=1?fmt(gainTax):'');
   }
 
   function applyLang(){
