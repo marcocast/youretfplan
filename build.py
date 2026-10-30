@@ -21,7 +21,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 SRC = ROOT / "src" / "page.html"
 PUBLIC = ROOT / "public"
 SITE = "https://youretfplan.com"
-LASTMOD = "2026-10-29"
+LASTMOD = "2026-10-30"
 
 PAGES = {
     "en": {

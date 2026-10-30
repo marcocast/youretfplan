@@ -27,7 +27,7 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "growth" / "data"
 API = "https://api.cloudflare.com/client/v4"
-FUNNEL = ["view", "hook", "calc_seen", "active", "explore", "start_seen", "faq", "bottom", "feedback"]
+FUNNEL = ["view", "hook", "plan", "calc_seen", "active", "explore", "start_seen", "faq", "bottom", "feedback"]
 
 TOKEN = os.environ.get("CF_API_TOKEN", "")
 ACCOUNT = os.environ.get("CF_ACCOUNT_ID", "")
@@ -127,7 +127,7 @@ def funnel(start: str, recent_start: str) -> dict:
         by_day.setdefault(r["day"], {s: 0 for s in FUNNEL})[r["step"]] = r["n"]
     breakdown = d1(
         "SELECT step, lang, device, source, COUNT(*) AS n FROM events "
-        "WHERE day >= ? AND step IN ('view', 'hook', 'calc_seen', 'active') "
+        "WHERE day >= ? AND step IN ('view', 'hook', 'plan', 'calc_seen', 'active') "
         "GROUP BY step, lang, device, source ORDER BY n DESC",
         [recent_start],
     )

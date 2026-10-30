@@ -1,23 +1,26 @@
 <title>Your ETF Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: one calm column that reads top to bottom: promise, explanation, numbers, plan, results, risk, income, action, questions */
+/* Layout: a guided start (3 questions -> one-page plan, hand-drawn illustrations), then the full calculator and guide below. */
 :root{
-  --bg:#f3f5f2; --surface:#ffffff; --ink:#1d2a26; --muted:#5d6b66; --line:#d9e0dc;
-  --accent:#1f6b52; --accent-soft:#e1efe8;
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
   --bank:#8a8f8c; --s5:#b07a1f; --s7:#1f8a5b; --s9:#2f6fb3; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
-  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#121816; --surface:#1a2320; --ink:#e6ece9; --muted:#9aa8a2; --line:#2c3833;
-  --accent:#5cc79b; --accent-soft:#1f3a2f;
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
   --bank:#a2a8a5; --s5:#e0b25a; --s7:#4fc48e; --s9:#6aa6e8; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#121816; --surface:#1a2320; --ink:#e6ece9; --muted:#9aa8a2; --line:#2c3833;
-  --accent:#5cc79b; --accent-soft:#1f3a2f;
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
   --bank:#a2a8a5; --s5:#e0b25a; --s7:#4fc48e; --s9:#6aa6e8; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -25,9 +28,9 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
 .wrap{max-width:820px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:36px}
-h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.2}
-h1{font-size:clamp(1.9rem,6vw,2.6rem)}
-h2{font-size:1.45rem}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.3rem,10.5vw,3.3rem)}
+h2{font-size:clamp(1.45rem,6vw,1.8rem)}
 h3{font-size:1.2rem}
 p{margin:0}
 a{color:var(--accent)}
@@ -37,49 +40,94 @@ a{color:var(--accent)}
 section{display:flex;flex-direction:column;gap:14px}
 .small{font-size:.92rem;color:var(--muted)}
 .foot{font-size:.85rem;color:var(--muted);max-width:70ch}
-.card-base{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.card-base{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:16px;min-width:0}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .term{color:inherit;text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
 
 /* header */
-.brand{font-family:var(--display);font-size:1.15rem;color:var(--ink);letter-spacing:.01em}
-.brand span{color:var(--accent)}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
 .top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
-.lang button{border:0;background:transparent;color:var(--muted);font:700 .8rem var(--body);letter-spacing:.06em;padding:5px 12px;border-radius:999px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
-.kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
-/* hook: one question, one slider, one horizon, one big number */
-.hero{display:flex;flex-direction:column;gap:18px}
-.hero h1{font-size:clamp(1.9rem,8vw,2.6rem)}
-.ctrl{display:flex;flex-direction:column;gap:4px}
-.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.ctrl-head label,.ctrl-head .lab{font-weight:600;font-size:1rem}
-.ctrl-val{font-size:1.5rem;font-weight:800;color:var(--accent)}
-#hk-monthly{height:36px;margin:0;cursor:pointer}
-.horizon{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.horizon button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:10px 6px;font:700 1rem var(--body);cursor:pointer}
-.horizon button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.hk-result{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:14px}
-.hk-lead{font-size:1rem;color:var(--muted);font-weight:600}
-.hk-big{font-size:clamp(2.6rem,13vw,3.6rem);font-weight:800;line-height:1;letter-spacing:-.02em}
-.hk-range{font-size:.9rem;color:var(--muted)}
-.bars{display:flex;flex-direction:column;gap:10px;margin-top:4px}
-.bar-row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline}
-.bar-row .lab{font-size:.9rem;font-weight:600}
-.bar-row .val{font-size:.95rem;font-weight:700}
-.track{grid-column:1/-1;height:14px;border-radius:7px;background:var(--line);overflow:hidden}
-.fill{height:100%;border-radius:7px;transition:width .45s ease}
-.fill.grow{background:var(--s7)}
-.fill.bank{background:var(--bank)}
-.hk-split{font-size:.95rem;line-height:1.45}
-.hk-split strong{color:var(--s7)}
-.hk-salary{background:var(--accent-soft);border-radius:12px;padding:12px 14px;font-size:1rem;line-height:1.4}
-.hk-salary strong{font-size:1.25rem;color:var(--accent)}
-.cta{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--accent);color:var(--surface);font-weight:800;font-size:1.02rem;text-decoration:none}
-.cta:hover{filter:brightness(1.07)}
-.fine{font-size:.8rem;color:var(--muted);text-align:center}
+/* guided start (from the /v3/ preview) */
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+
+/* hero */
+.w-hero{display:flex;flex-direction:column;gap:16px}
+.w-badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.w-hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.w-sub{font-size:1.08rem;color:var(--muted);max-width:52ch}
+.w-ill-hero{width:100%;height:auto;max-height:260px}
+.w-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.1rem var(--body);padding:16px 22px;cursor:pointer;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.w-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.w-btn.w-ghost{background:var(--surface);color:var(--ink)}
+.w-btn.w-small{font-size:.95rem;padding:11px 16px;border-radius:12px;box-shadow:3px 3px 0 var(--ink)}
+.w-trust{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem;color:var(--muted);font-weight:600}
+.w-trust span::before{content:"✓ ";color:var(--leaf)}
+
+/* what you get */
+.w-get{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.w-get div{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-weight:700;font-size:.88rem;line-height:1.25}
+.w-get svg{width:56px;height:56px}
+
+/* wizard */
+.w-card{scroll-margin-top:12px;background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:16px}
+.w-progress{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.85rem;color:var(--muted)}
+.w-dots{display:flex;gap:6px;flex:1}
+.w-dots i{flex:1;height:8px;border-radius:4px;background:var(--line);border:0}
+.w-dots i.on{background:var(--coral)}
+.w-q{display:grid;grid-template-columns:1fr 92px;gap:12px;align-items:center}
+.w-q svg{width:92px;height:92px}
+.w-q h2{font-size:clamp(1.35rem,6vw,1.7rem)}
+.w-q p{color:var(--muted);font-size:.95rem;margin-top:6px}
+.w-val{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,12vw,3.2rem);line-height:1;color:var(--accent);text-align:center}
+#q-range{width:100%;height:40px;margin:0;accent-color:var(--coral);cursor:pointer}
+.w-ticks{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.w-nav{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.w-back{border:0;background:none;color:var(--muted);font:700 .95rem var(--body);cursor:pointer;padding:8px 4px;text-decoration:underline}
+
+/* result */
+.w-plan-head{display:flex;flex-direction:column;gap:6px}
+.w-plan-head .w-eyebrow{font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--coral)}
+.w-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.w-items li{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;padding:12px;border-radius:16px;background:var(--bg);border:2px solid var(--line)}
+.w-items svg{width:52px;height:52px}
+.w-items b{display:block;font-size:1.02rem}
+.w-items .w-amt{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--accent);line-height:1.1;display:block;margin:2px 0}
+.w-items p{color:var(--muted);font-size:.92rem}
+.w-grow{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:8px;align-items:end;background:var(--sky);border-radius:18px;padding:16px;border:2px solid var(--ink)}
+.w-grow svg{width:104px;height:122px}
+.w-grow .w-lab{font-weight:700;color:var(--muted);font-size:.95rem}
+.w-grow .w-big{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,10vw,2.8rem);line-height:1;margin:4px 0}
+.w-grow .w-rng{font-size:.85rem;color:var(--muted)}
+.w-grow .w-vs{font-size:.92rem;margin-top:8px;font-weight:600}
+.w-grow .w-vs strong{color:var(--leaf2)}
+.w-yrs{grid-column:1/-1;display:flex;gap:8px;margin-top:4px}
+.w-yrs button{flex:1;min-width:0;border:2px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 4px;font:800 .9rem var(--body);cursor:pointer}
+.w-yrs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.w-honest{background:#fff3df;color:#5b3a12;border:2px dashed #c98a2b;border-radius:14px;padding:12px 14px;font-size:.92rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .w-honest{background:#33271a;color:#f3d7ac;border-color:#a87a36}}
+:root[data-theme="dark"] .w-honest{background:#33271a;color:#f3d7ac;border-color:#a87a36}
+.w-actions{display:flex;flex-direction:column;gap:12px}
+.w-who{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center;background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:14px 16px}
+.w-who svg{width:110px;height:84px}
+.w-who h2{font-size:1.2rem;margin-bottom:4px}
+.w-who p{color:var(--muted);font-size:.93rem}
+.w-disc{font-size:.8rem;color:var(--muted)}
+
+/* motion */
+.w-tree-grow{transform-box:fill-box;transform-origin:50% 100%;transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+.w-pop{animation:wpop .45s cubic-bezier(.3,1.5,.5,1)}
+@keyframes wpop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}
+.w-float{animation:wfloat 3.2s ease-in-out infinite}
+.w-float2{animation:wfloat 3.2s ease-in-out -1.6s infinite}
+@keyframes wfloat{50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.w-tree-grow{transition:none}.w-pop,.w-float,.w-float2{animation:none}}
+@media print{body *{visibility:hidden}#result,#result *{visibility:visible}#result{position:absolute;inset:0 0 auto 0;box-shadow:none}.w-yrs,.w-actions{display:none!important}}
 
 /* explainer */
 .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
@@ -185,8 +233,28 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .fb-thanks{font-weight:600;color:var(--accent)}
 .fb-err{font-size:.88rem;color:var(--down)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+
+<!-- Reusable drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-shield" viewBox="0 0 64 64"><path class="w-ink" d="M32 6 52 14v16c0 13-9 22-20 28C21 52 12 43 12 30V14Z" fill="var(--mint)"/><path class="w-ink" d="M23 32l6 6 12-13" fill="none"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 64 64"><circle cx="32" cy="34" r="22" fill="var(--sun)" opacity=".45"/><path class="w-ink" d="M24 48c4-14 10-26 22-34-2 14-8 26-20 36Z" fill="var(--surface)"/><circle class="w-ink" cx="37" cy="27" r="4" fill="var(--sky)"/><path class="w-ink" d="M24 48l-8 4 4-8M18 40l-6-2 8-6M30 50l2 6 6-8" fill="var(--coral)"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 64 64"><rect class="w-ink" x="10" y="14" width="44" height="40" rx="7" fill="var(--surface)"/><path class="w-ink" d="M10 24h44" /><rect x="11.5" y="15.5" width="41" height="8" rx="5" fill="var(--coral)"/><path class="w-ink" d="M22 9v10M42 9v10" /><circle class="w-ink" cx="32" cy="39" r="9" fill="var(--sun)"/><path d="M29 39h6M30 36.5h4.5M30 41.5h4.5" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 64 64"><circle class="w-ink" cx="32" cy="32" r="22" fill="var(--sky)"/><path d="M18 22c6 2 8 8 4 12s2 10 6 12M40 12c-2 6 4 8 8 8s4 10-2 12-4 8 0 10" fill="none" stroke="var(--leaf)" stroke-width="5" stroke-linecap="round"/><circle class="w-ink" cx="32" cy="32" r="22" fill="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 64 64"><rect class="w-ink" x="18" y="6" width="28" height="52" rx="6" fill="var(--surface)"/><path class="w-ink" d="M24 40l6-8 5 4 6-10" fill="none" stroke="var(--leaf)"/><path class="w-ink" d="M28 51h8"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 64 64"><path class="w-ink" d="M14 22h36l-3 34H17Z" fill="var(--coral)"/><path class="w-ink" d="M24 26v-6a8 8 0 0 1 16 0v6" fill="none"/><path d="M22 34h20" stroke="var(--surface)" stroke-width="3" stroke-linecap="round" opacity=".6"/></symbol>
+    <symbol id="i-pig" viewBox="0 0 64 64"><ellipse class="w-ink" cx="31" cy="36" rx="20" ry="15" fill="#f6b3c0"/><path class="w-ink" d="M48 33h6v8h-5" fill="#f6b3c0"/><path class="w-ink" d="M20 24l-2-8 8 5" fill="#f6b3c0"/><path class="w-ink" d="M20 49v6M40 49v6"/><circle cx="42" cy="31" r="2.2" fill="var(--ink)"/><path class="w-ink" d="M26 23h10"/><circle class="w-ink" cx="31" cy="12" r="6" fill="var(--sun)"/></symbol>
+    <symbol id="i-jar" viewBox="0 0 64 64"><rect class="w-ink" x="14" y="20" width="36" height="38" rx="9" fill="var(--surface)"/><rect class="w-ink" x="18" y="13" width="28" height="8" rx="3" fill="var(--coral)"/><ellipse class="w-ink" cx="32" cy="50" rx="11" ry="3.5" fill="var(--sun)"/><ellipse class="w-ink" cx="32" cy="44" rx="11" ry="3.5" fill="var(--sun)"/><circle class="w-ink" cx="45" cy="7" r="5" fill="var(--sun)"/></symbol>
+    <symbol id="i-me" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--mint)"/><circle class="w-ink" cx="32" cy="26" r="11" fill="#f2c9a5"/><path class="w-ink" d="M21 24c2-9 20-11 22 0-5-3-15-3-22 0Z" fill="#6b4a32"/><path class="w-ink" d="M14 56c3-11 10-15 18-15s15 4 18 15" fill="var(--accent)"/><circle cx="28" cy="27" r="1.6" fill="var(--ink)"/><circle cx="36" cy="27" r="1.6" fill="var(--ink)"/><path class="w-ink" d="M29 32c2 2 4 2 6 0" fill="none" stroke-width="2"/></symbol>
+    <symbol id="i-bros" viewBox="0 0 110 84"><ellipse cx="55" cy="78" rx="50" ry="6" fill="var(--mint)"/>
+      <path class="w-ink" d="M10 78c2-17 10-25 22-25s20 8 22 25" fill="var(--accent)"/><circle class="w-ink" cx="32" cy="34" r="13" fill="#f2c9a5"/><path class="w-ink" d="M19 32c1-12 25-14 26 0-6-4-19-4-26 0Z" fill="#6b4a32"/><circle cx="27" cy="35" r="1.7" fill="var(--ink)"/><circle cx="37" cy="35" r="1.7" fill="var(--ink)"/><path class="w-ink" d="M28 41c2.5 2 5.5 2 8 0" fill="none" stroke-width="2"/>
+      <path class="w-ink" d="M56 78c2-14 9-21 20-21s18 7 20 21" fill="var(--coral)"/><circle class="w-ink" cx="76" cy="41" r="11" fill="#e9b98f"/><path class="w-ink" d="M65 39c0-11 22-12 22 0-5-6-17-6-22 0Z" fill="#3d2a1e"/><circle cx="72" cy="42" r="1.6" fill="var(--ink)"/><circle cx="80" cy="42" r="1.6" fill="var(--ink)"/><path class="w-ink" d="M73 47c2 1.6 4 1.6 6 0" fill="none" stroke-width="2"/>
+      <path class="w-ink" d="M48 62c6-4 12-6 18-4" fill="none" stroke-width="5"/>
+      <path d="M55 12c-3-5-10-2-7 4l7 6 7-6c3-6-4-9-7-4Z" fill="var(--coral)" class="w-ink" stroke-width="2"/></symbol>
+  </defs>
+</svg>
 
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:12px">
@@ -200,35 +268,107 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
   </header>
 
-  <section class="hero" aria-labelledby="h1">
-    <span class="kicker" data-t="eyebrow"></span>
-    <h1 id="h1" data-t="h1"></h1>
-    <div class="ctrl">
-      <div class="ctrl-head"><label for="hk-monthly" data-t="hkMonthly"></label><span class="ctrl-val num" id="hk-monthly-out"></span></div>
-      <input type="range" id="hk-monthly" min="25" max="2000" step="25" value="200">
-    </div>
-    <div class="ctrl">
-      <div class="ctrl-head"><span class="lab" id="hk-h-lab" data-t="hkHorizon"></span></div>
-      <div class="horizon" role="group" aria-labelledby="hk-h-lab">
-        <button type="button" data-y="5" aria-pressed="false"></button>
-        <button type="button" data-y="10" aria-pressed="true"></button>
-        <button type="button" data-y="20" aria-pressed="false"></button>
-      </div>
-    </div>
-    <div class="hk-result" aria-live="polite">
-      <p class="hk-lead" id="hk-lead"></p>
-      <div class="hk-big num" id="hk-big">–</div>
-      <p class="hk-range num" id="hk-range"></p>
-      <div class="bars">
-        <div class="bar-row"><span class="lab" data-t="hkBarInvest"></span><span class="val num" id="hk-v-inv"></span><div class="track"><div class="fill grow" id="hk-b-inv" style="width:100%"></div></div></div>
-        <div class="bar-row"><span class="lab" data-t="hkBarBank"></span><span class="val num" id="hk-v-bank"></span><div class="track"><div class="fill bank" id="hk-b-bank"></div></div></div>
-      </div>
-      <p class="hk-split" id="hk-split"></p>
-      <p class="hk-salary" id="hk-salary"></p>
-      <a class="cta" id="hk-cta" href="#numbers"><span data-t="hkCta"></span><span aria-hidden="true">↓</span></a>
-      <p class="fine" data-t="hkFine"></p>
+  <section class="w-hero" aria-labelledby="h1">
+    <span class="w-badge" data-w="badge"></span>
+    <h1 id="h1" data-w="h1"></h1>
+    <p class="w-sub" data-w="sub"></p>
+    <svg class="w-ill-hero" viewBox="0 0 360 230" role="img" data-wa="heroAlt">
+      <ellipse cx="180" cy="212" rx="170" ry="16" fill="var(--mint)"/>
+      <g class="w-float"><circle cx="312" cy="46" r="24" fill="var(--sun)" class="w-ink"/><path class="w-ink" d="M312 10v-6M312 88v-6M276 46h-6M354 46h-6M287 21l-4-4M341 75l-4-4M337 21l4-4M287 71l-4 4"/></g>
+      <!-- calendar -->
+      <g transform="rotate(-6 70 150)">
+        <rect class="w-ink" x="36" y="118" width="70" height="66" rx="10" fill="var(--surface)"/>
+        <rect x="38" y="120" width="66" height="14" rx="8" fill="var(--coral)"/><path class="w-ink" d="M36 134h70M54 110v14M88 110v14"/>
+        <path d="M50 148h8M64 148h8M78 148h8M92 148h4M50 162h8M64 162h8" stroke="var(--line)" stroke-width="4" stroke-linecap="round"/>
+        <circle class="w-ink" cx="86" cy="166" r="9" fill="var(--sun)"/>
+      </g>
+      <!-- path of coins -->
+      <path d="M112 150c22-20 40-28 62-24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <g class="w-float2"><circle class="w-ink" cx="140" cy="122" r="10" fill="var(--sun)"/><path d="M137 122h7M138 119h5M138 125h5" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/></g>
+      <!-- jar with tree -->
+      <rect class="w-ink" x="180" y="120" width="96" height="88" rx="20" fill="var(--surface)"/>
+      <rect class="w-ink" x="190" y="108" width="76" height="14" rx="6" fill="var(--coral)"/>
+      <ellipse class="w-ink" cx="228" cy="196" rx="34" ry="7" fill="var(--sun)"/>
+      <ellipse class="w-ink" cx="228" cy="186" rx="34" ry="7" fill="var(--sun)"/>
+      <ellipse class="w-ink" cx="228" cy="176" rx="34" ry="7" fill="var(--sun)"/>
+      <path class="w-ink" d="M228 170V64" fill="none" stroke-width="5"/>
+      <path class="w-ink" d="M228 120c-14-6-22-16-24-28M228 100c14-4 22-12 26-24" fill="none" stroke-width="4"/>
+      <circle class="w-ink" cx="228" cy="52" r="30" fill="var(--leaf)"/>
+      <circle class="w-ink" cx="200" cy="86" r="18" fill="var(--leaf2)"/>
+      <circle class="w-ink" cx="258" cy="72" r="20" fill="var(--leaf)"/>
+      <circle cx="218" cy="44" r="5" fill="var(--sun)"/><circle cx="244" cy="62" r="5" fill="var(--coral)"/><circle cx="260" cy="70" r="4" fill="var(--sun)"/><circle cx="198" cy="84" r="4" fill="var(--coral)"/>
+    </svg>
+    <button type="button" class="w-btn" id="start"><span data-w="start"></span><span aria-hidden="true">→</span></button>
+    <div class="w-trust"><span data-w="t1"></span><span data-w="t2"></span><span data-w="t3"></span></div>
+  </section>
+
+  <section aria-labelledby="h-get" style="display:flex;flex-direction:column;gap:12px">
+    <h2 id="h-get" data-w="getH" style="font-size:1.3rem"></h2>
+    <div class="w-get">
+      <div><svg><use href="#i-shield"/></svg><span data-w="g1"></span></div>
+      <div><svg><use href="#i-cal"/></svg><span data-w="g2"></span></div>
+      <div><svg><use href="#i-globe"/></svg><span data-w="g3"></span></div>
     </div>
   </section>
+
+  <section class="w-who" aria-labelledby="h-who">
+    <svg role="img" data-wa="whoAlt"><use href="#i-bros"/></svg>
+    <div><h2 id="h-who" data-w="whoH"></h2><p data-w="who"></p></div>
+  </section>
+
+  <section id="wizard" class="w-card" aria-live="polite" tabindex="-1">
+    <div class="w-progress"><span id="prog-txt"></span><span class="w-dots"><i></i><i></i><i></i></span></div>
+    <div class="w-q">
+      <div><h2 id="q-h"></h2><p id="q-p"></p></div>
+      <svg id="q-ill"><use href="#i-bag"/></svg>
+    </div>
+    <div class="w-val num" id="q-val"></div>
+    <div>
+      <input type="range" id="q-range" aria-labelledby="q-h">
+      <div class="w-ticks num"><span id="tk-lo"></span><span id="tk-hi"></span></div>
+    </div>
+    <div class="w-nav">
+      <button type="button" class="w-back" id="back" data-w="back"></button>
+      <button type="button" class="w-btn w-small" id="next"><span id="next-txt"></span><span aria-hidden="true">→</span></button>
+    </div>
+  </section>
+
+  <section id="result" class="w-card" hidden tabindex="-1" aria-labelledby="r-h">
+    <div class="w-plan-head">
+      <span class="w-eyebrow" data-w="rEyebrow"></span>
+      <h2 id="r-h" data-w="rH"></h2>
+    </div>
+    <ul class="w-items" id="items"></ul>
+    <div class="w-grow">
+      <div>
+        <div class="w-lab" id="g-lab"></div>
+        <div class="w-big num" id="g-big"></div>
+        <div class="w-rng num" id="g-rng"></div>
+        <div class="w-vs num" id="g-vs"></div>
+      </div>
+      <svg viewBox="0 0 120 140" aria-hidden="true">
+        <ellipse cx="60" cy="132" rx="50" ry="7" fill="var(--mint)"/>
+        <g class="w-tree-grow" id="tree">
+          <path class="w-ink" d="M60 130V58" stroke-width="6"/>
+          <path class="w-ink" d="M60 96c-10-4-16-12-18-20M60 82c10-3 16-9 19-18" fill="none" stroke-width="4"/>
+          <circle class="w-ink" cx="60" cy="44" r="26" fill="var(--leaf)"/>
+          <circle class="w-ink" cx="36" cy="70" r="15" fill="var(--leaf2)"/>
+          <circle class="w-ink" cx="84" cy="62" r="16" fill="var(--leaf)"/>
+          <g id="fruit"><circle cx="52" cy="36" r="4.5" fill="var(--sun)"/><circle cx="72" cy="50" r="4.5" fill="var(--coral)"/><circle cx="86" cy="60" r="4" fill="var(--sun)"/><circle cx="34" cy="68" r="4" fill="var(--coral)"/><circle cx="62" cy="24" r="4" fill="var(--coral)"/></g>
+        </g>
+      </svg>
+      <div class="w-yrs" role="group" data-wa="yrsAria">
+          <button type="button" data-y="5"></button><button type="button" data-y="10"></button><button type="button" data-y="20"></button>
+      </div>
+    </div>
+    <p class="w-honest" data-w="honest"></p>
+    <div class="w-actions">
+      <a class="w-btn" id="full" href="#numbers"><span data-w="full"></span><span aria-hidden="true">→</span></a>
+      <button type="button" class="w-btn w-ghost w-small" id="print"><span data-w="print"></span></button>
+      <button type="button" class="w-back" id="again" data-w="again" style="align-self:center"></button>
+    </div>
+  </section>
+
 
   <section aria-labelledby="h-30">
     <h2 id="h-30" data-t="h30"></h2>
@@ -414,10 +554,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const T={
     en:{
       title:`Your ETF Plan`, locale:`en-IE`, taxRate:0.20,
-      eyebrow:`Free ETF calculator · 30 seconds`,
-      h1:`What could your savings become?`,
       lead:`See what happens to your money if you invest part of it every month in ETFs instead of leaving it in the bank. A free ETF investment calculator: no sign-up, nothing to buy.`,
-      hkMonthly:`I can put aside each month`, hkHorizon:`In how many years`, hkLead:y=>`In ${y} years, invested in ETFs, you could have`, hkRange:(lo,hi)=>`Somewhere between ${lo} and ${hi}, depending on the markets. Shown at the 7% historical average.`, hkBarInvest:`Invested in ETFs`, hkBarBank:`Left in the bank`, hkSplit:(put,time)=>`You put in <b>${put}</b>. Time and the markets add <strong>${time}</strong>.`, hkSalary:v=>`Left invested, it could then pay you about <strong>${v} a month</strong>, a second income that can last for life.`, hkCta:`Make your full plan`, hkFine:`Free · No sign-up · Not financial advice`,
       h30:`ETFs in 30 seconds`,
       e1:`<b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.`,
       e2:`<b>You buy a bit every month</b>You set up an automatic monthly payment, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
@@ -463,7 +600,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ruleOther:(t,v)=>`${t}: ${v} a month`,
       hStart:`How to start this week`,
       st1:`<b>Open an account with a low-cost broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and hold ETFs. Pick one that is regulated in your country and lets you set up a monthly investment plan. Check how ETF taxes work where you live.`,
-      st2:`<b>Pick one world ETF</b>Look for one that follows the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> is fine too.`,
+      st2:`<b>Look for an ETF, for example a world one</b>A common choice for beginners follows the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> works too. These are criteria, not a recommendation: compare a few before you choose.`,
       st3:`<b>Set up the monthly plan and leave it alone</b>Use the monthly amount from your plan above and a date right after payday. Then don't check it every day.`,
       hFaq:`Questions everyone asks`,
       q1:`Can I lose money?`,
@@ -500,14 +637,36 @@ details > div{padding:0 0 14px;color:var(--muted)}
       fbLabel:`Your message`,
       fbErr:`Couldn't send. Please try again in a moment.`,
       privacy:`Privacy: no cookies and no personal data. To improve the page we count visits and clicks anonymously, with a code that changes every day and can't identify you. Feedback is stored without names.`,
-      today:`today`, yAbbr:`y`
+      today:`today`, yAbbr:`y`,
+      w:{badge:'Free · 10 minutes', h1:'Your first <em>ETF plan</em>, in 10 minutes.',
+      sub:'Answer 3 questions. You get a plan on one page: how much to keep in the bank, how much to invest each month, what to look for in an ETF and how to set it up.',
+      heroAlt:'A calendar sends coins into a jar, and a tree grows out of it',
+      start:'Make my plan', t1:'Free', t2:'No sign-up', t3:'No ads',
+      getH:'At the end you’ll have', g1:'A safety cushion', g2:'A monthly amount', g3:'What to look for in an ETF',
+      step:(i)=>`Question ${i} of 3`, next:'Next', last:'See my plan', back:'Back',
+      qs:[
+        {h:'How much do you spend a month?', p:'Rent, food, bills, everything. A rough number is fine.'},
+        {h:'How much is in your bank account today?', p:'Savings you could use. Not counting what you need this month.'},
+        {h:'How much can you put aside each month?', p:'What is usually left at the end of the month.'}],
+      rEyebrow:'Your plan', rH:'Here’s what to do',
+      keep:'Keep in the bank', keepP:'6 months of expenses, for surprises. It means you never have to sell your ETFs at a bad moment.',
+      keepGap:(g,m)=>`You’re ${g} short: for the first ${m} ${m===1?'month':'months'} your savings go here, then the ETF starts.`,
+      now:'Invest now', nowP:'What you have above the cushion. All at once, or spread over 6–12 months.',
+      monthly:'Every month into an ETF', monthlyP:'Automatically, the day after payday. Like a subscription you don’t have to think about.',
+      monthlyNone:'Nothing yet', monthlyNoneP:'First find a little room each month, even €50. Then come back here.',
+      etf:'What to look for', etfAmt:'For example, a world ETF', etfP:'A common choice for beginners: thousands of companies worldwide, accumulating, yearly cost (TER) under 0.25%. It’s an example, not a recommendation: compare a few before you choose.',
+      where:'Where', whereAmt:'A low-cost broker', whereP:'Regulated in your country, with an automatic monthly plan. Check how ETF taxes work where you live.',
+      gLab:y=>`In ${y} years you could have`, gRng:(lo,hi)=>`Between ${lo} and ${hi}, depending on the markets (5–9% a year, 7% shown).`,
+      gVs:(d)=>`That’s <strong>${d} more</strong> than leaving it in the bank.`,
+      years:n=>`${n} years`, yrsAria:'Years',
+      honest:'Honestly: some years will be red. In 2008 world markets roughly halved and came back within a few years. The plan works if you keep going.',
+      full:'See every detail below', print:'Save / print my plan', again:'Start again',
+      whoH:'Made by Marco for his brother', who:'Marco is an engineer who invests in ETFs. He made this for his brother, and now it’s free for anyone: no ads, no affiliate links, no sign-up.', whoAlt:'Two brothers, one with an arm around the other'
+      }
     },
     it:{
       title:`Il tuo piano ETF · Your ETF Plan`, locale:`it-IT`, taxRate:0.26,
-      eyebrow:`Simulatore PAC gratuito · 30 secondi`,
-      h1:`Quanto potrebbero diventare i tuoi risparmi?`,
       lead:`Guarda cosa succede ai tuoi soldi con un piano di accumulo (PAC) in ETF: ne investi una parte ogni mese invece di lasciarli in banca. Nessuna registrazione, niente da comprare.`,
-      hkMonthly:`Riesco a mettere da parte ogni mese`, hkHorizon:`Tra quanti anni`, hkLead:y=>`Tra ${y} anni, investiti in ETF, potresti avere`, hkRange:(lo,hi)=>`Tra ${lo} e ${hi}, a seconda di come vanno i mercati. Calcolato con la media storica del 7%.`, hkBarInvest:`Investiti in ETF`, hkBarBank:`Lasciati in banca`, hkSplit:(put,time)=>`Tu metti <b>${put}</b>. Il tempo e i mercati aggiungono <strong>${time}</strong>.`, hkSalary:v=>`Lasciandoli investiti, potrebbero poi darti circa <strong>${v} al mese</strong>, un secondo stipendio che può durare per sempre.`, hkCta:`Fai il tuo piano completo`, hkFine:`Gratis · Senza registrazione · Non è consulenza finanziaria`,
       h30:`Gli ETF in 30 secondi`,
       e1:`<b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.`,
       e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama PAC, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
@@ -553,7 +712,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ruleOther:(t,v)=>`${t}: ${v} al mese`,
       hStart:`Come iniziare questa settimana`,
       st1:`<b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in regime amministrato: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che offra il piano di accumulo (PAC) mensile.`,
-      st2:`<b>Scegli un ETF mondiale</b>Cerca un ETF che segue tutto il mercato azionario mondiale, ad <a class="term" href="#g-acc">accumulazione</a> e con un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>.`,
+      st2:`<b>Cerca un ETF, per esempio uno mondiale</b>Una scelta comune per chi inizia segue tutto il mercato azionario mondiale, è ad <a class="term" href="#g-acc">accumulazione</a> e ha un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>. Sono criteri, non un consiglio: confrontane qualcuno prima di scegliere.`,
       st3:`<b>Imposta il piano mensile e lascialo andare</b>Usa l'importo mensile del tuo piano qui sopra e una data subito dopo lo stipendio. Poi non guardarlo ogni giorno.`,
       hFaq:`Le domande che si fanno tutti`,
       q1:`Posso perdere soldi?`,
@@ -590,14 +749,36 @@ details > div{padding:0 0 14px;color:var(--muted)}
       fbLabel:`Il tuo messaggio`,
       fbErr:`Invio non riuscito. Riprova tra poco.`,
       privacy:`Privacy: niente cookie e niente dati personali. Per migliorare la pagina contiamo visite e click in forma anonima, con un codice che cambia ogni giorno e non permette di identificarti. I feedback vengono salvati senza nomi.`,
-      today:`oggi`, yAbbr:`a`
+      today:`oggi`, yAbbr:`a`,
+      w:{badge:'Gratis · 10 minuti', h1:'Il tuo primo <em>PAC in ETF</em>, in 10 minuti.',
+      sub:'Rispondi a 3 domande. Alla fine hai il tuo piano su una pagina: quanto tenere in banca, quanto investire ogni mese, cosa cercare in un ETF e come impostarlo.',
+      heroAlt:'Un calendario manda monete in un barattolo, da cui cresce un albero',
+      start:'Crea il mio piano', t1:'Gratis', t2:'Senza registrazione', t3:'Senza pubblicità',
+      getH:'Alla fine avrai', g1:'Un cuscinetto di sicurezza', g2:'Un importo mensile', g3:'Cosa cercare in un ETF',
+      step:(i)=>`Domanda ${i} di 3`, next:'Avanti', last:'Vedi il mio piano', back:'Indietro',
+      qs:[
+        {h:'Quanto spendi al mese?', p:'Affitto, spesa, bollette, tutto. Va bene un numero indicativo.'},
+        {h:'Quanti soldi hai in banca oggi?', p:'Risparmi che potresti usare. Senza contare quello che ti serve questo mese.'},
+        {h:'Quanto riesci a mettere da parte ogni mese?', p:'Quello che di solito ti avanza a fine mese.'}],
+      rEyebrow:'Il tuo piano', rH:'Ecco cosa fare',
+      keep:'Tieni in banca', keepP:'6 mesi di spese, per gli imprevisti. Così non sei mai costretto a vendere gli ETF nel momento sbagliato.',
+      keepGap:(g,m)=>`Ti mancano ${g}: ${m===1?'il primo mese':'per i primi '+m+' mesi'} il risparmio va qui, poi parte il PAC.`,
+      now:'Investi subito', nowP:'Quello che hai oltre il cuscinetto. Tutto subito o in 6–12 rate.',
+      monthly:'Ogni mese in ETF (PAC)', monthlyP:'In automatico, il giorno dopo lo stipendio. Come un abbonamento a cui non devi pensare.',
+      monthlyNone:'Per ora niente', monthlyNoneP:'Prima trova un piccolo margine ogni mese, anche 50 €. Poi torna qui.',
+      etf:'Cosa cercare', etfAmt:'Per esempio, un ETF mondiale', etfP:'Una scelta comune per chi inizia: migliaia di aziende in tutto il mondo, ad accumulazione, costo annuo (TER) sotto lo 0,25%. È un esempio, non un consiglio: confrontane qualcuno prima di scegliere.',
+      where:'Dove', whereAmt:'Un broker a basso costo', whereP:'In regime amministrato, così le tasse le paga lui per te, e con il PAC mensile automatico.',
+      gLab:y=>`Tra ${y} anni potresti avere`, gRng:(lo,hi)=>`Tra ${lo} e ${hi}, a seconda dei mercati (5–9% l’anno, qui il 7%).`,
+      gVs:(d)=>`Cioè <strong>${d} in più</strong> che lasciarli in banca.`,
+      years:n=>`${n} anni`, yrsAria:'Anni',
+      honest:'Onestamente: ci saranno anni in rosso. Nel 2008 le borse mondiali si sono quasi dimezzate e si sono riprese in pochi anni. Il piano funziona se continui.',
+      full:'Vedi tutti i dettagli qui sotto', print:'Salva / stampa il mio piano', again:'Ricomincia',
+      whoH:'Fatto da Marco per suo fratello', who:'Marco è un ingegnere che investe in ETF. L’ha fatto per suo fratello, e ora è gratis per chiunque: senza pubblicità, senza link di affiliazione, senza registrazione.', whoAlt:'Due fratelli, uno abbraccia l’altro'
+      }
     },
     es:{
       title:`Tu plan ETF · Your ETF Plan`, locale:`es-ES`, taxRate:0.21,
-      eyebrow:`Calculadora de ETF gratuita · 30 segundos`,
-      h1:`¿En cuánto podrían convertirse tus ahorros?`,
       lead:`Mira qué pasa con tu dinero si inviertes una parte cada mes en ETF en lugar de dejarlo en el banco. Una calculadora gratuita: sin registro y sin nada que comprar.`,
-      hkMonthly:`Puedo ahorrar cada mes`, hkHorizon:`Dentro de cuántos años`, hkLead:y=>`Dentro de ${y} años, invertido en ETF, podrías tener`, hkRange:(lo,hi)=>`Entre ${lo} y ${hi}, según cómo vayan los mercados. Calculado con la media histórica del 7%.`, hkBarInvest:`Invertido en ETF`, hkBarBank:`Dejado en el banco`, hkSplit:(put,time)=>`Tú pones <b>${put}</b>. El tiempo y los mercados añaden <strong>${time}</strong>.`, hkSalary:v=>`Si lo dejas invertido, después podría darte unos <strong>${v} al mes</strong>, un segundo sueldo que puede durar para siempre.`, hkCta:`Haz tu plan completo`, hkFine:`Gratis · Sin registro · No es asesoramiento financiero`,
       h30:`Los ETF en 30 segundos`,
       e1:`<b>Una cesta de empresas</b>Un <a class="term" href="#g-etf">ETF</a> contiene cientos o miles de empresas a la vez, como Apple, Nestlé o Toyota. Con una sola compra tienes un trocito de todas.`,
       e2:`<b>Compras un poco cada mes</b>Programas una aportación automática mensual, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
@@ -643,7 +824,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ruleOther:(t,v)=>`${t}: ${v} al mes`,
       hStart:`Cómo empezar esta semana`,
       st1:`<b>Abre una cuenta en un bróker de bajo coste</b>El <a class="term" href="#g-broker">bróker</a> es el banco o la app donde compras y guardas tus ETF. Elige uno regulado en España o en la UE que permita programar aportaciones mensuales automáticas.`,
-      st2:`<b>Elige un ETF mundial</b>Busca un ETF que siga todo el mercado de acciones mundial, de <a class="term" href="#g-acc">acumulación</a> y con un coste anual bajo (<a class="term" href="#g-ter">TER</a>), idealmente por debajo del 0,25%. Si quieres menos sustos, también vale un ETF todo en uno que incluya <a class="term" href="#g-bonds">bonos</a>.`,
+      st2:`<b>Busca un ETF, por ejemplo uno mundial</b>Una opción habitual para empezar sigue todo el mercado de acciones mundial, es de <a class="term" href="#g-acc">acumulación</a> y tiene un coste anual bajo (<a class="term" href="#g-ter">TER</a>), idealmente por debajo del 0,25%. Si quieres menos sustos, también vale un ETF todo en uno que incluya <a class="term" href="#g-bonds">bonos</a>. Son criterios, no una recomendación: compara varios antes de elegir.`,
       st3:`<b>Programa la aportación mensual y olvídate</b>Usa el importe mensual de tu plan de arriba y una fecha justo después de cobrar. Y no lo mires todos los días.`,
       hFaq:`Las preguntas que todo el mundo se hace`,
       q1:`¿Puedo perder dinero?`,
@@ -680,13 +861,38 @@ details > div{padding:0 0 14px;color:var(--muted)}
       fbLabel:`Tu mensaje`,
       fbErr:`No se ha podido enviar. Inténtalo de nuevo en un momento.`,
       privacy:`Privacidad: sin cookies y sin datos personales. Para mejorar la página contamos visitas y clics de forma anónima, con un código que cambia cada día y no permite identificarte. Los comentarios se guardan sin nombres.`,
-      today:`hoy`, yAbbr:`a`
+      today:`hoy`, yAbbr:`a`,
+      w:{badge:'Gratis · 10 minutos', h1:'Tu primer <em>plan en ETF</em>, en 10 minutos.',
+      sub:'Responde 3 preguntas. Al final tienes tu plan en una página: cuánto dejar en el banco, cuánto invertir cada mes, qué buscar en un ETF y cómo programarlo.',
+      heroAlt:'Un calendario envía monedas a un tarro, del que crece un árbol',
+      start:'Crear mi plan', t1:'Gratis', t2:'Sin registro', t3:'Sin publicidad',
+      getH:'Al final tendrás', g1:'Un colchón de seguridad', g2:'Un importe mensual', g3:'Qué buscar en un ETF',
+      step:(i)=>`Pregunta ${i} de 3`, next:'Siguiente', last:'Ver mi plan', back:'Atrás',
+      qs:[
+        {h:'¿Cuánto gastas al mes?', p:'Alquiler, comida, facturas, todo. Vale un número aproximado.'},
+        {h:'¿Cuánto dinero tienes en el banco hoy?', p:'Ahorros que podrías usar. Sin contar lo que necesitas este mes.'},
+        {h:'¿Cuánto puedes ahorrar cada mes?', p:'Lo que normalmente te sobra a final de mes.'}],
+      rEyebrow:'Tu plan', rH:'Esto es lo que tienes que hacer',
+      keep:'Deja en el banco', keepP:'6 meses de gastos, para imprevistos. Así nunca tienes que vender tus ETF en un mal momento.',
+      keepGap:(g,m)=>`Te faltan ${g}: ${m===1?'el primer mes':'durante los primeros '+m+' meses'} el ahorro va aquí y después empieza el ETF.`,
+      now:'Invierte ya', nowP:'Lo que tienes por encima del colchón. Todo de golpe o repartido en 6–12 meses.',
+      monthly:'Cada mes en un ETF', monthlyP:'De forma automática, el día después de cobrar. Como una suscripción en la que no tienes que pensar.',
+      monthlyNone:'Por ahora nada', monthlyNoneP:'Primero busca un pequeño margen cada mes, aunque sean 50 €. Después vuelve aquí.',
+      etf:'Qué buscar', etfAmt:'Por ejemplo, un ETF mundial', etfP:'Una opción habitual para empezar: miles de empresas de todo el mundo, de acumulación, coste anual (TER) por debajo del 0,25%. Es un ejemplo, no una recomendación: compara varios antes de elegir.',
+      where:'Dónde', whereAmt:'Un bróker de bajo coste', whereP:'Regulado en España o en la UE, con aportaciones mensuales automáticas.',
+      gLab:y=>`Dentro de ${y} años podrías tener`, gRng:(lo,hi)=>`Entre ${lo} y ${hi}, según los mercados (5–9% al año, aquí el 7%).`,
+      gVs:(d)=>`Es decir, <strong>${d} más</strong> que dejarlo en el banco.`,
+      years:n=>`${n} años`, yrsAria:'Años',
+      honest:'Con sinceridad: habrá años en rojo. En 2008 las bolsas mundiales casi se redujeron a la mitad y se recuperaron en pocos años. El plan funciona si sigues.',
+      full:'Ver todos los detalles abajo', print:'Guardar / imprimir mi plan', again:'Empezar de nuevo',
+      whoH:'Hecho por Marco para su hermano', who:'Marco es un ingeniero que invierte en ETF. Lo hizo para su hermano y ahora es gratis para cualquiera: sin publicidad, sin enlaces de afiliado, sin registro.', whoAlt:'Dos hermanos, uno abraza al otro'
+      }
     }
   };
 
   if(!DONATIONS){
     for(const k in T){T[k].hSup=T[k].hSupNo;T[k].supTxt=T[k].supTxtNo}
-    const cb=$('coffee-bottom'); if(cb)cb.remove();
+    const sup=$('h-sup'); if(sup)sup.closest('section').remove();
   }
 
   // Language. On youretfplan.com each language has its own URL (/ and /it/), set by a
@@ -712,8 +918,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     L=T[lang];
     document.documentElement.lang=lang;
     if(!FIXED)document.title=L.title;
-    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
-    const gf=new Intl.NumberFormat(L.locale,{maximumFractionDigits:0});
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
+    const gf=new Intl.NumberFormat(L.locale,{maximumFractionDigits:0,useGrouping:'always'});
     fmt=v=>nf.format(Math.round(v));
     grp=v=>gf.format(v);
     short=v=>v<=0?'€0':v>=1e6?'€'+(v/1e6).toLocaleString(L.locale,{maximumFractionDigits:1})+'M':'€'+Math.round(v/1000)+'k';
@@ -725,7 +931,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('l-es').setAttribute('aria-pressed',lang==='es');
     ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id));$(id+'-r').value=sliderPos(id,num(id))});
     render();
-    hkShown=0; renderHook();
+    wApply();
   }
   function setLang(l){
     try{localStorage.setItem('etf-plan-lang',l)}catch(e){}
@@ -833,33 +1039,88 @@ details > div{padding:0 0 14px;color:var(--muted)}
   }
   let lastRes=null;
 
-  // Hook at the top: one monthly amount and a near horizon (5/10/20 years), same 5/7/9% scenarios
-  // and 3% rule as the full plan below. Moving it also carries the amount and the years into the full plan.
-  let hkYears=10, hkShown=0, hkRaf=0;
-  const reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function fvMonthly(m,rate,years){const mr=Math.pow(1+rate,1/12)-1,n=years*12;return rate===0?m*n:m*(Math.pow(1+mr,n)-1)/mr}
-  function hkAnimate(to){
-    if(reduceMotion||!hkShown){hkShown=to;$('hk-big').textContent=fmt(to);return}
-    const from=hkShown,t0=performance.now();cancelAnimationFrame(hkRaf);
-    const step=t=>{const k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);hkShown=from+(to-from)*e;$('hk-big').textContent=fmt(hkShown);if(k<1)hkRaf=requestAnimationFrame(step)};
-    hkRaf=requestAnimationFrame(step);
+  let W;
+  // Guided start: 3 questions (spend, bank, monthly) -> one-page plan. Same 5/7/9% and 6-month cushion as the
+  // full calculator below; the answers are carried into it.
+  const WQ=[
+    {key:'spend', min:300, max:6000, step:50, ill:'#i-bag'},
+    {key:'cash',  min:0, max:100000, step:500, ill:'#i-pig'},
+    {key:'monthly', min:0, max:3000, step:25, ill:'#i-jar'}];
+  const wAns={spend:1500,cash:8000,monthly:300};
+  let wStep=0, wYears=10;
+
+  function showStep(focus){
+    const q=WQ[wStep], t=W.qs[wStep], r=$('q-range');
+    $('prog-txt').textContent=W.step(wStep+1);
+    document.querySelectorAll('.w-dots i').forEach((d,i)=>d.classList.toggle('on',i<=wStep));
+    $('q-h').textContent=t.h; $('q-p').textContent=t.p;
+    $('q-ill').innerHTML='<use href="'+q.ill+'"/>';
+    r.min=q.min; r.max=q.max; r.step=q.step; r.value=wAns[q.key];
+    $('tk-lo').textContent=fmt(q.min); $('tk-hi').textContent=fmt(q.max)+(q.key==='cash'?'+':'');
+    $('q-val').textContent=fmt(wAns[q.key]);
+    $('back').style.visibility=wStep?'visible':'hidden';
+    $('next-txt').textContent=wStep===2?W.last:W.next;
+    if(focus){const w=$('wizard');w.classList.remove('w-pop');void w.offsetWidth;w.classList.add('w-pop');w.scrollIntoView({block:'start'});r.focus({preventScroll:true})}
   }
-  function renderHook(){
-    const m=+$('hk-monthly').value, y=hkYears;
-    const inv=fvMonthly(m,0.07,y), lo=fvMonthly(m,0.05,y), hi=fvMonthly(m,0.09,y), bank=m*y*12;
-    $('hk-monthly-out').textContent=fmt(m);
-    document.querySelectorAll('.horizon button').forEach(b=>{b.textContent=L.years(+b.dataset.y);b.setAttribute('aria-pressed',+b.dataset.y===y)});
-    $('hk-lead').textContent=L.hkLead(y);
-    hkAnimate(inv);
-    $('hk-range').textContent=L.hkRange(fmt(lo),fmt(hi));
-    $('hk-v-inv').textContent=fmt(inv); $('hk-v-bank').textContent=fmt(bank);
-    $('hk-b-bank').style.width=Math.max(2,bank/inv*100).toFixed(1)+'%';
-    $('hk-split').innerHTML=L.hkSplit(fmt(bank),fmt(inv-bank));
-    $('hk-salary').innerHTML=L.hkSalary(fmt(inv*0.03/12));
+
+  // Month by month: cushion first (it stays in the bank and counts in the total), then the monthly amount goes into the ETF; the part above the cushion is invested at once.
+  function wSim(rate,yrs){
+    const mr=Math.pow(1+rate,1/12)-1, E=wAns.spend*MONTHS;
+    let bank=Math.min(wAns.cash,E), etf=Math.max(0,wAns.cash-E), paid=etf;
+    for(let m=1;m<=yrs*12;m++){
+      etf*=1+mr;
+      let s=wAns.monthly; const toE=Math.min(Math.max(0,E-bank),s); bank+=toE; s-=toE;
+      etf+=s; paid+=s;
+    }
+    return {etf,paid,total:etf+bank};
   }
-  function hookToPlan(){etfOverride=+$('hk-monthly').value;$('years').value=hkYears;render()}
-  $('hk-monthly').addEventListener('input',()=>{renderHook();hookToPlan()});
-  document.querySelectorAll('.horizon button').forEach(b=>b.addEventListener('click',()=>{hkYears=+b.dataset.y;renderHook();hookToPlan()}));
+
+  function renderResult(){
+    const E=wAns.spend*MONTHS, gap=Math.max(0,E-wAns.cash), lump=Math.max(0,wAns.cash-E), m=wAns.monthly;
+    const li=(ic,t,amt,p)=>'<li><svg><use href="'+ic+'"/></svg><div><b>'+t+'</b><span class="w-amt num">'+amt+'</span><p>'+p+'</p></div></li>';
+    let h=li('#i-shield',W.keep,fmt(E),gap>0&&m>0?W.keepGap(fmt(gap),Math.ceil(gap/m)):W.keepP);
+    if(lump>0)h+=li('#i-rocket',W.now,fmt(lump),W.nowP);
+    h+=m>0?li('#i-cal',W.monthly,fmt(m),W.monthlyP):li('#i-cal',W.monthly,W.monthlyNone,W.monthlyNoneP);
+    h+=li('#i-globe',W.etf,W.etfAmt,W.etfP);
+    h+=li('#i-phone',W.where,W.whereAmt,W.whereP);
+    $('items').innerHTML=h;
+    renderGrow();
+  }
+  function renderGrow(){
+    const mid=wSim(.07,wYears), lo=wSim(.05,wYears), hi=wSim(.09,wYears);
+    $('g-lab').textContent=W.gLab(wYears);
+    $('g-big').textContent=fmt(mid.total);
+    $('g-rng').textContent=W.gRng(fmt(lo.total),fmt(hi.total));
+    $('g-vs').innerHTML=mid.etf>mid.paid?W.gVs(fmt(mid.etf-mid.paid)):'';
+    document.querySelectorAll('.w-yrs button').forEach(b=>{b.textContent=W.years(+b.dataset.y);b.setAttribute('aria-pressed',+b.dataset.y===wYears)});
+    $('tree').style.transform='scale('+({5:.55,10:.78,20:1})[wYears]+')';
+    $('fruit').style.opacity=wYears>=10?1:0;
+  }
+
+  $('q-range').addEventListener('input',e=>{wAns[WQ[wStep].key]=+e.target.value;$('q-val').textContent=fmt(wAns[WQ[wStep].key]);track('active')});
+  $('start').addEventListener('click',()=>{track('hook');wStep=0;$('wizard').hidden=false;$('result').hidden=true;showStep(true)});
+  $('next').addEventListener('click',()=>{
+    if(wStep<2){wStep++;showStep(true);return}
+    $('wizard').hidden=true; const r=$('result'); r.hidden=false; renderResult(); wToPlan(); track('plan');
+    r.classList.remove('w-pop');void r.offsetWidth;r.classList.add('w-pop');r.scrollIntoView({block:'start'});r.focus({preventScroll:true});
+  });
+  $('back').addEventListener('click',()=>{if(wStep>0){wStep--;showStep(true)}});
+  $('again').addEventListener('click',()=>{wStep=0;$('result').hidden=true;$('wizard').hidden=false;showStep(true)});
+  $('print').addEventListener('click',()=>window.print());
+  document.querySelectorAll('.w-yrs button').forEach(b=>b.addEventListener('click',()=>{wYears=+b.dataset.y;renderGrow();$('years').value=wYears;render()}));
+  // Carry the answers into the full calculator: salary = spending + what is left, everything left goes to ETFs.
+  function wToPlan(){
+    const set=(id,v)=>{$(id).value=grp(v);$(id+'-r').value=sliderPos(id,v)};
+    set('income',wAns.spend+wAns.monthly); set('spend',wAns.spend); set('cash',wAns.cash);
+    etfOverride=wAns.monthly; $('years').value=wYears; render();
+  }
+  function wApply(){
+    W=L.w;
+    document.querySelectorAll('[data-w]').forEach(el=>{el.innerHTML=W[el.dataset.w]});
+    document.querySelectorAll('[data-wa]').forEach(el=>el.setAttribute('aria-label',W[el.dataset.wa]));
+    showStep(false);
+    if(!$('result').hidden)renderResult();
+  }
 
   const svgText=(x,y,anchor,s,fill,weight)=>'<text x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="'+anchor+'" font-size="12" font-weight="'+(weight||500)+'" fill="'+(fill||'var(--muted)')+'" font-family="Figtree,system-ui,sans-serif">'+s+'</text>';
 
@@ -990,8 +1251,6 @@ details > div{padding:0 0 14px;color:var(--muted)}
       seen.forEach(([id])=>{const el=$(id);if(el)io.observe(el)});
     }
     ['income','spend','cash'].forEach(id=>{$(id).addEventListener('input',()=>track('active'));$(id+'-r').addEventListener('input',()=>track('active'))});
-    $('hk-monthly').addEventListener('input',()=>{track('hook');track('active')});
-    document.querySelectorAll('.horizon button').forEach(b=>b.addEventListener('click',()=>{track('hook');track('active')}));
     $('etf-r').addEventListener('input',()=>track('explore'));
     ['years','real'].forEach(id=>$(id).addEventListener('input',()=>track('explore')));
     ['etf-plus','etf-minus','etf-reset'].forEach(id=>$(id).addEventListener('click',()=>track('explore')));

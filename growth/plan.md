@@ -9,6 +9,7 @@
 - No social media posting by Marco. Growth comes from search, word of mouth (users sharing), and links.
 - No money spent for now (no ads, no paid tools).
 - No donations or paid services until the Beckham-regime tax question is cleared with an asesor fiscal.
+- Audience (Marco, 2026-10-30): not only young beginners but also adults and retirees. The current illustrated design may speak mostly to young people; revisit later (e.g. a calmer variant or sections for people with savings already).
 - Content changes about finance go through pull requests that Marco approves; small fixes (typos, bugs, speed) can go straight to `main`.
 
 ## Roadmap (ideas, in rough priority)
