@@ -24,3 +24,5 @@ One dated entry per daily growth session. Newest at the bottom.
 - Biggest drop: calc_seen → active (15 → 3, 20%). Too few visitors to read anything by language/device yet.
 - Web Analytics 7d: 55 visits, all direct (no search referrers yet); US 25 visits with no referrer probably bots/crawlers. Mobile 27, desktop 26.
 - Feedback: 3 votes on "is this result clear?": 2 👍 (IT, mobile), 1 👎 (EN, mobile, DE), no comments.
+- **Change (PR, needs Marco):** Marco decided to use the /v2/ hook as the top of the main page, with no age (5/10/20 years, default 10), and the full calculator below. [PR #1](https://github.com/marcocast/youretfplan/pull/1). Moving the hook counts as `active` (Marco agreed) plus a new `hook` step. Why: the biggest drop is calc_seen → active (20%), and the hook asks for a single number above the fold.
+- Watch after merge: active/view rate (baseline 3/16 on 29 Oct), hook → calc_seen → explore, and 👍/👎 on the result.
