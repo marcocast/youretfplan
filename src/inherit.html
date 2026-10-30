@@ -145,6 +145,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
 .steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
 .income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income .inc-note{grid-column:1/-1;margin:0}
 .income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
 .income b{display:block;font-family:var(--display);font-size:1.35rem}
 .income span{font-size:.88rem;color:var(--muted)}
@@ -331,6 +332,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const PAGE_URLS={en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'};
   const HOME={en:'/',it:'/it/',es:'/es/'};
   const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
+  // Tax on ETF gains when you sell (only the gain part of each withdrawal is taxed) and Italy's 0.2% yearly stamp duty.
+  const ETAX={en:0.20,it:0.26,es:0.19}, BOLLO={en:0,it:0.002,es:0};
 
   const T={
     en:{locale:'en-IE', title:'I received an inheritance: keep it, rent it or invest in ETFs? | Your ETF Plan',
@@ -357,9 +360,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
       bEmpty:'Keep it empty <small>house value − costs paid</small>', bLet:'Rent it out <small>house value + net rent invested in ETFs</small>', bSell:'Sell it and invest in ETFs <small>after selling costs</small>',
       hBest:{empty:'Keeping it empty',let:'Renting it out',sell:'Selling and investing in ETFs'},
       hVerdict:(best,d)=>`<b class="gain">${best}</b> comes out ahead, by about <b>${d}</b> over the second option.`,
-      incH:'Monthly income from today',
+      incH:'Monthly income, after tax',
       incLet:v=>`<b>${v}</b><span>a month from rent, after tax, costs and empty months</span>`,
-      incSell:v=>`<b>${v}</b><span>a month taking 3% a year from the ETFs (the 3% rule)</span>`,
+      incNote:'Average of the first 10 years, in today’s money. With ETFs you only pay tax on the gain part of what you sell: little at first, more as the years go by.',
+      incSell:v=>`<b>${v}</b><span>a month taking 3% a year from the ETFs (the 3% rule), after tax on the gains</span>`,
       hNote:'In today’s money (2% inflation). Rent grows with inflation; investing in ETFs at 7% a year on average, not guaranteed. Taxes on selling the ETFs or the house are not included.',
       lifeH:'It’s not only about money',
       lifeL:'<li><b>More heirs?</b> Every decision needs everyone’s agreement: selling is often the cleanest solution.</li><li><b>Being a landlord is a job:</b> tenants, repairs, late payments, empty months.</li><li><b>Memories matter:</b> a family home can be worth more than its price to you, and that’s fine.</li><li><b>One basket:</b> a house is one asset in one city; ETFs spread your money over thousands of companies.</li>',
@@ -398,9 +402,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
       bEmpty:'Tenerla vuota <small>valore della casa − costi pagati</small>', bLet:'Affittarla <small>valore della casa + affitto netto investito in ETF</small>', bSell:'Venderla e investire in ETF <small>tolti i costi di vendita</small>',
       hBest:{empty:'Tenerla vuota',let:'Affittarla',sell:'Venderla e investire in ETF'},
       hVerdict:(best,d)=>`<b class="gain">${best}</b> risulta avanti, di circa <b>${d}</b> sulla seconda scelta.`,
-      incH:'Entrata mensile da subito',
+      incH:'Entrata mensile, tolte le tasse',
       incLet:v=>`<b>${v}</b><span>al mese dall’affitto, tolte tasse, costi e mesi vuoti</span>`,
-      incSell:v=>`<b>${v}</b><span>al mese prelevando il 3% l’anno dagli ETF (la regola del 3%)</span>`,
+      incNote:'Media dei primi 10 anni, in euro di oggi. Con gli ETF paghi le tasse solo sulla parte di guadagno di quello che vendi: poco all’inizio, di più con gli anni.',
+      incSell:v=>`<b>${v}</b><span>al mese prelevando il 3% l’anno dagli ETF (la regola del 3%), tolte le tasse sui guadagni e il bollo</span>`,
       hNote:'In euro di oggi (inflazione 2%). L’affitto cresce con l’inflazione; investire in ETF rende in media il 7% l’anno, non garantito. Non sono incluse le tasse sulla vendita degli ETF.',
       lifeH:'Non è solo una questione di soldi',
       lifeL:'<li><b>Più eredi?</b> Ogni decisione va presa insieme: vendere è spesso la soluzione più pulita.</li><li><b>Fare il padrone di casa è un lavoro:</b> inquilini, riparazioni, ritardi nei pagamenti, mesi vuoti.</li><li><b>I ricordi contano:</b> la casa di famiglia può valere per te più del suo prezzo, ed è giusto così.</li><li><b>Un solo paniere:</b> una casa è un bene solo in una sola città; gli ETF dividono i tuoi soldi su migliaia di aziende.</li>',
@@ -439,9 +444,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
       bEmpty:'Dejarla vacía <small>valor de la casa − gastos pagados</small>', bLet:'Alquilarla <small>valor de la casa + alquiler neto invertido en ETF</small>', bSell:'Venderla e invertir en ETF <small>descontando los gastos de venta</small>',
       hBest:{empty:'Dejarla vacía',let:'Alquilarla',sell:'Venderla e invertir en ETF'},
       hVerdict:(best,d)=>`<b class="gain">${best}</b> sale ganando, por unos <b>${d}</b> sobre la segunda opción.`,
-      incH:'Ingreso mensual desde hoy',
+      incH:'Ingreso mensual, después de impuestos',
       incLet:v=>`<b>${v}</b><span>al mes del alquiler, descontando impuestos, gastos y meses vacía</span>`,
-      incSell:v=>`<b>${v}</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%)</span>`,
+      incNote:'Media de los primeros 10 años, en euros de hoy. Con los ETF solo pagas impuestos por la parte de ganancia de lo que vendes: poco al principio, más con los años.',
+      incSell:v=>`<b>${v}</b><span>al mes retirando el 3% anual de los ETF (la regla del 3%), descontando los impuestos sobre la ganancia</span>`,
       hNote:'En euros de hoy (inflación del 2%). El alquiler sube con la inflación; invertir en ETF rinde de media un 7% anual, no garantizado. No se incluyen los impuestos al vender los ETF ni la ganancia al vender la casa.',
       lifeH:'No es solo cuestión de dinero',
       lifeL:'<li><b>¿Más herederos?</b> Cada decisión hay que tomarla juntos: vender suele ser la solución más limpia.</li><li><b>Ser casero es un trabajo:</b> inquilinos, reparaciones, impagos, meses vacía.</li><li><b>Los recuerdos cuentan:</b> la casa familiar puede valer para ti más que su precio, y está bien.</li><li><b>Una sola cesta:</b> una casa es un solo bien en una sola ciudad; los ETF reparten tu dinero entre miles de empresas.</li>',
@@ -515,7 +521,16 @@ details > div{padding:0 0 14px;color:var(--muted)}
     [['empty',empty],['let',let_],['sell',sell]].forEach(([k,v])=>{$('f-'+k).style.width=Math.max(1,v/top*100).toFixed(1)+'%'});
     const ranked=[['empty',empty],['let',let_],['sell',sell]].sort((a,b)=>b[1]-a[1]);
     $('h-verdict').innerHTML=L.hVerdict(L.hBest[ranked[0][0]],fmt(ranked[0][1]-ranked[1][1]));
-    $('income').innerHTML='<div>'+L.incLet(fmt(Math.max(0,netYear/12)))+'</div><div>'+L.incSell(fmt(V0*(1-sc)*0.03/12))+'</div>';
+    // Both sides: average of the first 10 years, after tax, in today's money.
+    let letSum=0, v=Math.max(0,V0*(1-sc)), basis=v, etfSum=0, Vh=V0;
+    for(let t=1;t<=10;t++){
+      const d=Math.pow(1+INFL,t), rent=R0*Math.pow(1+INFL,t-1);
+      letSum+=(rent*(12-emptyM)*(1-tax)-Vh*oc)/d; Vh*=1+g;
+      v*=1+ETF; const w=v*0.03, gain=v>0?Math.max(0,1-basis/v):0, tx=w*gain*ETAX[lang];
+      basis*=v>0?1-w/v:1; v-=w; const b=v*BOLLO[lang]; v-=b;
+      etfSum+=(w-tx-b)/d;
+    }
+    $('income').innerHTML='<div>'+L.incLet(fmt(Math.max(0,letSum/120)))+'</div><div>'+L.incSell(fmt(etfSum/120))+'</div><p class="note inc-note">'+L.incNote+'</p>';
   }
 
   function render(){renderMoney();renderHouse()}
