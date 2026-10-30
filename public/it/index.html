@@ -158,37 +158,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .three b{display:block;font-size:1.02rem;margin-bottom:4px}
 
-/* inputs */
-.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.field{display:flex;flex-direction:column;gap:6px;padding:12px 14px}
-.field label{font-size:.9rem;color:var(--muted);font-weight:500}
-.money{display:flex;align-items:center;gap:6px;border-bottom:2px solid var(--line)}
-.money:focus-within{border-color:var(--accent)}
-.money span{font-size:1.3rem;color:var(--muted)}
-.money input{border:0;background:transparent;color:var(--ink);font:600 1.5rem var(--body);width:100%;min-width:0;padding:2px 0;outline:none;font-variant-numeric:tabular-nums}
-
-/* plan */
-.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
-.step{display:flex;flex-direction:column;gap:6px}
-.step .big{font-size:1.6rem;font-weight:700}
-.step.wide{grid-column:1/-1;background:var(--accent-soft);border-color:var(--accent)}
-.monthly{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:flex-end}
-.m-col{display:flex;flex-direction:column;gap:2px}
-.m-lab{font-size:.9rem;color:var(--muted);font-weight:500}
-.stepper{display:flex;align-items:center;gap:10px}
-.stepper button{width:34px;height:34px;flex:none;border-radius:50%;border:1px solid var(--accent);background:var(--surface);color:var(--accent);font:600 1.25rem/1 var(--body);cursor:pointer}
-.stepper button:hover{background:var(--accent);color:var(--surface)}
-.stepper button:disabled{opacity:.35;cursor:default;background:var(--surface);color:var(--accent)}
-.reset{align-self:flex-start;border:0;background:none;padding:0;color:var(--accent);font:600 .88rem var(--body);text-decoration:underline;cursor:pointer}
-.notice{background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
-
 /* results */
 .slider{display:flex;flex-direction:column;gap:6px}
 .slider-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .slider-head strong{font-size:1.25rem}
 input[type=range]{width:100%;accent-color:var(--accent)}
-.field input[type=range],.etf-range{height:28px;margin:2px 0 0;cursor:pointer}
-.etf-range{margin-top:4px}
+.link-btn{border:0;background:none;padding:0;color:var(--accent);font:700 .92rem var(--body);text-decoration:underline;cursor:pointer}
 .ticks{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}
 .toggle{display:flex;align-items:flex-start;gap:8px;font-size:.95rem;cursor:pointer}
 .toggle input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
@@ -470,81 +445,22 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
   </section>
 
-  <section aria-labelledby="h-in" id="numbers">
-    <h2 id="h-in" data-t="hIn">I tuoi numeri</h2>
-    <div class="inputs">
-      <div class="field card-base">
-        <label for="income" id="lab-income" data-t="lIncome">Stipendio netto al mese</label>
-        <div class="money"><span>€</span><input id="income" type="text" inputmode="numeric" autocomplete="off" value="2500"></div>
-        <input type="range" id="income-r" min="0" max="20000" step="50" value="2500" aria-labelledby="lab-income">
-      </div>
-      <div class="field card-base">
-        <label for="spend" id="lab-spend" data-t="lSpend">Quanto spendi al mese</label>
-        <div class="money"><span>€</span><input id="spend" type="text" inputmode="numeric" autocomplete="off" value="1500"></div>
-        <input type="range" id="spend-r" min="0" max="10000" step="50" value="1500" aria-labelledby="lab-spend">
-      </div>
-      <div class="field card-base">
-        <label for="cash" id="lab-cash" data-t="lCash">Soldi in banca oggi</label>
-        <div class="money"><span>€</span><input id="cash" type="text" inputmode="numeric" autocomplete="off" value="10000"></div>
-        <input type="range" id="cash-r" min="0" max="1000" step="1" value="100" aria-labelledby="lab-cash">
-      </div>
-    </div>
-    <p class="foot" data-t="example">Sono numeri di esempio. Muovi gli slider o scrivi i tuoi, e tutta la pagina si aggiorna.</p>
-  </section>
-
-  <section aria-labelledby="h-plan">
-    <h2 id="h-plan" data-t="hPlan">Il tuo piano</h2>
-    <div id="notice" class="notice" hidden=""></div>
-    <div class="plan">
-      <div class="step card-base">
-        <span class="eyebrow" data-t="s1">1 · Resta in banca</span>
-        <span class="big num" id="o-emerg">9.000&nbsp;€</span>
-        <p class="small" data-t="s1why">6 mesi di spese. <b>Perché:</b> se perdi il lavoro o si rompe qualcosa usi questi soldi, e non sei mai costretto a vendere gli ETF nel momento sbagliato.</p>
-      </div>
-      <div class="step card-base">
-        <span class="eyebrow" data-t="s2">2 · Investi subito</span>
-        <span class="big num" id="o-lump">1.000&nbsp;€</span>
-        <p class="small" id="o-lump-txt">Quello che hai oltre il fondo emergenza. Mettilo nell'ETF scelto in <a href="#start">Come iniziare</a>, tutto subito o in 6–12 rate.</p>
-      </div>
-      <div class="step card-base wide">
-        <span class="eyebrow" data-t="s3">3 · Ogni mese</span>
-        <div class="monthly">
-          <div class="m-col">
-            <div class="stepper">
-              <button type="button" id="etf-minus" data-ta="minus" aria-label="Investi 50 € in meno">−</button>
-              <span class="big num" id="o-etf">750&nbsp;€</span>
-              <button type="button" id="etf-plus" data-ta="plus" aria-label="Investi 50 € in più">+</button>
-            </div>
-            <span class="m-lab" data-t="s3etf">in ETF</span>
-          </div>
-          <div class="m-col">
-            <span class="big num" id="o-save">250&nbsp;€</span>
-            <span class="m-lab" data-t="s3save">da parte</span>
-          </div>
-        </div>
-        <input type="range" class="etf-range" id="etf-r" min="0" max="1000" step="10" value="750" data-ta="etfSlider" aria-label="Quanto investire in ETF ogni mese">
-        <p class="small" id="o-etf-txt" hidden=""></p>
-        <button type="button" class="reset" id="etf-reset" hidden="" data-t="reset">Torna all'importo consigliato</button>
-        <p class="small" data-t="s3why"><b>Perché automatico:</b> i soldi partono il giorno dopo lo stipendio, così non devi decidere né ricordarti nulla. I soldi messi da parte servono per le spese grosse, come auto, vacanze o regali.</p>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="h-fut">
+  <section aria-labelledby="h-fut" id="numbers">
     <h2 id="h-fut" data-t="hFut">Quanto potresti avere</h2>
+    <p class="small"><span id="answers">Esempio: spese di 1.500&nbsp;€ al mese, 8.000&nbsp;€ in banca, 300&nbsp;€ al mese in ETF.</span> <button type="button" class="link-btn" id="change" data-t="change">Cambia le risposte</button></p>
     <div class="slider">
       <div class="slider-head">
         <label for="years" data-t="lYears">Tra quanti anni</label>
-        <strong class="num" id="years-out">20 anni</strong>
+        <strong class="num" id="years-out">10 anni</strong>
       </div>
-      <input id="years" type="range" min="5" max="25" step="1" value="20">
+      <input id="years" type="range" min="5" max="25" step="1" value="10">
       <div class="ticks"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span></div>
     </div>
     <label class="toggle"><input type="checkbox" id="real"> <span data-t="real">Mostra in euro di oggi (con <a class="term" href="#g-infl">inflazione</a> al 2% l'anno)</span></label>
-    <div class="feat card-base" id="feat"><span class="tag" style="--c:var(--s7)">Storico normale · 7%</span><span class="val num">453.522&nbsp;€</span><span class="small">Hai versato 250.000&nbsp;€ in tutto.</span><span class="diff num">+203.522&nbsp;€ in più che lasciarli in banca</span><span class="tax">Prima delle tasse. Con il 26% sui guadagni ti resterebbero circa 400.606&nbsp;€.</span></div>
-    <div class="cmp card-base" id="cmp"><div class="row"><span><span class="tag" style="--c:var(--bank)">Non fare nulla</span><br>Tutto in banca (0%)</span><span class="val num">250.000&nbsp;€</span><span class="sub loss">Vale circa 168.243&nbsp;€ in euro di oggi, perché i prezzi salgono ogni anno.</span></div><div class="row"><span><span class="tag" style="--c:var(--s5)">Prudente</span><br>ETF al 5%</span><span class="val num">376.007&nbsp;€</span><span class="sub">Hai versato 250.000&nbsp;€ in tutto.</span></div><div class="row"><span><span class="tag" style="--c:var(--s9)">Decenni buoni</span><br>ETF al 9%</span><span class="val num">553.743&nbsp;€</span><span class="sub">Hai versato 250.000&nbsp;€ in tutto.</span></div></div>
+    <div class="feat card-base" id="feat"><span class="tag" style="--c:var(--s7)">Storico normale · 7%</span><span class="val num">58.373&nbsp;€</span><span class="small">Hai versato 44.000&nbsp;€ in tutto.</span><span class="diff num">+14.373&nbsp;€ in più che lasciarli in banca</span><span class="tax">Prima delle tasse. Con il 26% sui guadagni ti resterebbero circa 54.636&nbsp;€.</span></div>
+    <div class="cmp card-base" id="cmp"><div class="row"><span><span class="tag" style="--c:var(--bank)">Non fare nulla</span><br>Tutto in banca (0%)</span><span class="val num">44.000&nbsp;€</span><span class="sub loss">Vale circa 36.095&nbsp;€ in euro di oggi, perché i prezzi salgono ogni anno.</span></div><div class="row"><span><span class="tag" style="--c:var(--s5)">Prudente</span><br>ETF al 5%</span><span class="val num">53.695&nbsp;€</span><span class="sub">Hai versato 44.000&nbsp;€ in tutto.</span></div><div class="row"><span><span class="tag" style="--c:var(--s9)">Decenni buoni</span><br>ETF al 9%</span><span class="val num">63.585&nbsp;€</span><span class="sub">Hai versato 44.000&nbsp;€ in tutto.</span></div></div>
     <div class="chart-box card-base" id="chart-box">
-      <svg id="chart" role="img" data-ta="chartAria" aria-label="Crescita del patrimonio negli anni per ogni scenario" viewBox="0 0 768 260"><line x1="48" x2="682" y1="232.0" y2="232.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="236.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="48" x2="682" y1="159.3" y2="159.3" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="163.3" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€200k</text><line x1="48" x2="682" y1="86.7" y2="86.7" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="90.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€400k</text><line x1="48" x2="682" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="18.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€600k</text><text x="48.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">oggi</text><text x="206.5" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5a</text><text x="365.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10a</text><text x="523.5" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15a</text><text x="682.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20a</text><path d="M48 232 L48.0 228.4 L79.7 223.9 L111.4 219.2 L143.1 214.2 L174.8 208.9 L206.5 203.4 L238.2 197.5 L269.9 191.3 L301.6 184.8 L333.3 177.8 L365.0 170.5 L396.7 162.7 L428.4 154.5 L460.1 145.7 L491.8 136.5 L523.5 126.6 L555.2 116.1 L586.9 105.0 L618.6 93.2 L650.3 80.6 L682.0 67.2 L682 232Z" fill="var(--s7)" fill-opacity=".10"></path><path d="M48.0 228.4 L79.7 224.0 L111.4 219.6 L143.1 215.3 L174.8 210.9 L206.5 206.6 L238.2 202.2 L269.9 197.8 L301.6 193.5 L333.3 189.1 L365.0 184.8 L396.7 180.4 L428.4 176.0 L460.1 171.7 L491.8 167.3 L523.5 163.0 L555.2 158.6 L586.9 154.2 L618.6 149.9 L650.3 145.5 L682.0 141.2" fill="none" stroke="var(--bank)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"></path><circle cx="682.0" cy="141.2" r="3.5" fill="var(--bank)"></circle><path d="M48.0 228.4 L79.7 223.9 L111.4 219.3 L143.1 214.5 L174.8 209.5 L206.5 204.3 L238.2 199.0 L269.9 193.4 L301.6 187.5 L333.3 181.5 L365.0 175.2 L396.7 168.6 L428.4 161.8 L460.1 154.6 L491.8 147.2 L523.5 139.5 L555.2 131.4 L586.9 122.9 L618.6 114.2 L650.3 105.0 L682.0 95.4" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round"></path><circle cx="682.0" cy="95.4" r="3.5" fill="var(--s5)"></circle><path d="M48.0 228.4 L79.7 223.9 L111.4 219.2 L143.1 214.2 L174.8 208.9 L206.5 203.4 L238.2 197.5 L269.9 191.3 L301.6 184.8 L333.3 177.8 L365.0 170.5 L396.7 162.7 L428.4 154.5 L460.1 145.7 L491.8 136.5 L523.5 126.6 L555.2 116.1 L586.9 105.0 L618.6 93.2 L650.3 80.6 L682.0 67.2" fill="none" stroke="var(--s7)" stroke-width="3" stroke-linejoin="round"></path><circle cx="682.0" cy="67.2" r="4.5" fill="var(--s7)"></circle><path d="M48.0 228.4 L79.7 223.8 L111.4 219.0 L143.1 213.8 L174.8 208.3 L206.5 202.4 L238.2 196.0 L269.9 189.1 L301.6 181.8 L333.3 173.8 L365.0 165.3 L396.7 156.0 L428.4 146.1 L460.1 135.3 L491.8 123.7 L523.5 111.1 L555.2 97.5 L586.9 82.8 L618.6 66.9 L650.3 49.6 L682.0 30.8" fill="none" stroke="var(--s9)" stroke-width="2" stroke-linejoin="round"></path><circle cx="682.0" cy="30.8" r="3.5" fill="var(--s9)"></circle><text x="690.0" y="34.8" text-anchor="start" font-size="12" font-weight="600" fill="var(--s9)" font-family="Figtree,system-ui,sans-serif">9% €554k</text><text x="690.0" y="71.2" text-anchor="start" font-size="12" font-weight="700" fill="var(--s7)" font-family="Figtree,system-ui,sans-serif">7% €454k</text><text x="690.0" y="99.4" text-anchor="start" font-size="12" font-weight="600" fill="var(--s5)" font-family="Figtree,system-ui,sans-serif">5% €376k</text><text x="690.0" y="145.2" text-anchor="start" font-size="12" font-weight="600" fill="var(--bank)" font-family="Figtree,system-ui,sans-serif">0% €250k</text></svg>
+      <svg id="chart" role="img" data-ta="chartAria" aria-label="Crescita del patrimonio negli anni per ogni scenario" viewBox="0 0 768 260"><line x1="48" x2="682" y1="232.0" y2="232.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="236.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="48" x2="682" y1="159.3" y2="159.3" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="163.3" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€25k</text><line x1="48" x2="682" y1="86.7" y2="86.7" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="90.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€50k</text><line x1="48" x2="682" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="18.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€75k</text><text x="48.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">oggi</text><text x="365.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5a</text><text x="682.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10a</text><path d="M48 232 L48.0 208.7 L111.4 198.1 L174.8 186.8 L238.2 174.7 L301.6 161.7 L365.0 147.8 L428.4 132.9 L491.8 117.0 L555.2 100.0 L618.6 81.8 L682.0 62.3 L682 232Z" fill="var(--s7)" fill-opacity=".10"></path><path d="M48.0 208.7 L111.4 198.3 L174.8 187.8 L238.2 177.4 L301.6 166.9 L365.0 156.4 L428.4 146.0 L491.8 135.5 L555.2 125.0 L618.6 114.6 L682.0 104.1" fill="none" stroke="var(--bank)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"></path><circle cx="682.0" cy="104.1" r="3.5" fill="var(--bank)"></circle><path d="M48.0 208.7 L111.4 198.2 L174.8 187.1 L238.2 175.4 L301.6 163.2 L365.0 150.4 L428.4 136.9 L491.8 122.8 L555.2 107.9 L618.6 92.3 L682.0 75.9" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round"></path><circle cx="682.0" cy="75.9" r="3.5" fill="var(--s5)"></circle><path d="M48.0 208.7 L111.4 198.1 L174.8 186.8 L238.2 174.7 L301.6 161.7 L365.0 147.8 L428.4 132.9 L491.8 117.0 L555.2 100.0 L618.6 81.8 L682.0 62.3" fill="none" stroke="var(--s7)" stroke-width="3" stroke-linejoin="round"></path><circle cx="682.0" cy="62.3" r="4.5" fill="var(--s7)"></circle><path d="M48.0 208.7 L111.4 198.1 L174.8 186.5 L238.2 173.9 L301.6 160.1 L365.0 145.1 L428.4 128.7 L491.8 110.9 L555.2 91.5 L618.6 70.3 L682.0 47.2" fill="none" stroke="var(--s9)" stroke-width="2" stroke-linejoin="round"></path><circle cx="682.0" cy="47.2" r="3.5" fill="var(--s9)"></circle><text x="690.0" y="51.2" text-anchor="start" font-size="12" font-weight="600" fill="var(--s9)" font-family="Figtree,system-ui,sans-serif">9% €64k</text><text x="690.0" y="66.3" text-anchor="start" font-size="12" font-weight="700" fill="var(--s7)" font-family="Figtree,system-ui,sans-serif">7% €58k</text><text x="690.0" y="81.3" text-anchor="start" font-size="12" font-weight="600" fill="var(--s5)" font-family="Figtree,system-ui,sans-serif">5% €54k</text><text x="690.0" y="108.1" text-anchor="start" font-size="12" font-weight="600" fill="var(--bank)" font-family="Figtree,system-ui,sans-serif">0% €44k</text></svg>
     </div>
     <p class="foot" id="explain">Valori come li vedrai sul conto. Spunta "euro di oggi" per vedere quanto valgono davvero tolta l'inflazione.</p>
     <div class="fb-inline card-base" id="fb-result" hidden="">
@@ -573,17 +489,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <svg id="ride" role="img" data-ta="rideIll" aria-label="Esempio di un andamento tipico, non dati reali" viewBox="0 0 768 200"><line x1="12" x2="756" y1="137.7" y2="137.7" stroke="var(--line)" stroke-dasharray="4 4"></line><text x="756.0" y="153.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">i tuoi soldi</text><line x1="12.0" y1="137.7" x2="37.7" y2="133.1" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="37.7" y1="133.1" x2="63.3" y2="127.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="63.3" y1="127.7" x2="89.0" y2="122.3" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="89.0" y1="122.3" x2="114.6" y2="117.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="114.6" y1="117.7" x2="140.3" y2="134.6" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="140.3" y1="134.6" x2="165.9" y2="154.7" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="165.9" y1="154.7" x2="191.6" y2="166.3" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="191.6" y1="166.3" x2="217.2" y2="157.8" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="217.2" y1="157.8" x2="242.9" y2="147.0" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="242.9" y1="147.0" x2="268.6" y2="139.3" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="268.6" y1="139.3" x2="294.2" y2="131.5" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="294.2" y1="131.5" x2="319.9" y2="124.6" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="319.9" y1="124.6" x2="345.5" y2="117.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="345.5" y1="117.7" x2="371.2" y2="110.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="371.2" y1="110.7" x2="396.8" y2="104.5" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="396.8" y1="104.5" x2="422.5" y2="98.4" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="422.5" y1="98.4" x2="448.1" y2="92.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="448.1" y1="92.2" x2="473.8" y2="86.8" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="473.8" y1="86.8" x2="499.4" y2="81.4" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="499.4" y1="81.4" x2="525.1" y2="75.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="525.1" y1="75.2" x2="550.8" y2="71.4" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="550.8" y1="71.4" x2="576.4" y2="68.3" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="576.4" y1="68.3" x2="602.1" y2="62.1" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="602.1" y1="62.1" x2="627.7" y2="55.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="627.7" y1="55.2" x2="653.4" y2="108.4" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="653.4" y1="108.4" x2="679.0" y2="82.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="679.0" y1="82.2" x2="704.7" y2="56.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="704.7" y1="56.7" x2="730.3" y2="45.1" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="730.3" y1="45.1" x2="756.0" y2="32.8" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><circle cx="191.6" cy="166.3" r="4" fill="var(--surface)" stroke="var(--down)" stroke-width="2"></circle><text x="191.6" y="186.3" text-anchor="middle" font-size="12" font-weight="700" fill="var(--down)" font-family="Figtree,system-ui,sans-serif">−50%</text><circle cx="653.4" cy="108.4" r="4" fill="var(--surface)" stroke="var(--down)" stroke-width="2"></circle><text x="653.4" y="128.4" text-anchor="middle" font-size="12" font-weight="700" fill="var(--down)" font-family="Figtree,system-ui,sans-serif">−33%</text></svg>
       <p class="foot" style="padding:4px 8px 0" data-t="rideIll">Esempio di un andamento tipico, non dati reali</p>
     </div>
-    <p class="ride-you" id="ride-you">Con il tuo piano, dopo 10 anni avresti circa <strong>130.256&nbsp;€</strong> in ETF. In un crollo come quello del 2008 il conto potrebbe mostrare circa <strong>65.128&nbsp;€</strong> per un po'. È il momento in cui molti principianti vendono e trasformano un calo temporaneo in una perdita vera. Se continui con il versamento mensile, stai comprando a sconto.</p>
+    <p class="ride-you" id="ride-you">Con il tuo piano, dopo 10 anni avresti circa <strong>49.373&nbsp;€</strong> in ETF. In un crollo come quello del 2008 il conto potrebbe mostrare circa <strong>24.686&nbsp;€</strong> per un po'. È il momento in cui molti principianti vendono e trasformano un calo temporaneo in una perdita vera. Se continui con il versamento mensile, stai comprando a sconto.</p>
   </section>
 
   <section aria-labelledby="h-rule">
     <div class="rule">
       <span class="eyebrow" data-t="ruleEyebrow">La regola del 3%</span>
-      <h2 id="h-rule">Un secondo stipendio per sempre, tra 20 anni</h2>
-      <div class="rule-main num" id="rule-main">961&nbsp;€ al mese</div>
-      <p class="small" id="rule-sub">Il 3% l'anno dei 384.522&nbsp;€ che avresti in ETF, con la media del 7%.</p>
+      <h2 id="h-rule">Un secondo stipendio per sempre, tra 10 anni</h2>
+      <div class="rule-main num" id="rule-main">123&nbsp;€ al mese</div>
+      <p class="small" id="rule-sub">Il 3% l'anno dei 49.373&nbsp;€ che avresti in ETF, con la media del 7%.</p>
       <p class="small" data-t="ruleTxt">Dopo questi anni potresti smettere di versare e prelevare ogni anno il 3% dei tuoi ETF come entrata mensile. Storicamente, prelevare il 3% l'anno da un portafoglio quasi tutto azionario è durato 30 anni o più in quasi tutti i periodi, e spesso il capitale ha continuato a crescere. È un riferimento, non una garanzia. Il fondo emergenza resta in banca.</p>
-      <div class="rule-rows num" id="rule-rows"><span>Prudente 5%: 768&nbsp;€ al mese</span><span>Decenni buoni 9%: 1.212&nbsp;€ al mese</span></div>
+      <div class="rule-rows num" id="rule-rows"><span>Prudente 5%: 112&nbsp;€ al mese</span><span>Decenni buoni 9%: 136&nbsp;€ al mese</span></div>
     </div>
   </section>
 
@@ -643,22 +559,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       e1:`<b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.`,
       e2:`<b>You buy a bit every month</b>You set up an automatic monthly payment, like a subscription. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
       e3:`<b>Your slice grows with the companies</b>Over long periods companies earn more and become worth more, and so does your slice. Not every year, and sometimes it drops a lot. Over 15–20 years it has historically grown.`,
-      hIn:`Your numbers`, lIncome:`Net salary per month`, lSpend:`What you spend per month`, lCash:`Money in the bank today`,
-      example:`These are example numbers. Move the sliders or type your own, and everything on the page updates.`,
-      etfSlider:`How much to invest in ETFs each month`,
-      hPlan:`Your plan`,
-      s1:`1 · Keep in the bank`,
-      s1why:`6 months of expenses. <b>Why:</b> if you lose your job or something breaks, you use this money and never have to sell your ETFs at a bad moment.`,
-      s2:`2 · Invest now`,
-      lumpYes:`What you have above the emergency fund. Put it into the ETF from <a href="#start">How to start</a>, all at once or spread over 6–12 months.`,
-      lumpNo:`Nothing yet. Fill the emergency fund first.`,
-      s3:`3 · Every month`, s3etf:`into ETFs`, s3save:`set aside`,
-      s3why:`<b>Why automatic:</b> the money leaves the day after payday, so you never have to decide or remember. The set-aside part is for big costs like a car, holidays or gifts.`,
-      minus:`Invest €50 less`, plus:`Invest €50 more`, reset:`Back to the suggested amount`,
-      etfAll:`You are investing everything you have left, so nothing is set aside for big costs.`,
-      etfOwn:s=>`Your own amount. Suggested: ${s}.`,
-      gap:(g,mm)=>`You are ${g} short of a full emergency fund. For the first ${mm} ${mm===1?'month':'months'}, put all your savings in the bank, then start with ETFs.`,
-      noSurplus:`Right now your spending is equal to or higher than your salary, so there is nothing left to invest. The first step is to free up some money each month, even a small amount.`,
+      change:`Change my answers`, ansEx:(sp,c,m)=>`Example: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`, ansYou:(sp,c,m)=>`Your answers: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`,
       hFut:`What you could have`, lYears:`In how many years`, years:n=>`${n} years`,
       real:`Show in today's euros (with 2% <a class="term" href="#g-infl">inflation</a> per year)`,
       scen:[[`All in the bank`,`Do nothing`],[`ETFs at 5%`,`Cautious`],[`ETFs at 7%`,`Historical normal`],[`ETFs at 9%`,`Good decades`]],
@@ -755,22 +656,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       e1:`<b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.`,
       e2:`<b>Compri un po' ogni mese</b>Imposti un versamento automatico mensile, come un abbonamento: si chiama PAC, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
       e3:`<b>Il tuo pezzettino cresce con le aziende</b>Nel lungo periodo le aziende guadagnano di più e valgono di più, e con loro il tuo pezzettino. Non ogni anno, e a volte scende parecchio. Su 15–20 anni storicamente è cresciuto.`,
-      hIn:`I tuoi numeri`, lIncome:`Stipendio netto al mese`, lSpend:`Quanto spendi al mese`, lCash:`Soldi in banca oggi`,
-      example:`Sono numeri di esempio. Muovi gli slider o scrivi i tuoi, e tutta la pagina si aggiorna.`,
-      etfSlider:`Quanto investire in ETF ogni mese`,
-      hPlan:`Il tuo piano`,
-      s1:`1 · Resta in banca`,
-      s1why:`6 mesi di spese. <b>Perché:</b> se perdi il lavoro o si rompe qualcosa usi questi soldi, e non sei mai costretto a vendere gli ETF nel momento sbagliato.`,
-      s2:`2 · Investi subito`,
-      lumpYes:`Quello che hai oltre il fondo emergenza. Mettilo nell'ETF scelto in <a href="#start">Come iniziare</a>, tutto subito o in 6–12 rate.`,
-      lumpNo:`Ancora niente. Prima completa il fondo emergenza.`,
-      s3:`3 · Ogni mese`, s3etf:`in ETF`, s3save:`da parte`,
-      s3why:`<b>Perché automatico:</b> i soldi partono il giorno dopo lo stipendio, così non devi decidere né ricordarti nulla. I soldi messi da parte servono per le spese grosse, come auto, vacanze o regali.`,
-      minus:`Investi 50 € in meno`, plus:`Investi 50 € in più`, reset:`Torna all'importo consigliato`,
-      etfAll:`Stai investendo tutto quello che ti avanza: non resta nulla da parte per le spese grosse.`,
-      etfOwn:s=>`Importo scelto da te. Consigliato: ${s}.`,
-      gap:(g,mm)=>`Ti mancano ${g} per completare il fondo emergenza. Per ${mm===1?'il primo mese':'i primi '+mm+' mesi'} metti tutto il risparmio in banca, poi parti con gli ETF.`,
-      noSurplus:`Oggi le spese sono uguali o più alte dello stipendio, quindi non resta nulla da investire. Il primo passo è creare un margine ogni mese, anche piccolo.`,
+      change:`Cambia le risposte`, ansEx:(sp,c,m)=>`Esempio: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`, ansYou:(sp,c,m)=>`Le tue risposte: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`,
       hFut:`Quanto potresti avere`, lYears:`Tra quanti anni`, years:n=>`${n} anni`,
       real:`Mostra in euro di oggi (con <a class="term" href="#g-infl">inflazione</a> al 2% l'anno)`,
       scen:[[`Tutto in banca`,`Non fare nulla`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Storico normale`],[`ETF al 9%`,`Decenni buoni`]],
@@ -867,22 +753,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       e1:`<b>Una cesta de empresas</b>Un <a class="term" href="#g-etf">ETF</a> contiene cientos o miles de empresas a la vez, como Apple, Nestlé o Toyota. Con una sola compra tienes un trocito de todas.`,
       e2:`<b>Compras un poco cada mes</b>Programas una aportación automática mensual, como una suscripción. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
       e3:`<b>Tu trocito crece con las empresas</b>A largo plazo las empresas ganan más y valen más, y tu trocito con ellas. No todos los años, y a veces baja mucho. En 15–20 años, históricamente ha crecido.`,
-      hIn:`Tus números`, lIncome:`Sueldo neto al mes`, lSpend:`Lo que gastas al mes`, lCash:`Dinero en el banco hoy`,
-      example:`Son números de ejemplo. Mueve los deslizadores o escribe los tuyos, y toda la página se actualiza.`,
-      etfSlider:`Cuánto invertir en ETF cada mes`,
-      hPlan:`Tu plan`,
-      s1:`1 · Se queda en el banco`,
-      s1why:`6 meses de gastos. <b>Por qué:</b> si pierdes el trabajo o se rompe algo, usas este dinero y nunca tienes que vender tus ETF en un mal momento.`,
-      s2:`2 · Invierte ya`,
-      lumpYes:`Lo que tienes por encima del fondo de emergencia. Ponlo en el ETF de <a href="#start">Cómo empezar</a>, todo de golpe o repartido en 6–12 meses.`,
-      lumpNo:`Todavía nada. Primero completa el fondo de emergencia.`,
-      s3:`3 · Cada mes`, s3etf:`en ETF`, s3save:`ahorrado aparte`,
-      s3why:`<b>Por qué automático:</b> el dinero sale el día después de cobrar, así no tienes que decidir ni acordarte de nada. Lo que ahorras aparte es para gastos grandes, como el coche, las vacaciones o los regalos.`,
-      minus:`Invertir 50 € menos`, plus:`Invertir 50 € más`, reset:`Volver al importe recomendado`,
-      etfAll:`Estás invirtiendo todo lo que te sobra, así que no queda nada aparte para gastos grandes.`,
-      etfOwn:s=>`Importe elegido por ti. Recomendado: ${s}.`,
-      gap:(g,mm)=>`Te faltan ${g} para completar el fondo de emergencia. ${mm===1?'El primer mes':'Durante los primeros '+mm+' meses'} deja todo el ahorro en el banco y después empieza con los ETF.`,
-      noSurplus:`Ahora mismo gastas lo mismo o más de lo que ganas, así que no queda nada para invertir. El primer paso es liberar algo de dinero cada mes, aunque sea poco.`,
+      change:`Cambiar mis respuestas`, ansEx:(sp,c,m)=>`Ejemplo: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`, ansYou:(sp,c,m)=>`Tus respuestas: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`,
       hFut:`Lo que podrías tener`, lYears:`Dentro de cuántos años`, years:n=>`${n} años`,
       real:`Mostrar en euros de hoy (con un 2% de <a class="term" href="#g-infl">inflación</a> al año)`,
       scen:[[`Todo en el banco`,`No hacer nada`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Histórico normal`],[`ETF al 9%`,`Décadas buenas`]],
@@ -1013,7 +884,6 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('l-en').setAttribute('aria-pressed',lang==='en');
     $('l-it').setAttribute('aria-pressed',lang==='it');
     $('l-es').setAttribute('aria-pressed',lang==='es');
-    ['income','spend','cash'].forEach(id=>{$(id).value=grp(num(id));$(id+'-r').value=sliderPos(id,num(id))});
     render();
     wApply();
   }
@@ -1023,8 +893,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     lang=l;applyLang();
   }
 
-  let etfOverride=null, lastEtf=0;
-  function num(id){const v=parseInt(String($(id).value).replace(/[^\d]/g,''),10);return isFinite(v)&&v>0?v:0}
+  let answered=false;
 
   // Month-by-month simulation: emergency fund first, then the monthly split between ETFs and savings.
   function simulate(p,rate,years){
@@ -1051,34 +920,11 @@ details > div{padding:0 0 14px;color:var(--muted)}
   }
 
   function render(){
-    const p={income:num('income'),spend:num('spend'),cash:num('cash')};
-    p.surplus=p.income-p.spend;
-    const pos=Math.max(0,p.surplus), suggested=Math.round(pos*0.75/10)*10;
-    const etfM=etfOverride==null?suggested:Math.min(Math.max(etfOverride,0),pos);
-    p.split=pos>0?etfM/pos:0;
-    lastEtf=etfM;
-    const er=$('etf-r'); er.max=Math.max(10,pos); er.value=etfM; er.disabled=pos<=0;
-    $('etf-minus').disabled=pos<=0||etfM<=0;
-    $('etf-plus').disabled=pos<=0||etfM>=pos;
-    $('etf-reset').hidden=etfOverride==null||etfM===suggested;
+    // Inputs come from the 3 questions at the top: after the cushion, everything left each month goes into ETFs.
+    const p={spend:wAns.spend,cash:wAns.cash,surplus:wAns.monthly,split:1};
     const years=+$('years').value, real=$('real').checked;
     $('years-out').textContent=L.years(years);
-
-    // plan
-    const E=p.spend*MONTHS, lump=Math.max(0,p.cash-E), gap=Math.max(0,E-p.cash);
-    $('o-emerg').textContent=fmt(E);
-    $('o-lump').textContent=fmt(lump);
-    $('o-lump-txt').innerHTML=lump>0?L.lumpYes:L.lumpNo;
-    $('o-etf').textContent=fmt(etfM);
-    $('o-save').textContent=fmt(pos-etfM);
-    const et=$('o-etf-txt');
-    if(pos>0&&etfM>=pos){et.hidden=false;et.textContent=L.etfAll}
-    else if(etfOverride!=null&&etfM!==suggested){et.hidden=false;et.textContent=L.etfOwn(fmt(suggested))}
-    else et.hidden=true;
-    const note=$('notice');
-    if(p.surplus<=0){note.hidden=false;note.textContent=L.noSurplus}
-    else if(gap>0){note.hidden=false;note.textContent=L.gap(fmt(gap),Math.ceil(gap/p.surplus))}
-    else note.hidden=true;
+    $('answers').textContent=(answered?L.ansYou:L.ansEx)(fmt(p.spend),fmt(p.cash),fmt(p.surplus));
 
     // results
     const defl=y=>real?Math.pow(1+INFL,y):1;
@@ -1192,12 +1038,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
   $('again').addEventListener('click',()=>{wStep=0;$('result').hidden=true;$('wizard').hidden=false;showStep(true)});
   $('print').addEventListener('click',()=>window.print());
   document.querySelectorAll('.w-yrs button').forEach(b=>b.addEventListener('click',()=>{wYears=+b.dataset.y;renderGrow();$('years').value=wYears;render()}));
-  // Carry the answers into the full calculator: salary = spending + what is left, everything left goes to ETFs.
-  function wToPlan(){
-    const set=(id,v)=>{$(id).value=grp(v);$(id+'-r').value=sliderPos(id,v)};
-    set('income',wAns.spend+wAns.monthly); set('spend',wAns.spend); set('cash',wAns.cash);
-    etfOverride=wAns.monthly; $('years').value=wYears; render();
-  }
+  // The details below (chart, crash, 3% rule) use the same answers and years.
+  function wToPlan(){answered=true;$('years').value=wYears;render()}
+  $('change').addEventListener('click',()=>{wStep=0;$('result').hidden=true;$('wizard').hidden=false;showStep(true)});
   function wApply(){
     W=L.w;
     document.querySelectorAll('[data-w]').forEach(el=>{el.innerHTML=W[el.dataset.w]});
@@ -1264,38 +1107,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   }
   function niceStep(raw){const p=Math.pow(10,Math.floor(Math.log10(raw)));const n=raw/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
 
-  // Savings slider uses a curved scale (cube) from 0 to 10 million, so the low range
-  // (a few thousand euros) stays precise. Other sliders are linear.
-  const CASH_MAX=10000000;
-  function cashFromPos(p){
-    const v=CASH_MAX*Math.pow(p/1000,3);
-    const step=v<10000?100:v<100000?1000:v<1000000?10000:100000;
-    return Math.round(v/step)*step;
-  }
-  function posFromCash(v){return Math.round(1000*Math.cbrt(Math.min(v,CASH_MAX)/CASH_MAX))}
-  function sliderVal(id,pos){return id==='cash'?cashFromPos(pos):pos}
-  function sliderPos(id,v){return id==='cash'?posFromCash(v):v}
-
-  // money inputs: digits only, shown with thousands separators
-  ['income','spend','cash'].forEach(id=>{
-    const el=$(id);
-    el.addEventListener('input',()=>{
-      const before=el.value.length, pos=el.selectionStart;
-      const n=num(id); el.value=n?grp(n):'';
-      const diff=el.value.length-before;
-      try{el.setSelectionRange(Math.max(0,pos+diff),Math.max(0,pos+diff))}catch(e){}
-      $(id+'-r').value=sliderPos(id,n);
-      render();
-    });
-    el.addEventListener('blur',()=>{el.value=grp(num(id))});
-    // slider: moves the number; typed values above the slider's max stay as typed
-    $(id+'-r').addEventListener('input',e=>{el.value=grp(sliderVal(id,+e.target.value));render()});
-  });
-  $('etf-r').addEventListener('input',e=>{etfOverride=+e.target.value;render()});
   ['years','real'].forEach(id=>$(id).addEventListener('input',render));
-  $('etf-plus').addEventListener('click',()=>{etfOverride=Math.floor(lastEtf/50)*50+50;render()});
-  $('etf-minus').addEventListener('click',()=>{etfOverride=Math.ceil(lastEtf/50)*50-50;render()});
-  $('etf-reset').addEventListener('click',()=>{etfOverride=null;render()});
   $('l-en').addEventListener('click',()=>setLang('en'));
   $('l-it').addEventListener('click',()=>setLang('it'));
   $('l-es').addEventListener('click',()=>setLang('es'));
@@ -1334,10 +1146,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const m=seen.find(x=>$(x[0])===e.target);if(m)track(m[1]);io.unobserve(e.target)}}),{threshold:.3});
       seen.forEach(([id])=>{const el=$(id);if(el)io.observe(el)});
     }
-    ['income','spend','cash'].forEach(id=>{$(id).addEventListener('input',()=>track('active'));$(id+'-r').addEventListener('input',()=>track('active'))});
-    $('etf-r').addEventListener('input',()=>track('explore'));
     ['years','real'].forEach(id=>$(id).addEventListener('input',()=>track('explore')));
-    ['etf-plus','etf-minus','etf-reset'].forEach(id=>$(id).addEventListener('click',()=>track('explore')));
     document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)track('faq')}));
   }
 
