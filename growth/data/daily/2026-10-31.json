@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T07:50:03+00:00",
+ "generated_at": "2026-10-31T10:29:12+00:00",
  "range": {
   "from": "2026-09-26",
   "to": "2026-10-31"
@@ -218,7 +218,8 @@
     "start_seen": 8,
     "faq": 3,
     "bottom": 7,
-    "feedback": 2
+    "feedback": 2,
+    "share": 0
    },
    {
     "day": "2026-10-30",
@@ -232,6 +233,7 @@
     "faq": 1,
     "bottom": 3,
     "feedback": 0,
+    "share": 0,
     "sc_bank_active": 2,
     "sc_bank_view": 2,
     "sc_buy_active": 2,
@@ -260,7 +262,8 @@
     "start_seen": 4,
     "faq": 0,
     "bottom": 0,
-    "feedback": 0
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -321,6 +324,13 @@
     "n": 3
    },
    {
+    "step": "sc_inherit_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 3
+   },
+   {
     "step": "view",
     "lang": "it",
     "device": "desktop",
@@ -366,6 +376,34 @@
     "step": "plan",
     "lang": "it",
     "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_buy_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_buy_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_inherit_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_own_active",
+    "lang": "it",
+    "device": "desktop",
     "source": "internal",
     "n": 2
    },
@@ -450,6 +488,132 @@
     "step": "plan",
     "lang": "it",
     "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_bank_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_bank_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_bank_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_bank_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_first_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_first_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_fund_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_fund_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_inherit_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_inherit_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_learn_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_learn_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_let_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_let_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_own_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_own_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "sc_own_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_own_view",
+    "lang": "it",
+    "device": "mobile",
     "source": "internal",
     "n": 1
    },
