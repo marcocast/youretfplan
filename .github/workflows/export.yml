@@ -5,6 +5,7 @@ name: Daily data export
 on:
   schedule:
     - cron: "30 4 * * *" # 04:30 UTC
+    - cron: "17 6 * * *" # fallback: GitHub often delays or skips the first schedule
   workflow_dispatch: {}
 
 permissions:

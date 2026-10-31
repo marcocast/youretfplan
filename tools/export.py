@@ -127,7 +127,7 @@ def funnel(start: str, recent_start: str) -> dict:
         by_day.setdefault(r["day"], {s: 0 for s in FUNNEL})[r["step"]] = r["n"]
     breakdown = d1(
         "SELECT step, lang, device, source, COUNT(*) AS n FROM events "
-        "WHERE day >= ? AND step IN ('view', 'hook', 'plan', 'calc_seen', 'active') "
+        "WHERE day >= ? AND (step IN ('view', 'hook', 'plan', 'calc_seen', 'active') OR step LIKE 'sc\\_%' ESCAPE '\\') "
         "GROUP BY step, lang, device, source ORDER BY n DESC",
         [recent_start],
     )

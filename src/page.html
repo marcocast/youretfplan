@@ -972,7 +972,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('case-inherit').href=(FIXED?'':'https://youretfplan.com')+({en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'})[lang];
     $('case-own').href=(FIXED?'':'https://youretfplan.com')+({en:'/rent-or-sell-house-etf/',it:'/it/affittare-o-vendere-casa-etf/',es:'/es/alquilar-o-vender-casa-etf/'})[lang];
     $('case-let').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-to-let-vs-etf/',it:'/it/comprare-casa-da-affittare-o-etf/',es:'/es/comprar-para-alquilar-o-etf/'})[lang];
-    document.querySelectorAll('.w-quick a').forEach(a=>{a.href=$('case-'+a.dataset.case).href});
+    document.querySelectorAll('.w-quick a').forEach(a=>{a.setAttribute('href',$('case-'+a.dataset.case).getAttribute('href'))});
     const GUIDES={learn:{en:'/what-is-an-etf/',it:'/it/cosa-sono-gli-etf/',es:'/es/que-es-un-etf/'},first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},fund:{en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'}};
     ['learn','first','fund'].forEach(k=>{$('case-'+k).href=(FIXED?'':'https://youretfplan.com')+GUIDES[k][lang]});
     document.querySelectorAll('[data-guide]').forEach(a=>{a.href=(FIXED?'':'https://youretfplan.com')+GUIDES[a.dataset.guide][lang]});
