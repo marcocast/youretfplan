@@ -1,0 +1,507 @@
+{
+ "generated_at": "2026-10-31T07:50:03+00:00",
+ "range": {
+  "from": "2026-09-26",
+  "to": "2026-10-31"
+ },
+ "errors": [],
+ "web_analytics": {
+  "by_day": [
+   {
+    "date": "2026-10-29",
+    "pageviews": 70,
+    "visits": 30
+   },
+   {
+    "date": "2026-10-30",
+    "pageviews": 160,
+    "visits": 30
+   }
+  ],
+  "last_7_days": {
+   "pages": [
+    {
+     "requestPath": "/it/",
+     "pageviews": 139,
+     "visits": 6
+    },
+    {
+     "requestPath": "/",
+     "pageviews": 113,
+     "visits": 87
+    },
+    {
+     "requestPath": "/es/",
+     "pageviews": 12,
+     "visits": 1
+    },
+    {
+     "requestPath": "/it/affittare-o-vendere-casa-etf/",
+     "pageviews": 7,
+     "visits": 1
+    },
+    {
+     "requestPath": "/it/eredita-investire-etf/",
+     "pageviews": 5,
+     "visits": 0
+    },
+    {
+     "requestPath": "/v2/",
+     "pageviews": 5,
+     "visits": 5
+    },
+    {
+     "requestPath": "/it/banca-vs-etf/",
+     "pageviews": 4,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/etf-o-fondo-della-banca/",
+     "pageviews": 2,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/comprare-casa-o-affitto-etf/",
+     "pageviews": 2,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/come-comprare-etf/",
+     "pageviews": 2,
+     "visits": 0
+    },
+    {
+     "requestPath": "/v3/",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
+     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/cosa-sono-gli-etf/",
+     "pageviews": 1,
+     "visits": 0
+    }
+   ],
+   "referrers": [
+    {
+     "refererHost": "youretfplan.com",
+     "pageviews": 112,
+     "visits": 0
+    },
+    {
+     "refererHost": "",
+     "pageviews": 98,
+     "visits": 98
+    },
+    {
+     "refererHost": "www.youretfplan.com",
+     "pageviews": 82,
+     "visits": 1
+    },
+    {
+     "refererHost": "kino.watch",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "refererHost": "www.investing.com",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "refererHost": "www.google.com",
+     "pageviews": 1,
+     "visits": 1
+    }
+   ],
+   "countries": [
+    {
+     "countryName": "ES",
+     "pageviews": 187,
+     "visits": 31
+    },
+    {
+     "countryName": "FR",
+     "pageviews": 39,
+     "visits": 10
+    },
+    {
+     "countryName": "US",
+     "pageviews": 30,
+     "visits": 30
+    },
+    {
+     "countryName": "IT",
+     "pageviews": 10,
+     "visits": 4
+    },
+    {
+     "countryName": "PL",
+     "pageviews": 10,
+     "visits": 10
+    },
+    {
+     "countryName": "DE",
+     "pageviews": 5,
+     "visits": 5
+    },
+    {
+     "countryName": "CA",
+     "pageviews": 5,
+     "visits": 5
+    },
+    {
+     "countryName": "AE",
+     "pageviews": 3,
+     "visits": 3
+    },
+    {
+     "countryName": "NL",
+     "pageviews": 2,
+     "visits": 0
+    },
+    {
+     "countryName": "GB",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "SG",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "CH",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "KR",
+     "pageviews": 1,
+     "visits": 1
+    }
+   ],
+   "devices": [
+    {
+     "deviceType": "desktop",
+     "pageviews": 170,
+     "visits": 60
+    },
+    {
+     "deviceType": "mobile",
+     "pageviews": 63,
+     "visits": 35
+    },
+    {
+     "deviceType": "tablet",
+     "pageviews": 62,
+     "visits": 7
+    }
+   ]
+  }
+ },
+ "funnel": {
+  "note": "Counts are unique visitors per day per step. Monthly figures sum daily uniques, so a person active on 3 days counts 3 times.",
+  "by_day": [
+   {
+    "day": "2026-10-29",
+    "view": 16,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 15,
+    "active": 3,
+    "explore": 4,
+    "start_seen": 8,
+    "faq": 3,
+    "bottom": 7,
+    "feedback": 2
+   },
+   {
+    "day": "2026-10-30",
+    "view": 19,
+    "hook": 7,
+    "plan": 6,
+    "calc_seen": 10,
+    "active": 8,
+    "explore": 4,
+    "start_seen": 14,
+    "faq": 1,
+    "bottom": 3,
+    "feedback": 0,
+    "sc_bank_active": 2,
+    "sc_bank_view": 2,
+    "sc_buy_active": 2,
+    "sc_buy_view": 2,
+    "sc_first_active": 1,
+    "sc_first_view": 1,
+    "sc_fund_active": 1,
+    "sc_fund_view": 1,
+    "sc_inherit_active": 3,
+    "sc_inherit_view": 4,
+    "sc_learn_active": 1,
+    "sc_learn_view": 1,
+    "sc_let_active": 1,
+    "sc_let_view": 1,
+    "sc_own_active": 3,
+    "sc_own_view": 3
+   },
+   {
+    "day": "2026-10-31",
+    "view": 5,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 4,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0
+   }
+  ],
+  "last_7_days_breakdown": [
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "desktop",
+    "source": "direct",
+    "n": 13
+   },
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 11
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 8
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "desktop",
+    "source": "direct",
+    "n": 6
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 5
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 5
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 4
+   },
+   {
+    "step": "hook",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 3
+   },
+   {
+    "step": "active",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "hook",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "plan",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "plan",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "active",
+    "lang": "en",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "hook",
+    "lang": "en",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "hook",
+    "lang": "es",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "plan",
+    "lang": "es",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "plan",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "desktop",
+    "source": "kino.watch",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "es",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "es",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "investing.com",
+    "n": 1
+   }
+  ],
+  "monthly_active": [
+   {
+    "month": "2026-10",
+    "active_user_days": 11
+   }
+  ]
+ },
+ "new_feedback": 0
+}
