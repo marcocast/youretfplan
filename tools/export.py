@@ -27,7 +27,7 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "growth" / "data"
 API = "https://api.cloudflare.com/client/v4"
-FUNNEL = ["view", "hook", "plan", "calc_seen", "active", "explore", "start_seen", "faq", "bottom", "feedback"]
+FUNNEL = ["view", "hook", "plan", "calc_seen", "active", "explore", "start_seen", "faq", "bottom", "feedback", "share"]
 
 TOKEN = os.environ.get("CF_API_TOKEN", "")
 ACCOUNT = os.environ.get("CF_ACCOUNT_ID", "")

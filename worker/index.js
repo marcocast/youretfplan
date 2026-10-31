@@ -6,7 +6,7 @@
 // (random salt of the day + IP + user agent). The salt is replaced every day and old
 // salts are deleted, so visitors cannot be linked across days or traced back.
 
-const STEPS = new Set(['view', 'hook', 'plan', 'calc_seen', 'active', 'explore', 'start_seen', 'faq', 'bottom', 'feedback']);
+const STEPS = new Set(['view', 'hook', 'plan', 'calc_seen', 'active', 'explore', 'start_seen', 'faq', 'bottom', 'feedback', 'share']);
 // Scenario pages (bank vs ETF, ...): sc_<scenario>_view and sc_<scenario>_active.
 const SCENARIO_STEP = /^sc_(bank|buy|inherit|own|let|first|fund|learn)_(view|active)$/;
 const isStep = s => STEPS.has(s) || SCENARIO_STEP.test(s);
