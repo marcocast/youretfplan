@@ -29,7 +29,7 @@ MAIN = {
         "path": "/",
         "file": PUBLIC / "index.html",
         "title": "ETF Investment Calculator: Monthly Plan vs Bank | Your ETF Plan",
-        "description": "Free ETF investment calculator: see how much to keep for emergencies, how much to invest each month and what you could have in 5 to 25 years compared with a bank account.",
+        "description": "ETF investment calculator: see how much to keep for emergencies, how much to invest each month and what you could have in 5 to 25 years compared with a bank account.",
         "og_locale": "en_GB",
         "og_image": "/og-en.png",
         "timezone": "Europe/London",
@@ -39,7 +39,7 @@ MAIN = {
         "path": "/it/",
         "file": PUBLIC / "it" / "index.html",
         "title": "Simulatore PAC in ETF: quanto investire ogni mese | Your ETF Plan",
-        "description": "Simulatore gratuito di PAC in ETF: scopri quanto tenere per le emergenze, quanto investire ogni mese e quanto potresti avere tra 5 e 25 anni rispetto al conto in banca.",
+        "description": "Simulatore di PAC in ETF: scopri quanto tenere per le emergenze, quanto investire ogni mese e quanto potresti avere tra 5 e 25 anni rispetto al conto in banca.",
         "og_locale": "it_IT",
         "og_image": "/og-it.png",
         "timezone": "Europe/Rome",
@@ -49,7 +49,7 @@ MAIN = {
         "path": "/es/",
         "file": PUBLIC / "es" / "index.html",
         "title": "Calculadora de inversión en ETF: cuánto invertir cada mes | Your ETF Plan",
-        "description": "Calculadora gratuita para invertir en ETF: descubre cuánto guardar para emergencias, cuánto invertir cada mes y cuánto podrías tener en 5 a 25 años frente a dejarlo en el banco.",
+        "description": "Calculadora para invertir en ETF: descubre cuánto guardar para emergencias, cuánto invertir cada mes y cuánto podrías tener en 5 a 25 años frente a dejarlo en el banco.",
         "og_locale": "es_ES",
         "og_image": "/og-es.png",
         "timezone": "Europe/Madrid",
@@ -90,9 +90,9 @@ GROUPS = {
             "es": "¿Dinero en el banco o invertir en ETF? Calculadora depósito vs ETF | Your ETF Plan",
         },
         {
-            "en": "Free calculator: see what your savings, and what you save each month, become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
-            "it": "Calcolatore gratuito: guarda cosa diventano i tuoi risparmi, e quello che metti da parte ogni mese, sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi. Rischi, costi, tasse e quando tenerli in banca.",
-            "es": "Calculadora gratuita: mira en qué se convierten tus ahorros, y lo que apartas cada mes, en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy. Riesgos, costes, impuestos y cuándo dejarlos en el banco.",
+            "en": "Calculator: see what your savings, and what you save each month, become in a current account, a savings deposit or investing in ETFs, in today's money after inflation. Risks, costs and when to keep cash.",
+            "it": "Calcolatore: guarda cosa diventano i tuoi risparmi, e quello che metti da parte ogni mese, sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi. Rischi, costi, tasse e quando tenerli in banca.",
+            "es": "Calculadora: mira en qué se convierten tus ahorros, y lo que apartas cada mes, en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy. Riesgos, costes, impuestos y cuándo dejarlos en el banco.",
         },
     ),
     "buy": scenario(
@@ -104,9 +104,9 @@ GROUPS = {
             "es": "¿Comprar casa o alquilar e invertir en ETF? Calculadora | Your ETF Plan",
         },
         {
-            "en": "Free calculator: buying a home with a mortgage compared with renting and investing the difference in ETFs. Price-to-rent ratio, break-even year and what each one owns, in today's money.",
-            "it": "Calcolatore gratuito: comprare casa con il mutuo contro stare in affitto e investire la differenza in ETF. Rapporto prezzo/affitto, anno di pareggio e patrimonio finale in euro di oggi.",
-            "es": "Calculadora gratuita: comprar casa con hipoteca frente a alquilar e invertir la diferencia en ETF. Relación precio/alquiler, año de equilibrio y patrimonio final en euros de hoy.",
+            "en": "Calculator: buying a home with a mortgage compared with renting and investing the difference in ETFs. Price-to-rent ratio, break-even year and what each one owns, in today's money.",
+            "it": "Calcolatore: comprare casa con il mutuo contro stare in affitto e investire la differenza in ETF. Rapporto prezzo/affitto, anno di pareggio e patrimonio finale in euro di oggi.",
+            "es": "Calculadora: comprar casa con hipoteca frente a alquilar e invertir la diferencia en ETF. Relación precio/alquiler, año de equilibrio y patrimonio final en euros de hoy.",
         },
     ),
     "inherit": scenario(
@@ -118,9 +118,9 @@ GROUPS = {
             "es": "He recibido una herencia: ¿guardarla, alquilarla o invertir en ETF? | Your ETF Plan",
         },
         {
-            "en": "Free calculator for an inheritance: money left in the bank or invested in ETFs, or a house kept empty, rented out or sold and invested in ETFs. In today's money, with the steps to take first.",
-            "it": "Calcolatore gratuito per un'eredità: soldi lasciati in banca o investiti in ETF, oppure una casa tenuta vuota, affittata o venduta per investire in ETF. In euro di oggi, con i passi da fare prima e le tasse di successione.",
-            "es": "Calculadora gratuita para una herencia: dinero en el banco o invertido en ETF, o una casa vacía, alquilada o vendida para invertir en ETF. En euros de hoy, con los pasos previos y los impuestos.",
+            "en": "Calculator for an inheritance: money left in the bank or invested in ETFs, or a house kept empty, rented out or sold and invested in ETFs. In today's money, with the steps to take first.",
+            "it": "Calcolatore per un'eredità: soldi lasciati in banca o investiti in ETF, oppure una casa tenuta vuota, affittata o venduta per investire in ETF. In euro di oggi, con i passi da fare prima e le tasse di successione.",
+            "es": "Calculadora para una herencia: dinero en el banco o invertido en ETF, o una casa vacía, alquilada o vendida para invertir en ETF. En euros de hoy, con los pasos previos y los impuestos.",
         },
     ),
     "own": scenario(
@@ -132,9 +132,9 @@ GROUPS = {
             "es": "Tengo una casa: ¿la alquilo o la vendo e invierto en ETF? | Your ETF Plan",
         },
         {
-            "en": "Free calculator: keep your house empty, rent it out, or sell it and invest in ETFs. Net rental yield, tax on the sale and monthly income, in today's money.",
-            "it": "Calcolatore gratuito: tenere la casa vuota, affittarla o venderla e investire in ETF. Rendimento netto dell'affitto, tasse sulla vendita ed entrata mensile, in euro di oggi.",
-            "es": "Calculadora gratuita: dejar la casa vacía, alquilarla o venderla e invertir en ETF. Rentabilidad neta del alquiler, impuestos de la venta e ingreso mensual, en euros de hoy.",
+            "en": "Calculator: keep your house empty, rent it out, or sell it and invest in ETFs. Net rental yield, tax on the sale and monthly income, in today's money.",
+            "it": "Calcolatore: tenere la casa vuota, affittarla o venderla e investire in ETF. Rendimento netto dell'affitto, tasse sulla vendita ed entrata mensile, in euro di oggi.",
+            "es": "Calculadora: dejar la casa vacía, alquilarla o venderla e invertir en ETF. Rentabilidad neta del alquiler, impuestos de la venta e ingreso mensual, en euros de hoy.",
         },
     ),
     "let": scenario(
@@ -146,9 +146,9 @@ GROUPS = {
             "es": "¿Comprar una casa para alquilar o invertir en ETF? Calculadora | Your ETF Plan",
         },
         {
-            "en": "Free calculator: buy a flat with a mortgage and rent it out, or invest the same money in ETFs. Rental yield, monthly cash flow and who ends up with more, in today's money.",
-            "it": "Calcolatore gratuito: comprare un appartamento con il mutuo e affittarlo, o investire gli stessi soldi in ETF. Rendimento, flusso mensile e chi si ritrova con di più, in euro di oggi.",
-            "es": "Calculadora gratuita: comprar un piso con hipoteca y alquilarlo, o invertir el mismo dinero en ETF. Rentabilidad, flujo mensual y quién acaba con más, en euros de hoy.",
+            "en": "Calculator: buy a flat with a mortgage and rent it out, or invest the same money in ETFs. Rental yield, monthly cash flow and who ends up with more, in today's money.",
+            "it": "Calcolatore: comprare un appartamento con il mutuo e affittarlo, o investire gli stessi soldi in ETF. Rendimento, flusso mensile e chi si ritrova con di più, in euro di oggi.",
+            "es": "Calculadora: comprar un piso con hipoteca y alquilarlo, o invertir el mismo dinero en ETF. Rentabilidad, flujo mensual y quién acaba con más, en euros de hoy.",
         },
     ),
     "first": scenario(
@@ -174,9 +174,9 @@ GROUPS = {
             "es": "¿ETF o el fondo de tu banco? Cuánto suman de verdad los costes anuales | Your ETF Plan",
         },
         {
-            "en": "Free calculator: compare a bank fund at about 1.5% a year with an ETF at 0.2%, with your amounts. The 5 questions to ask your bank and how to read the KID.",
-            "it": "Calcolatore gratuito: confronta un fondo della banca a circa l'1,5% l'anno con un ETF allo 0,2%, con le tue cifre. Le 5 domande da fare in banca e come leggere il KID.",
-            "es": "Calculadora gratuita: compara un fondo del banco a cerca del 1,5% anual con un ETF al 0,2%, con tus cantidades. Las 5 preguntas para tu banco y cómo leer el KID.",
+            "en": "Calculator: compare a bank fund at about 1.5% a year with an ETF at 0.2%, with your amounts. The 5 questions to ask your bank and how to read the KID.",
+            "it": "Calcolatore: confronta un fondo della banca a circa l'1,5% l'anno con un ETF allo 0,2%, con le tue cifre. Le 5 domande da fare in banca e come leggere il KID.",
+            "es": "Calculadora: compara un fondo del banco a cerca del 1,5% anual con un ETF al 0,2%, con tus cantidades. Las 5 preguntas para tu banco y cómo leer el KID.",
         },
     ),
     "learn": scenario(
