@@ -29,6 +29,7 @@
    - Same pattern later for Italy (impatriati) and Portugal (IFICI).
 6. Embeddable widget for blogs (earns links).
 7. Later (towards end of 2027): pages for specific monthly amounts ("PAC 100 € al mese", "PAC 300 €"…).
+8. Parked (Marco, 2026-11-01, "magari dopo"): an Italian section for retirees, `/it/pensionati/`, inside this site (not a new domain: a new domain starts from zero on Google). A hub page written big and simple, plus a few pages answering real searches: how much can I take each month from 200k without touching it; the tenant doesn't pay, what now; selling a flat with the tenant inside; BTP or ETF for a retiree; leaving the money to your children; the bank offers me a fund. Write also for the son or daughter (40–50) who searches for their parent and shares it on WhatsApp. Start only when sc_retire shows real traction, and only with Marco's OK.
 
 ## Later: paid services (2028 or later, after the Beckham period — Marco's ideas)
 - Premium "connected" version with real data for selected ETFs (prices, history, costs), instead of fixed average returns. Check market-data licensing costs first (index and exchange data is often paid).
@@ -41,4 +42,4 @@
 - 2026-10-29: anonymous funnel counter and feedback (after results + bottom) live via Worker + D1; privacy line added.
 
 ## Scenario pages (agreed with Marco 2026-10-30)
-Order: 1) money in the bank vs investing in ETFs (live), 2) buy your home vs rent and invest in ETFs (live), 3) inheritance (money or a house, live), 4) I own a house: rent it or sell and invest in ETFs (live), 5) buy a home to rent out vs invest in ETFs (Marco's idea, live). Beginner guides live: what is an ETF, how to buy your first ETF, ETF or the bank's fund. Next ideas: ETF glossary page, all-in-one vs world ETF, how a crash feels (with real data). Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".
+Order: 1) money in the bank vs investing in ETFs (live), 2) buy your home vs rent and invest in ETFs (live), 3) inheritance (money or a house, live), 4) I own a house: rent it or sell and invest in ETFs (live), 5) buy a home to rent out vs invest in ETFs (Marco's idea, live), 6) retired with a rental flat: keep renting or sell and live off a calm mix of ETFs (live 2026-11-01). Beginner guides live: what is an ETF, how to buy your first ETF, ETF or the bank's fund. Next ideas: ETF glossary page, all-in-one vs world ETF, how a crash feels (with real data). Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".
