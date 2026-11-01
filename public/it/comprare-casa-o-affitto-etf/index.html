@@ -322,9 +322,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="hgrowNote">2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="scost" data-t="lScost">Costi di vendita della casa</label><span class="ctrl-val num" id="scost-out">5%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
-          <p class="note" data-t="scostNote">Agenzia e altro quando vendi, in % del prezzo.</p>
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Costi di vendita della casa</label><span class="ctrl-val num" id="scost-out">4%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
+          <p class="note" data-t="scostNote">Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.</p>
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="htax" data-t="lHtax">Tasse sul guadagno della casa</label><span class="ctrl-val num" id="htax-out">0%</span></div>
@@ -343,13 +343,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
     <p class="res-head" id="res-head">Dopo 20 anni, se ognuno vende tutto, quanto gli resta in tasca, in euro di oggi:</p>
     <div class="bars" aria-live="polite">
-      <div class="bar"><span class="lab" data-t="bBuy">Compra casa <small>vende la casa: tolti mutuo, costi di vendita e tasse</small></span><span class="val num" id="v-buy">200.491&nbsp;€</span><div class="track"><div class="fill" id="f-buy" style="background: var(--coral); width: 95.2%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bRent">Affitta e investe in ETF <small>vende gli ETF: tolte le tasse sul guadagno</small></span><span class="val num" id="v-rent">187.471&nbsp;€</span><div class="track"><div class="fill" id="f-rent" style="background: var(--etf); width: 89.1%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bBuy">Compra casa <small>vende la casa: tolti mutuo, costi di vendita e tasse</small></span><span class="val num" id="v-buy">202.991&nbsp;€</span><div class="track"><div class="fill" id="f-buy" style="background: var(--coral); width: 95.2%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bRent">Affitta e investe in ETF <small>vende gli ETF: tolte le tasse sul guadagno</small></span><span class="val num" id="v-rent">187.471&nbsp;€</span><div class="track"><div class="fill" id="f-rent" style="background: var(--etf); width: 88%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict"><b class="gain">Comprare</b> risulta avanti di circa <b>13.020&nbsp;€</b>. Chi compra recupera dopo circa <b>10 anni</b>.</p>
+    <p class="verdict" id="verdict"><b class="gain">Comprare</b> risulta avanti di circa <b>15.520&nbsp;€</b>. Chi compra recupera dopo circa <b>9 anni</b>.</p>
 
     <div class="chart-box">
-      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Patrimonio negli anni di chi compra e di chi affitta e investe in ETF" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€67k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€134k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€200k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 176.2 L76.4 167.2 L106.8 158.3 L137.2 149.6 L167.6 140.9 L198.0 132.3 L228.4 123.7 L258.8 115.3 L289.2 106.9 L319.6 98.7 L350.0 90.5 L380.4 82.3 L410.8 74.3 L441.2 66.3 L471.6 58.4 L502.0 50.5 L532.4 42.7 L562.8 35.0 L593.2 27.3 L623.6 19.6 L654.0 12.0" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 148.5 L76.4 142.8 L106.8 137.1 L137.2 131.4 L167.6 125.7 L198.0 120.0 L228.4 114.2 L258.8 108.4 L289.2 102.6 L319.6 96.7 L350.0 90.8 L380.4 84.7 L410.8 78.6 L441.2 72.4 L471.6 66.1 L502.0 59.6 L532.4 53.1 L562.8 46.3 L593.2 39.4 L623.6 32.4 L654.0 25.1" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="12" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="25.117726717257817" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
+      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Patrimonio negli anni di chi compra e di chi affitta e investe in ETF" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€68k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€135k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€203k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 174.2 L76.4 165.3 L106.8 156.5 L137.2 147.9 L167.6 139.3 L198.0 130.8 L228.4 122.4 L258.8 114.0 L289.2 105.8 L319.6 97.6 L350.0 89.5 L380.4 81.5 L410.8 73.5 L441.2 65.6 L471.6 57.8 L502.0 50.0 L532.4 42.3 L562.8 34.7 L593.2 27.1 L623.6 19.5 L654.0 12.0" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 149.3 L76.4 143.7 L106.8 138.0 L137.2 132.4 L167.6 126.8 L198.0 121.1 L228.4 115.4 L258.8 109.7 L289.2 104.0 L319.6 98.1 L350.0 92.3 L380.4 86.3 L410.8 80.3 L441.2 74.1 L471.6 67.9 L502.0 61.5 L532.4 55.0 L562.8 48.4 L593.2 41.6 L623.6 34.6 L654.0 27.4" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="12" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="27.44397029678107" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
       <div class="legend"><span><i style="background:var(--coral)"></i><span data-t="lgBuy">Compra</span></span><span><i style="background:var(--etf)"></i><span data-t="lgRent">Affitta e investe in ETF</span></span></div>
     </div>
 
@@ -409,6 +409,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const HOME={en:'/',it:'/it/',es:'/es/'};
   const PCOST={en:7,it:6,es:11}; // default purchase costs (% of price) per language
   // Selling at the end: tax on the ETF gains, Italy's 0.2% yearly stamp duty on ETFs. The home is your main home, so its gain tax defaults to 0.
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
   const ETAXD={en:20,it:26,es:21}, BOLLO={en:0,it:0.002,es:0};
 
   const T={
@@ -425,7 +426,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the home value.',
       lHgrow:'Home value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs at 7% a year on average.',
       lScost:'Selling costs of the house',
-      scostNote:'Agency and the rest when you sell, as % of the price.',
+      scostNote:'Agency fee plus VAT and some paperwork, as % of the price.',
       lHtax:'Tax on the house gain',
       htaxNote:'It’s the home you live in: in many countries selling it is tax-free. Check your rules.',
       lEtax:'Tax on the ETF gains',
@@ -470,7 +471,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, spese straordinarie, IMU se dovuta, in % del valore della casa.',
       lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
       lScost:'Costi di vendita della casa',
-      scostNote:'Agenzia e altro quando vendi, in % del prezzo.',
+      scostNote:'Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.',
       lHtax:'Tasse sul guadagno della casa',
       htaxNote:'È la casa dove vivi: in Italia se la vendi di solito non paghi niente. Metti 26% solo se la vendi entro 5 anni senza averci abitato.',
       lEtax:'Tasse sul guadagno degli ETF',
@@ -515,7 +516,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, derramas, en % del valor de la casa.',
       lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% al año.',
       lScost:'Gastos de venta de la casa',
-      scostNote:'Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.',
+      scostNote:'Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.',
       lHtax:'Impuestos sobre la ganancia de la casa',
       htaxNote:'Es tu vivienda habitual: si compras otra con el dinero, o tienes más de 65 años, normalmente no pagas. Si no, del 19% al 30%.',
       lEtax:'Impuestos sobre la ganancia de los ETF',
@@ -560,7 +561,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  $('pcost').value=PCOST[lang]; $('etax').value=ETAXD[lang];
+  $('pcost').value=PCOST[lang]; $('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang];
 
   // Month-by-month: both people spend the same each month. The buyer pays mortgage + owner
   // costs; the renter pays rent. Whoever pays less invests the difference in ETFs. On day one
@@ -654,7 +655,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function setLang(k){
     try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
     if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
-    lang=k;$('pcost').value=PCOST[lang];$('etax').value=ETAXD[lang];applyLang();
+    lang=k;$('pcost').value=PCOST[lang];$('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang];applyLang();
   }
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
   const INPUTS=['price','rent','down','years','mrate','mterm','pcost','ocost','hgrow','scost','htax','etax'];

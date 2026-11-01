@@ -328,8 +328,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="rtaxNote">Depends on the country and the type of contract.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Months empty per year</label><span class="ctrl-val num" id="empty-out">1</span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Months empty per year</label><span class="ctrl-val num" id="empty-out">0.5</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">House value growth per year</label><span class="ctrl-val num" id="hgrow-out">2%</span></div>
@@ -337,9 +337,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="hgrowNote">2% = in line with inflation. Rent grows 2% a year; investing in ETFs returns 7% a year on average.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="scost" data-t="lScost">Selling costs of the house</label><span class="ctrl-val num" id="scost-out">5%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
-          <p class="note" data-t="scostNote">Agency and the rest when you sell, as % of the price.</p>
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Selling costs of the house</label><span class="ctrl-val num" id="scost-out">4%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
+          <p class="note" data-t="scostNote">Agency fee plus VAT and some paperwork, as % of the price.</p>
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="htax" data-t="lHtax">Tax on the house gain</label><span class="ctrl-val num" id="htax-out">20%</span></div>
@@ -358,17 +358,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
     <p class="res-head" id="res-head">After 20 years, if each sells everything, what’s left in their pocket, in today’s money:</p>
     <div class="bars" aria-live="polite">
-      <div class="bar"><span class="lab" data-t="bLet">Buy and rent out <small>sells the flat and the ETFs: after mortgage, selling costs and taxes</small></span><span class="val num" id="v-let">€155,019</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 72.8%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bEtf">Invest in ETFs <small>sells the ETFs: after tax on the gains</small></span><span class="val num" id="v-etf">€202,836</span><div class="track"><div class="fill" id="f-etf" style="background: var(--etf); width: 95.2%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bLet">Buy and rent out <small>sells the flat and the ETFs: after mortgage, selling costs and taxes</small></span><span class="val num" id="v-let">€157,798</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 77.7%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bEtf">Invest in ETFs <small>sells the ETFs: after tax on the gains</small></span><span class="val num" id="v-etf">€193,304</span><div class="track"><div class="fill" id="f-etf" style="background: var(--etf); width: 95.2%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict"><b class="gain">Investing in ETFs</b> comes out ahead by about <b>€47,816</b>. In this period the flat never catches up.</p>
+    <p class="verdict" id="verdict"><b class="gain">Investing in ETFs</b> comes out ahead by about <b>€35,506</b>. In this period the flat never catches up.</p>
 
     <div class="chart-box">
-      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Wealth over the years when buying a flat to rent out and when investing the same money in ETFs" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€68k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€135k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€203k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 164.2 L76.4 158.0 L106.8 151.8 L137.2 145.8 L167.6 139.7 L198.0 133.8 L228.4 127.9 L258.8 122.8 L289.2 117.7 L319.6 112.7 L350.0 107.8 L380.4 102.8 L410.8 97.9 L441.2 93.0 L471.6 88.2 L502.0 83.4 L532.4 78.6 L562.8 73.9 L593.2 69.1 L623.6 64.4 L654.0 59.6" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 140.3 L76.4 135.2 L106.8 130.0 L137.2 124.7 L167.6 119.4 L198.0 113.9 L228.4 108.4 L258.8 102.7 L289.2 96.9 L319.6 90.9 L350.0 84.8 L380.4 78.5 L410.8 72.0 L441.2 65.4 L471.6 58.5 L502.0 51.4 L532.4 44.1 L562.8 36.5 L593.2 28.7 L623.6 20.6 L654.0 12.0" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="59.61935113999898" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="12" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
+      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Wealth over the years when buying a flat to rent out and when investing the same money in ETFs" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€64k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€129k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€193k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 159.7 L76.4 153.1 L106.8 146.7 L137.2 140.3 L167.6 134.0 L198.0 127.7 L228.4 122.0 L258.8 116.6 L289.2 111.3 L319.6 106.1 L350.0 100.8 L380.4 95.7 L410.8 90.5 L441.2 85.4 L471.6 80.3 L502.0 75.3 L532.4 70.3 L562.8 65.1 L593.2 59.9 L623.6 54.6 L654.0 49.1" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 136.7 L76.4 131.7 L106.8 126.6 L137.2 121.5 L167.6 116.3 L198.0 111.0 L228.4 105.6 L258.8 100.1 L289.2 94.5 L319.6 88.8 L350.0 82.9 L380.4 76.9 L410.8 70.6 L441.2 64.3 L471.6 57.7 L502.0 50.9 L532.4 43.9 L562.8 36.5 L593.2 28.7 L623.6 20.6 L654.0 12.0" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="49.103353501358555" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="12" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
       <div class="legend"><span><i style="background:var(--coral)"></i><span data-t="lgLet">Buy and rent out</span></span><span><i style="background:var(--etf)"></i><span data-t="lgEtf">Invest in ETFs</span></span></div>
     </div>
 
-    <div class="monthly" id="monthly"><div class="mbox"><b>On day one</b><span>You put in €74,000 (down payment and purchase costs). The ETF path invests the same €74,000.</span></div><div class="mbox"><b>Each month the flat</b><span>Brings in €660 of rent after tax and empty months, and costs €701 of mortgage and €167 of owner costs.</span></div><div class="mbox"><b>€208 a month from your pocket</b><span>The rent doesn’t cover the costs. The ETF path invests the same €208 each month.</span></div></div>
+    <div class="monthly" id="monthly"><div class="mbox"><b>On day one</b><span>You put in €74,000 (down payment and purchase costs). The ETF path invests the same €74,000.</span></div><div class="mbox"><b>Each month the flat</b><span>Brings in €690 of rent after tax and empty months, and costs €701 of mortgage and €167 of owner costs.</span></div><div class="mbox"><b>€178 a month from your pocket</b><span>The rent doesn’t cover the costs. The ETF path invests the same €178 each month.</span></div></div>
     <p class="note" data-t="calcNote">In today’s money (prices +2% a year). As if at the end both sold everything: for the flat, after the mortgage left, selling costs and tax on the gain; for the ETFs, after tax on the gains. Rent tax is a simple % of the rent. An estimate to help you understand, not advice.</p>
   </section>
 
@@ -429,6 +429,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const PCOST={en:7,it:9,es:12}; // default purchase costs of a second home (% of price) per language
   const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
   // Selling at the end: tax on the house gain (Italy: only within 5 years of buying) and on the ETF gains; Italy's 0.2% yearly stamp duty on ETFs.
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
   const HTAX={en:20,it:26,es:21}, ETAXD={en:20,it:26,es:21}, BOLLO={en:0,it:0.002,es:0};
 
   const T={
@@ -447,7 +448,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.', lEmpty:'Months empty per year',
       lHgrow:'House value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs returns 7% a year on average.',
       lScost:'Selling costs of the house',
-      scostNote:'Agency and the rest when you sell, as % of the price.',
+      scostNote:'Agency fee plus VAT and some paperwork, as % of the price.',
       lHtax:'Tax on the house gain',
       htaxNote:'Depends on your country and on how long you’ve owned it.',
       lEtax:'Tax on the ETF gains',
@@ -495,7 +496,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi vuota all’anno',
       lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
       lScost:'Costi di vendita della casa',
-      scostNote:'Agenzia e altro quando vendi, in % del prezzo.',
+      scostNote:'Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.',
       lHtax:'Tasse sul guadagno della casa',
       htaxNote:'In Italia il 26% solo se vendi entro 5 anni dall’acquisto. Dopo 5 anni è zero, e il calcolo lo fa da solo.',
       lEtax:'Tasse sul guadagno degli ETF',
@@ -543,7 +544,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.', lEmpty:'Meses vacía al año',
       lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% anual.',
       lScost:'Gastos de venta de la casa',
-      scostNote:'Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.',
+      scostNote:'Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.',
       lHtax:'Impuestos sobre la ganancia de la casa',
       htaxNote:'En España la ganancia de un piso que no es tu vivienda tributa siempre, del 19% al 30%.',
       lEtax:'Impuestos sobre la ganancia de los ETF',
@@ -589,7 +590,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('pcost').value=PCOST[lang];$('rtax').value=RTAX[lang];$('htax').value=HTAX[lang];$('etax').value=ETAXD[lang]}
+  function countryDefaults(){$('pcost').value=PCOST[lang];$('rtax').value=RTAX[lang];$('htax').value=HTAX[lang];$('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   // Month by month, both paths use the same money. Day one: the landlord pays down payment +

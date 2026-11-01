@@ -359,8 +359,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="gtaxNote">In Italia 0% se ce l’hai da più di 5 anni o se l’hai ereditata; altrimenti 26% sul guadagno.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="scost" data-t="lScost">Costi di vendita</label><span class="ctrl-val num" id="scost-out">5%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Costi di vendita</label><span class="ctrl-val num" id="scost-out">4%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="ocost" data-t="lOcost">Costi annui del proprietario</label><span class="ctrl-val num" id="ocost-out">1%</span></div>
@@ -373,8 +373,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="rtaxNote">Con la cedolare secca: 21%, oppure 10% a canone concordato.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Mesi senza affitto all’anno</label><span class="ctrl-val num" id="empty-out">1</span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Mesi senza affitto all’anno</label><span class="ctrl-val num" id="empty-out">0,5</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Crescita del valore della casa all’anno</label><span class="ctrl-val num" id="hgrow-out">2%</span></div>
@@ -383,28 +383,28 @@ details > div{padding:0 0 14px;color:var(--muted)}
       </div>
     </details>
 
-    <p class="howcalc" id="howcalc"><b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa 4,9% l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa 2,69% l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi 190.000&nbsp;€ fanno circa <b>426&nbsp;€ al mese</b> prima delle tasse, che salgono ogni anno con i prezzi.</p>
+    <p class="howcalc" id="howcalc"><b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa 4,9% l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa 2,69% l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi 192.000&nbsp;€ fanno circa <b>430&nbsp;€ al mese</b> prima delle tasse, che salgono ogni anno con i prezzi.</p>
     <p class="pick-h" data-t="pickH">Se vuoi, scegli tu quanto prendere:</p>
     <div class="pick" id="pick" role="group" data-ta="pickH" aria-label="Se vuoi, scegli tu quanto prendere:">
-      <button type="button" data-pick="less" aria-pressed="false"><b>Meno: 257&nbsp;€ al mese</b><span>Il capitale cresce: tra 10 anni circa 211.001&nbsp;€</span></button>
-      <button type="button" data-pick="keep" aria-pressed="true"><b>Il giusto: 409&nbsp;€ al mese</b><span>Il capitale resta intero: tra 10 anni circa 190.000&nbsp;€. Te lo consigliamo noi.</span></button>
-      <button type="button" data-pick="more" aria-pressed="false"><b>Di più: 609&nbsp;€ al mese</b><span>Il capitale scende piano: tra 10 anni circa 162.493&nbsp;€ (a quel ritmo durano circa 43 anni)</span></button>
+      <button type="button" data-pick="less" aria-pressed="false"><b>Meno: 260&nbsp;€ al mese</b><span>Il capitale cresce: tra 10 anni circa 213.222&nbsp;€</span></button>
+      <button type="button" data-pick="keep" aria-pressed="true"><b>Il giusto: 414&nbsp;€ al mese</b><span>Il capitale resta intero: tra 10 anni circa 192.000&nbsp;€. Te lo consigliamo noi.</span></button>
+      <button type="button" data-pick="more" aria-pressed="false"><b>Di più: 615&nbsp;€ al mese</b><span>Il capitale scende piano: tra 10 anni circa 164.203&nbsp;€ (a quel ritmo durano circa 43 anni)</span></button>
     </div>
     <p class="note" data-t="pickNote">Cifre già tolte le tasse, in euro di oggi, media dei primi 10 anni.</p>
     <h3 data-t="incH">Quanto ti entra in tasca ogni mese (tolte tasse e costi)</h3>
-    <div class="income" id="income"><div><b>340&nbsp;€</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span></div><div><b>409&nbsp;€</b><span>al mese se la <b>vendi e investi in ETF</b>, tolte le tasse sui guadagni</span></div><p class="note inc-note">Media dei primi 10 anni, in euro di oggi.</p></div>
-    <div class="bill" id="bill"><h4>Perché l’affitto netto è solo 340&nbsp;€? Ecco il conto, al mese:</h4><p class="row"><span>Affitto che prendi</span><span>700&nbsp;€</span></p><p class="row"><span>Mesi vuoti (1 all’anno in media)</span><span>−58&nbsp;€</span></p><p class="row"><span>Tasse sull’affitto (21%)</span><span>−135&nbsp;€</span></p><p class="row"><span>Spese della casa: IMU, condominio, lavori (1% del valore all’anno)</span><span>−167&nbsp;€</span></p><p class="row tot"><span>Ti restano</span><span>340&nbsp;€</span></p><p class="note">Di solito si conta solo affitto meno tasse. Ma i mesi vuoti e le spese arrivano, solo non ogni mese: l’inquilino che se ne va, la caldaia da cambiare. Se i tuoi numeri sono diversi, cambiali nei dettagli qui sopra.</p></div>
+    <div class="income" id="income"><div><b>363&nbsp;€</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span></div><div><b>414&nbsp;€</b><span>al mese se la <b>vendi e investi in ETF</b>, tolte le tasse sui guadagni</span></div><p class="note inc-note">Media dei primi 10 anni, in euro di oggi.</p></div>
+    <div class="bill" id="bill"><h4>Perché l’affitto netto è solo 363&nbsp;€? Ecco il conto, al mese:</h4><p class="row"><span>Affitto che prendi</span><span>700&nbsp;€</span></p><p class="row"><span>Mesi vuoti (mezzo mese all’anno in media)</span><span>−29&nbsp;€</span></p><p class="row"><span>Tasse sull’affitto (21%)</span><span>−141&nbsp;€</span></p><p class="row"><span>Spese della casa: IMU, condominio, lavori (1% del valore all’anno)</span><span>−167&nbsp;€</span></p><p class="row tot"><span>Ti restano</span><span>363&nbsp;€</span></p><p class="note">Di solito si conta solo affitto meno tasse. Ma i mesi vuoti e le spese arrivano, solo non ogni mese: l’inquilino che se ne va, la caldaia da cambiare. Se i tuoi numeri sono diversi, cambiali nei dettagli qui sopra.</p></div>
 
     <h3 data-t="cashH">Soldi che puoi usare quando vuoi</h3>
-    <div class="income" id="cash"><div><b>0 €</b><span>con la casa: per avere i soldi la devi vendere, e ci vogliono mesi</span></div><div><b>190.000&nbsp;€</b><span>con gli ETF: ne vendi un pezzo in qualsiasi giorno di borsa aperta</span></div></div>
+    <div class="income" id="cash"><div><b>0 €</b><span>con la casa: per avere i soldi la devi vendere, e ci vogliono mesi</span></div><div><b>192.000&nbsp;€</b><span>con gli ETF: ne vendi un pezzo in qualsiasi giorno di borsa aperta</span></div></div>
 
     <p class="res-head" id="h-head">Tra 10 anni, quanto ti resta, in euro di oggi:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bHouse">Continui ad affittarla <small>il valore della casa (non venduta)</small></span><span class="val num" id="v-house">200.000&nbsp;€</span><div class="track"><div class="fill" id="f-house" style="background: var(--coral); width: 95.2%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bPort">La vendi e investi in ETF <small>il capitale che ti resta, dopo aver prelevato ogni mese</small></span><span class="val num" id="v-port">190.000&nbsp;€</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 90.5%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bPort">La vendi e investi in ETF <small>il capitale che ti resta, dopo aver prelevato ogni mese</small></span><span class="val num" id="v-port">192.000&nbsp;€</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 91.4%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict">Il capitale resta intero: dopo 10 anni hai ancora circa <b class="gain">190.000&nbsp;€</b> in ETF, in euro di oggi, e intanto ogni mese ti sei preso la tua entrata. In media: negli anni brutti scende, poi risale.</p>
-    <p class="note" id="crash">Te lo dico chiaro: in un anno brutto come il 2022 i portafogli misti di azioni e obbligazioni hanno perso intorno al 13–16%. Sui tuoi soldi vuol dire vedere circa 28.500&nbsp;€ in meno per un po’. Tieni 1–2 anni di prelievi su un conto deposito, e negli anni brutti non devi vendere niente.</p>
+    <p class="verdict" id="verdict">Il capitale resta intero: dopo 10 anni hai ancora circa <b class="gain">192.000&nbsp;€</b> in ETF, in euro di oggi, e intanto ogni mese ti sei preso la tua entrata. In media: negli anni brutti scende, poi risale.</p>
+    <p class="note" id="crash">Te lo dico chiaro: in un anno brutto come il 2022 i portafogli misti di azioni e obbligazioni hanno perso intorno al 13–16%. Sui tuoi soldi vuol dire vedere circa 28.800&nbsp;€ in meno per un po’. Tieni 1–2 anni di prelievi su un conto deposito, e negli anni brutti non devi vendere niente.</p>
     <p class="note" data-t="calcNote">Azioni 7% e obbligazioni 3,5% l’anno in media, prezzi +2% l’anno. L’affitto cresce con i prezzi. Stime per capire, non una promessa.</p>
   </section>
 
@@ -494,7 +494,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
       billH:(v)=>`Why is the rent only ${v} net? Here’s the math, per month:`,
       bRent:'Rent you get',
-      bEmpty:(n)=>`Empty months (${n} a year on average)`,
+      bEmpty:(n)=>`Empty months (${n==='0.5'?'half a month':n+' months'} a year on average)`,
       bTax:(p)=>`Tax on the rent (${p})`,
       bCost:(p)=>`House costs: property tax, building fees, repairs (${p} of the value a year)`,
       bLeft:'What’s left',
@@ -558,7 +558,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
       billH:(v)=>`Perché l’affitto netto è solo ${v}? Ecco il conto, al mese:`,
       bRent:'Affitto che prendi',
-      bEmpty:(n)=>`Mesi vuoti (${n} all’anno in media)`,
+      bEmpty:(n)=>`Mesi vuoti (${n==='0,5'?'mezzo mese':n+' mesi'} all’anno in media)`,
       bTax:(p)=>`Tasse sull’affitto (${p})`,
       bCost:(p)=>`Spese della casa: IMU, condominio, lavori (${p} del valore all’anno)`,
       bLeft:'Ti restano',
@@ -622,7 +622,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
       billH:(v)=>`¿Por qué el alquiler neto es solo ${v}? Aquí tienes la cuenta, al mes:`,
       bRent:'Alquiler que cobras',
-      bEmpty:(n)=>`Meses vacío (${n} al año de media)`,
+      bEmpty:(n)=>`Meses vacío (${n==='0,5'?'medio mes':n+' meses'} al año de media)`,
       bTax:(p)=>`Impuestos sobre el alquiler (${p})`,
       bCost:(p)=>`Gastos del piso: IBI, comunidad, arreglos (${p} del valor al año)`,
       bLeft:'Te queda',
@@ -678,7 +678,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   let PICK='keep';

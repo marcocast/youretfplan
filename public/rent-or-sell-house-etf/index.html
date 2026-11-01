@@ -311,9 +311,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="gtaxNote">It depends on your country, on how long you’ve owned it and on whether it was your home. Check the rules below.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="scost" data-t="lScost">Selling costs</label><span class="ctrl-val num" id="scost-out">5%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
-          <p class="note" data-t="scostNote">Agency, notary and other costs when you sell, as % of the price.</p>
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Selling costs</label><span class="ctrl-val num" id="scost-out">4%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
+          <p class="note" data-t="scostNote">Agency fee plus VAT and some paperwork, as % of the price.</p>
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="ocost" data-t="lOcost">Owner costs per year</label><span class="ctrl-val num" id="ocost-out">1%</span></div>
@@ -326,8 +326,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="rtaxNote">Depends on the country and the type of contract.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Months empty per year</label><span class="ctrl-val num" id="empty-out">1</span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Months empty per year</label><span class="ctrl-val num" id="empty-out">0.5</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">House value growth per year</label><span class="ctrl-val num" id="hgrow-out">2%</span></div>
@@ -340,17 +340,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
       </div>
     </details>
-    <div class="chips" id="h-chips"><span class="chip warn">Net rent per year = 2.2% of the house value · low</span></div>
+    <div class="chips" id="h-chips"><span class="chip warn">Net rent per year = 2.3% of the house value · low</span></div>
     <p class="res-head" id="h-head">In 15 years, if you sell everything then, what’s left in your pocket, in today’s money:</p>
     <div class="bars" aria-live="polite">
-      <div class="bar"><span class="lab" data-t="bEmpty">Keep it empty <small>then sell it: after costs paid, selling costs and tax</small></span><span class="val num" id="v-empty">€184,332</span><div class="track"><div class="fill" id="f-empty" style="background: var(--bank); width: 43.4%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bLet">Rent it out <small>net rent goes into ETFs; then sell the house and ETFs, after costs and tax</small></span><span class="val num" id="v-let">€324,169</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 76.4%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bSell">Sell it now and invest in ETFs <small>then sell the ETFs, after tax on the gains</small></span><span class="val num" id="v-sell">€404,224</span><div class="track"><div class="fill" id="f-sell" style="background: var(--etf); width: 95.2%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bEmpty">Keep it empty <small>then sell it: after costs paid, selling costs and tax</small></span><span class="val num" id="v-empty">€186,332</span><div class="track"><div class="fill" id="f-empty" style="background: var(--bank); width: 43.5%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bLet">Rent it out <small>net rent goes into ETFs; then sell the house and ETFs, after costs and tax</small></span><span class="val num" id="v-let">€333,334</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 77.8%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bSell">Sell it now and invest in ETFs <small>then sell the ETFs, after tax on the gains</small></span><span class="val num" id="v-sell">€407,802</span><div class="track"><div class="fill" id="f-sell" style="background: var(--etf); width: 95.2%;"></div></div></div>
     </div>
-    <p class="verdict" id="h-verdict"><b class="gain">Selling and investing in ETFs</b> comes out ahead, by about <b>€80,055</b> over the second option.</p>
+    <p class="verdict" id="h-verdict"><b class="gain">Selling and investing in ETFs</b> comes out ahead, by about <b>€74,468</b> over the second option.</p>
     <h3 data-t="incH">Money in your pocket each month (after taxes and costs)</h3>
-    <div class="income" id="income"><div><b>€443</b><span>a month if you <b>rent it out</b>: the rent, minus the tax on rent, the house costs and the empty months</span></div><div><b>€603</b><span>a month if you <b>sell and invest in ETFs</b>: you take out 3% a year, minus the tax on the gains</span></div><p class="note inc-note">Average of the first 10 years, in today’s money. With ETFs you only pay tax on the gain part of what you sell: little at first, more as the years go by.</p></div>
-    <p class="note" id="sale-note">If you sell today, after the selling costs and €11,500 of tax on the gain, you’d have about <b>€226,000</b> to invest in ETFs.</p>
+    <div class="income" id="income"><div><b>€472</b><span>a month if you <b>rent it out</b>: the rent, minus the tax on rent, the house costs and the empty months</span></div><div><b>€608</b><span>a month if you <b>sell and invest in ETFs</b>: you take out 3% a year, minus the tax on the gains</span></div><p class="note inc-note">Average of the first 10 years, in today’s money. With ETFs you only pay tax on the gain part of what you sell: little at first, more as the years go by.</p></div>
+    <p class="note" id="sale-note">If you sell today, after the selling costs and €12,000 of tax on the gain, you’d have about <b>€228,000</b> to invest in ETFs.</p>
     <p class="note" data-t="hNote">In today’s money (prices +2% a year). As if at the end you sold everything: the house (selling costs and tax on the gain) and the ETFs (tax on the gains). Rent grows with inflation; ETFs return 7% a year on average, not guaranteed.</p>
   </section>
 
@@ -411,6 +411,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
   // Tax on ETF gains when you sell (only the gain part of each withdrawal is taxed) and Italy's 0.2% yearly stamp duty.
   const ETAX={en:0.20,it:0.26,es:0.19}, BOLLO={en:0,it:0.002,es:0};
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
   const ETAXD={en:20,it:26,es:21}; // default tax on ETF gains when you sell everything at the end
   const GTAX={en:20,it:0,es:21};  // default tax on the gain when selling (% of the gain) per language
 
@@ -424,7 +425,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lYears:'Show the result in', years:n=>n+(n===1?' year':' years'),
       assumeH:'Sale, costs and assumptions (tap to change)',
       lPaid:'What you paid for it', lGtax:'Tax on the gain when you sell', gtaxNote:'It depends on your country, on how long you’ve owned it and on whether it was your home. Check the rules below.',
-      lScost:'Selling costs', scostNote:'Agency, notary and other costs when you sell, as % of the price.',
+      lScost:'Selling costs', scostNote:'Agency fee plus VAT and some paperwork, as % of the price.',
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value. You pay them whether it’s empty or rented.',
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.',
       lEmpty:'Months empty per year', lHgrow:'House value growth per year',
@@ -466,7 +467,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lYears:'Vedi il risultato tra', years:n=>n+(n===1?' anno':' anni'),
       assumeH:'Vendita, costi e ipotesi (tocca per cambiarle)',
       lPaid:'Quanto l’hai pagata', lGtax:'Tasse sul guadagno quando vendi', gtaxNote:'In Italia 0% se la possiedi da più di 5 anni o se ci hai abitato per la maggior parte del tempo; altrimenti 26% sulla plusvalenza (imposta sostitutiva dal notaio).',
-      lScost:'Costi di vendita', scostNote:'Agenzia e altri costi quando vendi, in % del prezzo.',
+      lScost:'Costi di vendita', scostNote:'Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.',
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, spese condominiali, in % del valore. Li paghi sia se è vuota sia se è affittata.',
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.',
       lEmpty:'Mesi vuota all’anno', lHgrow:'Crescita del valore della casa all’anno',
@@ -508,7 +509,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lYears:'Ver el resultado dentro de', years:n=>n+(n===1?' año':' años'),
       assumeH:'Venta, gastos y supuestos (toca para cambiarlos)',
       lPaid:'Lo que pagaste por ella', lGtax:'Impuestos sobre la ganancia al vender', gtaxNote:'En España la ganancia tributa en el IRPF del ahorro, del 19% al 30%. Exenta si tienes más de 65 años y es tu vivienda habitual, o si reinviertes en una nueva vivienda habitual en 2 años.',
-      lScost:'Gastos de venta', scostNote:'Inmobiliaria, plusvalía municipal y otros gastos al vender, en % del precio.',
+      lScost:'Gastos de venta', scostNote:'Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.',
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor. Los pagas esté vacía o alquilada.',
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.',
       lEmpty:'Meses vacía al año', lHgrow:'Revalorización de la casa al año',
@@ -554,7 +555,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang];$('etax').value=ETAXD[lang]}
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang];$('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   function render(){

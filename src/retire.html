@@ -270,7 +270,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="scost" data-t="lScost"></label><span class="ctrl-val num" id="scost-out"></span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="ocost" data-t="lOcost"></label><span class="ctrl-val num" id="ocost-out"></span></div>
@@ -284,7 +284,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="empty" data-t="lEmpty"></label><span class="ctrl-val num" id="empty-out"></span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow"></label><span class="ctrl-val num" id="hgrow-out"></span></div>
@@ -404,7 +404,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
       billH:(v)=>`Why is the rent only ${v} net? Here’s the math, per month:`,
       bRent:'Rent you get',
-      bEmpty:(n)=>`Empty months (${n} a year on average)`,
+      bEmpty:(n)=>`Empty months (${n==='0.5'?'half a month':n+' months'} a year on average)`,
       bTax:(p)=>`Tax on the rent (${p})`,
       bCost:(p)=>`House costs: property tax, building fees, repairs (${p} of the value a year)`,
       bLeft:'What’s left',
@@ -468,7 +468,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
       billH:(v)=>`Perché l’affitto netto è solo ${v}? Ecco il conto, al mese:`,
       bRent:'Affitto che prendi',
-      bEmpty:(n)=>`Mesi vuoti (${n} all’anno in media)`,
+      bEmpty:(n)=>`Mesi vuoti (${n==='0,5'?'mezzo mese':n+' mesi'} all’anno in media)`,
       bTax:(p)=>`Tasse sull’affitto (${p})`,
       bCost:(p)=>`Spese della casa: IMU, condominio, lavori (${p} del valore all’anno)`,
       bLeft:'Ti restano',
@@ -532,7 +532,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
       billH:(v)=>`¿Por qué el alquiler neto es solo ${v}? Aquí tienes la cuenta, al mes:`,
       bRent:'Alquiler que cobras',
-      bEmpty:(n)=>`Meses vacío (${n} al año de media)`,
+      bEmpty:(n)=>`Meses vacío (${n==='0,5'?'medio mes':n+' meses'} al año de media)`,
       bTax:(p)=>`Impuestos sobre el alquiler (${p})`,
       bCost:(p)=>`Gastos del piso: IBI, comunidad, arreglos (${p} del valor al año)`,
       bLeft:'Te queda',
@@ -588,7 +588,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   let PICK='keep';

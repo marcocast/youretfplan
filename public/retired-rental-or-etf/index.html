@@ -359,8 +359,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="gtaxNote">Depends on your country and how long you’ve owned it.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="scost" data-t="lScost">Selling costs</label><span class="ctrl-val num" id="scost-out">5%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Selling costs</label><span class="ctrl-val num" id="scost-out">4%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="ocost" data-t="lOcost">Owner costs per year</label><span class="ctrl-val num" id="ocost-out">1%</span></div>
@@ -373,8 +373,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="rtaxNote">Depends on the country and the contract.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Months with no rent per year</label><span class="ctrl-val num" id="empty-out">1</span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Months with no rent per year</label><span class="ctrl-val num" id="empty-out">0.5</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">House value growth per year</label><span class="ctrl-val num" id="hgrow-out">2%</span></div>
@@ -383,28 +383,28 @@ details > div{padding:0 0 14px;color:var(--muted)}
       </div>
     </details>
 
-    <p class="howcalc" id="howcalc"><b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about 4.9% a year. Take away rising prices and there’s about 2.9% a year left: that’s what you can take without eating into your capital. On your €172,000 that’s about <b>€416 a month</b> before tax, going up every year with prices.</p>
+    <p class="howcalc" id="howcalc"><b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about 4.9% a year. Take away rising prices and there’s about 2.9% a year left: that’s what you can take without eating into your capital. On your €173,600 that’s about <b>€420 a month</b> before tax, going up every year with prices.</p>
     <p class="pick-h" data-t="pickH">If you want, pick how much to take:</p>
     <div class="pick" id="pick" role="group" data-ta="pickH" aria-label="If you want, pick how much to take:">
-      <button type="button" data-pick="less" aria-pressed="false"><b>Less: €260 a month</b><span>Your capital grows: in 10 years about €191,192</span></button>
-      <button type="button" data-pick="keep" aria-pressed="true"><b>Just right: €397 a month</b><span>Your capital stays whole: in 10 years about €172,000. This is what we suggest.</span></button>
-      <button type="button" data-pick="more" aria-pressed="false"><b>More: €548 a month</b><span>Your capital goes down slowly: in 10 years about €150,889 (at that pace it lasts about 47 years)</span></button>
+      <button type="button" data-pick="less" aria-pressed="false"><b>Less: €263 a month</b><span>Your capital grows: in 10 years about €192,971</span></button>
+      <button type="button" data-pick="keep" aria-pressed="true"><b>Just right: €401 a month</b><span>Your capital stays whole: in 10 years about €173,600. This is what we suggest.</span></button>
+      <button type="button" data-pick="more" aria-pressed="false"><b>More: €553 a month</b><span>Your capital goes down slowly: in 10 years about €152,292 (at that pace it lasts about 47 years)</span></button>
     </div>
     <p class="note" data-t="pickNote">After tax, in today’s money, average of the first 10 years.</p>
     <h3 data-t="incH">Money in your pocket each month (after taxes and costs)</h3>
-    <div class="income" id="income"><div><b>€347</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span></div><div><b>€397</b><span>a month if you <b>sell and invest in ETFs</b>, after tax on the gains</span></div><p class="note inc-note">Average of the first 10 years, in today’s money.</p></div>
-    <div class="bill" id="bill"><h4>Why is the rent only €347 net? Here’s the math, per month:</h4><p class="row"><span>Rent you get</span><span>€700</span></p><p class="row"><span>Empty months (1 a year on average)</span><span>−€58</span></p><p class="row"><span>Tax on the rent (20%)</span><span>−€128</span></p><p class="row"><span>House costs: property tax, building fees, repairs (1% of the value a year)</span><span>−€167</span></p><p class="row tot"><span>What’s left</span><span>€347</span></p><p class="note">Most people only count rent minus tax. But empty months and costs do come, just not every month: a tenant who leaves, a boiler to replace. If your numbers are different, change them in the details above.</p></div>
+    <div class="income" id="income"><div><b>€370</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span></div><div><b>€401</b><span>a month if you <b>sell and invest in ETFs</b>, after tax on the gains</span></div><p class="note inc-note">Average of the first 10 years, in today’s money.</p></div>
+    <div class="bill" id="bill"><h4>Why is the rent only €370 net? Here’s the math, per month:</h4><p class="row"><span>Rent you get</span><span>€700</span></p><p class="row"><span>Empty months (half a month a year on average)</span><span>−€29</span></p><p class="row"><span>Tax on the rent (20%)</span><span>−€134</span></p><p class="row"><span>House costs: property tax, building fees, repairs (1% of the value a year)</span><span>−€167</span></p><p class="row tot"><span>What’s left</span><span>€370</span></p><p class="note">Most people only count rent minus tax. But empty months and costs do come, just not every month: a tenant who leaves, a boiler to replace. If your numbers are different, change them in the details above.</p></div>
 
     <h3 data-t="cashH">Money you can use when you want</h3>
-    <div class="income" id="cash"><div><b>€0</b><span>with the flat: to get money out you have to sell it, and that takes months</span></div><div><b>€172,000</b><span>with ETFs: you can sell a piece any day the market is open</span></div></div>
+    <div class="income" id="cash"><div><b>€0</b><span>with the flat: to get money out you have to sell it, and that takes months</span></div><div><b>€173,600</b><span>with ETFs: you can sell a piece any day the market is open</span></div></div>
 
     <p class="res-head" id="h-head">In 10 years, what’s left, in today’s money:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bHouse">Keep renting <small>the flat’s value (not sold)</small></span><span class="val num" id="v-house">€200,000</span><div class="track"><div class="fill" id="f-house" style="background: var(--coral); width: 95.2%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bPort">Sell and invest in ETFs <small>the capital left, after taking money out every month</small></span><span class="val num" id="v-port">€172,000</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 81.9%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bPort">Sell and invest in ETFs <small>the capital left, after taking money out every month</small></span><span class="val num" id="v-port">€173,600</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 82.7%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict">Your capital stays whole: after 10 years you still have about <b class="gain">€172,000</b> in ETFs, in today’s money, and meanwhile you took your income every month. On average: in bad years it drops, then comes back.</p>
-    <p class="note" id="crash">Honestly: in a bad year like 2022, mixed shares-and-bonds portfolios lost around 13–16%. On your money that means seeing about €25,800 less for a while. Keep 1–2 years of withdrawals in a deposit and you never have to sell in a bad year.</p>
+    <p class="verdict" id="verdict">Your capital stays whole: after 10 years you still have about <b class="gain">€173,600</b> in ETFs, in today’s money, and meanwhile you took your income every month. On average: in bad years it drops, then comes back.</p>
+    <p class="note" id="crash">Honestly: in a bad year like 2022, mixed shares-and-bonds portfolios lost around 13–16%. On your money that means seeing about €26,040 less for a while. Keep 1–2 years of withdrawals in a deposit and you never have to sell in a bad year.</p>
     <p class="note" data-t="calcNote">Shares 7% and bonds 3.5% a year on average, prices +2% a year. Rent grows with prices. Estimates to help you understand, not a promise.</p>
   </section>
 
@@ -494,7 +494,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
       billH:(v)=>`Why is the rent only ${v} net? Here’s the math, per month:`,
       bRent:'Rent you get',
-      bEmpty:(n)=>`Empty months (${n} a year on average)`,
+      bEmpty:(n)=>`Empty months (${n==='0.5'?'half a month':n+' months'} a year on average)`,
       bTax:(p)=>`Tax on the rent (${p})`,
       bCost:(p)=>`House costs: property tax, building fees, repairs (${p} of the value a year)`,
       bLeft:'What’s left',
@@ -558,7 +558,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
       billH:(v)=>`Perché l’affitto netto è solo ${v}? Ecco il conto, al mese:`,
       bRent:'Affitto che prendi',
-      bEmpty:(n)=>`Mesi vuoti (${n} all’anno in media)`,
+      bEmpty:(n)=>`Mesi vuoti (${n==='0,5'?'mezzo mese':n+' mesi'} all’anno in media)`,
       bTax:(p)=>`Tasse sull’affitto (${p})`,
       bCost:(p)=>`Spese della casa: IMU, condominio, lavori (${p} del valore all’anno)`,
       bLeft:'Ti restano',
@@ -622,7 +622,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
       billH:(v)=>`¿Por qué el alquiler neto es solo ${v}? Aquí tienes la cuenta, al mes:`,
       bRent:'Alquiler que cobras',
-      bEmpty:(n)=>`Meses vacío (${n} al año de media)`,
+      bEmpty:(n)=>`Meses vacío (${n==='0,5'?'medio mes':n+' meses'} al año de media)`,
       bTax:(p)=>`Impuestos sobre el alquiler (${p})`,
       bCost:(p)=>`Gastos del piso: IBI, comunidad, arreglos (${p} del valor al año)`,
       bLeft:'Te queda',
@@ -678,7 +678,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   let PICK='keep';

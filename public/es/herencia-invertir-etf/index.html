@@ -341,13 +341,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="rtaxNote">El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Meses vacía al año</label><span class="ctrl-val num" id="empty-out">1</span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Meses vacía al año</label><span class="ctrl-val num" id="empty-out">0,5</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="scost" data-t="lScost">Gastos de venta</label><span class="ctrl-val num" id="scost-out">5&nbsp;%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
-          <p class="note" data-t="scostNote">Inmobiliaria, plusvalía municipal y otros gastos al vender.</p>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
+          <p class="note" data-t="scostNote">Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.</p>
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Revalorización de la casa al año</label><span class="ctrl-val num" id="hgrow-out">2&nbsp;%</span></div>
@@ -360,16 +360,16 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
       </div>
     </details>
-    <div class="chips" id="h-chips"><span class="chip warn">Alquiler neto al año = 2,3&nbsp;% del valor de la casa · baja</span></div>
+    <div class="chips" id="h-chips"><span class="chip warn">Alquiler neto al año = 2,4&nbsp;% del valor de la casa · baja</span></div>
     <p class="res-head" id="h-head">Dentro de 15 años, si en ese momento lo vendes todo, lo que te queda en el bolsillo, en euros de hoy:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bEmpty">Dejarla vacía <small>luego la vendes: quitando gastos pagados, gastos de venta e impuestos</small></span><span class="val num" id="v-empty">155.373&nbsp;€</span><div class="track"><div class="fill" id="f-empty" style="background: var(--bank); width: 43.9%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bLet">Alquilarla <small>el alquiler neto va a ETF; luego vendes casa y ETF, quitando gastos e impuestos</small></span><span class="val num" id="v-let">271.004&nbsp;€</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 76.5%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bLet">Alquilarla <small>el alquiler neto va a ETF; luego vendes casa y ETF, quitando gastos e impuestos</small></span><span class="val num" id="v-let">276.898&nbsp;€</span><div class="track"><div class="fill" id="f-let" style="background: var(--coral); width: 78.2%;"></div></div></div>
       <div class="bar"><span class="lab" data-t="bSell">Venderla e invertir en ETF <small>luego vendes los ETF, quitando los impuestos sobre la ganancia</small></span><span class="val num" id="v-sell">337.351&nbsp;€</span><div class="track"><div class="fill" id="f-sell" style="background: var(--etf); width: 95.2%;"></div></div></div>
     </div>
-    <p class="verdict" id="h-verdict"><b class="gain">Venderla e invertir en ETF</b> sale ganando, por unos <b>66.348&nbsp;€</b> sobre la segunda opción.</p>
+    <p class="verdict" id="h-verdict"><b class="gain">Venderla e invertir en ETF</b> sale ganando, por unos <b>60.453&nbsp;€</b> sobre la segunda opción.</p>
     <h3 data-t="incH">Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)</h3>
-    <div class="income" id="income"><div><b>371&nbsp;€</b><span>al mes si la <b>alquilas</b>: el alquiler, menos el impuesto sobre el alquiler, los gastos de la casa y los meses vacía</span></div><div><b>508&nbsp;€</b><span>al mes si la <b>vendes e inviertes en ETF</b>: retiras el 3% al año, menos los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy. Con los ETF solo pagas impuestos por la parte de ganancia de lo que vendes: poco al principio, más con los años.</p></div>
+    <div class="income" id="income"><div><b>396&nbsp;€</b><span>al mes si la <b>alquilas</b>: el alquiler, menos el impuesto sobre el alquiler, los gastos de la casa y los meses vacía</span></div><div><b>508&nbsp;€</b><span>al mes si la <b>vendes e inviertes en ETF</b>: retiras el 3% al año, menos los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy. Con los ETF solo pagas impuestos por la parte de ganancia de lo que vendes: poco al principio, más con los años.</p></div>
     <p class="note" data-t="hNote">En euros de hoy (precios +2% al año). Como si al final lo vendieras todo: la casa (gastos de venta e impuestos sobre la ganancia) y los ETF (impuestos sobre la ganancia). El alquiler sube con la inflación; los ETF rinden de media un 7% anual, no garantizado. Al vender una casa heredada en España, la ganancia desde el valor declarado en la herencia tributa: aquí usamos un 21%.</p>
   </section>
 
@@ -422,6 +422,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
   // Tax on ETF gains when you sell (only the gain part of each withdrawal is taxed) and Italy's 0.2% yearly stamp duty.
   const ETAX={en:0.20,it:0.26,es:0.19}, BOLLO={en:0,it:0.002,es:0};
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
   const ETAXD={en:20,it:26,es:21}; // default tax on ETF gains when you sell everything at the end
   // Tax on the house gain since you inherited it (Italy: inherited homes are exempt; Spain: gain over the declared inheritance value).
   const HTAXI={en:0.20,it:0,es:0.21};
@@ -445,7 +446,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       assumeH:'Costs and assumptions (tap to change)',
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value. You pay them whether it’s empty or rented.',
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.',
-      lEmpty:'Months empty per year', lScost:'Selling costs', scostNote:'Agency and other costs when you sell.', lHgrow:'House value growth per year',
+      lEmpty:'Months empty per year', lScost:'Selling costs', scostNote:'Agency fee plus VAT and some paperwork, as % of the price.', lHgrow:'House value growth per year',
       lEtax:'Tax on the ETF gains',
       etaxNote:'Depends on your country. Paid only on what you gained, when you sell.',
       yield:v=>`Net rent per year = ${v} of the house value`, yieldGood:'good', yieldLow:'low',
@@ -489,7 +490,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       assumeH:'Costi e ipotesi (tocca per cambiarle)',
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, spese condominiali, in % del valore. Li paghi sia se è vuota sia se è affittata.',
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.',
-      lEmpty:'Mesi vuota all’anno', lScost:'Costi di vendita', scostNote:'Agenzia e altri costi quando vendi.', lHgrow:'Crescita del valore della casa all’anno',
+      lEmpty:'Mesi vuota all’anno', lScost:'Costi di vendita', scostNote:'Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.', lHgrow:'Crescita del valore della casa all’anno',
       lEtax:'Tasse sul guadagno degli ETF',
       etaxNote:'In Italia il 26% su quello che hai guadagnato, quando vendi. Il bollo dello 0,2% l’anno è già tolto.',
       yield:v=>`Affitto netto all’anno = ${v} del valore della casa`, yieldGood:'buono', yieldLow:'basso',
@@ -533,7 +534,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       assumeH:'Gastos y supuestos (toca para cambiarlos)',
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, derramas, en % del valor. Los pagas esté vacía o alquilada.',
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.',
-      lEmpty:'Meses vacía al año', lScost:'Gastos de venta', scostNote:'Inmobiliaria, plusvalía municipal y otros gastos al vender.', lHgrow:'Revalorización de la casa al año',
+      lEmpty:'Meses vacía al año', lScost:'Gastos de venta', scostNote:'Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.', lHgrow:'Revalorización de la casa al año',
       lEtax:'Impuestos sobre la ganancia de los ETF',
       etaxNote:'En España, del 19% al 30% de lo que has ganado, cuando vendes. 21% es una media razonable.',
       yield:v=>`Alquiler neto al año = ${v} del valor de la casa`, yieldGood:'buena', yieldLow:'baja',
@@ -572,7 +573,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  $('rtax').value=RTAX[lang]; $('etax').value=ETAXD[lang];
+  $('rtax').value=RTAX[lang]; $('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang];
 
   // Money received: curved (cube) slider from 0 to 2 million.
   function amountFromPos(p){const v=MAX*Math.pow(p/1000,3);const st=v<10000?100:v<100000?1000:v<1000000?5000:10000;return Math.round(v/st)*st}
@@ -661,7 +662,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function setLang(k){
     try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
     if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
-    lang=k;$('rtax').value=RTAX[lang];$('etax').value=ETAXD[lang];applyLang();
+    lang=k;$('rtax').value=RTAX[lang];$('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang];applyLang();
   }
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
   const MONEY_IN=['amount','myears'], HOUSE_IN=['hvalue','hrent','hyears','ocost','rtax','empty','scost','hgrow','etax'];

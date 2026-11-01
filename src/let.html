@@ -247,7 +247,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="empty" data-t="lEmpty"></label><span class="ctrl-val num" id="empty-out"></span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow"></label><span class="ctrl-val num" id="hgrow-out"></span></div>
@@ -256,7 +256,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="scost" data-t="lScost"></label><span class="ctrl-val num" id="scost-out"></span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
           <p class="note" data-t="scostNote"></p>
         </div>
         <div class="ctrl">
@@ -347,6 +347,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const PCOST={en:7,it:9,es:12}; // default purchase costs of a second home (% of price) per language
   const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent) per language
   // Selling at the end: tax on the house gain (Italy: only within 5 years of buying) and on the ETF gains; Italy's 0.2% yearly stamp duty on ETFs.
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
   const HTAX={en:20,it:26,es:21}, ETAXD={en:20,it:26,es:21}, BOLLO={en:0,it:0.002,es:0};
 
   const T={
@@ -365,7 +366,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the type of contract.', lEmpty:'Months empty per year',
       lHgrow:'House value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs returns 7% a year on average.',
       lScost:'Selling costs of the house',
-      scostNote:'Agency and the rest when you sell, as % of the price.',
+      scostNote:'Agency fee plus VAT and some paperwork, as % of the price.',
       lHtax:'Tax on the house gain',
       htaxNote:'Depends on your country and on how long you’ve owned it.',
       lEtax:'Tax on the ETF gains',
@@ -413,7 +414,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi vuota all’anno',
       lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
       lScost:'Costi di vendita della casa',
-      scostNote:'Agenzia e altro quando vendi, in % del prezzo.',
+      scostNote:'Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.',
       lHtax:'Tasse sul guadagno della casa',
       htaxNote:'In Italia il 26% solo se vendi entro 5 anni dall’acquisto. Dopo 5 anni è zero, e il calcolo lo fa da solo.',
       lEtax:'Tasse sul guadagno degli ETF',
@@ -461,7 +462,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es la vivienda habitual del inquilino puede tener reducciones importantes, que cambian con la reforma de 2026.', lEmpty:'Meses vacía al año',
       lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% anual.',
       lScost:'Gastos de venta de la casa',
-      scostNote:'Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.',
+      scostNote:'Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.',
       lHtax:'Impuestos sobre la ganancia de la casa',
       htaxNote:'En España la ganancia de un piso que no es tu vivienda tributa siempre, del 19% al 30%.',
       lEtax:'Impuestos sobre la ganancia de los ETF',
@@ -507,7 +508,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('pcost').value=PCOST[lang];$('rtax').value=RTAX[lang];$('htax').value=HTAX[lang];$('etax').value=ETAXD[lang]}
+  function countryDefaults(){$('pcost').value=PCOST[lang];$('rtax').value=RTAX[lang];$('htax').value=HTAX[lang];$('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   // Month by month, both paths use the same money. Day one: the landlord pays down payment +

@@ -360,7 +360,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="scost" data-t="lScost">Gastos de venta</label><span class="ctrl-val num" id="scost-out">5&nbsp;%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="ocost" data-t="lOcost">Gastos anuales del propietario</label><span class="ctrl-val num" id="ocost-out">1&nbsp;%</span></div>
@@ -373,8 +373,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <p class="note" data-t="rtaxNote">El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.</p>
         </div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Meses sin alquilar al año</label><span class="ctrl-val num" id="empty-out">1</span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Meses sin alquilar al año</label><span class="ctrl-val num" id="empty-out">0,5</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Revalorización del piso al año</label><span class="ctrl-val num" id="hgrow-out">2&nbsp;%</span></div>
@@ -392,8 +392,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
     <p class="note" data-t="pickNote">Ya quitados los impuestos, en euros de hoy, media de los primeros 10 años.</p>
     <h3 data-t="incH">Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)</h3>
-    <div class="income" id="income"><div><b>379&nbsp;€</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span></div><div><b>396&nbsp;€</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, quitando los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy.</p></div>
-    <div class="bill" id="bill"><h4>¿Por qué el alquiler neto es solo 379&nbsp;€? Aquí tienes la cuenta, al mes:</h4><p class="row"><span>Alquiler que cobras</span><span>700&nbsp;€</span></p><p class="row"><span>Meses vacío (1 al año de media)</span><span>−58&nbsp;€</span></p><p class="row"><span>Impuestos sobre el alquiler (15&nbsp;%)</span><span>−96&nbsp;€</span></p><p class="row"><span>Gastos del piso: IBI, comunidad, arreglos (1&nbsp;% del valor al año)</span><span>−167&nbsp;€</span></p><p class="row tot"><span>Te queda</span><span>379&nbsp;€</span></p><p class="note">Casi todos cuentan solo alquiler menos impuestos. Pero los meses vacío y los gastos llegan, solo que no cada mes: un inquilino que se va, una caldera que cambiar. Si tus números son distintos, cámbialos en los detalles de arriba.</p></div>
+    <div class="income" id="income"><div><b>404&nbsp;€</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span></div><div><b>396&nbsp;€</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, quitando los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy.</p></div>
+    <div class="bill" id="bill"><h4>¿Por qué el alquiler neto es solo 404&nbsp;€? Aquí tienes la cuenta, al mes:</h4><p class="row"><span>Alquiler que cobras</span><span>700&nbsp;€</span></p><p class="row"><span>Meses vacío (medio mes al año de media)</span><span>−29&nbsp;€</span></p><p class="row"><span>Impuestos sobre el alquiler (15&nbsp;%)</span><span>−101&nbsp;€</span></p><p class="row"><span>Gastos del piso: IBI, comunidad, arreglos (1&nbsp;% del valor al año)</span><span>−167&nbsp;€</span></p><p class="row tot"><span>Te queda</span><span>404&nbsp;€</span></p><p class="note">Casi todos cuentan solo alquiler menos impuestos. Pero los meses vacío y los gastos llegan, solo que no cada mes: un inquilino que se va, una caldera que cambiar. Si tus números son distintos, cámbialos en los detalles de arriba.</p></div>
 
     <h3 data-t="cashH">Dinero que puedes usar cuando quieras</h3>
     <div class="income" id="cash"><div><b>0 €</b><span>con el piso: para tener el dinero hay que venderlo, y lleva meses</span></div><div><b>171.100&nbsp;€</b><span>con los ETF: vendes un trozo cualquier día de bolsa abierta</span></div></div>
@@ -494,7 +494,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
       billH:(v)=>`Why is the rent only ${v} net? Here’s the math, per month:`,
       bRent:'Rent you get',
-      bEmpty:(n)=>`Empty months (${n} a year on average)`,
+      bEmpty:(n)=>`Empty months (${n==='0.5'?'half a month':n+' months'} a year on average)`,
       bTax:(p)=>`Tax on the rent (${p})`,
       bCost:(p)=>`House costs: property tax, building fees, repairs (${p} of the value a year)`,
       bLeft:'What’s left',
@@ -558,7 +558,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
       billH:(v)=>`Perché l’affitto netto è solo ${v}? Ecco il conto, al mese:`,
       bRent:'Affitto che prendi',
-      bEmpty:(n)=>`Mesi vuoti (${n} all’anno in media)`,
+      bEmpty:(n)=>`Mesi vuoti (${n==='0,5'?'mezzo mese':n+' mesi'} all’anno in media)`,
       bTax:(p)=>`Tasse sull’affitto (${p})`,
       bCost:(p)=>`Spese della casa: IMU, condominio, lavori (${p} del valore all’anno)`,
       bLeft:'Ti restano',
@@ -622,7 +622,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
       billH:(v)=>`¿Por qué el alquiler neto es solo ${v}? Aquí tienes la cuenta, al mes:`,
       bRent:'Alquiler que cobras',
-      bEmpty:(n)=>`Meses vacío (${n} al año de media)`,
+      bEmpty:(n)=>`Meses vacío (${n==='0,5'?'medio mes':n+' meses'} al año de media)`,
       bTax:(p)=>`Impuestos sobre el alquiler (${p})`,
       bCost:(p)=>`Gastos del piso: IBI, comunidad, arreglos (${p} del valor al año)`,
       bLeft:'Te queda',
@@ -678,7 +678,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang];$('scost').value=SCOSTD[lang]}
   countryDefaults();
 
   let PICK='keep';

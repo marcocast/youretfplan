@@ -323,8 +323,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="scost" data-t="lScost">Gastos de venta de la casa</label><span class="ctrl-val num" id="scost-out">5&nbsp;%</span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
-          <p class="note" data-t="scostNote">Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.</p>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
+          <p class="note" data-t="scostNote">Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.</p>
         </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="htax" data-t="lHtax">Impuestos sobre la ganancia de la casa</label><span class="ctrl-val num" id="htax-out">0&nbsp;%</span></div>
@@ -409,6 +409,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const HOME={en:'/',it:'/it/',es:'/es/'};
   const PCOST={en:7,it:6,es:11}; // default purchase costs (% of price) per language
   // Selling at the end: tax on the ETF gains, Italy's 0.2% yearly stamp duty on ETFs. The home is your main home, so its gain tax defaults to 0.
+  const SCOSTD={en:4,it:4,es:5}; // agency + IVA and paperwork; ES also plusvalía municipal
   const ETAXD={en:20,it:26,es:21}, BOLLO={en:0,it:0.002,es:0};
 
   const T={
@@ -425,7 +426,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the home value.',
       lHgrow:'Home value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs at 7% a year on average.',
       lScost:'Selling costs of the house',
-      scostNote:'Agency and the rest when you sell, as % of the price.',
+      scostNote:'Agency fee plus VAT and some paperwork, as % of the price.',
       lHtax:'Tax on the house gain',
       htaxNote:'It’s the home you live in: in many countries selling it is tax-free. Check your rules.',
       lEtax:'Tax on the ETF gains',
@@ -470,7 +471,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, spese straordinarie, IMU se dovuta, in % del valore della casa.',
       lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
       lScost:'Costi di vendita della casa',
-      scostNote:'Agenzia e altro quando vendi, in % del prezzo.',
+      scostNote:'Agenzia (di solito 3% + IVA) e qualche documento, in % del prezzo.',
       lHtax:'Tasse sul guadagno della casa',
       htaxNote:'È la casa dove vivi: in Italia se la vendi di solito non paghi niente. Metti 26% solo se la vendi entro 5 anni senza averci abitato.',
       lEtax:'Tasse sul guadagno degli ETF',
@@ -515,7 +516,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, derramas, en % del valor de la casa.',
       lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% al año.',
       lScost:'Gastos de venta de la casa',
-      scostNote:'Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.',
+      scostNote:'Inmobiliaria (3–5% + IVA), plusvalía municipal y papeles, en % del precio.',
       lHtax:'Impuestos sobre la ganancia de la casa',
       htaxNote:'Es tu vivienda habitual: si compras otra con el dinero, o tienes más de 65 años, normalmente no pagas. Si no, del 19% al 30%.',
       lEtax:'Impuestos sobre la ganancia de los ETF',
@@ -560,7 +561,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  $('pcost').value=PCOST[lang]; $('etax').value=ETAXD[lang];
+  $('pcost').value=PCOST[lang]; $('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang];
 
   // Month-by-month: both people spend the same each month. The buyer pays mortgage + owner
   // costs; the renter pays rent. Whoever pays less invests the difference in ETFs. On day one
@@ -654,7 +655,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function setLang(k){
     try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
     if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
-    lang=k;$('pcost').value=PCOST[lang];$('etax').value=ETAXD[lang];applyLang();
+    lang=k;$('pcost').value=PCOST[lang];$('etax').value=ETAXD[lang];$('scost').value=SCOSTD[lang];applyLang();
   }
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
   const INPUTS=['price','rent','down','years','mrate','mterm','pcost','ocost','hgrow','scost','htax','etax'];
