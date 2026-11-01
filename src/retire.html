@@ -102,6 +102,8 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
 details[open] summary::after{content:"−"}
 details > div{padding:0 0 14px;color:var(--muted)}
+details > div p{margin:0 0 8px}
+details > div p:last-child{margin:0}
 .faqs{display:flex;flex-direction:column;gap:8px}
 
 /* next step */
@@ -346,6 +348,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <details><summary data-t="q2"></summary><div data-t="a2"></div></details>
       <details><summary data-t="q3"></summary><div data-t="a3"></div></details>
       <details><summary data-t="q4"></summary><div data-t="a4"></div></details>
+      <details><summary data-t="q5"></summary><div data-t="a5"></div></details>
     </div>
   </section>
 
@@ -442,6 +445,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q2:'What if the money runs out before I do?', a2:'The calculator above tells you how long it lasts with your numbers. Studies of the past say that taking 3–4% a year from a mixed portfolio lasted 25–30 years in most cases. It’s not a guarantee: if you want to be calmer, take out a bit less.',
       q3:'One ETF or two?', a3:'One “all-in-one” mixed ETF (for example 40% shares and 60% bonds) does everything by itself, including keeping the mix. Two ETFs, one shares and one bonds, cost a little less but you rebalance yourself. For most people one is simpler.',
       q4:'Isn’t a house safer?', a4:'A house doesn’t show a price every day, so it feels calmer. But it can lose value too, it can stay empty, and you can’t sell a piece of it when you need money. With ETFs you see every swing, but your money is spread over thousands of companies and bonds, and it’s there when you need it.',
+      q5:'And when I’m gone? What happens to the ETFs?', a5:'<p>They go to your heirs, like the flat. The bank freezes the account until your heirs bring the inheritance papers. Then the ETFs move to their account, or they sell them.</p><p>Compared to a flat there are two upsides. They split to the cent: no brothers and sisters who have to agree on selling or renting. And there’s usually less paperwork and fewer costs than passing on a property.</p><p>Inheritance tax depends on your country. In many countries the gain made up to that day isn’t taxed, and your heirs start from the value on the day they inherit. Check the rules where you live.</p><p>One practical tip: write down which bank or broker you use and where the papers are. With a foreign broker there can be more paperwork.</p>',
       nextH:'Next: how to buy your first ETF', next:'Step by step: choose a broker, open the account, find the ETF.', nextBtn:'Read the guide',
       fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
       taxNote:'<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in November 2026. Before any big move, ask an accountant: it costs less than a mistake.',
@@ -506,6 +510,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q2:'E se i soldi finiscono prima di me?', a2:'Il calcolo qui sopra ti dice quanto durano con i tuoi numeri. Gli studi sul passato dicono che prelevando il 3–4% l’anno da un portafoglio misto i soldi sono durati 25–30 anni nella gran parte dei casi. Non è una garanzia: se vuoi stare più tranquillo, preleva un po’ meno.',
       q3:'Meglio un ETF o due?', a3:'Un ETF misto “tutto in uno” (per esempio 40% azioni e 60% obbligazioni) fa tutto da solo, anche tenere il mix. Due ETF, uno di azioni e uno di obbligazioni, costano un filo meno ma il mix lo sistemi tu. Per la maggior parte delle persone uno è più semplice.',
       q4:'Ma la casa non è più sicura?', a4:'La casa non ti fa vedere il prezzo ogni giorno, quindi sembra più tranquilla. Ma può perdere valore anche lei, può restare vuota, e non puoi venderne un pezzo quando ti servono soldi. Con gli ETF vedi ogni su e giù, ma i soldi sono sparsi su migliaia di aziende e obbligazioni, e ci sono quando ti servono.',
+      q5:'E quando non ci sarò più? Cosa succede agli ETF?', a5:'<p>Passano ai tuoi eredi, come la casa. La banca blocca il conto finché gli eredi non portano i documenti della successione. Poi gli ETF passano sul loro conto, oppure li vendono.</p><p>Rispetto alla casa ci sono due vantaggi. Si dividono al centesimo: niente fratelli che devono mettersi d’accordo se vendere o affittare. E costano meno: sulla casa gli eredi pagano anche le imposte ipotecaria e catastale (il 3% del valore catastale, o 400 € fissi se diventa la loro prima casa). Sugli ETF no.</p><p>Le tasse di successione: per coniuge e figli niente fino a 1 milione a testa, sopra il 4%. E il guadagno fatto fino a quel giorno non lo paga nessuno: per gli eredi si riparte dal valore del giorno della successione.</p><p>Un consiglio pratico: lascia scritto su un foglio quale banca o broker usi e dove sono i documenti. Con un broker estero le carte da fare possono essere di più.</p>',
       nextH:'Prossimo passo: come comprare il tuo primo ETF', next:'Passo per passo: scegliere il broker, aprire il conto, trovare l’ETF.', nextBtn:'Leggi la guida',
       fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
       taxNote:'<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a novembre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.',
@@ -570,6 +575,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q2:'¿Y si el dinero se acaba antes que yo?', a2:'La calculadora de arriba te dice cuánto dura con tus números. Los estudios del pasado dicen que sacando un 3–4% al año de una cartera mixta, el dinero duró 25–30 años en la mayoría de los casos. No es una garantía: si quieres estar más tranquilo, saca un poco menos.',
       q3:'¿Mejor un ETF o dos?', a3:'Un ETF mixto “todo en uno” (por ejemplo 40% acciones y 60% bonos) lo hace todo solo, también mantener la mezcla. Dos ETF, uno de acciones y otro de bonos, cuestan un poco menos pero la mezcla la ajustas tú. Para la mayoría, uno es más sencillo.',
       q4:'¿Pero un piso no es más seguro?', a4:'Un piso no te enseña el precio cada día, así que parece más tranquilo. Pero también puede perder valor, puede quedarse vacío, y no puedes vender un trozo cuando necesitas dinero. Con los ETF ves cada subida y bajada, pero el dinero está repartido entre miles de empresas y bonos, y está ahí cuando lo necesitas.',
+      q5:'¿Y cuando yo ya no esté? ¿Qué pasa con los ETF?', a5:'<p>Pasan a tus herederos, igual que el piso. El banco bloquea la cuenta hasta que los herederos presentan los papeles de la herencia. Luego los ETF pasan a su cuenta, o los venden.</p><p>Frente al piso hay dos ventajas. Se reparten al céntimo: nada de hermanos que tienen que ponerse de acuerdo para vender o alquilar. Y hay menos gastos: con el piso los herederos pagan además la plusvalía municipal. Con los ETF no.</p><p>El impuesto de sucesiones depende de tu comunidad autónoma: en muchas, hijos y cónyuge pagan muy poco o casi nada. Y la ganancia acumulada hasta ese día no paga IRPF (es la llamada «plusvalía del muerto»): los herederos empiezan desde el valor del día de la herencia.</p><p>Un consejo práctico: deja escrito en un papel qué banco o bróker usas y dónde están los papeles. Con un bróker extranjero los trámites pueden ser más.</p>',
       nextH:'Siguiente paso: cómo comprar tu primer ETF', next:'Paso a paso: elegir bróker, abrir la cuenta, encontrar el ETF.', nextBtn:'Leer la guía',
       fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
       taxNote:'<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.',
