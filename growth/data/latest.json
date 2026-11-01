@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T11:23:52+00:00",
+ "generated_at": "2026-11-01T13:24:39+00:00",
  "range": {
   "from": "2026-09-27",
   "to": "2026-11-01"
@@ -24,7 +24,7 @@
    },
    {
     "date": "2026-11-01",
-    "pageviews": 70,
+    "pageviews": 90,
     "visits": 40
    }
   ],
@@ -32,18 +32,23 @@
    "pages": [
     {
      "requestPath": "/it/",
-     "pageviews": 162,
+     "pageviews": 168,
      "visits": 9
     },
     {
      "requestPath": "/",
-     "pageviews": 152,
-     "visits": 123
+     "pageviews": 153,
+     "visits": 124
     },
     {
      "requestPath": "/es/",
      "pageviews": 21,
      "visits": 4
+    },
+    {
+     "requestPath": "/it/pensione-affitto-o-etf/",
+     "pageviews": 14,
+     "visits": 1
     },
     {
      "requestPath": "/it/affittare-o-vendere-casa-etf/",
@@ -56,24 +61,19 @@
      "visits": 0
     },
     {
+     "requestPath": "/it/come-comprare-etf/",
+     "pageviews": 6,
+     "visits": 0
+    },
+    {
      "requestPath": "/it/banca-vs-etf/",
      "pageviews": 5,
      "visits": 0
     },
     {
-     "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 5,
-     "visits": 1
-    },
-    {
      "requestPath": "/v2/",
      "pageviews": 5,
      "visits": 5
-    },
-    {
-     "requestPath": "/it/come-comprare-etf/",
-     "pageviews": 4,
-     "visits": 0
     },
     {
      "requestPath": "/es/que-es-un-etf/",
@@ -91,6 +91,11 @@
      "visits": 0
     },
     {
+     "requestPath": "/retired-rental-or-etf/",
+     "pageviews": 3,
+     "visits": 0
+    },
+    {
      "requestPath": "/v3/",
      "pageviews": 2,
      "visits": 2
@@ -99,6 +104,11 @@
      "requestPath": "/inheritance-etf/",
      "pageviews": 2,
      "visits": 2
+    },
+    {
+     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
+     "pageviews": 2,
+     "visits": 0
     },
     {
      "requestPath": "/rent-or-sell-house-etf/",
@@ -116,6 +126,11 @@
      "visits": 0
     },
     {
+     "requestPath": "/es/jubilado-alquiler-o-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
      "requestPath": "/es/etf-o-fondo-del-banco/",
      "pageviews": 1,
      "visits": 0
@@ -129,27 +144,22 @@
      "requestPath": "/es/banco-vs-etf/",
      "pageviews": 1,
      "visits": 0
-    },
-    {
-     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
-     "pageviews": 1,
-     "visits": 0
     }
    ],
    "referrers": [
     {
-     "refererHost": "",
-     "pageviews": 148,
-     "visits": 148
-    },
-    {
      "refererHost": "www.youretfplan.com",
-     "pageviews": 134,
+     "pageviews": 154,
      "visits": 1
     },
     {
+     "refererHost": "",
+     "pageviews": 149,
+     "visits": 149
+    },
+    {
      "refererHost": "youretfplan.com",
-     "pageviews": 112,
+     "pageviews": 114,
      "visits": 0
     },
     {
@@ -171,13 +181,13 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 232,
+     "pageviews": 252,
      "visits": 38
     },
     {
      "countryName": "US",
-     "pageviews": 56,
-     "visits": 56
+     "pageviews": 57,
+     "visits": 57
     },
     {
      "countryName": "FR",
@@ -185,14 +195,14 @@
      "visits": 10
     },
     {
+     "countryName": "IT",
+     "pageviews": 14,
+     "visits": 6
+    },
+    {
      "countryName": "NL",
      "pageviews": 12,
      "visits": 10
-    },
-    {
-     "countryName": "IT",
-     "pageviews": 12,
-     "visits": 6
     },
     {
      "countryName": "PL",
@@ -238,18 +248,18 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 205,
-     "visits": 95
+     "pageviews": 210,
+     "visits": 96
+    },
+    {
+     "deviceType": "mobile",
+     "pageviews": 106,
+     "visits": 45
     },
     {
      "deviceType": "tablet",
      "pageviews": 104,
      "visits": 12
-    },
-    {
-     "deviceType": "mobile",
-     "pageviews": 88,
-     "visits": 45
     }
    ]
   }
@@ -322,29 +332,32 @@
    },
    {
     "day": "2026-11-01",
-    "view": 26,
+    "view": 28,
     "hook": 1,
     "plan": 1,
-    "calc_seen": 4,
-    "active": 4,
+    "calc_seen": 5,
+    "active": 6,
     "explore": 1,
-    "start_seen": 21,
-    "faq": 1,
-    "bottom": 4,
+    "start_seen": 22,
+    "faq": 2,
+    "bottom": 5,
     "feedback": 0,
     "share": 0,
     "sc_bank_active": 1,
     "sc_bank_view": 2,
     "sc_buy_active": 1,
     "sc_buy_view": 1,
+    "sc_first_view": 2,
     "sc_fund_active": 1,
     "sc_fund_view": 1,
     "sc_inherit_view": 3,
     "sc_learn_view": 2,
+    "sc_let_active": 1,
+    "sc_let_view": 1,
     "sc_own_active": 3,
     "sc_own_view": 5,
-    "sc_retire_active": 1,
-    "sc_retire_view": 2
+    "sc_retire_active": 3,
+    "sc_retire_view": 4
    }
   ],
   "last_7_days_breakdown": [
@@ -367,7 +380,7 @@
     "lang": "it",
     "device": "mobile",
     "source": "internal",
-    "n": 9
+    "n": 10
    },
    {
     "step": "calc_seen",
@@ -433,6 +446,13 @@
     "n": 4
    },
    {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 4
+   },
+   {
     "step": "calc_seen",
     "lang": "it",
     "device": "mobile",
@@ -454,9 +474,9 @@
     "n": 3
    },
    {
-    "step": "view",
+    "step": "sc_first_view",
     "lang": "it",
-    "device": "desktop",
+    "device": "mobile",
     "source": "internal",
     "n": 3
    },
@@ -472,6 +492,20 @@
     "lang": "en",
     "device": "mobile",
     "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
     "n": 2
    },
    {
@@ -497,13 +531,6 @@
    },
    {
     "step": "sc_bank_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "sc_first_view",
     "lang": "it",
     "device": "mobile",
     "source": "internal",
@@ -559,6 +586,20 @@
     "n": 2
    },
    {
+    "step": "sc_retire_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_retire_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
     "step": "view",
     "lang": "es",
     "device": "mobile",
@@ -573,6 +614,13 @@
     "n": 2
    },
    {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
+    "n": 2
+   },
+   {
     "step": "active",
     "lang": "en",
     "device": "desktop",
@@ -596,13 +644,6 @@
    {
     "step": "active",
     "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "active",
-    "lang": "it",
     "device": "mobile",
     "source": "direct",
     "n": 1
@@ -626,13 +667,6 @@
     "lang": "it",
     "device": "desktop",
     "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "calc_seen",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
     "n": 1
    },
    {
@@ -688,6 +722,13 @@
     "step": "sc_first_active",
     "lang": "it",
     "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_first_view",
+    "lang": "it",
+    "device": "desktop",
     "source": "internal",
     "n": 1
    },
@@ -748,9 +789,23 @@
     "n": 1
    },
    {
+    "step": "sc_let_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
     "step": "sc_let_view",
     "lang": "it",
     "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_let_view",
+    "lang": "it",
+    "device": "mobile",
     "source": "internal",
     "n": 1
    },
@@ -771,7 +826,7 @@
    {
     "step": "sc_retire_active",
     "lang": "it",
-    "device": "mobile",
+    "device": "desktop",
     "source": "internal",
     "n": 1
    },
@@ -785,7 +840,7 @@
    {
     "step": "sc_retire_view",
     "lang": "it",
-    "device": "mobile",
+    "device": "desktop",
     "source": "internal",
     "n": 1
    },
@@ -813,13 +868,6 @@
    {
     "step": "view",
     "lang": "it",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "view",
-    "lang": "it",
     "device": "mobile",
     "source": "investing.com",
     "n": 1
@@ -832,7 +880,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 4
+    "active_user_days": 6
    }
   ]
  },
