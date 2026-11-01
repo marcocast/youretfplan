@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="es">
+<title>Jubilado con un piso alquilado: ¿seguir alquilando o vender e invertir en ETF? | Your ETF Plan</title>
+<meta name="description" content="¿Jubilado con un piso alquilado? Compara el alquiler neto con un ingreso mensual de una mezcla tranquila de ETF (acciones y bonos), dinero disponible cuando quieras y cuánto dura.">
+<link rel="canonical" href="https://youretfplan.com/es/jubilado-alquiler-o-etf/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/retired-rental-or-etf/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/pensione-affitto-o-etf/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/jubilado-alquiler-o-etf/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/retired-rental-or-etf/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/es/jubilado-alquiler-o-etf/">
+<meta property="og:title" content="Jubilado con un piso alquilado: ¿seguir alquilando o vender e invertir en ETF? | Your ETF Plan">
+<meta property="og:description" content="¿Jubilado con un piso alquilado? Compara el alquiler neto con un ingreso mensual de una mezcla tranquila de ETF (acciones y bonos), dinero disponible cuando quieras y cuánto dura.">
+<meta property="og:image" content="https://youretfplan.com/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* Scenario 6: retired with a rental flat: keep renting, or sell and live off a calm mix of ETFs. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+/* guide pages: numbered steps, progress, small calculator */
+.guide{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{gap:12px}
+.step h2{display:flex;align-items:center;gap:12px;font-size:1.3rem}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-size:1rem;color:#17322a}
+.step p{margin:0 0 8px}
+.step p:last-child{margin-bottom:0}
+.step a{color:var(--ink);font-weight:700}
+.step.is-done{border-color:var(--leaf2);box-shadow:6px 6px 0 var(--leaf2)}
+.step.is-done .n{background:var(--leaf);color:#fff}
+.done{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;background:var(--bg)}
+.done input{width:20px;height:20px;accent-color:var(--leaf2);margin:0}
+.progress{height:14px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--leaf);transition:width .3s}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:1.05rem;margin:0}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+.income .inc-note{grid-column:1/-1;margin:0}
+.income span b{display:inline;font:inherit;font-weight:800;color:var(--ink)}
+.pain li{margin-bottom:2px}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Jubilado con un piso alquilado: ¿seguir alquilando o vender e invertir en ETF?",
+  "url": "https://youretfplan.com/es/jubilado-alquiler-o-etf/",
+  "description": "¿Jubilado con un piso alquilado? Compara el alquiler neto con un ingreso mensual de una mezcla tranquila de ETF (acciones y bonos), dinero disponible cuando quieras y cuánto dura.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "¿Qué son los bonos, en palabras sencillas?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Y si el dinero se acaba antes que yo?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Mejor un ETF o dos?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Pero un piso no es más seguro?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-key" viewBox="0 0 64 64"><circle class="w-ink" cx="20" cy="32" r="12" fill="var(--sun)"></circle><circle cx="20" cy="32" r="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"></circle><path class="w-ink" d="M32 32h24M48 32v8M54 32v6" fill="none" stroke-width="4"></path></symbol>
+    <symbol id="i-tree" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="22" ry="4" fill="var(--mint)"></ellipse><path class="w-ink" d="M32 56V30" fill="none" stroke-width="4"></path><circle class="w-ink" cx="32" cy="22" r="14" fill="var(--leaf)"></circle><circle class="w-ink" cx="20" cy="32" r="8" fill="var(--leaf2)"></circle><circle cx="28" cy="18" r="3" fill="var(--sun)"></circle><circle cx="38" cy="26" r="3" fill="var(--coral)"></circle></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/es/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="false">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="true">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Tu caso · jubilado, con un piso alquilado</span>
+    <h1 id="h1" data-t="h1">¿Jubilado con un piso alquilado? <em>Un ingreso fijo, sin inquilinos.</em></h1>
+    <p class="sub" data-t="sub">Inquilinos, obras, comunidad, meses sin cobrar. Si lo que necesitas es un dinero extra cada mes junto a la pensión, y tu dinero disponible cuando lo necesites, aquí tienes el otro camino: vender y meterlo todo en una mezcla tranquila de ETF.</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Una casa alquilada con el tejado que gotea a un lado, un tarro tranquilo con un árbol y un calendario mensual al otro">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <!-- rented house with a leaking tap and a phone ringing -->
+      <path class="w-ink" d="M20 98 82 46l62 52" fill="none" stroke-width="4"></path>
+      <rect class="w-ink" x="34" y="90" width="96" height="88" rx="6" fill="var(--sky)"></rect>
+      <rect class="w-ink" x="68" y="126" width="26" height="52" rx="3" fill="var(--surface)"></rect>
+      <rect class="w-ink" x="44" y="104" width="18" height="16" rx="2" fill="var(--surface)"></rect>
+      <rect class="w-ink" x="102" y="104" width="18" height="16" rx="2" fill="var(--surface)"></rect>
+      <path d="M126 46l8-8M134 54l10-4M120 38l2-10" stroke="var(--coral)" stroke-width="4" stroke-linecap="round"></path>
+      <!-- arrow -->
+      <path d="M150 128c24-10 48-12 74-8" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"></path>
+      <!-- calm jar with tree and a small calendar of monthly income -->
+      <rect class="w-ink" x="236" y="102" width="76" height="76" rx="18" fill="var(--surface)"></rect>
+      <ellipse class="w-ink" cx="274" cy="166" rx="26" ry="6" fill="var(--sun)"></ellipse>
+      <ellipse class="w-ink" cx="274" cy="156" rx="26" ry="6" fill="var(--sky)"></ellipse>
+      <path class="w-ink" d="M274 150V72" fill="none" stroke-width="4"></path>
+      <circle class="w-ink" cx="274" cy="62" r="22" fill="var(--leaf)"></circle>
+      <circle class="w-ink" cx="254" cy="84" r="11" fill="var(--leaf2)"></circle>
+      <circle cx="268" cy="56" r="4" fill="var(--sun)"></circle><circle cx="284" cy="68" r="4" fill="var(--coral)"></circle>
+      <rect class="w-ink" x="300" y="30" width="44" height="40" rx="8" fill="var(--surface)"></rect>
+      <rect x="302" y="32" width="40" height="10" rx="5" fill="var(--coral)"></rect>
+      <circle class="w-ink" cx="322" cy="56" r="8" fill="var(--sun)"></circle>
+    </svg>
+  </section>
+
+  <section class="card" aria-labelledby="h-pain">
+    <h2 id="h-pain" data-t="painH">¿Te suena?</h2>
+    <ul class="check pain" data-t="painL"><li><b>El inquilino no paga.</b> Y echarlo puede llevar muchos meses, a veces más de un año, entre abogado y juzgado; con familias vulnerables a veces se suspende. Mientras tanto, los gastos los pagas tú.</li><li><b>Se va de repente,</b> y el piso se queda vacío meses. El IBI, la comunidad y los recibos llegan igual.</li><li><b>La vida cambia:</b> una pareja se separa, uno se va y el otro ya no puede pagar. Llegan niños, y sacar a una familia se vuelve aún más difícil.</li><li><b>Siempre se rompe algo:</b> la caldera, el tejado, una gotera, un electrodoméstico. Y te llaman a ti.</li><li><b>La comunidad:</b> derramas, juntas, obras que deciden otros y que pagas tú también.</li><li><b>Los impuestos:</b> el IRPF del alquiler, el IBI y la declaración cada año.</li><li><b>Necesitas dinero, pero no puedes vender:</b> con el inquilino dentro y un contrato de 5 años (7 si el casero es una empresa), solo vendes más barato, o esperas años.</li><li><b>Las leyes están del lado del inquilino:</b> en zonas tensionadas hasta el precio está limitado, y tú tienes pocas herramientas y plazos largos.</li></ul>
+    <p data-t="painEnd">Al final eres un poco rehén de tu propio piso. No tiene por qué ser así: aquí abajo ves el otro camino, con tus números.</p>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH">Tu piso</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hvalue" data-t="lValue">Lo que vale hoy el piso</label><span class="ctrl-val num" id="hvalue-out">200.000&nbsp;€</span></div>
+      <input type="range" id="hvalue" min="30000" max="2000000" step="5000" value="200000">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hrent" data-t="lHrent">Alquiler que cobras ahora</label><span class="ctrl-val num" id="hrent-out">700&nbsp;€</span></div>
+      <input type="range" id="hrent" min="0" max="5000" step="25" value="700">
+      <p class="note" data-t="hrentNote">Al mes, antes de impuestos.</p>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="mix" data-t="lMix">Cuánto en acciones</label><span class="ctrl-val num" id="mix-out">40&nbsp;%</span></div>
+      <input type="range" id="mix" min="0" max="100" step="10" value="40">
+      <p class="note" id="mix-note">40&nbsp;% acciones (crecen más, pero suben y bajan más) y 60&nbsp;% bonos (más tranquilos). Rentabilidad esperada de unos 4,9&nbsp;% al año de media, no garantizada.</p>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="wr" data-t="lWr">Cuánto sacas cada año</label><span class="ctrl-val num" id="wr-out">3,5&nbsp;% · 499&nbsp;€/mes</span></div>
+      <input type="range" id="wr" min="2" max="6" step="0.25" value="3.5">
+      <p class="note" data-t="wrNote">En % del dinero inicial, subiéndolo cada año con los precios. Un 3–4% es una elección habitual para una jubilación que dure.</p>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="hyears" data-t="lYears">Mira cómo va dentro de</label><span class="ctrl-val num" id="hyears-out">20 años</span></div>
+      <input type="range" id="hyears" min="5" max="35" step="1" value="20">
+    </div>
+    <details class="assume">
+      <summary data-t="assumeH">Venta, gastos y supuestos (toca para cambiarlos)</summary>
+      <div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="paid" data-t="lPaid">Lo que pagaste por él</label><span class="ctrl-val num" id="paid-out">100.000&nbsp;€</span></div>
+          <input type="range" id="paid" min="0" max="2000000" step="5000" value="100000">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="gtax" data-t="lGtax">Impuestos sobre la ganancia al vender</label><span class="ctrl-val num" id="gtax-out">21&nbsp;%</span></div>
+          <input type="range" id="gtax" min="0" max="30" step="1" value="0">
+          <p class="note" data-t="gtaxNote">En España la ganancia tributa del 19% al 30%. Si tienes más de 65 años y metes lo ganado en una renta vitalicia asegurada en 6 meses (hasta 240.000 €), queda exenta.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Gastos de venta</label><span class="ctrl-val num" id="scost-out">5&nbsp;%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="ocost" data-t="lOcost">Gastos anuales del propietario</label><span class="ctrl-val num" id="ocost-out">1&nbsp;%</span></div>
+          <input type="range" id="ocost" min="0" max="3" step="0.1" value="1">
+          <p class="note" data-t="ocostNote">Mantenimiento, seguro, IBI, comunidad, en % del valor.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="rtax" data-t="lRtax">Impuestos sobre el alquiler</label><span class="ctrl-val num" id="rtax-out">15&nbsp;%</span></div>
+          <input type="range" id="rtax" min="0" max="45" step="1" value="21">
+          <p class="note" data-t="rtaxNote">El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="empty" data-t="lEmpty">Meses sin alquilar al año</label><span class="ctrl-val num" id="empty-out">1</span></div>
+          <input type="range" id="empty" min="0" max="6" step="0.5" value="1">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="hgrow" data-t="lHgrow">Revalorización del piso al año</label><span class="ctrl-val num" id="hgrow-out">2&nbsp;%</span></div>
+          <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
+        </div>
+      </div>
+    </details>
+
+    <h3 data-t="incH">Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)</h3>
+    <div class="income" id="income"><div><b>371&nbsp;€</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span></div><div><b>468&nbsp;€</b><span>al mes si lo <b>vendes e inviertes en ETF</b>: lo que sacas, menos los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy.</p></div>
+
+    <h3 data-t="cashH">Dinero que puedes usar cuando quieras</h3>
+    <div class="income" id="cash"><div><b>0 €</b><span>con el piso: para tener el dinero hay que venderlo, y lleva meses</span></div><div><b>171.100&nbsp;€</b><span>con los ETF: vendes un trozo cualquier día de bolsa abierta</span></div></div>
+
+    <p class="res-head" id="h-head">Dentro de 20 años, lo que te queda, en euros de hoy:</p>
+    <div class="bars" aria-live="polite">
+      <div class="bar"><span class="lab" data-t="bHouse">Sigues alquilando <small>el valor del piso (sin vender)</small></span><span class="val num" id="v-house">200.000&nbsp;€</span><div class="track"><div class="fill" id="f-house" style="background: var(--coral); width: 95.2%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bPort">Lo vendes e inviertes en ETF <small>lo que queda después de todo lo que has sacado</small></span><span class="val num" id="v-port">144.483&nbsp;€</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 68.8%;"></div></div></div>
+    </div>
+    <p class="verdict" id="verdict">Después de 20 años sacando dinero cada mes, todavía tendrías unos <b class="gain">144.483&nbsp;€</b> en ETF.</p>
+    <p class="note" id="crash">Te lo digo claro: en un año malo como 2022 las carteras mixtas de acciones y bonos perdieron en torno a un 13–16%. Sobre tu dinero significa ver unos 25.665&nbsp;€ menos durante un tiempo. Guarda 1–2 años de retiradas en un depósito, y en los años malos no tienes que vender nada.</p>
+    <p class="note" data-t="calcNote">Acciones 7% y bonos 3,5% al año de media, precios +2% al año. El alquiler sube con los precios. Estimaciones para entender, no una promesa.</p>
+  </section>
+
+  <section aria-labelledby="h-why">
+    <h2 id="h-why" data-t="whyH">Por qué no todo en acciones</h2>
+    <ul class="check" data-t="whyL"><li><b>Jubilado, el dinero lo sacas.</b> Si la bolsa cae justo cuando empiezas, vendes barato y el dinero dura menos.</li><li><b>Los bonos son el freno:</b> préstamos a los Estados que pagan un interés. Se mueven menos, así que en un año malo vives de ellos mientras las acciones se recuperan.</li><li><b>Menos sustos, menos preocupaciones:</b> una mezcla más tranquila rinde algo menos, pero te deja dormir. A los 70 eso cuenta más que un punto de más.</li></ul>
+  </section>
+
+  <section aria-labelledby="h-how">
+    <h2 id="h-how" data-t="howH">Cómo se hace en la práctica</h2>
+    <ol class="steps" data-t="howL"><li><span>Vendes el piso. Si hay un inquilino con contrato, o lo vendes con el inquilino dentro (más barato) o esperas a que acabe el contrato.</span></li><li><span>Guarda <b>1–2 años de retiradas</b> en un depósito.</span></li><li><span>El resto en un <b>ETF mixto</b> (por ejemplo 40% acciones y 60% bonos, se reequilibra solo), o en dos ETF: uno de acciones mundiales y otro de deuda pública europea.</span></li><li><span>Una o dos veces al año vendes un trozo del ETF y recargas el depósito. Cada mes te pasas tu “segunda pensión” a la cuenta corriente.</span></li></ol>
+  </section>
+
+  <section aria-labelledby="h-life">
+    <h2 id="h-life" data-t="lifeH">No es solo cuestión de dinero</h2>
+    <ul class="check" data-t="lifeL"><li><b>Se acabaron los inquilinos:</b> ni llamadas por la caldera, ni perseguir alquileres, ni juntas de la comunidad.</li><li><b>Tu dinero, cuando quieras:</b> para la salud, para ayudar a los hijos, para un viaje.</li><li><b>Más fácil para los herederos:</b> los ETF se reparten en un minuto; un piso muchas veces significa discutir.</li><li><b>Eso sí:</b> si ese piso significa mucho para ti, es un buen motivo para quedártelo.</li></ul>
+  </section>
+
+  <section aria-labelledby="h-country">
+    <h2 id="h-country" data-t="countryH">Los impuestos a tener en cuenta en España</h2>
+    <div class="country" data-t="country"><b>Venta:</b> la ganancia tributa del 19% al 30%. Si tienes más de 65 años, puedes dejarla exenta metiéndola en 6 meses en una renta vitalicia asegurada, hasta 240.000 €. Además, la plusvalía municipal. <b>ETF:</b> solo tributa la parte de ganancia de lo que vendes, del 19% al 30%. Ojo: los fondos indexados permiten traspasos sin pagar impuestos y los ETF no; para quien saca dinero poco a poco, un fondo indexado mixto puede ser igual de bueno.</div>
+    <p class="taxnote"><span data-t="taxNote"><b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.</span></p>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Preguntas</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">¿Qué son los bonos, en palabras sencillas?</summary><div data-t="a1">Préstamos a Estados o empresas que te pagan un interés. En un año normal se mueven poco, y amortiguan las caídas de las acciones. Pero no tienen riesgo cero: en 2022 también bajaron.</div></details>
+      <details><summary data-t="q2">¿Y si el dinero se acaba antes que yo?</summary><div data-t="a2">La calculadora de arriba te dice cuánto dura con tus números. Los estudios del pasado dicen que sacando un 3–4% al año de una cartera mixta, el dinero duró 25–30 años en la mayoría de los casos. No es una garantía: si quieres estar más tranquilo, saca un poco menos.</div></details>
+      <details><summary data-t="q3">¿Mejor un ETF o dos?</summary><div data-t="a3">Un ETF mixto “todo en uno” (por ejemplo 40% acciones y 60% bonos) lo hace todo solo, también mantener la mezcla. Dos ETF, uno de acciones y otro de bonos, cuestan un poco menos pero la mezcla la ajustas tú. Para la mayoría, uno es más sencillo.</div></details>
+      <details><summary data-t="q4">¿Pero un piso no es más seguro?</summary><div data-t="a4">Un piso no te enseña el precio cada día, así que parece más tranquilo. Pero también puede perder valor, puede quedarse vacío, y no puedes vender un trozo cuando necesitas dinero. Con los ETF ves cada subida y bajada, pero el dinero está repartido entre miles de empresas y bonos, y está ahí cuando lo necesitas.</div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Siguiente paso: cómo comprar tu primer ETF</h2>
+    <p data-t="next">Paso a paso: elegir bróker, abrir la cuenta, encontrar el ETF.</p>
+    <a class="btn" id="next-btn" href="/es/como-comprar-etf/"><span data-t="nextBtn">Leer la guía</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">¿Te ha servido esta página?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sí">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="No mucho">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">¡Gracias!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>No es asesoramiento financiero.</strong> Son estimaciones para entender, con rentabilidades medias. Invertir en ETF significa que también puedes perder dinero, y los precios y alquileres de la vivienda también pueden bajar. Antes de vender un piso, habla con un notario o un gestor.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/retired-rental-or-etf/" hreflang="en" lang="en">English</a> · <a href="/it/pensione-affitto-o-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/jubilado-alquiler-o-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const INFL=0.02, STOCKS=0.07, BONDS=0.035;
+  const PAGE_URLS={en:'/retired-rental-or-etf/',it:'/it/pensione-affitto-o-etf/',es:'/es/jubilado-alquiler-o-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const GUIDE={en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'};
+  const RTAX={en:20,it:21,es:15}; // default tax on rent (% of rent)
+  const GTAX={en:20,it:0,es:21};  // default tax on the house gain when you sell
+  const BOLLO={en:0,it:0.002,es:0};
+  // Tax on the gain part of what you take out of the ETFs. Italy: 26% on shares, 12.5% on government bonds.
+  const etaxFor=(l,s)=>l==='it'?s*0.26+(1-s)*0.125:l==='es'?0.19:0.20;
+
+  const T={
+    en:{locale:'en-IE', title:'Retired with a rental flat: keep renting or sell and invest in ETFs? | Your ETF Plan',
+      badge:'Your case · retired, with a flat to rent',
+      h1:'Retired with a flat to rent? <em>A steady income, without tenants.</em>',
+      sub:'Tenants, repairs, the building’s bills, months with no rent. If what you want is extra money every month next to your pension, and your money there when you need it, here’s the other way: sell, and put it into a calm mix of ETFs.',
+      illAlt:'A rented house with a leaking roof on one side, a calm jar with a tree and a monthly calendar on the other',
+      painH:'Sound familiar?',
+      painL:'<li><b>The tenant stops paying.</b> Getting them out can take many months, sometimes more than a year, with lawyers and courts. Meanwhile, you pay the bills.</li><li><b>They leave out of the blue,</b> and the flat sits empty for months. Property tax, building costs and bills keep coming.</li><li><b>Life changes:</b> a couple splits up, one leaves and the other can’t pay any more. Kids arrive, and asking a family to leave gets even harder.</li><li><b>Something always breaks:</b> the boiler, the roof, a leak, an appliance. And they call you.</li><li><b>The building:</b> extra charges, meetings, works decided by others that you pay for too.</li><li><b>Taxes:</b> tax on the rent, property tax, and the tax return every year.</li><li><b>You need money, but you can’t sell:</b> with a tenant inside and a long contract, you either sell for less or wait years.</li><li><b>The rules are on the tenant’s side:</b> you have few tools and long waits.</li>',
+      painEnd:'In the end you’re a bit of a hostage in your own flat. It doesn’t have to be that way: below you can see the other way, with your numbers.',
+      calcH:'Your flat',
+      lValue:'What the flat is worth today', lHrent:'Rent you get now', hrentNote:'Per month, before taxes.',
+      lMix:'How much in shares', mixNote:(s,b,r)=>`${s} shares (they grow more, but swing more) and ${b} bonds (calmer). Expected return about ${r} a year on average, not guaranteed.`,
+      lWr:'How much you take out each year', wrNote:'% of the money you start with, raised every year with prices. 3–4% is a common choice for a retirement that lasts.',
+      lYears:'See how it looks in', years:n=>n+(n===1?' year':' years'),
+      assumeH:'Sale, costs and assumptions (tap to change)',
+      lPaid:'What you paid for it', lGtax:'Tax on the gain when you sell', gtaxNote:'Depends on your country and how long you’ve owned it.',
+      lScost:'Selling costs', lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the value.',
+      lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the contract.', lEmpty:'Months with no rent per year', lHgrow:'House value growth per year',
+      incH:'Money in your pocket each month (after taxes and costs)',
+      incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
+      incPort:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>: what you take out, minus tax on the gains</span>`,
+      incNote:'Average of the first 10 years, in today’s money.',
+      cashH:'Money you can use when you want',
+      cashRent:`<b>€0</b><span>with the flat: to get money out you have to sell it, and that takes months</span>`,
+      cashPort:v=>`<b>${v}</b><span>with ETFs: you can sell a piece any day the market is open</span>`,
+      hHead:y=>`In ${y} years, what’s left, in today’s money:`,
+      bHouse:'Keep renting <small>the flat’s value (not sold)</small>', bPort:'Sell and invest in ETFs <small>what’s left after all the money you took out</small>',
+      vOk:(y,v)=>`After ${y} years of taking money out every month, you’d still have about <b class="gain">${v}</b> in ETFs.`,
+      vOut:(n)=>`At this pace the money lasts about <b class="loss">${n} years</b>. Take out a bit less, or put more in bonds and less in shares, and it lasts longer.`,
+      crash:(v)=>`Honestly: in a bad year like 2022, mixed shares-and-bonds portfolios lost around 13–16%. On your money that means seeing about ${v} less for a while. Keep 1–2 years of withdrawals in a deposit and you never have to sell in a bad year.`,
+      calcNote:'Shares 7% and bonds 3.5% a year on average, prices +2% a year. The rent grows with prices. Estimates to help you understand, not a promise.',
+      whyH:'Why not everything in shares',
+      whyL:'<li><b>When you’re retired, you’re taking money out.</b> If markets fall just as you start, you sell low and the money lasts less.</li><li><b>Bonds are the brakes:</b> loans to governments that pay interest. They move less, so in a bad year you can live on them while shares recover.</li><li><b>Fewer swings, less stress:</b> a calmer mix earns less, but it lets you sleep. At 70 that counts more than one extra percent.</li>',
+      howH:'How it works in practice',
+      howL:'<li><span>Sell the flat. If there’s a tenant with a contract, you either sell with the tenant in (for less) or wait until the contract ends.</span></li><li><span>Keep <b>1–2 years of withdrawals</b> in a savings deposit.</span></li><li><span>Put the rest into a <b>mixed ETF</b> (for example 40% shares and 60% bonds, it rebalances by itself), or into two ETFs: one world shares, one euro government bonds.</span></li><li><span>Once or twice a year, sell a piece of the ETF and top up the deposit. Every month, move your “second pension” to your current account.</span></li>',
+      lifeH:'It’s not only about money',
+      lifeL:'<li><b>No more tenants:</b> no calls about the boiler, no chasing late rent, no building meetings.</li><li><b>Your money, when you want it:</b> for health, to help your children, for a trip.</li><li><b>Easier for heirs:</b> ETFs split in a minute; a flat often means arguments.</li><li><b>But:</b> if that flat means a lot to you, that’s a fair reason to keep it.</li>',
+      countryH:'Taxes to check in your country',
+      country:'Selling the flat may be taxed on the gain; what you take out of ETFs is usually taxed only on the gain part. Rules depend on your country, and sometimes there are breaks for retirees. Ask an accountant before selling.',
+      faqH:'Questions',
+      q1:'What are bonds, in plain words?', a1:'Loans to governments or companies that pay you interest. In a normal year they move little, and they soften the falls of shares. But they’re not zero risk: in 2022 they fell too.',
+      q2:'What if the money runs out before I do?', a2:'The calculator above tells you how long it lasts with your numbers. Studies of the past say that taking 3–4% a year from a mixed portfolio lasted 25–30 years in most cases. It’s not a guarantee: if you want to be calmer, take out a bit less.',
+      q3:'One ETF or two?', a3:'One “all-in-one” mixed ETF (for example 40% shares and 60% bonds) does everything by itself, including keeping the mix. Two ETFs, one shares and one bonds, cost a little less but you rebalance yourself. For most people one is simpler.',
+      q4:'Isn’t a house safer?', a4:'A house doesn’t show a price every day, so it feels calmer. But it can lose value too, it can stay empty, and you can’t sell a piece of it when you need money. With ETFs you see every swing, but your money is spread over thousands of companies and bonds, and it’s there when you need it.',
+      nextH:'Next: how to buy your first ETF', next:'Step by step: choose a broker, open the account, find the ETF.', nextBtn:'Read the guide',
+      fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
+      taxNote:'<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in November 2026. Before any big move, ask an accountant: it costs less than a mistake.',
+      disc:'<strong>Not financial advice.</strong> These are estimates to help you understand, with average returns. Investing in ETFs means you can lose money too, and house prices and rents can fall as well. Before selling a house, talk to a lawyer or an accountant.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'In pensione con una casa in affitto: continuare ad affittarla o venderla e investire in ETF? | Your ETF Plan',
+      badge:'Il tuo caso · in pensione, con una casa in affitto',
+      h1:'In pensione con una casa in affitto? <em>Un’entrata fissa, senza inquilini.</em>',
+      sub:'Inquilini, lavori, condominio, mesi senza affitto. Se quello che ti serve è un’entrata in più ogni mese accanto alla pensione, e i soldi disponibili quando ti servono, ecco l’altra strada: vendere e mettere tutto in un mix tranquillo di ETF.',
+      illAlt:'Una casa in affitto con il tetto che perde da una parte, un barattolo tranquillo con un albero e un calendario mensile dall’altra',
+      painH:'Ti suona familiare?',
+      painL:'<li><b>L’inquilino non paga.</b> E per mandarlo via ci vogliono mesi, a volte più di un anno, tra avvocato e tribunale. Nel frattempo le spese le paghi tu.</li><li><b>Se ne va all’improvviso,</b> e la casa resta vuota per mesi. IMU, condominio e bollette però arrivano lo stesso.</li><li><b>La vita cambia:</b> una coppia si separa, uno se ne va e l’altro non ce la fa più a pagare. Arrivano dei bambini, e mandare via una famiglia diventa ancora più difficile.</li><li><b>Si rompe sempre qualcosa:</b> la caldaia, il tetto, un’infiltrazione, un elettrodomestico. E chiamano te.</li><li><b>Il condominio:</b> spese straordinarie, assemblee, lavori decisi da altri che paghi anche tu.</li><li><b>Le tasse:</b> cedolare o IRPEF sull’affitto, IMU, e la dichiarazione ogni anno.</li><li><b>Ti servono soldi, ma non puoi vendere:</b> con l’inquilino dentro e un contratto 4+4 o 3+2, la casa la vendi solo a meno, oppure aspetti anni.</li><li><b>Le regole sono dalla parte dell’inquilino:</b> tu hai pochi strumenti e tempi lunghi.</li>',
+      painEnd:'Alla fine sei un po’ ostaggio della tua stessa casa. Non deve per forza essere così: qui sotto vedi l’altra strada, con i tuoi numeri.',
+      calcH:'La tua casa',
+      lValue:'Quanto vale oggi la casa', lHrent:'Affitto che prendi adesso', hrentNote:'Al mese, prima delle tasse.',
+      lMix:'Quanto in azioni', mixNote:(s,b,r)=>`${s} azioni (crescono di più, ma vanno su e giù di più) e ${b} obbligazioni (più tranquille). Rendimento atteso circa ${r} l’anno in media, non garantito.`,
+      lWr:'Quanto prelevi ogni anno', wrNote:'In % dei soldi di partenza, aumentato ogni anno con i prezzi. Il 3–4% è una scelta comune per una pensione che dura.',
+      lYears:'Vedi come va tra', years:n=>n+(n===1?' anno':' anni'),
+      assumeH:'Vendita, costi e ipotesi (tocca per cambiarle)',
+      lPaid:'Quanto l’hai pagata', lGtax:'Tasse sul guadagno quando vendi', gtaxNote:'In Italia 0% se ce l’hai da più di 5 anni o se l’hai ereditata; altrimenti 26% sul guadagno.',
+      lScost:'Costi di vendita', lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, IMU, condominio, in % del valore.',
+      lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi senza affitto all’anno', lHgrow:'Crescita del valore della casa all’anno',
+      incH:'Quanto ti entra in tasca ogni mese (tolte tasse e costi)',
+      incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
+      incPort:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>: quello che prelevi, meno le tasse sui guadagni</span>`,
+      incNote:'Media dei primi 10 anni, in euro di oggi.',
+      cashH:'Soldi che puoi usare quando vuoi',
+      cashRent:`<b>0 €</b><span>con la casa: per avere i soldi la devi vendere, e ci vogliono mesi</span>`,
+      cashPort:v=>`<b>${v}</b><span>con gli ETF: ne vendi un pezzo in qualsiasi giorno di borsa aperta</span>`,
+      hHead:y=>`Tra ${y} anni, quanto ti resta, in euro di oggi:`,
+      bHouse:'Continui ad affittarla <small>il valore della casa (non venduta)</small>', bPort:'La vendi e investi in ETF <small>quello che resta dopo tutti i prelievi</small>',
+      vOk:(y,v)=>`Dopo ${y} anni di prelievi ogni mese, avresti ancora circa <b class="gain">${v}</b> in ETF.`,
+      vOut:(n)=>`A questo ritmo i soldi durano circa <b class="loss">${n} anni</b>. Prelevando un po’ meno, o mettendo più obbligazioni e meno azioni, durano di più.`,
+      crash:(v)=>`Te lo dico chiaro: in un anno brutto come il 2022 i portafogli misti di azioni e obbligazioni hanno perso intorno al 13–16%. Sui tuoi soldi vuol dire vedere circa ${v} in meno per un po’. Tieni 1–2 anni di prelievi su un conto deposito, e negli anni brutti non devi vendere niente.`,
+      calcNote:'Azioni 7% e obbligazioni 3,5% l’anno in media, prezzi +2% l’anno. L’affitto cresce con i prezzi. Stime per capire, non una promessa.',
+      whyH:'Perché non tutto in azioni',
+      whyL:'<li><b>In pensione i soldi li togli.</b> Se la borsa scende proprio quando inizi, vendi a prezzi bassi e i soldi durano meno.</li><li><b>Le obbligazioni sono il freno:</b> prestiti agli Stati che pagano un interesse. Si muovono meno, così in un anno brutto vivi di quelle mentre le azioni si riprendono.</li><li><b>Meno su e giù, meno pensieri:</b> un mix più tranquillo rende un po’ meno, ma ti fa dormire. A 70 anni conta più di un punto in più.</li>',
+      howH:'Come si fa in pratica',
+      howL:'<li><span>Vendi la casa. Se c’è un inquilino con il contratto, o la vendi con l’inquilino dentro (a un prezzo più basso) o aspetti la scadenza.</span></li><li><span>Tieni <b>1–2 anni di prelievi</b> su un conto deposito.</span></li><li><span>Il resto in un <b>ETF misto</b> (per esempio 40% azioni e 60% obbligazioni, si ribilancia da solo), oppure in due ETF: uno di azioni mondiali e uno di titoli di Stato europei.</span></li><li><span>Una o due volte l’anno vendi un pezzetto di ETF e ricarichi il conto deposito. Ogni mese ti giri la tua “seconda pensione” sul conto corrente.</span></li>',
+      lifeH:'Non è solo una questione di soldi',
+      lifeL:'<li><b>Basta inquilini:</b> niente telefonate per la caldaia, niente affitti da rincorrere, niente assemblee di condominio.</li><li><b>I tuoi soldi, quando vuoi:</b> per la salute, per aiutare i figli, per un viaggio.</li><li><b>Più facile per gli eredi:</b> gli ETF si dividono in un minuto; una casa spesso vuol dire litigare.</li><li><b>Però:</b> se quella casa per te vuol dire tanto, è un buon motivo per tenerla.</li>',
+      countryH:'Le tasse da sapere in Italia',
+      country:'<b>Vendita:</b> se la casa ce l’hai da più di 5 anni, o l’hai ereditata, sul guadagno non paghi niente; altrimenti 26%. <b>ETF:</b> paghi solo sulla parte di guadagno di quello che vendi: 26% sulle azioni, 12,5% sui titoli di Stato (anche dentro gli ETF, per la loro parte), più il bollo dello 0,2% l’anno. Con un broker in regime amministrato fa tutto lui. <b>Pensione:</b> i soldi che prendi dagli ETF hanno la loro tassa a parte, non si sommano alla pensione per l’IRPEF.',
+      faqH:'Domande',
+      q1:'Cosa sono le obbligazioni, in parole semplici?', a1:'Prestiti a Stati o aziende che ti pagano un interesse. In un anno normale si muovono poco, e attutiscono le cadute delle azioni. Ma non sono a rischio zero: nel 2022 sono scese anche loro.',
+      q2:'E se i soldi finiscono prima di me?', a2:'Il calcolo qui sopra ti dice quanto durano con i tuoi numeri. Gli studi sul passato dicono che prelevando il 3–4% l’anno da un portafoglio misto i soldi sono durati 25–30 anni nella gran parte dei casi. Non è una garanzia: se vuoi stare più tranquillo, preleva un po’ meno.',
+      q3:'Meglio un ETF o due?', a3:'Un ETF misto “tutto in uno” (per esempio 40% azioni e 60% obbligazioni) fa tutto da solo, anche tenere il mix. Due ETF, uno di azioni e uno di obbligazioni, costano un filo meno ma il mix lo sistemi tu. Per la maggior parte delle persone uno è più semplice.',
+      q4:'Ma la casa non è più sicura?', a4:'La casa non ti fa vedere il prezzo ogni giorno, quindi sembra più tranquilla. Ma può perdere valore anche lei, può restare vuota, e non puoi venderne un pezzo quando ti servono soldi. Con gli ETF vedi ogni su e giù, ma i soldi sono sparsi su migliaia di aziende e obbligazioni, e ci sono quando ti servono.',
+      nextH:'Prossimo passo: come comprare il tuo primo ETF', next:'Passo per passo: scegliere il broker, aprire il conto, trovare l’ETF.', nextBtn:'Leggi la guida',
+      fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
+      taxNote:'<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a novembre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Sono stime per capire, con rendimenti medi. Investire in ETF vuol dire che puoi anche perdere soldi, e anche case e affitti possono scendere. Prima di vendere una casa, parla con un notaio o un commercialista.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'Jubilado con un piso alquilado: ¿seguir alquilando o vender e invertir en ETF? | Your ETF Plan',
+      badge:'Tu caso · jubilado, con un piso alquilado',
+      h1:'¿Jubilado con un piso alquilado? <em>Un ingreso fijo, sin inquilinos.</em>',
+      sub:'Inquilinos, obras, comunidad, meses sin cobrar. Si lo que necesitas es un dinero extra cada mes junto a la pensión, y tu dinero disponible cuando lo necesites, aquí tienes el otro camino: vender y meterlo todo en una mezcla tranquila de ETF.',
+      illAlt:'Una casa alquilada con el tejado que gotea a un lado, un tarro tranquilo con un árbol y un calendario mensual al otro',
+      painH:'¿Te suena?',
+      painL:'<li><b>El inquilino no paga.</b> Y echarlo puede llevar muchos meses, a veces más de un año, entre abogado y juzgado; con familias vulnerables a veces se suspende. Mientras tanto, los gastos los pagas tú.</li><li><b>Se va de repente,</b> y el piso se queda vacío meses. El IBI, la comunidad y los recibos llegan igual.</li><li><b>La vida cambia:</b> una pareja se separa, uno se va y el otro ya no puede pagar. Llegan niños, y sacar a una familia se vuelve aún más difícil.</li><li><b>Siempre se rompe algo:</b> la caldera, el tejado, una gotera, un electrodoméstico. Y te llaman a ti.</li><li><b>La comunidad:</b> derramas, juntas, obras que deciden otros y que pagas tú también.</li><li><b>Los impuestos:</b> el IRPF del alquiler, el IBI y la declaración cada año.</li><li><b>Necesitas dinero, pero no puedes vender:</b> con el inquilino dentro y un contrato de 5 años (7 si el casero es una empresa), solo vendes más barato, o esperas años.</li><li><b>Las leyes están del lado del inquilino:</b> en zonas tensionadas hasta el precio está limitado, y tú tienes pocas herramientas y plazos largos.</li>',
+      painEnd:'Al final eres un poco rehén de tu propio piso. No tiene por qué ser así: aquí abajo ves el otro camino, con tus números.',
+      calcH:'Tu piso',
+      lValue:'Lo que vale hoy el piso', lHrent:'Alquiler que cobras ahora', hrentNote:'Al mes, antes de impuestos.',
+      lMix:'Cuánto en acciones', mixNote:(s,b,r)=>`${s} acciones (crecen más, pero suben y bajan más) y ${b} bonos (más tranquilos). Rentabilidad esperada de unos ${r} al año de media, no garantizada.`,
+      lWr:'Cuánto sacas cada año', wrNote:'En % del dinero inicial, subiéndolo cada año con los precios. Un 3–4% es una elección habitual para una jubilación que dure.',
+      lYears:'Mira cómo va dentro de', years:n=>n+(n===1?' año':' años'),
+      assumeH:'Venta, gastos y supuestos (toca para cambiarlos)',
+      lPaid:'Lo que pagaste por él', lGtax:'Impuestos sobre la ganancia al vender', gtaxNote:'En España la ganancia tributa del 19% al 30%. Si tienes más de 65 años y metes lo ganado en una renta vitalicia asegurada en 6 meses (hasta 240.000 €), queda exenta.',
+      lScost:'Gastos de venta', lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, comunidad, en % del valor.',
+      lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.', lEmpty:'Meses sin alquilar al año', lHgrow:'Revalorización del piso al año',
+      incH:'Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)',
+      incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
+      incPort:v=>`<b>${v}</b><span>al mes si lo <b>vendes e inviertes en ETF</b>: lo que sacas, menos los impuestos sobre la ganancia</span>`,
+      incNote:'Media de los primeros 10 años, en euros de hoy.',
+      cashH:'Dinero que puedes usar cuando quieras',
+      cashRent:`<b>0 €</b><span>con el piso: para tener el dinero hay que venderlo, y lleva meses</span>`,
+      cashPort:v=>`<b>${v}</b><span>con los ETF: vendes un trozo cualquier día de bolsa abierta</span>`,
+      hHead:y=>`Dentro de ${y} años, lo que te queda, en euros de hoy:`,
+      bHouse:'Sigues alquilando <small>el valor del piso (sin vender)</small>', bPort:'Lo vendes e inviertes en ETF <small>lo que queda después de todo lo que has sacado</small>',
+      vOk:(y,v)=>`Después de ${y} años sacando dinero cada mes, todavía tendrías unos <b class="gain">${v}</b> en ETF.`,
+      vOut:(n)=>`A este ritmo el dinero dura unos <b class="loss">${n} años</b>. Sacando un poco menos, o con más bonos y menos acciones, dura más.`,
+      crash:(v)=>`Te lo digo claro: en un año malo como 2022 las carteras mixtas de acciones y bonos perdieron en torno a un 13–16%. Sobre tu dinero significa ver unos ${v} menos durante un tiempo. Guarda 1–2 años de retiradas en un depósito, y en los años malos no tienes que vender nada.`,
+      calcNote:'Acciones 7% y bonos 3,5% al año de media, precios +2% al año. El alquiler sube con los precios. Estimaciones para entender, no una promesa.',
+      whyH:'Por qué no todo en acciones',
+      whyL:'<li><b>Jubilado, el dinero lo sacas.</b> Si la bolsa cae justo cuando empiezas, vendes barato y el dinero dura menos.</li><li><b>Los bonos son el freno:</b> préstamos a los Estados que pagan un interés. Se mueven menos, así que en un año malo vives de ellos mientras las acciones se recuperan.</li><li><b>Menos sustos, menos preocupaciones:</b> una mezcla más tranquila rinde algo menos, pero te deja dormir. A los 70 eso cuenta más que un punto de más.</li>',
+      howH:'Cómo se hace en la práctica',
+      howL:'<li><span>Vendes el piso. Si hay un inquilino con contrato, o lo vendes con el inquilino dentro (más barato) o esperas a que acabe el contrato.</span></li><li><span>Guarda <b>1–2 años de retiradas</b> en un depósito.</span></li><li><span>El resto en un <b>ETF mixto</b> (por ejemplo 40% acciones y 60% bonos, se reequilibra solo), o en dos ETF: uno de acciones mundiales y otro de deuda pública europea.</span></li><li><span>Una o dos veces al año vendes un trozo del ETF y recargas el depósito. Cada mes te pasas tu “segunda pensión” a la cuenta corriente.</span></li>',
+      lifeH:'No es solo cuestión de dinero',
+      lifeL:'<li><b>Se acabaron los inquilinos:</b> ni llamadas por la caldera, ni perseguir alquileres, ni juntas de la comunidad.</li><li><b>Tu dinero, cuando quieras:</b> para la salud, para ayudar a los hijos, para un viaje.</li><li><b>Más fácil para los herederos:</b> los ETF se reparten en un minuto; un piso muchas veces significa discutir.</li><li><b>Eso sí:</b> si ese piso significa mucho para ti, es un buen motivo para quedártelo.</li>',
+      countryH:'Los impuestos a tener en cuenta en España',
+      country:'<b>Venta:</b> la ganancia tributa del 19% al 30%. Si tienes más de 65 años, puedes dejarla exenta metiéndola en 6 meses en una renta vitalicia asegurada, hasta 240.000 €. Además, la plusvalía municipal. <b>ETF:</b> solo tributa la parte de ganancia de lo que vendes, del 19% al 30%. Ojo: los fondos indexados permiten traspasos sin pagar impuestos y los ETF no; para quien saca dinero poco a poco, un fondo indexado mixto puede ser igual de bueno.',
+      faqH:'Preguntas',
+      q1:'¿Qué son los bonos, en palabras sencillas?', a1:'Préstamos a Estados o empresas que te pagan un interés. En un año normal se mueven poco, y amortiguan las caídas de las acciones. Pero no tienen riesgo cero: en 2022 también bajaron.',
+      q2:'¿Y si el dinero se acaba antes que yo?', a2:'La calculadora de arriba te dice cuánto dura con tus números. Los estudios del pasado dicen que sacando un 3–4% al año de una cartera mixta, el dinero duró 25–30 años en la mayoría de los casos. No es una garantía: si quieres estar más tranquilo, saca un poco menos.',
+      q3:'¿Mejor un ETF o dos?', a3:'Un ETF mixto “todo en uno” (por ejemplo 40% acciones y 60% bonos) lo hace todo solo, también mantener la mezcla. Dos ETF, uno de acciones y otro de bonos, cuestan un poco menos pero la mezcla la ajustas tú. Para la mayoría, uno es más sencillo.',
+      q4:'¿Pero un piso no es más seguro?', a4:'Un piso no te enseña el precio cada día, así que parece más tranquilo. Pero también puede perder valor, puede quedarse vacío, y no puedes vender un trozo cuando necesitas dinero. Con los ETF ves cada subida y bajada, pero el dinero está repartido entre miles de empresas y bonos, y está ahí cuando lo necesitas.',
+      nextH:'Siguiente paso: cómo comprar tu primer ETF', next:'Paso a paso: elegir bróker, abrir la cuenta, encontrar el ETF.', nextBtn:'Leer la guía',
+      fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      taxNote:'<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.',
+      disc:'<strong>No es asesoramiento financiero.</strong> Son estimaciones para entender, con rentabilidades medias. Invertir en ETF significa que también puedes perder dinero, y los precios y alquileres de la vivienda también pueden bajar. Antes de vender un piso, habla con un notario o un gestor.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
+  function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
+  countryDefaults();
+
+  function render(){
+    const V0=+$('hvalue').value, R0=+$('hrent').value, Y=+$('hyears').value, paid=+$('paid').value;
+    const s=+$('mix').value/100, wr=+$('wr').value/100;
+    const oc=+$('ocost').value/100, tax=+$('rtax').value/100, emptyM=+$('empty').value, sc=+$('scost').value/100, g=+$('hgrow').value/100, gt=+$('gtax').value/100;
+    const r=s*STOCKS+(1-s)*BONDS, et=etaxFor(lang,s);
+    // Sell today: price minus selling costs, minus tax on the gain over what you paid.
+    const net0=V0*(1-sc), P0=net0-Math.max(0,net0-paid)*gt;
+    // Year by year: the portfolio grows at the mix's average; each year you take out wr of the starting money, raised with prices.
+    let P=P0, basis=P0, Vh=V0, rentSum=0, portSum=0, lasts=null;
+    for(let t=1;t<=Math.max(Y,10);t++){
+      const d=Math.pow(1+INFL,t);
+      P*=(1+r)*(1-BOLLO[lang]);
+      let w=Math.min(P,wr*P0*Math.pow(1+INFL,t-1));
+      const gain=P>0?Math.max(0,1-basis/P):0, tx=w*gain*et;
+      basis*=P>0?1-w/P:0; P-=w;
+      const netRent=R0*Math.pow(1+INFL,t-1)*(12-emptyM)*(1-tax)-Vh*oc; Vh*=1+g;
+      if(t<=10){rentSum+=netRent/d; portSum+=(w-tx)/d}
+      if(P<=1&&lasts===null)lasts=t;
+      if(t===Y){var houseEnd=Vh/d, portEnd=Math.max(0,P)/d}
+    }
+    $('hvalue-out').textContent=fmt(V0); $('hrent-out').textContent=fmt(R0); $('hyears-out').textContent=L.years(Y);
+    $('mix-out').textContent=pct(s); $('mix-note').textContent=L.mixNote(pct(s),pct(1-s),pct(r));
+    $('wr-out').textContent=pct(wr)+' · '+fmt(wr*P0/12)+'/'+({en:'mo',it:'mese',es:'mes'})[lang];
+    $('paid-out').textContent=fmt(paid); $('gtax-out').textContent=pct(gt); $('scost-out').textContent=pct(sc);
+    $('ocost-out').textContent=pct(oc); $('rtax-out').textContent=pct(tax); $('empty-out').textContent=String(emptyM).replace('.',L.locale==='en-IE'?'.':','); $('hgrow-out').textContent=pct(g);
+    $('income').innerHTML='<div>'+L.incRent(fmt(Math.max(0,rentSum/120)))+'</div><div>'+L.incPort(fmt(portSum/120))+'</div><p class="note inc-note">'+L.incNote+'</p>';
+    $('cash').innerHTML='<div>'+L.cashRent+'</div><div>'+L.cashPort(fmt(P0))+'</div>';
+    $('h-head').textContent=L.hHead(Y);
+    $('v-house').textContent=fmt(houseEnd); $('v-port').textContent=fmt(portEnd);
+    const top=Math.max(houseEnd,portEnd,1)*1.05;
+    $('f-house').style.width=Math.max(1,houseEnd/top*100).toFixed(1)+'%'; $('f-port').style.width=Math.max(1,portEnd/top*100).toFixed(1)+'%';
+    $('verdict').innerHTML=lasts!==null&&lasts<=Y?L.vOut(lasts):L.vOk(Y,fmt(portEnd));
+    $('crash').textContent=L.crash(fmt(P0*0.15));
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:2});
+    fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=(FIXED?'':'https://youretfplan.com')+GUIDE[lang];
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;countryDefaults();applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  const INPUTS=['hvalue','hrent','mix','wr','hyears','paid','gtax','scost','ocost','rtax','empty','hgrow'];
+  INPUTS.forEach(id=>$(id).addEventListener('input',render));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_retire_view']);
+    INPUTS.forEach(id=>$(id).addEventListener('input',()=>send(['sc_retire_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_retire',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>

@@ -417,7 +417,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </svg>
     <button type="button" class="w-btn" id="start"><span data-w="start">Crear mi plan</span><span aria-hidden="true">→</span></button>
     <div class="w-trust"><span data-w="t1">Gratis</span><span data-w="t2">Sin registro</span><span data-w="t3">Sin publicidad</span></div>
-    <nav class="w-quick" data-ta="quickH" aria-label="¿Tienes un caso concreto?"><span data-t="quickH">¿Tienes un caso concreto?</span><a data-case="bank" data-t="q1c" href="/es/banco-vs-etf/">Ahorros en el banco</a><a data-case="buy" data-t="q2c" href="/es/comprar-o-alquilar-etf/">Comprar casa</a><a data-case="inherit" data-t="q3c" href="/es/herencia-invertir-etf/">Una herencia</a><a data-case="own" data-t="q4c" href="/es/alquilar-o-vender-casa-etf/">Una casa que no uso</a><a data-case="let" data-t="q5c" href="/es/comprar-para-alquilar-o-etf/">Comprar para alquilar</a></nav>
+    <nav class="w-quick" data-ta="quickH" aria-label="¿Tienes un caso concreto?"><span data-t="quickH">¿Tienes un caso concreto?</span><a data-case="bank" data-t="q1c" href="/es/banco-vs-etf/">Ahorros en el banco</a><a data-case="buy" data-t="q2c" href="/es/comprar-o-alquilar-etf/">Comprar casa</a><a data-case="inherit" data-t="q3c" href="/es/herencia-invertir-etf/">Una herencia</a><a data-case="own" data-t="q4c" href="/es/alquilar-o-vender-casa-etf/">Una casa que no uso</a><a data-case="let" data-t="q5c" href="/es/comprar-para-alquilar-o-etf/">Comprar para alquilar</a><a data-case="retire" data-t="q6c" href="/es/jubilado-alquiler-o-etf/">Jubilado con un piso alquilado</a></nav>
   </section>
 
   <section id="wizard" class="w-card" aria-live="polite" tabindex="-1">
@@ -496,6 +496,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <a class="case" id="case-let" href="/es/comprar-para-alquilar-o-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 30 26 16l18 14" fill="none"></path><rect class="w-ink" x="12" y="28" width="28" height="26" rx="3" fill="var(--sun)"></rect><circle class="w-ink" cx="48" cy="40" r="10" fill="var(--sun)"></circle><path d="M45 40h6M46 37h4M46 43h4" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"></path></svg>
         <span><b data-t="c5t">Quiero comprar una casa para alquilar</b><span class="d" data-t="c5d">¿O invertir el mismo dinero en ETF?</span></span><span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="case" id="case-retire" href="/es/jubilado-alquiler-o-etf/">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M6 30 24 16l18 14" fill="none"></path><rect class="w-ink" x="10" y="28" width="28" height="26" rx="3" fill="var(--sky)"></rect><rect class="w-ink" x="40" y="30" width="18" height="16" rx="3" fill="var(--surface)"></rect><rect x="41" y="31" width="16" height="4" rx="2" fill="var(--coral)"></rect><circle class="w-ink" cx="49" cy="41" r="3" fill="var(--sun)"></circle></svg>
+        <span><b data-t="c6t">Estoy jubilado y tengo un piso alquilado</b><span class="d" data-t="c6d">Un ingreso fijo y tu dinero cuando quieras, sin inquilinos.</span></span><span class="go" aria-hidden="true">→</span>
       </a>
     </div>
     <h3 class="guides-h" data-t="guidesH">Lo primero: entender los ETF</h3>
@@ -648,7 +652,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     en:{
       title:`Your ETF Plan`, locale:`en-IE`, taxRate:0.20,
       lead:`Three things and you’re good. The rest you pick up as you go.`,
-      quickH:`Got a specific case?`, q1c:`Savings in the bank`, q2c:`Buying a home`, q3c:`An inheritance`, q4c:`A house I don’t use`, q5c:`Buy to rent out`,
+      quickH:`Got a specific case?`, q1c:`Savings in the bank`, q2c:`Buying a home`, q3c:`An inheritance`, q4c:`A house I don’t use`, q5c:`Buy to rent out`, q6c:`Retired, with a rented flat`,
       guidesH:`First things first: get what ETFs are`,
       g1t:`What is an ETF?`,
       g1d:`In 5 minutes, no jargon. With a quick quiz at the end.`,
@@ -671,6 +675,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       soon:`Coming soon`,
       c5t:`I want to buy a home to rent out`,
       c5d:`Or invest the same money in ETFs?`,
+      c6t:`In retirement with a flat to rent`,
+      c6d:`A steady income and your money when you want it, without tenants.`,
       h30:`ETFs in 30 seconds`,
       e1:`<b>A slice of loads of companies</b>With one buy you get a tiny slice of Apple, Nestlé, Toyota and hundreds of other companies, all together. That’s an <a class="term" href="#g-etf">ETF</a>. If one company does badly, the others carry the rest.`,
       e2:`<b>You add a bit every month</b>Every month, when you get paid, you put a bit more in: that’s your <a class="term" href="#g-pac">ETF plan</a>. Some months you buy high, some months you buy cheap. Over time it evens out.`,
@@ -780,7 +786,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     it:{
       title:`Il tuo piano ETF · Your ETF Plan`, locale:`it-IT`, taxRate:0.26,
       lead:`Tre cose e basta. Il resto lo impari strada facendo.`,
-      quickH:`Hai un caso preciso?`, q1c:`Risparmi in banca`, q2c:`Comprare casa`, q3c:`Un’eredità`, q4c:`Una casa che non uso`, q5c:`Comprare per affittare`,
+      quickH:`Hai un caso preciso?`, q1c:`Risparmi in banca`, q2c:`Comprare casa`, q3c:`Un’eredità`, q4c:`Una casa che non uso`, q5c:`Comprare per affittare`, q6c:`In pensione con una casa in affitto`,
       guidesH:`Prima di tutto: capire gli ETF`,
       g1t:`Cosa sono gli ETF?`,
       g1d:`In 5 minuti, senza paroloni. Con un quiz alla fine.`,
@@ -803,6 +809,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       soon:`In arrivo`,
       c5t:`Voglio comprare casa da affittare`,
       c5d:`O investire gli stessi soldi in ETF?`,
+      c6t:`Sono in pensione e ho una casa in affitto`,
+      c6d:`Un’entrata fissa e i soldi quando vuoi, senza inquilini.`,
       h30:`Gli ETF in 30 secondi`,
       e1:`<b>Un pezzettino di tante aziende</b>Con un solo acquisto ti prendi un pezzettino di Apple, Nestlé, Toyota e centinaia di altre aziende, tutte insieme. Questa cosa si chiama <a class="term" href="#g-etf">ETF</a>. Se un’azienda va male, le altre tengono su il resto.`,
       e2:`<b>Ci aggiungi un po’ ogni mese</b>Ogni mese, quando arriva lo stipendio, ci metti qualcosa in più: questo è il <a class="term" href="#g-pac">PAC</a>. Certi mesi compri caro, altri compri a sconto. Alla lunga si pareggia.`,
@@ -913,7 +921,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     es:{
       title:`Tu plan ETF · Your ETF Plan`, locale:`es-ES`, taxRate:0.21,
       lead:`Tres cosas y listo. Lo demás lo vas aprendiendo sobre la marcha.`,
-      quickH:`¿Tienes un caso concreto?`, q1c:`Ahorros en el banco`, q2c:`Comprar casa`, q3c:`Una herencia`, q4c:`Una casa que no uso`, q5c:`Comprar para alquilar`,
+      quickH:`¿Tienes un caso concreto?`, q1c:`Ahorros en el banco`, q2c:`Comprar casa`, q3c:`Una herencia`, q4c:`Una casa que no uso`, q5c:`Comprar para alquilar`, q6c:`Jubilado con un piso alquilado`,
       guidesH:`Lo primero: entender los ETF`,
       g1t:`¿Qué es un ETF?`,
       g1d:`En 5 minutos, sin tecnicismos. Con un test al final.`,
@@ -936,6 +944,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       soon:`Próximamente`,
       c5t:`Quiero comprar una casa para alquilar`,
       c5d:`¿O invertir el mismo dinero en ETF?`,
+      c6t:`Estoy jubilado y tengo un piso alquilado`,
+      c6d:`Un ingreso fijo y tu dinero cuando quieras, sin inquilinos.`,
       h30:`Los ETF en 30 segundos`,
       e1:`<b>Un trocito de muchas empresas</b>Con una sola compra te llevas un trocito de Apple, Nestlé, Toyota y cientos de empresas más, todas juntas. Eso se llama <a class="term" href="#g-etf">ETF</a>. Si a una empresa le va mal, las demás tiran del resto.`,
       e2:`<b>Le añades un poco cada mes</b>Cada mes, cuando cobras, metes algo más: ese es tu <a class="term" href="#g-pac">plan en ETF</a>. Unos meses compras caro, otros compras barato. A la larga se compensa.`,
@@ -1083,6 +1093,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('case-inherit').href=(FIXED?'':'https://youretfplan.com')+({en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'})[lang];
     $('case-own').href=(FIXED?'':'https://youretfplan.com')+({en:'/rent-or-sell-house-etf/',it:'/it/affittare-o-vendere-casa-etf/',es:'/es/alquilar-o-vender-casa-etf/'})[lang];
     $('case-let').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-to-let-vs-etf/',it:'/it/comprare-casa-da-affittare-o-etf/',es:'/es/comprar-para-alquilar-o-etf/'})[lang];
+    $('case-retire').href=(FIXED?'':'https://youretfplan.com')+({en:'/retired-rental-or-etf/',it:'/it/pensione-affitto-o-etf/',es:'/es/jubilado-alquiler-o-etf/'})[lang];
     document.querySelectorAll('.w-quick a').forEach(a=>{a.setAttribute('href',$('case-'+a.dataset.case).getAttribute('href'))});
     const GUIDES={learn:{en:'/what-is-an-etf/',it:'/it/cosa-sono-gli-etf/',es:'/es/que-es-un-etf/'},first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},fund:{en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'}};
     ['learn','first','fund'].forEach(k=>{$('case-'+k).href=(FIXED?'':'https://youretfplan.com')+GUIDES[k][lang]});

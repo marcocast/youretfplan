@@ -193,6 +193,20 @@ GROUPS = {
             "es": "Los ETF para principiantes en 7 lecciones cortas: qué es un ETF y un índice, acciones y bonos, acumulación o distribución, riesgo, costes y seguridad. Con un test.",
         },
     ),
+    "retire": scenario(
+        "retire.html",
+        {"en": "/retired-rental-or-etf/", "it": "/it/pensione-affitto-o-etf/", "es": "/es/jubilado-alquiler-o-etf/"},
+        {
+            "en": "Retired with a rental flat: keep renting or sell and invest in ETFs? | Your ETF Plan",
+            "it": "In pensione con una casa in affitto: tenerla o venderla e investire in ETF? | Your ETF Plan",
+            "es": "Jubilado con un piso alquilado: ¿seguir alquilando o vender e invertir en ETF? | Your ETF Plan",
+        },
+        {
+            "en": "Retired with a flat to rent? Compare the net rent with a steady monthly income from a calm mix of ETFs (shares and bonds), money available any day, and how long it lasts.",
+            "it": "In pensione con una casa in affitto? Confronta l'affitto netto con un'entrata mensile da un mix tranquillo di ETF (azioni e obbligazioni), soldi disponibili quando vuoi e quanto durano.",
+            "es": "¿Jubilado con un piso alquilado? Compara el alquiler neto con un ingreso mensual de una mezcla tranquila de ETF (acciones y bonos), dinero disponible cuando quieras y cuánto dura.",
+        },
+    ),
 }
 PAGES = MAIN  # kept for older references
 

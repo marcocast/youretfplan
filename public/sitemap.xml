@@ -216,4 +216,28 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/que-es-un-etf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/what-is-an-etf/"/>
   </url>
+  <url>
+    <loc>https://youretfplan.com/retired-rental-or-etf/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/retired-rental-or-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/pensione-affitto-o-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/jubilado-alquiler-o-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/retired-rental-or-etf/"/>
+  </url>
+  <url>
+    <loc>https://youretfplan.com/it/pensione-affitto-o-etf/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/retired-rental-or-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/pensione-affitto-o-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/jubilado-alquiler-o-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/retired-rental-or-etf/"/>
+  </url>
+  <url>
+    <loc>https://youretfplan.com/es/jubilado-alquiler-o-etf/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youretfplan.com/retired-rental-or-etf/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://youretfplan.com/it/pensione-affitto-o-etf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://youretfplan.com/es/jubilado-alquiler-o-etf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youretfplan.com/retired-rental-or-etf/"/>
+  </url>
 </urlset>
