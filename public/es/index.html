@@ -468,8 +468,6 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="w-honest" data-w="honest">Te lo digo claro: habrá años en rojo. En 2008 las bolsas mundiales perdieron casi la mitad y tardaron unos años en volver. El plan funciona si no lo dejas.</p>
     <div class="w-actions">
       <a class="w-btn" id="full" href="#numbers"><span data-w="full">Ver todos los detalles abajo</span><span aria-hidden="true">→</span></a>
-      <button type="button" class="w-btn w-ghost w-small" id="print"><span data-w="print">Guardar / imprimir mi plan</span></button>
-      <button type="button" class="w-btn w-ghost w-small" id="share"><span id="share-txt" data-w="share">Envíaselo a un amigo</span></button>
       <button type="button" class="w-back" id="again" data-w="again" style="align-self:center">Empezar de nuevo</button>
     </div>
   </section>
@@ -1250,14 +1248,6 @@ details > div{padding:0 0 14px;color:var(--muted)}
   });
   $('back').addEventListener('click',()=>{if(wStep>0){wStep--;showStep(true)}});
   $('again').addEventListener('click',()=>{wStep=0;$('result').hidden=true;$('wizard').hidden=false;showStep(true)});
-  $('print').addEventListener('click',()=>window.print());
-  // Share the site (never the visitor's numbers): native share sheet on phones, else copy the link.
-  $('share').addEventListener('click',async()=>{
-    track('share');
-    const url=FIXED?location.origin+location.pathname:'https://youretfplan.com/';
-    if(navigator.share){try{await navigator.share({title:document.title,text:W.shareText,url})}catch(e){}return}
-    try{await navigator.clipboard.writeText(W.shareText+' '+url);const t=$('share-txt');t.textContent=W.shared;setTimeout(()=>{t.textContent=W.share},2500)}catch(e){prompt('',url)}
-  });
   document.querySelectorAll('.w-yrs button').forEach(b=>b.addEventListener('click',()=>{wYears=+b.dataset.y;renderGrow();$('years').value=wYears;render()}));
   // The details below (chart, crash, 3% rule) use the same answers and years.
   function wToPlan(){answered=true;$('years').value=wYears;render()}

@@ -223,7 +223,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section class="hero" aria-labelledby="h1">
     <span class="badge" data-t="badge">Your case · money in the bank</span>
     <h1 id="h1" data-t="h1">Money sitting in the bank, or <em>investing in ETFs</em>?</h1>
-    <p class="sub" data-t="sub">Got savings in your account, or put some aside every month? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.</p>
+    <p class="sub" data-t="sub">Got savings in your account, or put a bit aside every month? See what they turn into in a current account, a savings deposit or in ETFs. In today’s money, so counting that prices go up.</p>
     <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="A bank whose pile of coins shrinks, next to a jar where a tree grows">
       <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
       <!-- bank with a melting coin stack -->
@@ -270,7 +270,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <div class="ctrl">
       <div class="ctrl-head"><label for="rate" data-t="lRate">Savings deposit rate</label><span class="ctrl-val num" id="rate-out">2%</span></div>
       <input type="range" id="rate" min="0" max="5" step="0.25" value="2">
-      <p class="note" data-t="rateNote">Example rate, change it to your bank’s offer. The current account is counted at 0%.</p>
+      <p class="note" data-t="rateNote">Put in what your bank pays. The current account is counted at 0%, because that’s usually what you get.</p>
     </div>
 
     <p class="res-head" id="res-head">In 10 years, in today’s money:</p>
@@ -280,15 +280,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="bar"><span class="lab" id="lab-etf">Investing in ETFs <small>7% historical average · range 5–9%</small></span><span class="val num" id="v-etf" title="€65,414 – €89,389">€76,477</span><div class="track"><div class="fill" id="f-etf" style="background: var(--etf); width: 95.2%;"></div><span class="today" id="t-etf" style="left: 67.2%;"></span></div></div>
     </div>
     <p class="legend-today"><i></i><span id="legend-today">You put in €54,000 in total (€30,000 today + €200 a month)</span></p>
-    <p class="verdict" id="verdict">On the current account you would lose about <b class="loss">€9,701</b> of buying power. By investing in ETFs you could have about <b class="gain">€22,477</b> more than you put in, in today’s money.</p>
-    <p class="note" data-t="calcNote">Inflation 2% a year. Before taxes and costs. ETF returns are not guaranteed and change every year; these are constant averages.</p>
+    <p class="verdict" id="verdict">Left in a current account, with prices going up you lose about <b class="loss">€9,701</b>. In ETFs you could have about <b class="gain">€22,477</b> more than you put in, in today’s money.</p>
+    <p class="note" data-t="calcNote">Prices going up 2% a year. Before tax and costs. ETFs don’t return the same every year: we use an average here.</p>
   </section>
 
   <section aria-labelledby="h-when">
     <h2 id="h-when" data-t="whenH">When to keep it in the bank, and when to invest in ETFs</h2>
     <div class="two">
-      <div class="box"><h3><svg><use href="#i-bank"></use></svg><span data-t="keepH">Keep it in the bank if…</span></h3><ul data-t="keepL"><li>It’s your <b>emergency fund</b>: about 6 months of expenses.</li><li>You’ll need it within <b>3–5 years</b>: a house deposit, a car, studies.</li><li>A temporary drop of 30% would make you sell in a panic.</li></ul></div>
-      <div class="box"><h3><svg><use href="#i-tree"></use></svg><span data-t="etfH">Investing in ETFs makes sense if…</span></h3><ul data-t="etfL"><li>You won’t need the money for <b>10 years or more</b>.</li><li>Your emergency fund is already in place.</li><li>You can leave it invested even when markets fall.</li></ul></div>
+      <div class="box"><h3><svg><use href="#i-bank"></use></svg><span data-t="keepH">Keep it in the bank if…</span></h3><ul data-t="keepL"><li>It’s your <b>emergency fund</b>: about 6 months of expenses.</li><li>You need it within <b>3–5 years</b>: a house deposit, a car, the kids’ school.</li><li>Seeing it drop 30% would make you sell everything. No shame in that: then that money is better off in the bank.</li></ul></div>
+      <div class="box"><h3><svg><use href="#i-tree"></use></svg><span data-t="etfH">Investing in ETFs makes sense if…</span></h3><ul data-t="etfL"><li>You won’t need it for <b>10 years or more</b>.</li><li>Your emergency fund is already sorted.</li><li>When markets drop, you can leave it alone.</li></ul></div>
     </div>
   </section>
 
@@ -296,34 +296,34 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <h2 id="h-cmp" data-t="cmpH">The differences at a glance</h2>
     <div class="tbl-wrap"><table id="cmp"><thead><tr><td></td><th scope="col">Current account</th><th scope="col">Savings deposit</th><th scope="col">Investing in ETFs</th></tr></thead><tbody><tr><th scope="row">Return</th><td>About 0%</td><td>Fixed and known in advance</td><td>Varies; about 7% a year on average over the long run, not guaranteed</td></tr><tr><th scope="row">Risk</th><td>None, up to the deposit guarantee</td><td>None, up to the deposit guarantee</td><td>Can fall a lot in the short term</td></tr><tr><th scope="row">Protection</th><td>EU deposit guarantee up to €100,000 per person per bank</td><td>Same as the current account</td><td>Not a deposit. The ETF shares stay yours even if the broker fails, because they are held separately</td></tr><tr><th scope="row">Access</th><td>Any time</td><td>Often locked until the end of the term</td><td>Sell any trading day, cash in 2–3 days</td></tr><tr><th scope="row">Costs</th><td>Account fees</td><td>Often none</td><td>Yearly fund cost (TER) 0.1–0.3% plus broker fees</td></tr><tr><th scope="row">Taxes</th><td>Interest is taxed; rates depend on the country</td><td>Interest is taxed</td><td>Gains are taxed when you sell; rates depend on the country</td></tr></tbody></table></div>
     <p class="note" data-t="cmpNote">Taxes and rules depend on your country. Not financial advice.</p>
-    <p class="taxnote"><span data-t="taxNote"><b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.</span></p>
+    <p class="taxnote"><span data-t="taxNote"><b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in October 2026. Before any big move, ask an accountant: it costs less than a mistake.</span></p>
   </section>
 
   <section aria-labelledby="h-faq">
     <h2 id="h-faq" data-t="faqH">Questions</h2>
     <div class="faqs">
-      <details><summary data-t="q1">Is a savings deposit safe?</summary><div data-t="a1">In the EU, deposits are guaranteed up to €100,000 per person per bank, current accounts and savings deposits included. Above that amount it makes sense to split the money across banks.</div></details>
-      <details><summary data-t="q2">Can I do half and half?</summary><div data-t="a2">Yes, and it’s often the most sensible choice: emergency fund and short-term money in the bank or a savings deposit, the long-term part invested in ETFs.</div></details>
-      <details><summary data-t="q3">What if markets crash right after I start investing in ETFs?</summary><div data-t="a3">It can happen. To reduce that risk you can spread a large amount over 6–12 months instead of investing it all on one day. And only invest money you won’t need for at least 10 years.</div></details>
+      <details><summary data-t="q1">Is a savings deposit safe?</summary><div data-t="a1">Yes. In the EU money in the bank is protected up to €100,000 per person, per bank, current and savings accounts included. If you have more, split it across banks.</div></details>
+      <details><summary data-t="q2">Can I do half and half?</summary><div data-t="a2">Yes, and that’s what most people do: the emergency fund and money you need soon in the bank or a savings deposit, the rest, the money you won’t touch for years, in ETFs.</div></details>
+      <details><summary data-t="q3">What if markets crash right after I start investing in ETFs?</summary><div data-t="a3">It can happen, and it hurts. If it’s a big amount, you can spread it over 6–12 months instead of putting it all in on one day. And only put in money you won’t need for at least 10 years.</div></details>
     </div>
   </section>
 
   <section class="next" aria-labelledby="h-next">
-    <h2 id="h-next" data-t="nextH">Next: your first plan for investing in ETFs</h2>
-    <p data-t="next">Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.</p>
+    <h2 id="h-next" data-t="nextH">Now: your plan</h2>
+    <p data-t="next">Answer 3 questions and I’ll put together a one-page plan: how much to keep in the bank, how much to put into ETFs each month and how to get started.</p>
     <a class="btn" id="next-btn" href="/"><span data-t="nextBtn">Make my plan</span><span aria-hidden="true">→</span></a>
   </section>
 
   <div class="fb" id="fb" hidden="">
-    <span data-t="fbQ">Was this page useful?</span>
+    <span data-t="fbQ">Did this page help?</span>
     <span class="fb-votes">
-      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Yes, useful">👍</button>
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Yes">👍</button>
       <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="Not really">👎</button>
     </span>
     <span class="fb-thanks" data-t="fbThanks" hidden="">Thanks!</span>
   </div>
 
-  <p class="disclaimer" data-t="disc"><strong>Not financial advice.</strong> Educational estimates with constant average returns, before taxes and costs. Investing in ETFs can lose money. Check your country’s rules or talk to a qualified adviser.</p>
+  <p class="disclaimer" data-t="disc"><strong>Not financial advice.</strong> These are estimates to help you understand, with average returns. Investing in ETFs means you can lose money too. Before any big decision, do your homework or talk to a professional.</p>
   <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.</p>
   <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/bank-vs-etf/" hreflang="en" lang="en">English</a> · <a href="/it/banca-vs-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/banco-vs-etf/" hreflang="es" lang="es">Español</a></p>
 </div>
@@ -340,24 +340,24 @@ details > div{padding:0 0 14px;color:var(--muted)}
       title:'Money in the bank or investing in ETFs? | Your ETF Plan',
       badge:'Your case · money in the bank',
       h1:'Money sitting in the bank, or <em>investing in ETFs</em>?',
-      sub:'Got savings in your account, or put some aside every month? See what they become in a current account, in a savings deposit or by investing in ETFs, in today’s money, after inflation.',
+      sub:'Got savings in your account, or put a bit aside every month? See what they turn into in a current account, a savings deposit or in ETFs. In today’s money, so counting that prices go up.',
       illAlt:'A bank whose pile of coins shrinks, next to a jar where a tree grows',
       calcH:'Your numbers',
       lAmount:'Money in the bank today', lMonthly:'And each month you add', monthlyNote:'What you usually save each month. Put 0 if you don’t add anything.', lYears:'How long you leave the money', lRate:'Savings deposit rate',
-      rateNote:'Example rate, change it to your bank’s offer. The current account is counted at 0%.',
+      rateNote:'Put in what your bank pays. The current account is counted at 0%, because that’s usually what you get.',
       years:n=>n===1?'1 year':n+' years',
       resHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
       bCur:'Current account', bDep:r=>`Savings deposit <small>at ${r} a year</small>`, bEtf:'Investing in ETFs <small>7% historical average · range 5–9%</small>',
       today:(a,m,t)=>m?`You put in ${t} in total (${a} today + ${m} a month)`:`Today you have ${a}`,
       verdict:(hasLoss,loss,etfGain)=>hasLoss
-        ?`On the current account you would lose about <b class="loss">${loss}</b> of buying power. By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than you put in, in today’s money.`
-        :`By investing in ETFs you could have about <b class="gain">${etfGain}</b> more than you put in, in today’s money.`,
-      calcNote:'Inflation 2% a year. Before taxes and costs. ETF returns are not guaranteed and change every year; these are constant averages.',
+        ?`Left in a current account, with prices going up you lose about <b class="loss">${loss}</b>. In ETFs you could have about <b class="gain">${etfGain}</b> more than you put in, in today’s money.`
+        :`In ETFs you could have about <b class="gain">${etfGain}</b> more than you put in, in today’s money.`,
+      calcNote:'Prices going up 2% a year. Before tax and costs. ETFs don’t return the same every year: we use an average here.',
       whenH:'When to keep it in the bank, and when to invest in ETFs',
       keepH:'Keep it in the bank if…',
-      keepL:'<li>It’s your <b>emergency fund</b>: about 6 months of expenses.</li><li>You’ll need it within <b>3–5 years</b>: a house deposit, a car, studies.</li><li>A temporary drop of 30% would make you sell in a panic.</li>',
+      keepL:'<li>It’s your <b>emergency fund</b>: about 6 months of expenses.</li><li>You need it within <b>3–5 years</b>: a house deposit, a car, the kids’ school.</li><li>Seeing it drop 30% would make you sell everything. No shame in that: then that money is better off in the bank.</li>',
       etfH:'Investing in ETFs makes sense if…',
-      etfL:'<li>You won’t need the money for <b>10 years or more</b>.</li><li>Your emergency fund is already in place.</li><li>You can leave it invested even when markets fall.</li>',
+      etfL:'<li>You won’t need it for <b>10 years or more</b>.</li><li>Your emergency fund is already sorted.</li><li>When markets drop, you can leave it alone.</li>',
       cmpH:'The differences at a glance',
       cmpNote:'Taxes and rules depend on your country. Not financial advice.',
       cols:['','Current account','Savings deposit','Investing in ETFs'],
@@ -371,40 +371,40 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ],
       faqH:'Questions',
       q1:'Is a savings deposit safe?',
-      a1:'In the EU, deposits are guaranteed up to €100,000 per person per bank, current accounts and savings deposits included. Above that amount it makes sense to split the money across banks.',
+      a1:'Yes. In the EU money in the bank is protected up to €100,000 per person, per bank, current and savings accounts included. If you have more, split it across banks.',
       q2:'Can I do half and half?',
-      a2:'Yes, and it’s often the most sensible choice: emergency fund and short-term money in the bank or a savings deposit, the long-term part invested in ETFs.',
+      a2:'Yes, and that’s what most people do: the emergency fund and money you need soon in the bank or a savings deposit, the rest, the money you won’t touch for years, in ETFs.',
       q3:'What if markets crash right after I start investing in ETFs?',
-      a3:'It can happen. To reduce that risk you can spread a large amount over 6–12 months instead of investing it all on one day. And only invest money you won’t need for at least 10 years.',
-      nextH:'Next: your first plan for investing in ETFs',
-      next:'Answer 3 questions and get a one-page plan: how much to keep in the bank, how much to invest in ETFs each month and how to set it up.',
+      a3:'It can happen, and it hurts. If it’s a big amount, you can spread it over 6–12 months instead of putting it all in on one day. And only put in money you won’t need for at least 10 years.',
+      nextH:'Now: your plan',
+      next:'Answer 3 questions and I’ll put together a one-page plan: how much to keep in the bank, how much to put into ETFs each month and how to get started.',
       nextBtn:'Make my plan',
-      fbQ:'Was this page useful?', fbYes:'Yes, useful', fbNo:'Not really', fbThanks:'Thanks!',
-      taxNote:'<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.',
-      disc:'<strong>Not financial advice.</strong> Educational estimates with constant average returns, before taxes and costs. Investing in ETFs can lose money. Check your country’s rules or talk to a qualified adviser.',
+      fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
+      taxNote:'<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in October 2026. Before any big move, ask an accountant: it costs less than a mistake.',
+      disc:'<strong>Not financial advice.</strong> These are estimates to help you understand, with average returns. Investing in ETFs means you can lose money too. Before any big decision, do your homework or talk to a professional.',
       privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
     it:{locale:'it-IT',
       title:'Soldi in banca o investire in ETF? | Your ETF Plan',
       badge:'Il tuo caso · soldi in banca',
       h1:'Soldi fermi in banca o <em>investire in ETF</em>?',
-      sub:'Hai dei risparmi sul conto, o ne metti da parte ogni mese? Guarda cosa diventano sul conto corrente, su un conto deposito o investendo in ETF, in euro di oggi, cioè tolta l’inflazione.',
+      sub:'Hai dei risparmi sul conto, o ne metti da parte un po’ ogni mese? Guarda cosa diventano sul conto, su un conto deposito o in ETF. In euro di oggi, cioè tenendo conto che i prezzi salgono.',
       illAlt:'Una banca con una pila di monete che si rimpicciolisce, accanto a un barattolo dove cresce un albero',
       calcH:'I tuoi numeri',
       lAmount:'Soldi in banca oggi', lMonthly:'E ogni mese ci aggiungi', monthlyNote:'Quello che di solito metti da parte ogni mese. Metti 0 se non aggiungi niente.', lYears:'Per quanti anni lasci i soldi', lRate:'Tasso del conto deposito',
-      rateNote:'Tasso di esempio, mettici quello offerto dalla tua banca. Il conto corrente è calcolato allo 0%.',
+      rateNote:'Metti quello che ti dà la tua banca. Il conto corrente lo calcoliamo a 0%, perché di solito è così.',
       years:n=>n===1?'1 anno':n+' anni',
       resHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
       bCur:'Conto corrente', bDep:r=>`Conto deposito <small>al ${r} l’anno</small>`, bEtf:'Investendo in ETF <small>media storica 7% · forbice 5–9%</small>',
       today:(a,m,t)=>m?`Ci metti ${t} in tutto (${a} oggi + ${m} al mese)`:`Oggi hai ${a}`,
       verdict:(hasLoss,loss,etfGain)=>hasLoss
-        ?`Sul conto corrente perderesti circa <b class="loss">${loss}</b> di potere d’acquisto. Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di quanto ci hai messo, in euro di oggi.`
-        :`Investendo in ETF potresti avere circa <b class="gain">${etfGain}</b> in più di quanto ci hai messo, in euro di oggi.`,
-      calcNote:'Inflazione al 2% l’anno. Prima di tasse e costi. I rendimenti degli ETF non sono garantiti e cambiano ogni anno; qui sono medie costanti.',
+        ?`Lasciati sul conto corrente, con i prezzi che salgono ci perdi circa <b class="loss">${loss}</b>. In ETF potresti avere circa <b class="gain">${etfGain}</b> in più di quanto ci hai messo, in euro di oggi.`
+        :`In ETF potresti avere circa <b class="gain">${etfGain}</b> in più di quanto ci hai messo, in euro di oggi.`,
+      calcNote:'Prezzi che salgono del 2% l’anno. Prima di tasse e costi. Gli ETF non rendono uguale tutti gli anni: qui usiamo una media.',
       whenH:'Quando tenerli in banca, e quando investire in ETF',
       keepH:'Tienili in banca se…',
-      keepL:'<li>Sono il tuo <b>fondo emergenza</b>: circa 6 mesi di spese.</li><li>Ti servono entro <b>3–5 anni</b>: anticipo della casa, auto, studi.</li><li>Un calo temporaneo del 30% ti farebbe vendere in preda al panico.</li>',
+      keepL:'<li>Sono il tuo <b>fondo emergenza</b>: circa 6 mesi di spese.</li><li>Ti servono entro <b>3–5 anni</b>: l’anticipo della casa, la macchina, gli studi dei figli.</li><li>Se li vedessi scendere del 30% ti verrebbe da vendere tutto. Nessuna vergogna: allora quei soldi stanno meglio in banca.</li>',
       etfH:'Investire in ETF ha senso se…',
-      etfL:'<li>Non ti servono per <b>10 anni o più</b>.</li><li>Hai già il fondo emergenza.</li><li>Riesci a lasciarli investiti anche quando i mercati scendono.</li>',
+      etfL:'<li>Non ti servono per <b>10 anni o più</b>.</li><li>Il fondo emergenza ce l’hai già.</li><li>Quando la borsa scende, riesci a non toccarli.</li>',
       cmpH:'Le differenze in breve',
       cmpNote:'Le regole fiscali indicate sono quelle italiane per le persone fisiche. Non è consulenza finanziaria.',
       cols:['','Conto corrente','Conto deposito','Investire in ETF'],
@@ -418,40 +418,40 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ],
       faqH:'Domande',
       q1:'Il conto deposito è sicuro?',
-      a1:'Nell’Unione europea i depositi sono garantiti fino a 100.000 € per persona e per banca, conti correnti e conti deposito compresi. Sopra quella cifra conviene dividere i soldi tra più banche.',
+      a1:'Sì. In Europa i soldi in banca sono garantiti fino a 100.000 € a persona per ogni banca, conto corrente e conto deposito compresi. Se hai di più, dividili tra più banche.',
       q2:'Posso fare metà e metà?',
-      a2:'Sì, ed è spesso la scelta più sensata: fondo emergenza e soldi che ti servono a breve in banca o su un conto deposito, la parte di lungo periodo investita in ETF.',
+      a2:'Sì, ed è quello che fanno quasi tutti: il fondo emergenza e i soldi che ti servono presto in banca o su un conto deposito, il resto, quello che non tocchi per anni, in ETF.',
       q3:'E se i mercati crollano appena inizio a investire in ETF?',
-      a3:'Può succedere. Per ridurre il rischio puoi investire una cifra grande in 6–12 rate mensili invece che tutta in un giorno. E investi solo soldi che non ti servono per almeno 10 anni.',
-      nextH:'Prossimo passo: il tuo primo piano per investire in ETF',
-      next:'Rispondi a 3 domande e ottieni un piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese e come impostarlo.',
+      a3:'Può succedere, e fa male. Se metti una cifra grossa, puoi dividerla in 6–12 mesi invece di metterla tutta in un giorno. E ci metti solo soldi che non ti servono per almeno 10 anni.',
+      nextH:'E adesso: il tuo piano',
+      next:'Rispondi a 3 domande e ti preparo un piano su una pagina: quanto tenere in banca, quanto mettere in ETF ogni mese e come partire.',
       nextBtn:'Crea il mio piano',
-      fbQ:'Ti è stata utile questa pagina?', fbYes:'Sì, utile', fbNo:'Non molto', fbThanks:'Grazie!',
-      taxNote:'<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.',
-      disc:'<strong>Non è una consulenza finanziaria.</strong> Stime educative con rendimenti medi costanti, prima di tasse e costi. Investire in ETF comporta il rischio di perdere denaro. Verifica le regole o parla con un consulente qualificato.',
+      fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
+      taxNote:'<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a ottobre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Sono stime per capire, con rendimenti medi. Investire in ETF vuol dire che puoi anche perdere soldi. Prima di decisioni grosse, informati bene o parla con un professionista.',
       privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
     es:{locale:'es-ES',
       title:'¿Dinero en el banco o invertir en ETF? | Your ETF Plan',
       badge:'Tu caso · dinero en el banco',
       h1:'¿Dinero parado en el banco o <em>invertir en ETF</em>?',
-      sub:'¿Tienes ahorros en la cuenta, o apartas algo cada mes? Mira en qué se convierten en la cuenta corriente, en un depósito o invirtiendo en ETF, en euros de hoy, es decir, descontando la inflación.',
+      sub:'¿Tienes ahorros en la cuenta, o apartas algo cada mes? Mira en qué se convierten en la cuenta, en un depósito o en ETF. En euros de hoy, o sea, contando que los precios suben.',
       illAlt:'Un banco con una pila de monedas que se encoge, junto a un tarro donde crece un árbol',
       calcH:'Tus números',
       lAmount:'Dinero en el banco hoy', lMonthly:'Y cada mes añades', monthlyNote:'Lo que sueles ahorrar cada mes. Pon 0 si no añades nada.', lYears:'Cuántos años dejas el dinero', lRate:'Interés del depósito',
-      rateNote:'Interés de ejemplo, pon el que te ofrece tu banco. La cuenta corriente se calcula al 0%.',
+      rateNote:'Pon lo que te da tu banco. La cuenta corriente la calculamos al 0%, porque normalmente es lo que da.',
       years:n=>n===1?'1 año':n+' años',
       resHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
       bCur:'Cuenta corriente', bDep:r=>`Depósito <small>al ${r} anual</small>`, bEtf:'Invirtiendo en ETF <small>media histórica 7% · horquilla 5–9%</small>',
       today:(a,m,t)=>m?`Pones ${t} en total (${a} hoy + ${m} al mes)`:`Hoy tienes ${a}`,
       verdict:(hasLoss,loss,etfGain)=>hasLoss
-        ?`En la cuenta corriente perderías unos <b class="loss">${loss}</b> de poder adquisitivo. Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más de lo que has puesto, en euros de hoy.`
-        :`Invirtiendo en ETF podrías tener unos <b class="gain">${etfGain}</b> más de lo que has puesto, en euros de hoy.`,
-      calcNote:'Inflación del 2% anual. Antes de impuestos y costes. Las rentabilidades de los ETF no están garantizadas y cambian cada año; aquí son medias constantes.',
+        ?`Dejado en la cuenta corriente, con los precios subiendo pierdes unos <b class="loss">${loss}</b>. En ETF podrías tener unos <b class="gain">${etfGain}</b> más de lo que has puesto, en euros de hoy.`
+        :`En ETF podrías tener unos <b class="gain">${etfGain}</b> más de lo que has puesto, en euros de hoy.`,
+      calcNote:'Precios que suben un 2% al año. Antes de impuestos y costes. Los ETF no rinden lo mismo cada año: aquí usamos una media.',
       whenH:'Cuándo dejarlo en el banco y cuándo invertir en ETF',
       keepH:'Déjalo en el banco si…',
-      keepL:'<li>Es tu <b>fondo de emergencia</b>: unos 6 meses de gastos.</li><li>Lo vas a necesitar en <b>3–5 años</b>: entrada de una casa, coche, estudios.</li><li>Una caída temporal del 30% te haría vender con pánico.</li>',
+      keepL:'<li>Es tu <b>fondo de emergencia</b>: unos 6 meses de gastos.</li><li>Lo necesitas en <b>3–5 años</b>: la entrada de una casa, el coche, los estudios de los hijos.</li><li>Si lo vieras caer un 30% te entrarían ganas de venderlo todo. No pasa nada: entonces ese dinero está mejor en el banco.</li>',
       etfH:'Invertir en ETF tiene sentido si…',
-      etfL:'<li>No vas a necesitar el dinero en <b>10 años o más</b>.</li><li>Ya tienes el fondo de emergencia.</li><li>Puedes dejarlo invertido aunque los mercados bajen.</li>',
+      etfL:'<li>No lo necesitas en <b>10 años o más</b>.</li><li>El fondo de emergencia ya lo tienes.</li><li>Cuando la bolsa baja, eres capaz de no tocarlo.</li>',
       cmpH:'Las diferencias, de un vistazo',
       cmpNote:'La fiscalidad indicada es la española para personas físicas residentes. No es asesoramiento financiero.',
       cols:['','Cuenta corriente','Depósito','Invertir en ETF'],
@@ -465,17 +465,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       ],
       faqH:'Preguntas',
       q1:'¿Es seguro un depósito?',
-      a1:'En la Unión Europea los depósitos están garantizados hasta 100.000 € por persona y por banco, cuentas corrientes y depósitos incluidos. Por encima de esa cifra conviene repartir el dinero entre varios bancos.',
+      a1:'Sí. En la UE el dinero en el banco está garantizado hasta 100.000 € por persona y por banco, cuentas y depósitos incluidos. Si tienes más, repártelo entre varios bancos.',
       q2:'¿Puedo hacer mitad y mitad?',
-      a2:'Sí, y a menudo es lo más sensato: el fondo de emergencia y el dinero que necesitarás pronto en el banco o en un depósito, y la parte de largo plazo invertida en ETF.',
+      a2:'Sí, y es lo que hace casi todo el mundo: el fondo de emergencia y el dinero que vas a necesitar pronto en el banco o en un depósito, y el resto, lo que no vas a tocar en años, en ETF.',
       q3:'¿Y si los mercados caen justo cuando empiezo a invertir en ETF?',
-      a3:'Puede pasar. Para reducir ese riesgo puedes invertir una cantidad grande en 6–12 aportaciones mensuales en lugar de todo en un día. E invierte solo dinero que no vayas a necesitar en al menos 10 años.',
-      nextH:'Siguiente paso: tu primer plan para invertir en ETF',
-      next:'Responde 3 preguntas y obtén un plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes y cómo configurarlo.',
+      a3:'Puede pasar, y duele. Si es una cantidad grande, puedes repartirla en 6–12 meses en vez de meterla toda el mismo día. Y mete solo dinero que no vayas a necesitar en al menos 10 años.',
+      nextH:'Y ahora: tu plan',
+      next:'Responde 3 preguntas y te preparo un plan en una página: cuánto dejar en el banco, cuánto meter en ETF cada mes y cómo empezar.',
       nextBtn:'Crear mi plan',
-      fbQ:'¿Te ha sido útil esta página?', fbYes:'Sí, útil', fbNo:'No mucho', fbThanks:'¡Gracias!',
-      taxNote:'<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.',
-      disc:'<strong>No es asesoramiento financiero.</strong> Estimaciones educativas con rentabilidades medias constantes, antes de impuestos y costes. Invertir en ETF conlleva el riesgo de perder dinero. Comprueba la normativa o habla con un asesor cualificado.',
+      fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      taxNote:'<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en octubre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.',
+      disc:'<strong>No es asesoramiento financiero.</strong> Son estimaciones para entender, con rentabilidades medias. Invertir en ETF significa que también puedes perder dinero. Antes de una decisión grande, infórmate bien o habla con un profesional.',
       privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
   };
 
