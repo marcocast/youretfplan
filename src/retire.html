@@ -175,6 +175,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .pick button b{display:block;font-size:1rem}
 .pick button span{display:block;font-size:.88rem;color:var(--muted)}
 .pick button[aria-pressed="true"]{border-color:var(--ink);background:var(--accent-soft);box-shadow:3px 3px 0 var(--ink)}
+.bill{border:2px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--bg)}
+.bill h4{margin:0 0 6px;font-size:1rem}
+.bill p.row{display:flex;justify-content:space-between;gap:12px;margin:0;padding:5px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+.bill p.row span:last-child{white-space:nowrap;font-weight:700}
+.bill p.row.tot{border-bottom:0;font-weight:800;font-size:1rem}
+.bill p.note{margin:8px 0 0}
 .howcalc{margin:0;background:var(--bg);border:2px dashed var(--ink);border-radius:14px;padding:12px 14px;font-size:.95rem}
 </style>
 
@@ -297,6 +303,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="note" data-t="pickNote"></p>
     <h3 data-t="incH"></h3>
     <div class="income" id="income"></div>
+    <div class="bill" id="bill"></div>
 
     <h3 data-t="cashH"></h3>
     <div class="income" id="cash"></div>
@@ -395,6 +402,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the contract.', lEmpty:'Months with no rent per year', lHgrow:'House value growth per year',
       incH:'Money in your pocket each month (after taxes and costs)',
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
+      billH:(v)=>`Why is the rent only ${v} net? Here’s the math, per month:`,
+      bRent:'Rent you get',
+      bEmpty:(n)=>`Empty months (${n} a year on average)`,
+      bTax:(p)=>`Tax on the rent (${p})`,
+      bCost:(p)=>`House costs: property tax, building fees, repairs (${p} of the value a year)`,
+      bLeft:'What’s left',
+      billNote:'Most people only count rent minus tax. But empty months and costs do come, just not every month: a tenant who leaves, a boiler to replace. If your numbers are different, change them in the details above.',
       incPort:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>, after tax on the gains</span>`,
       howCalc:(r,k,p,m)=>`<b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about ${r} a year. Take away rising prices and there’s about ${k} a year left: that’s what you can take without eating into your capital. On your ${p} that’s about <b>${m} a month</b> before tax, going up every year with prices.`,
       pickH:'If you want, pick how much to take:',
@@ -452,6 +466,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi senza affitto all’anno', lHgrow:'Crescita del valore della casa all’anno',
       incH:'Quanto ti entra in tasca ogni mese (tolte tasse e costi)',
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
+      billH:(v)=>`Perché l’affitto netto è solo ${v}? Ecco il conto, al mese:`,
+      bRent:'Affitto che prendi',
+      bEmpty:(n)=>`Mesi vuoti (${n} all’anno in media)`,
+      bTax:(p)=>`Tasse sull’affitto (${p})`,
+      bCost:(p)=>`Spese della casa: IMU, condominio, lavori (${p} del valore all’anno)`,
+      bLeft:'Ti restano',
+      billNote:'Di solito si conta solo affitto meno tasse. Ma i mesi vuoti e le spese arrivano, solo non ogni mese: l’inquilino che se ne va, la caldaia da cambiare. Se i tuoi numeri sono diversi, cambiali nei dettagli qui sopra.',
       incPort:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>, tolte le tasse sui guadagni</span>`,
       howCalc:(r,k,p,m)=>`<b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa ${r} l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa ${k} l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi ${p} fanno circa <b>${m} al mese</b> prima delle tasse, che salgono ogni anno con i prezzi.`,
       pickH:'Se vuoi, scegli tu quanto prendere:',
@@ -509,6 +530,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.', lEmpty:'Meses sin alquilar al año', lHgrow:'Revalorización del piso al año',
       incH:'Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)',
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
+      billH:(v)=>`¿Por qué el alquiler neto es solo ${v}? Aquí tienes la cuenta, al mes:`,
+      bRent:'Alquiler que cobras',
+      bEmpty:(n)=>`Meses vacío (${n} al año de media)`,
+      bTax:(p)=>`Impuestos sobre el alquiler (${p})`,
+      bCost:(p)=>`Gastos del piso: IBI, comunidad, arreglos (${p} del valor al año)`,
+      bLeft:'Te queda',
+      billNote:'Casi todos cuentan solo alquiler menos impuestos. Pero los meses vacío y los gastos llegan, solo que no cada mes: un inquilino que se va, una caldera que cambiar. Si tus números son distintos, cámbialos en los detalles de arriba.',
       incPort:v=>`<b>${v}</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, quitando los impuestos sobre la ganancia</span>`,
       howCalc:(r,k,p,m)=>`<b>Cuánto puedes sacar te lo decimos nosotros.</b> Usamos una mezcla tranquila: 40% acciones y 60% bonos, que de media rinde un ${r} al año. Quitando la subida de precios, queda un ${k} al año: es lo que puedes sacar sin comerte el capital. Sobre tus ${p} son unos <b>${m} al mes</b> antes de impuestos, que suben cada año con los precios.`,
       pickH:'Si quieres, elige tú cuánto sacar:',
@@ -582,7 +610,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
         const w=Math.min(P,rate*P0*Math.pow(1+INFL,t-1));
         const gain=P>0?Math.max(0,1-basis/P):0, tx=w*gain*et;
         basis*=P>0?1-w/P:0; P-=w;
-        if(t<=10)sum+=(w-tx)/d;
+        if(t<=10)sum+=(w-tx)/(d/(1+INFL));
         if(P<=1&&lasts===null)lasts=t;
         if(t===Y)end=Math.max(0,P)/d;
         if(t>=Math.max(Y,10)&&(lasts!==null||t>=60))break;
@@ -590,11 +618,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
       return {month:sum/120,end,lasts};
     }
     const RUNS={less:run(less),keep:run(keep),more:run(more)}, base=RUNS[PICK];
-    let Vh=V0, rentSum=0, houseEnd=0;
+    let Vh=V0, rentSum=0, houseEnd=0, bEmpty=0, bTax=0, bCost=0;
     for(let t=1;t<=Math.max(Y,10);t++){
-      const d=Math.pow(1+INFL,t);
-      const netRent=R0*Math.pow(1+INFL,t-1)*(12-emptyM)*(1-tax)-Vh*oc; Vh*=1+g;
-      if(t<=10)rentSum+=netRent/d;
+      const d=Math.pow(1+INFL,t), d0=d/(1+INFL), rent=R0*Math.pow(1+INFL,t-1);
+      const netRent=rent*(12-emptyM)*(1-tax)-Vh*oc;
+      if(t<=10){rentSum+=netRent/d0; bEmpty+=rent*emptyM/d0; bTax+=rent*(12-emptyM)*tax/d0; bCost+=Vh*oc/d0}
+      Vh*=1+g;
       if(t===Y)houseEnd=Vh/d;
     }
     $('hvalue-out').textContent=fmt(V0); $('hrent-out').textContent=fmt(R0); $('hyears-out').textContent=L.years(Y);
@@ -606,6 +635,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     document.querySelectorAll('#pick button').forEach(b=>{const k=b.dataset.pick, o=RUNS[k];
       b.innerHTML=k==='less'?L.pLess(fmt(o.month),Y,fmt(o.end)):k==='keep'?L.pKeep(fmt(o.month),Y,fmt(o.end)):L.pMore(fmt(o.month),Y,fmt(o.end),o.lasts!==null?L.moreGone(o.lasts):'');
       b.setAttribute('aria-pressed',k===PICK)});
+    const nr=Math.max(0,rentSum/120), num=v=>String(v).replace('.',L.locale==='en-IE'?'.':',');
+    $('bill').innerHTML='<h4>'+L.billH(fmt(nr))+'</h4><p class="row"><span>'+L.bRent+'</span><span>'+fmt(R0)+'</span></p><p class="row"><span>'+L.bEmpty(num(emptyM))+'</span><span>−'+fmt(bEmpty/120)+'</span></p><p class="row"><span>'+L.bTax(pct(tax))+'</span><span>−'+fmt(bTax/120)+'</span></p><p class="row"><span>'+L.bCost(pct(oc))+'</span><span>−'+fmt(bCost/120)+'</span></p><p class="row tot"><span>'+L.bLeft+'</span><span>'+fmt(nr)+'</span></p><p class="note">'+L.billNote+'</p>';
     $('cash').innerHTML='<div>'+L.cashRent+'</div><div>'+L.cashPort(fmt(P0))+'</div>';
     $('h-head').textContent=L.hHead(Y);
     $('v-house').textContent=fmt(houseEnd); $('v-port').textContent=fmt(base.end);
