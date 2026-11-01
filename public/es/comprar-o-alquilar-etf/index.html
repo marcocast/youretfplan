@@ -321,25 +321,40 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
           <p class="note" data-t="hgrowNote">2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% al año.</p>
         </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="scost" data-t="lScost">Gastos de venta de la casa</label><span class="ctrl-val num" id="scost-out">5&nbsp;%</span></div>
+          <input type="range" id="scost" min="0" max="10" step="0.5" value="5">
+          <p class="note" data-t="scostNote">Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="htax" data-t="lHtax">Impuestos sobre la ganancia de la casa</label><span class="ctrl-val num" id="htax-out">0&nbsp;%</span></div>
+          <input type="range" id="htax" min="0" max="30" step="1" value="0">
+          <p class="note" data-t="htaxNote">Es tu vivienda habitual: si compras otra con el dinero, o tienes más de 65 años, normalmente no pagas. Si no, del 19% al 30%.</p>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="etax" data-t="lEtax">Impuestos sobre la ganancia de los ETF</label><span class="ctrl-val num" id="etax-out">21&nbsp;%</span></div>
+          <input type="range" id="etax" min="0" max="30" step="1" value="26">
+          <p class="note" data-t="etaxNote">En España, del 19% al 30% de lo que has ganado, cuando vendes. 21% es una media razonable.</p>
+        </div>
       </div>
     </details>
 
     <div class="chips" id="chips"><span class="chip warn">Precio = 23 años de alquiler · suele compensar alquilar</span></div>
 
-    <p class="res-head" id="res-head">Después de 20 años, lo que tiene cada uno, en euros de hoy:</p>
+    <p class="res-head" id="res-head">Después de 20 años, si cada uno lo vende todo, lo que le queda en el bolsillo, en euros de hoy:</p>
     <div class="bars" aria-live="polite">
-      <div class="bar"><span class="lab" data-t="bBuy">Compra la casa <small>valor de la casa − hipoteca pendiente + ETF si los hay</small></span><span class="val num" id="v-buy">212.991&nbsp;€</span><div class="track"><div class="fill" id="f-buy" style="background: var(--coral); width: 75.2%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bRent">Alquila e invierte en ETF <small>cartera de ETF</small></span><span class="val num" id="v-rent">269.851&nbsp;€</span><div class="track"><div class="fill" id="f-rent" style="background: var(--etf); width: 95.2%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bBuy">Compra la casa <small>vende la casa: quitando hipoteca, gastos de venta e impuestos</small></span><span class="val num" id="v-buy">200.491&nbsp;€</span><div class="track"><div class="fill" id="f-buy" style="background: var(--coral); width: 83.1%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bRent">Alquila e invierte en ETF <small>vende los ETF: quitando los impuestos sobre la ganancia</small></span><span class="val num" id="v-rent">229.679&nbsp;€</span><div class="track"><div class="fill" id="f-rent" style="background: var(--etf); width: 95.2%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict"><b class="gain">Alquilar e invertir en ETF</b> sale ganando por unos <b>56.860&nbsp;€</b>. En este periodo quien compra no llega a alcanzarle.</p>
+    <p class="verdict" id="verdict"><b class="gain">Alquilar e invertir en ETF</b> sale ganando por unos <b>29.188&nbsp;€</b>. En este periodo quien compra no llega a alcanzarle.</p>
 
     <div class="chart-box">
-      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Patrimonio a lo largo de los años de quien compra y de quien alquila e invierte en ETF" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€90k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€180k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€270k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 176.6 L76.4 169.9 L106.8 163.3 L137.2 156.8 L167.6 150.3 L198.0 143.9 L228.4 137.6 L258.8 131.3 L289.2 125.1 L319.6 119.0 L350.0 112.9 L380.4 106.8 L410.8 100.8 L441.2 94.9 L471.6 89.0 L502.0 83.2 L532.4 77.4 L562.8 71.6 L593.2 65.9 L623.6 60.2 L654.0 54.6" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 156.0 L76.4 150.3 L106.8 144.5 L137.2 138.7 L167.6 132.7 L198.0 126.5 L228.4 120.3 L258.8 113.9 L289.2 107.3 L319.6 100.6 L350.0 93.7 L380.4 86.6 L410.8 79.3 L441.2 71.8 L471.6 64.0 L502.0 56.1 L532.4 47.8 L562.8 39.3 L593.2 30.5 L623.6 21.4 L654.0 12.0" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="54.56293129006496" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="12" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
+      <svg id="chart" role="img" data-ta="chartAlt" aria-label="Patrimonio a lo largo de los años de quien compra y de quien alquila e invierte en ETF" viewBox="0 0 668 240"><line x1="46" x2="654" y1="214.0" y2="214.0" stroke="var(--line)"></line><text x="40.0" y="218.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="46" x2="654" y1="146.7" y2="146.7" stroke="var(--line)"></line><text x="40.0" y="150.7" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€77k</text><line x1="46" x2="654" y1="79.3" y2="79.3" stroke="var(--line)"></line><text x="40.0" y="83.3" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€153k</text><line x1="46" x2="654" y1="12.0" y2="12.0" stroke="var(--line)"></line><text x="40.0" y="16.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€230k</text><text x="46.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">0</text><text x="198.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5</text><text x="350.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10</text><text x="502.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">15</text><text x="654.0" y="234.0" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">20</text><path d="M46.0 181.0 L76.4 173.2 L106.8 165.4 L137.2 157.7 L167.6 150.2 L198.0 142.6 L228.4 135.2 L258.8 127.8 L289.2 120.6 L319.6 113.3 L350.0 106.2 L380.4 99.1 L410.8 92.0 L441.2 85.1 L471.6 78.2 L502.0 71.3 L532.4 64.5 L562.8 57.7 L593.2 51.0 L623.6 44.3 L654.0 37.7" fill="none" stroke="var(--coral)" stroke-width="3.5" stroke-linejoin="round"></path><path d="M46.0 145.8 L76.4 140.2 L106.8 134.5 L137.2 128.7 L167.6 122.9 L198.0 117.0 L228.4 111.0 L258.8 105.0 L289.2 98.8 L319.6 92.5 L350.0 86.1 L380.4 79.6 L410.8 72.8 L441.2 66.0 L471.6 58.9 L502.0 51.7 L532.4 44.2 L562.8 36.6 L593.2 28.6 L623.6 20.5 L654.0 12.0" fill="none" stroke="var(--etf)" stroke-width="3.5" stroke-linejoin="round"></path><circle cx="654" cy="37.67041196172747" r="5" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="654" cy="12" r="5" fill="var(--etf)" stroke="var(--ink)" stroke-width="2"></circle></svg>
       <div class="legend"><span><i style="background:var(--coral)"></i><span data-t="lgBuy">Compra</span></span><span><i style="background:var(--etf)"></i><span data-t="lgRent">Alquila e invierte en ETF</span></span></div>
     </div>
 
     <div class="monthly" id="monthly"><div class="mbox"><b>El primer día</b><span>Quien alquila invierte 77.500&nbsp;€ en ETF: la entrada y los gastos que quien compra gasta</span></div><div class="mbox"><b>Quien compra paga</b><span>Cuota 1001&nbsp;€ + gastos 208&nbsp;€ al mes</span></div><div class="mbox"><b>Quien alquila paga</b><span>Alquiler 900&nbsp;€ al mes e invierte 310&nbsp;€ en ETF</span></div></div>
-    <p class="note" data-t="calcNote">En euros de hoy (inflación del 2%). Antes de impuestos: las ganancias de los ETF tributan al vender; vender la vivienda habitual a menudo está exento con condiciones. No se incluyen los gastos de venta de la casa. Estimación educativa, no asesoramiento.</p>
+    <p class="note" data-t="calcNote">En euros de hoy (precios +2% al año). Como si al final los dos lo vendieran todo: para la casa, quitando la hipoteca pendiente, los gastos de venta y los impuestos sobre la ganancia; para los ETF, quitando los impuestos sobre la ganancia. Una estimación para entender, no asesoramiento.</p>
   </section>
 
   <section aria-labelledby="h-when">
@@ -393,6 +408,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const PAGE_URLS={en:'/buy-vs-rent-etf/',it:'/it/comprare-casa-o-affitto-etf/',es:'/es/comprar-o-alquilar-etf/'};
   const HOME={en:'/',it:'/it/',es:'/es/'};
   const PCOST={en:7,it:6,es:11}; // default purchase costs (% of price) per language
+  // Selling at the end: tax on the ETF gains, Italy's 0.2% yearly stamp duty on ETFs. The home is your main home, so its gain tax defaults to 0.
+  const ETAXD={en:20,it:26,es:21}, BOLLO={en:0,it:0.002,es:0};
 
   const T={
     en:{locale:'en-IE', title:'Buy a home or rent and invest in ETFs? | Your ETF Plan',
@@ -407,9 +424,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lMrate:'Mortgage rate', lMterm:'Mortgage length', lPcost:'Purchase costs', pcostNote:'Taxes, notary, agency. Often 5–10% of the price, more in some countries.',
       lOcost:'Owner costs per year', ocostNote:'Maintenance, insurance, property tax, building costs, as % of the home value.',
       lHgrow:'Home value growth per year', hgrowNote:'2% = in line with inflation. Rent grows 2% a year; investing in ETFs at 7% a year on average.',
+      lScost:'Selling costs of the house',
+      scostNote:'Agency and the rest when you sell, as % of the price.',
+      lHtax:'Tax on the house gain',
+      htaxNote:'It’s the home you live in: in many countries selling it is tax-free. Check your rules.',
+      lEtax:'Tax on the ETF gains',
+      etaxNote:'Depends on your country. Paid only on what you gained, when you sell.',
       ratio:(r)=>`Price = ${r} years of rent`, ratioGood:'buying tends to pay off', ratioBad:'renting tends to pay off', ratioMid:'it depends on the details',
-      resHead:y=>`After ${y===1?'1 year':y+' years'}, what each one owns, in today’s money:`,
-      bBuy:'Buys the home <small>home value − remaining mortgage + any ETFs</small>', bRent:'Rents and invests in ETFs <small>ETF portfolio</small>',
+      resHead:y=>`After ${y===1?'1 year':y+' years'}, if each sells everything, what’s left in their pocket, in today’s money:`,
+      bBuy:'Buys the home <small>sells the home: after mortgage, selling costs and tax</small>', bRent:'Rents and invests in ETFs <small>sells the ETFs: after tax on the gains</small>',
       lgBuy:'Buys', lgRent:'Rents and invests in ETFs', chartAlt:'Wealth over the years for the buyer and the renter who invests in ETFs',
       vBuy:(d)=>`<b class="gain">Buying</b> comes out ahead by about <b>${d}</b>.`,
       vRent:(d)=>`<b class="gain">Renting and investing in ETFs</b> comes out ahead by about <b>${d}</b>.`,
@@ -418,7 +441,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       mRent:(rent,inv)=>`<b>Who rents pays</b><span>Rent ${rent} a month and invests ${inv} in ETFs</span>`,
       mRentNeg:(rent)=>`<b>Who rents pays</b><span>Rent ${rent} a month (more than the buyer: the buyer invests the difference in ETFs)</span>`,
       mStart:(v)=>`<b>On day one</b><span>The renter invests ${v} in ETFs: the down payment and purchase costs the buyer spends</span>`,
-      calcNote:'In today’s money (2% inflation). Before taxes: ETF gains are taxed when you sell, selling a main home is often tax-free under conditions. Selling costs of the home are not included. Educational estimate, not advice.',
+      calcNote:'In today’s money (prices +2% a year). As if at the end both sold everything: for the home, after the mortgage left, selling costs and tax on the gain; for the ETFs, after tax on the gains. An estimate to help you understand, not advice.',
       whenH:'When buying wins, and when renting and investing in ETFs wins',
       buyH:'Buying tends to win if…', buyL:'<li>You stay at least <b>10 years</b>.</li><li>Homes are cheap compared with rents: the price is less than 15 years of rent.</li><li>The mortgage is cheap and the payment is close to the rent.</li>',
       rentH:'Renting and investing in ETFs tends to win if…', rentL:'<li>You might move city in a few years.</li><li>Homes are expensive compared with rents: the price is more than 20 years of rent.</li><li>You really put what’s left into ETFs every month, instead of spending it.</li>',
@@ -446,9 +469,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lMrate:'Tasso del mutuo', lMterm:'Durata del mutuo', lPcost:'Costi di acquisto', pcostNote:'Imposte, notaio, agenzia. Per la prima casa da privato: registro 2% del valore catastale, notaio e agenzia (spesso intorno al 3% + IVA).',
       lOcost:'Costi annui del proprietario', ocostNote:'Manutenzione, assicurazione, spese straordinarie, IMU se dovuta, in % del valore della casa.',
       lHgrow:'Crescita del valore della casa all’anno', hgrowNote:'2% = in linea con l’inflazione. L’affitto cresce del 2% l’anno; investire in ETF rende in media il 7% l’anno.',
+      lScost:'Costi di vendita della casa',
+      scostNote:'Agenzia e altro quando vendi, in % del prezzo.',
+      lHtax:'Tasse sul guadagno della casa',
+      htaxNote:'È la casa dove vivi: in Italia se la vendi di solito non paghi niente. Metti 26% solo se la vendi entro 5 anni senza averci abitato.',
+      lEtax:'Tasse sul guadagno degli ETF',
+      etaxNote:'In Italia il 26% su quello che hai guadagnato, quando vendi. Il bollo dello 0,2% l’anno è già tolto.',
       ratio:(r)=>`Prezzo = ${r} anni di affitto`, ratioGood:'di solito conviene comprare', ratioBad:'di solito conviene l’affitto', ratioMid:'dipende dai dettagli',
-      resHead:y=>`Dopo ${y===1?'1 anno':y+' anni'}, quanto possiede ciascuno, in euro di oggi:`,
-      bBuy:'Compra casa <small>valore della casa − mutuo residuo + eventuali ETF</small>', bRent:'Affitta e investe in ETF <small>portafoglio di ETF</small>',
+      resHead:y=>`Dopo ${y===1?'1 anno':y+' anni'}, se ognuno vende tutto, quanto gli resta in tasca, in euro di oggi:`,
+      bBuy:'Compra casa <small>vende la casa: tolti mutuo, costi di vendita e tasse</small>', bRent:'Affitta e investe in ETF <small>vende gli ETF: tolte le tasse sul guadagno</small>',
       lgBuy:'Compra', lgRent:'Affitta e investe in ETF', chartAlt:'Patrimonio negli anni di chi compra e di chi affitta e investe in ETF',
       vBuy:(d)=>`<b class="gain">Comprare</b> risulta avanti di circa <b>${d}</b>.`,
       vRent:(d)=>`<b class="gain">Affittare e investire in ETF</b> risulta avanti di circa <b>${d}</b>.`,
@@ -457,7 +486,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       mRent:(rent,inv)=>`<b>Chi affitta paga</b><span>Affitto ${rent} al mese e investe ${inv} in ETF</span>`,
       mRentNeg:(rent)=>`<b>Chi affitta paga</b><span>Affitto ${rent} al mese (più di chi compra: è chi compra a investire la differenza in ETF)</span>`,
       mStart:(v)=>`<b>Il primo giorno</b><span>Chi affitta investe ${v} in ETF: l’anticipo e i costi che chi compra spende</span>`,
-      calcNote:'In euro di oggi (inflazione 2%). Prima delle tasse: i guadagni degli ETF si tassano quando vendi, la vendita della casa dopo 5 anni o della prima casa spesso non è tassata. Non sono inclusi i costi di vendita della casa. Stima educativa, non consulenza.',
+      calcNote:'In euro di oggi (prezzi +2% l’anno). Come se alla fine tutti e due vendessero tutto: per la casa tolti mutuo residuo, costi di vendita e tasse sul guadagno; per gli ETF tolte le tasse sul guadagno e il bollo. Una stima per capire, non una consulenza.',
       whenH:'Quando conviene comprare, e quando affittare e investire in ETF',
       buyH:'Comprare di solito conviene se…', buyL:'<li>Ci resti almeno <b>10 anni</b>.</li><li>Le case costano poco rispetto agli affitti: il prezzo è meno di 15 anni di affitto.</li><li>Il mutuo costa poco e la rata è vicina all’affitto.</li>',
       rentH:'Affittare e investire in ETF di solito conviene se…', rentL:'<li>Potresti cambiare città tra qualche anno.</li><li>Le case costano tanto rispetto agli affitti: il prezzo è più di 20 anni di affitto.</li><li>Quello che ti avanza lo metti davvero in ETF ogni mese, non lo spendi.</li>',
@@ -485,9 +514,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lMrate:'Interés de la hipoteca', lMterm:'Plazo de la hipoteca', lPcost:'Gastos de compra', pcostNote:'ITP entre el 4% y el 10% según la comunidad en segunda mano (o IVA del 10% en obra nueva), más notaría, registro y gestoría. En total suele ser un 10–15%.',
       lOcost:'Gastos anuales del propietario', ocostNote:'Mantenimiento, seguro, IBI, derramas, en % del valor de la casa.',
       lHgrow:'Revalorización de la casa al año', hgrowNote:'2% = en línea con la inflación. El alquiler sube un 2% al año; invertir en ETF rinde de media un 7% al año.',
+      lScost:'Gastos de venta de la casa',
+      scostNote:'Inmobiliaria, plusvalía municipal y demás al vender, en % del precio.',
+      lHtax:'Impuestos sobre la ganancia de la casa',
+      htaxNote:'Es tu vivienda habitual: si compras otra con el dinero, o tienes más de 65 años, normalmente no pagas. Si no, del 19% al 30%.',
+      lEtax:'Impuestos sobre la ganancia de los ETF',
+      etaxNote:'En España, del 19% al 30% de lo que has ganado, cuando vendes. 21% es una media razonable.',
       ratio:(r)=>`Precio = ${r} años de alquiler`, ratioGood:'suele compensar comprar', ratioBad:'suele compensar alquilar', ratioMid:'depende de los detalles',
-      resHead:y=>`Después de ${y===1?'1 año':y+' años'}, lo que tiene cada uno, en euros de hoy:`,
-      bBuy:'Compra la casa <small>valor de la casa − hipoteca pendiente + ETF si los hay</small>', bRent:'Alquila e invierte en ETF <small>cartera de ETF</small>',
+      resHead:y=>`Después de ${y===1?'1 año':y+' años'}, si cada uno lo vende todo, lo que le queda en el bolsillo, en euros de hoy:`,
+      bBuy:'Compra la casa <small>vende la casa: quitando hipoteca, gastos de venta e impuestos</small>', bRent:'Alquila e invierte en ETF <small>vende los ETF: quitando los impuestos sobre la ganancia</small>',
       lgBuy:'Compra', lgRent:'Alquila e invierte en ETF', chartAlt:'Patrimonio a lo largo de los años de quien compra y de quien alquila e invierte en ETF',
       vBuy:(d)=>`<b class="gain">Comprar</b> sale ganando por unos <b>${d}</b>.`,
       vRent:(d)=>`<b class="gain">Alquilar e invertir en ETF</b> sale ganando por unos <b>${d}</b>.`,
@@ -496,7 +531,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       mRent:(rent,inv)=>`<b>Quien alquila paga</b><span>Alquiler ${rent} al mes e invierte ${inv} en ETF</span>`,
       mRentNeg:(rent)=>`<b>Quien alquila paga</b><span>Alquiler ${rent} al mes (más que quien compra: es quien compra quien invierte la diferencia en ETF)</span>`,
       mStart:(v)=>`<b>El primer día</b><span>Quien alquila invierte ${v} en ETF: la entrada y los gastos que quien compra gasta</span>`,
-      calcNote:'En euros de hoy (inflación del 2%). Antes de impuestos: las ganancias de los ETF tributan al vender; vender la vivienda habitual a menudo está exento con condiciones. No se incluyen los gastos de venta de la casa. Estimación educativa, no asesoramiento.',
+      calcNote:'En euros de hoy (precios +2% al año). Como si al final los dos lo vendieran todo: para la casa, quitando la hipoteca pendiente, los gastos de venta y los impuestos sobre la ganancia; para los ETF, quitando los impuestos sobre la ganancia. Una estimación para entender, no asesoramiento.',
       whenH:'Cuándo gana comprar y cuándo alquilar e invertir en ETF',
       buyH:'Comprar suele ganar si…', buyL:'<li>Te quedas al menos <b>10 años</b>.</li><li>Las casas son baratas frente a los alquileres: el precio es menos de 15 años de alquiler.</li><li>La hipoteca es barata y la cuota se parece al alquiler.</li>',
       rentH:'Alquilar e invertir en ETF suele ganar si…', rentL:'<li>Puede que cambies de ciudad en unos años.</li><li>Las casas son caras frente a los alquileres: el precio es más de 20 años de alquiler.</li><li>Lo que te sobra lo metes de verdad en ETF cada mes, en vez de gastarlo.</li>',
@@ -525,7 +560,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     return f in T?f:'en';
   }
   let lang=FIXED||guessLang(), L=T[lang], fmt, pct;
-  $('pcost').value=PCOST[lang];
+  $('pcost').value=PCOST[lang]; $('etax').value=ETAXD[lang];
 
   // Month-by-month: both people spend the same each month. The buyer pays mortgage + owner
   // costs; the renter pays rent. Whoever pays less invests the difference in ETFs. On day one
@@ -533,9 +568,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function simulate(o){
     const mi=o.mrate/12, n=o.mterm*12, loan=o.price*(1-o.down);
     const pay=loan>0?(mi>0?loan*mi/(1-Math.pow(1+mi,-n)):loan/n):0;
-    const gE=Math.pow(1+ETF,1/12)-1, gH=Math.pow(1+o.hgrow,1/12)-1;
-    let bal=loan, value=o.price, buyEtf=0, rentEtf=o.price*o.down+o.price*o.pcost;
-    const pts=[{buy:value-bal,rent:rentEtf}], first={};
+    const gE=Math.pow((1+ETF)*(1-BOLLO[lang]),1/12)-1, gH=Math.pow(1+o.hgrow,1/12)-1;
+    const cash0=o.price*o.down+o.price*o.pcost, basis=o.price*(1+o.pcost);
+    let bal=loan, value=o.price, buyEtf=0, buyPaid=0, rentEtf=cash0, rentPaid=cash0;
+    // What each would have if they sold everything at that moment (after costs and taxes).
+    const afterTax=(pot,paid)=>pot-Math.max(0,pot-paid)*o.etax;
+    const sellHome=()=>{const net=value*(1-o.scost), gain=Math.max(0,net-basis);return net-gain*o.htax-bal};
+    const pts=[{buy:sellHome(),rent:rentEtf}], first={};
     for(let m=1;m<=o.years*12;m++){
       buyEtf*=1+gE; rentEtf*=1+gE;
       const p=m<=n?pay:0;
@@ -543,17 +582,18 @@ details > div{padding:0 0 14px;color:var(--muted)}
       const ownerCost=value*o.ocost/12;
       const rent=o.rent*Math.pow(1+RENT_GROWTH,Math.floor((m-1)/12));
       const diff=(p+ownerCost)-rent;
-      if(diff>0)rentEtf+=diff; else buyEtf+=-diff;
+      if(diff>0){rentEtf+=diff;rentPaid+=diff} else {buyEtf+=-diff;buyPaid+=-diff}
       if(m===1){first.pay=p;first.cost=ownerCost;first.rent=rent;first.diff=diff}
       value*=1+gH;
-      if(m%12===0){const d=Math.pow(1+INFL,m/12);pts.push({buy:(value-bal+buyEtf)/d,rent:rentEtf/d})}
+      if(m%12===0){const d=Math.pow(1+INFL,m/12);pts.push({buy:(sellHome()+afterTax(buyEtf,buyPaid))/d,rent:afterTax(rentEtf,rentPaid)/d})}
     }
     return {pts,first};
   }
 
   function read(){
     return {price:+$('price').value, rent:+$('rent').value, down:+$('down').value/100, years:+$('years').value,
-      mrate:+$('mrate').value/100, mterm:+$('mterm').value, pcost:+$('pcost').value/100, ocost:+$('ocost').value/100, hgrow:+$('hgrow').value/100};
+      mrate:+$('mrate').value/100, mterm:+$('mterm').value, pcost:+$('pcost').value/100, ocost:+$('ocost').value/100, hgrow:+$('hgrow').value/100,
+      scost:+$('scost').value/100, htax:+$('htax').value/100, etax:+$('etax').value/100};
   }
 
   function render(){
@@ -563,6 +603,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('years-out').textContent=L.years(o.years);
     $('mrate-out').textContent=pct(o.mrate); $('mterm-out').textContent=L.years(o.mterm);
     $('pcost-out').textContent=pct(o.pcost); $('ocost-out').textContent=pct(o.ocost); $('hgrow-out').textContent=pct(o.hgrow);
+    $('scost-out').textContent=pct(o.scost); $('htax-out').textContent=pct(o.htax); $('etax-out').textContent=pct(o.etax);
     const ratio=Math.round(o.price/(o.rent*12));
     const cls=ratio<15?'good':ratio>20?'warn':'', txt=ratio<15?L.ratioGood:ratio>20?L.ratioBad:L.ratioMid;
     $('chips').innerHTML=`<span class="chip ${cls}">${L.ratio(ratio)} · ${txt}</span>`;
@@ -613,10 +654,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function setLang(k){
     try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
     if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
-    lang=k;$('pcost').value=PCOST[lang];applyLang();
+    lang=k;$('pcost').value=PCOST[lang];$('etax').value=ETAXD[lang];applyLang();
   }
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
-  const INPUTS=['price','rent','down','years','mrate','mterm','pcost','ocost','hgrow'];
+  const INPUTS=['price','rent','down','years','mrate','mterm','pcost','ocost','hgrow','scost','htax','etax'];
   INPUTS.forEach(id=>$(id).addEventListener('input',render));
   let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(render,120)});
 
