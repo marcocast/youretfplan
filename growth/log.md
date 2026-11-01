@@ -72,3 +72,4 @@ One dated entry per daily growth session. Newest at the bottom.
 - Mix fixed at 40% shares / 60% bonds by default (moved into the details, "noi diciamo 40%").
 - Withdrawal = what's left after inflation (and bollo in IT): about 2.7–2.9% a year, so the capital stays whole in today's money. IT defaults: 190,000 € → about 426 €/month gross, 401 € after tax, vs 334 € net rent.
 - New "if you need more" line: about 4% a year, shows what's left after Y years and how long it lasts.
+- Same day, Marco: "nessuna opzione dove il capitale cresce?". Added 3 tap choices under the explanation: less (capital grows), just right (stays whole, suggested, default), more (goes down slowly, shows how long it lasts). After tax, today's money. The income box, bars and verdict follow the choice. IT defaults: 252 € → 238k after 20y; 401 € → 190k; 597 € → 127k.

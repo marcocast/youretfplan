@@ -169,6 +169,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .income .inc-note{grid-column:1/-1;margin:0}
 .income span b{display:inline;font:inherit;font-weight:800;color:var(--ink)}
 .pain li{margin-bottom:2px}
+.pick-h{margin:4px 0 0;font-weight:800}
+.pick{display:grid;gap:8px}
+.pick button{display:block;width:100%;text-align:left;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:10px 12px;font:inherit;cursor:pointer}
+.pick button b{display:block;font-size:1rem}
+.pick button span{display:block;font-size:.88rem;color:var(--muted)}
+.pick button[aria-pressed="true"]{border-color:var(--ink);background:var(--accent-soft);box-shadow:3px 3px 0 var(--ink)}
 .howcalc{margin:0;background:var(--bg);border:2px dashed var(--ink);border-radius:14px;padding:12px 14px;font-size:.95rem}
 </style>
 
@@ -282,9 +288,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </details>
 
     <p class="howcalc" id="howcalc"></p>
+    <p class="pick-h" data-t="pickH"></p>
+    <div class="pick" id="pick" role="group" data-ta="pickH">
+      <button type="button" data-pick="less" aria-pressed="false"></button>
+      <button type="button" data-pick="keep" aria-pressed="true"></button>
+      <button type="button" data-pick="more" aria-pressed="false"></button>
+    </div>
+    <p class="note" data-t="pickNote"></p>
     <h3 data-t="incH"></h3>
     <div class="income" id="income"></div>
-    <p class="note" id="more"></p>
 
     <h3 data-t="cashH"></h3>
     <div class="income" id="cash"></div>
@@ -383,9 +395,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the contract.', lEmpty:'Months with no rent per year', lHgrow:'House value growth per year',
       incH:'Money in your pocket each month (after taxes and costs)',
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
-      incPort:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>, without touching the capital, after tax on the gains</span>`,
-      howCalc:(r,k,p,m)=>`<b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about ${r} a year. Take away rising prices and there’s about ${k} a year left: that’s what you can take without eating into your capital. On your ${p} that’s about <b>${m} a month</b>, going up every year with prices.`,
-      more:(m,y,left,gone)=>`If you needed more, say ${m} a month, you can: but the capital goes down slowly, and in ${y} years about ${left} would be left${gone}.`,
+      incPort:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>, after tax on the gains</span>`,
+      howCalc:(r,k,p,m)=>`<b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about ${r} a year. Take away rising prices and there’s about ${k} a year left: that’s what you can take without eating into your capital. On your ${p} that’s about <b>${m} a month</b> before tax, going up every year with prices.`,
+      pickH:'If you want, pick how much to take:',
+      pLess:(m,y,v)=>`<b>Less: ${m} a month</b><span>Your capital grows: in ${y} years about ${v}</span>`,
+      pKeep:(m,y,v)=>`<b>Just right: ${m} a month</b><span>Your capital stays whole: in ${y} years about ${v}. This is what we suggest.</span>`,
+      pMore:(m,y,v,g)=>`<b>More: ${m} a month</b><span>Your capital goes down slowly: in ${y} years about ${v}${g}</span>`,
+      pickNote:'After tax, in today’s money, average of the first 10 years.',
+      vUp:(y,v,p)=>`Your capital grows: after ${y} years you have about <b class="gain">${v}</b> in ETFs, in today’s money, against the ${p} you started with. You take a bit less each month, but you leave more. On average: in bad years it drops, then comes back.`,
+      vDown:(y,v,p)=>`Your capital goes down slowly: after ${y} years about <b>${v}</b> is left in ETFs, in today’s money, of the ${p} you started with. That’s fine if the money is for you to use. On average: in bad years it drops more.`,
       moreGone:n=>` (at that pace it lasts about ${n} years)`,
       incNote:'Average of the first 10 years, in today’s money.',
       cashH:'Money you can use when you want',
@@ -434,9 +452,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi senza affitto all’anno', lHgrow:'Crescita del valore della casa all’anno',
       incH:'Quanto ti entra in tasca ogni mese (tolte tasse e costi)',
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
-      incPort:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>, senza toccare il capitale, tolte le tasse sui guadagni</span>`,
-      howCalc:(r,k,p,m)=>`<b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa ${r} l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa ${k} l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi ${p} fanno circa <b>${m} al mese</b>, che salgono ogni anno con i prezzi.`,
-      more:(m,y,left,gone)=>`Se ti servisse di più, per esempio ${m} al mese, si può: però il capitale scende piano, e tra ${y} anni ne resterebbero circa ${left}${gone}.`,
+      incPort:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>, tolte le tasse sui guadagni</span>`,
+      howCalc:(r,k,p,m)=>`<b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa ${r} l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa ${k} l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi ${p} fanno circa <b>${m} al mese</b> prima delle tasse, che salgono ogni anno con i prezzi.`,
+      pickH:'Se vuoi, scegli tu quanto prendere:',
+      pLess:(m,y,v)=>`<b>Meno: ${m} al mese</b><span>Il capitale cresce: tra ${y} anni circa ${v}</span>`,
+      pKeep:(m,y,v)=>`<b>Il giusto: ${m} al mese</b><span>Il capitale resta intero: tra ${y} anni circa ${v}. Te lo consigliamo noi.</span>`,
+      pMore:(m,y,v,g)=>`<b>Di più: ${m} al mese</b><span>Il capitale scende piano: tra ${y} anni circa ${v}${g}</span>`,
+      pickNote:'Cifre già tolte le tasse, in euro di oggi, media dei primi 10 anni.',
+      vUp:(y,v,p)=>`Il capitale cresce: dopo ${y} anni hai circa <b class="gain">${v}</b> in ETF, in euro di oggi, contro i ${p} di partenza. Prendi un po’ meno ogni mese, ma lasci di più. In media: negli anni brutti scende, poi risale.`,
+      vDown:(y,v,p)=>`Il capitale scende piano: dopo ${y} anni ti restano circa <b>${v}</b> in ETF, in euro di oggi, dei ${p} di partenza. Va bene se quei soldi li vuoi usare tu. In media: negli anni brutti scende di più.`,
       moreGone:n=>` (a quel ritmo durano circa ${n} anni)`,
       incNote:'Media dei primi 10 anni, in euro di oggi.',
       cashH:'Soldi che puoi usare quando vuoi',
@@ -485,9 +509,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.', lEmpty:'Meses sin alquilar al año', lHgrow:'Revalorización del piso al año',
       incH:'Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)',
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
-      incPort:v=>`<b>${v}</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, sin tocar el capital, quitando los impuestos sobre la ganancia</span>`,
-      howCalc:(r,k,p,m)=>`<b>Cuánto puedes sacar te lo decimos nosotros.</b> Usamos una mezcla tranquila: 40% acciones y 60% bonos, que de media rinde un ${r} al año. Quitando la subida de precios, queda un ${k} al año: es lo que puedes sacar sin comerte el capital. Sobre tus ${p} son unos <b>${m} al mes</b>, que suben cada año con los precios.`,
-      more:(m,y,left,gone)=>`Si necesitaras más, por ejemplo ${m} al mes, se puede: pero el capital baja poco a poco, y dentro de ${y} años te quedarían unos ${left}${gone}.`,
+      incPort:v=>`<b>${v}</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, quitando los impuestos sobre la ganancia</span>`,
+      howCalc:(r,k,p,m)=>`<b>Cuánto puedes sacar te lo decimos nosotros.</b> Usamos una mezcla tranquila: 40% acciones y 60% bonos, que de media rinde un ${r} al año. Quitando la subida de precios, queda un ${k} al año: es lo que puedes sacar sin comerte el capital. Sobre tus ${p} son unos <b>${m} al mes</b> antes de impuestos, que suben cada año con los precios.`,
+      pickH:'Si quieres, elige tú cuánto sacar:',
+      pLess:(m,y,v)=>`<b>Menos: ${m} al mes</b><span>El capital crece: dentro de ${y} años unos ${v}</span>`,
+      pKeep:(m,y,v)=>`<b>Lo justo: ${m} al mes</b><span>El capital se queda entero: dentro de ${y} años unos ${v}. Es lo que te recomendamos.</span>`,
+      pMore:(m,y,v,g)=>`<b>Más: ${m} al mes</b><span>El capital baja poco a poco: dentro de ${y} años unos ${v}${g}</span>`,
+      pickNote:'Ya quitados los impuestos, en euros de hoy, media de los primeros 10 años.',
+      vUp:(y,v,p)=>`El capital crece: después de ${y} años tienes unos <b class="gain">${v}</b> en ETF, en euros de hoy, frente a los ${p} del principio. Sacas un poco menos cada mes, pero dejas más. De media: en los años malos baja, y luego vuelve a subir.`,
+      vDown:(y,v,p)=>`El capital baja poco a poco: después de ${y} años te quedan unos <b>${v}</b> en ETF, en euros de hoy, de los ${p} del principio. Está bien si ese dinero es para usarlo tú. De media: en los años malos baja más.`,
       moreGone:n=>` (a ese ritmo dura unos ${n} años)`,
       incNote:'Media de los primeros 10 años, en euros de hoy.',
       cashH:'Dinero que puedes usar cuando quieras',
@@ -533,6 +563,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   function countryDefaults(){$('rtax').value=RTAX[lang];$('gtax').value=GTAX[lang]}
   countryDefaults();
 
+  let PICK='keep';
   function render(){
     const V0=+$('hvalue').value, R0=+$('hrent').value, Y=+$('hyears').value, paid=+$('paid').value;
     const s=+$('mix').value/100;
@@ -541,7 +572,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     // Sell today: price minus selling costs, minus tax on the gain over what you paid.
     const net0=V0*(1-sc), P0=net0-Math.max(0,net0-paid)*gt;
     // What you can take out each year without eating into the capital: the return left after rising prices.
-    const keep=Math.max(0,grow-(1+INFL)), more=Math.max(0.04,keep+0.01);
+    const keep=Math.max(0,grow-(1+INFL)), more=Math.max(0.04,keep+0.01), less=Math.max(0.005,keep-0.01);
     // Year by year with a given yearly rate (of the starting money, raised with prices).
     function run(rate){
       let P=P0, basis=P0, sum=0, lasts=null, end=0;
@@ -558,7 +589,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       }
       return {month:sum/120,end,lasts};
     }
-    const base=run(keep), hi=run(more);
+    const RUNS={less:run(less),keep:run(keep),more:run(more)}, base=RUNS[PICK];
     let Vh=V0, rentSum=0, houseEnd=0;
     for(let t=1;t<=Math.max(Y,10);t++){
       const d=Math.pow(1+INFL,t);
@@ -572,13 +603,15 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('ocost-out').textContent=pct(oc); $('rtax-out').textContent=pct(tax); $('empty-out').textContent=String(emptyM).replace('.',L.locale==='en-IE'?'.':','); $('hgrow-out').textContent=pct(g);
     $('howcalc').innerHTML=L.howCalc(pct(r),pct(keep),fmt(P0),fmt(keep*P0/12));
     $('income').innerHTML='<div>'+L.incRent(fmt(Math.max(0,rentSum/120)))+'</div><div>'+L.incPort(fmt(base.month))+'</div><p class="note inc-note">'+L.incNote+'</p>';
-    $('more').textContent=L.more(fmt(more*P0/12),Y,fmt(hi.end),hi.lasts!==null?L.moreGone(hi.lasts):'');
+    document.querySelectorAll('#pick button').forEach(b=>{const k=b.dataset.pick, o=RUNS[k];
+      b.innerHTML=k==='less'?L.pLess(fmt(o.month),Y,fmt(o.end)):k==='keep'?L.pKeep(fmt(o.month),Y,fmt(o.end)):L.pMore(fmt(o.month),Y,fmt(o.end),o.lasts!==null?L.moreGone(o.lasts):'');
+      b.setAttribute('aria-pressed',k===PICK)});
     $('cash').innerHTML='<div>'+L.cashRent+'</div><div>'+L.cashPort(fmt(P0))+'</div>';
     $('h-head').textContent=L.hHead(Y);
     $('v-house').textContent=fmt(houseEnd); $('v-port').textContent=fmt(base.end);
     const top=Math.max(houseEnd,base.end,1)*1.05;
     $('f-house').style.width=Math.max(1,houseEnd/top*100).toFixed(1)+'%'; $('f-port').style.width=Math.max(1,base.end/top*100).toFixed(1)+'%';
-    $('verdict').innerHTML=L.vOk(Y,fmt(base.end));
+    $('verdict').innerHTML=PICK==='less'?L.vUp(Y,fmt(base.end),fmt(P0)):PICK==='more'?L.vDown(Y,fmt(base.end),fmt(P0)):L.vOk(Y,fmt(base.end));
     $('crash').textContent=L.crash(fmt(P0*0.15));
   }
 
@@ -603,6 +636,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
   const INPUTS=['hvalue','hrent','hyears','mix','paid','gtax','scost','ocost','rtax','empty','hgrow'];
   INPUTS.forEach(id=>$(id).addEventListener('input',render));
+  document.querySelectorAll('#pick button').forEach(b=>b.addEventListener('click',()=>{PICK=b.dataset.pick;render()}));
 
   // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
   const TRACK=!!FIXED&&!navigator.webdriver;
@@ -618,6 +652,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('fb').hidden=false; $('privacy').hidden=false;
     send(['sc_retire_view']);
     INPUTS.forEach(id=>$(id).addEventListener('input',()=>send(['sc_retire_active','active'])));
+    document.querySelectorAll('#pick button').forEach(b=>b.addEventListener('click',()=>send(['sc_retire_active','active'])));
     document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
       document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
       document.querySelector('.fb-thanks').hidden=false;
