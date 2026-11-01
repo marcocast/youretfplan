@@ -87,6 +87,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .w-hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
 .w-sub{font-size:1.08rem;color:var(--muted);max-width:52ch}
 .w-ill-hero{width:100%;height:auto;max-height:260px}
+@media (max-width:640px){.w-hero .w-ill-hero{order:10;max-height:180px}.w-hero .w-quick{order:11}}
 .w-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.1rem var(--body);padding:16px 22px;cursor:pointer;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
 .w-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
 .w-btn.w-ghost{background:var(--surface);color:var(--ink)}
@@ -385,9 +386,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   <section class="w-hero" aria-labelledby="h1">
     <span class="w-badge" data-w="badge">Free · 10 minutes</span>
-    <h1 id="h1" data-w="h1">Your first <em>ETF plan</em>, in 10 minutes.</h1>
-    <p class="w-sub" data-w="sub">Answer 3 questions. You get a plan on one page: how much to keep in the bank, how much to invest in ETFs each month, what to look for in an ETF and how to set it up.</p>
-    <p class="w-what" data-t="whatEtf">An <b>ETF</b> is a basket with thousands of companies inside: you buy a small slice of all of them, even with a few euros. An <b>ETF plan</b> means adding a bit every month. <a href="#h-30">What it is, in 30 seconds ↓</a></p>
+    <h1 id="h1" data-w="h1">Money sitting in the bank loses value. <em>Here’s what you can do, in 10 minutes.</em></h1>
+    <p class="w-sub" data-w="sub">Answer 3 questions and I’ll put together a one-page plan: how much to keep in the bank, how much to put into ETFs each month and how to get started. I show you what I do, then you decide.</p>
+    <p class="w-what" data-t="whatEtf">With a few euros you buy a tiny slice of thousands of companies, all at once: that’s an <b>ETF</b>. Add a bit every month and that’s your <b>ETF plan</b>. <a href="#h-30">Explained in 30 seconds ↓</a></p>
     <svg class="w-ill-hero" viewBox="0 0 360 230" role="img" data-wa="heroAlt" aria-label="A calendar sends coins into a jar, and a tree grows out of it">
       <ellipse cx="180" cy="212" rx="170" ry="16" fill="var(--mint)"></ellipse>
       <g class="w-float"><circle cx="312" cy="46" r="24" fill="var(--sun)" class="w-ink"></circle><path class="w-ink" d="M312 10v-6M312 88v-6M276 46h-6M354 46h-6M287 21l-4-4M341 75l-4-4M337 21l4-4M287 71l-4 4"></path></g>
@@ -422,7 +423,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section id="wizard" class="w-card" aria-live="polite" tabindex="-1">
     <div class="w-progress"><span id="prog-txt">Question 1 of 3</span><span class="w-dots"><i class="on"></i><i></i><i></i></span></div>
     <div class="w-q">
-      <div><h2 id="q-h">How much do you spend a month?</h2><p id="q-p">Rent, food, bills, everything. A rough number is fine.</p></div>
+      <div><h2 id="q-h">How much do you spend a month?</h2><p id="q-p">Rent or mortgage, food, bills, everything. A rough number is fine.</p></div>
       <svg id="q-ill"><use href="#i-bag"></use></svg>
     </div>
     <div class="w-val num" id="q-val">€1,500</div>
@@ -439,7 +440,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section id="result" class="w-card" hidden="" tabindex="-1" aria-labelledby="r-h">
     <div class="w-plan-head">
       <span class="w-eyebrow" data-w="rEyebrow">Your plan</span>
-      <h2 id="r-h" data-w="rH">Here’s what to do</h2>
+      <h2 id="r-h" data-w="rH">Here’s your plan</h2>
     </div>
     <ul class="w-items" id="items"></ul>
     <div class="w-grow">
@@ -464,7 +465,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
           <button type="button" data-y="5"></button><button type="button" data-y="10"></button><button type="button" data-y="20"></button>
       </div>
     </div>
-    <p class="w-honest" data-w="honest">Honestly: some years will be red. In 2008 world markets roughly halved and came back within a few years. The plan works if you keep going.</p>
+    <p class="w-honest" data-w="honest">Straight up: there will be red years. In 2008 world markets lost almost half, and it took a few years to get back. The plan works if you don’t quit.</p>
     <div class="w-actions">
       <a class="w-btn" id="full" href="#numbers"><span data-w="full">See every detail below</span><span aria-hidden="true">→</span></a>
       <button type="button" class="w-btn w-ghost w-small" id="print"><span data-w="print">Save / print my plan</span></button>
@@ -476,7 +477,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   <section aria-labelledby="h-cases" id="cases">
     <h2 id="h-cases" data-t="casesH">What's your situation?</h2>
-    <p class="small" data-t="casesSub">Short guides with their own calculator, for the most common questions about investing in ETFs.</p>
+    <p class="small" data-t="casesSub">The most common situations, each with its own numbers.</p>
     <div class="cases">
       <a class="case" id="case-bank" href="/bank-vs-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 24 32 10l24 14Z" fill="var(--coral)"></path><path class="w-ink" d="M14 28v20M26 28v20M38 28v20M50 28v20" fill="none"></path><rect class="w-ink" x="8" y="48" width="48" height="8" rx="2" fill="var(--surface)"></rect></svg>
@@ -499,42 +500,42 @@ details > div{padding:0 0 14px;color:var(--muted)}
         <span><b data-t="c5t">I want to buy a home to rent out</b><span class="d" data-t="c5d">Or invest the same money in ETFs?</span></span><span class="go" aria-hidden="true">→</span>
       </a>
     </div>
-    <h3 class="guides-h" data-t="guidesH">Understand ETFs first</h3>
+    <h3 class="guides-h" data-t="guidesH">First things first: get what ETFs are</h3>
     <div class="cases">
       <a class="case" id="case-learn" href="/what-is-an-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path class="w-ink" d="M8 30h48l-6 24H14Z" fill="var(--sun)"></path><path class="w-ink" d="M8 30c0-22 48-22 48 0" fill="none"></path><rect class="w-ink" x="16" y="16" width="8" height="16" rx="1" fill="var(--sky)"></rect><rect class="w-ink" x="28" y="10" width="9" height="22" rx="1" fill="var(--coral)"></rect><rect class="w-ink" x="41" y="18" width="8" height="14" rx="1" fill="var(--leaf)"></rect></svg>
-        <span><b data-t="g1t">What is an ETF?</b><span class="d" data-t="g1d">Explained simply, in 5 minutes, with a quick quiz.</span></span><span class="go" aria-hidden="true">→</span>
+        <span><b data-t="g1t">What is an ETF?</b><span class="d" data-t="g1d">In 5 minutes, no jargon. With a quick quiz at the end.</span></span><span class="go" aria-hidden="true">→</span>
       </a>
       <a class="case" id="case-first" href="/how-to-buy-etf/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="18" y="6" width="28" height="52" rx="6" fill="var(--surface)"></rect><path class="w-ink" d="M24 36l6-6 5 4 6-9" fill="none" stroke="var(--leaf)"></path><rect class="w-ink" x="24" y="42" width="16" height="8" rx="3" fill="var(--leaf)"></rect></svg>
-        <span><b data-t="g2t">How to buy your first ETF</b><span class="d" data-t="g2d">Step by step: broker, account, ETF, first purchase.</span></span><span class="go" aria-hidden="true">→</span>
+        <span><b data-t="g2t">How to buy your first ETF</b><span class="d" data-t="g2d">Step by step: from opening the account to your first buy.</span></span><span class="go" aria-hidden="true">→</span>
       </a>
       <a class="case" id="case-fund" href="/etf-vs-bank-fund/">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="10" y="26" width="26" height="28" rx="6" fill="var(--surface)"></rect><path class="w-ink" d="M8 24 23 14l15 10Z" fill="var(--coral)"></path><circle class="w-ink" cx="46" cy="44" r="10" fill="var(--sun)"></circle><path d="M42 44h8M46 40v8" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"></path></svg>
-        <span><b data-t="g3t">ETF or the bank’s fund?</b><span class="d" data-t="g3d">What the yearly costs add up to over the years.</span></span><span class="go" aria-hidden="true">→</span>
+        <span><b data-t="g3t">ETF or the bank’s fund?</b><span class="d" data-t="g3d">What the bank’s fund really costs you.</span></span><span class="go" aria-hidden="true">→</span>
       </a>
     </div>
   </section>
 
   <section class="w-who" aria-labelledby="h-who">
     <svg role="img" data-wa="whoAlt" aria-label="Two brothers, one with an arm around the other"><use href="#i-bros"></use></svg>
-    <div><h2 id="h-who" data-w="whoH">I made it for my brother, now it’s for everyone</h2><p data-w="who">I’m Marco, an engineer who invests in ETFs. I started this to show my brother how ETFs work, then built it for anyone who wants to understand them: free, no ads, no affiliate links, no sign-up.</p></div>
+    <div><h2 id="h-who" data-w="whoH">I made it for my brother, now it’s for everyone</h2><p data-w="who">I’m Marco, an engineer. I invest in ETFs myself. I started this page to explain it to my brother, then figured it could help a lot of people. I’m not selling anything: no ads, no affiliate links, no sign-up.</p></div>
   </section>
 
   <section aria-labelledby="h-30">
     <h2 id="h-30" data-t="h30">ETFs in 30 seconds</h2>
-    <p class="lead" data-t="lead">See what happens to your money if you invest part of it every month in ETFs instead of leaving it in the bank. A free ETF investment calculator: no sign-up, nothing to buy.</p>
+    <p class="lead" data-t="lead">Three things and you’re good. The rest you pick up as you go.</p>
     <div class="three">
-      <div class="card-base" data-t="e1"><b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.</div>
-      <div class="card-base" data-t="e2"><b>You add a bit every month</b>Every month, when your salary comes in, you put a little more into your ETF: that’s your <a class="term" href="#g-pac">ETF plan</a>. Some months you buy when prices are high, some when they are low. Over time it evens out.</div>
-      <div class="card-base" data-t="e3"><b>Your slice grows with the companies</b>Over long periods companies earn more and become worth more, and so does your slice. Not every year, and sometimes it drops a lot. Over 15–20 years it has historically grown.</div>
+      <div class="card-base" data-t="e1"><b>A slice of loads of companies</b>With one buy you get a tiny slice of Apple, Nestlé, Toyota and hundreds of other companies, all together. That’s an <a class="term" href="#g-etf">ETF</a>. If one company does badly, the others carry the rest.</div>
+      <div class="card-base" data-t="e2"><b>You add a bit every month</b>Every month, when you get paid, you put a bit more in: that’s your <a class="term" href="#g-pac">ETF plan</a>. Some months you buy high, some months you buy cheap. Over time it evens out.</div>
+      <div class="card-base" data-t="e3"><b>And you wait</b>Over time companies earn more and are worth more, and your slice grows with them. Not every year: there are bad years. But over 15–20 years, historically, it has grown.</div>
     </div>
-    <p class="more"><a class="more-link" data-guide="learn" href="/what-is-an-etf/" data-t="moreLearn">Want to know more? What is an ETF, in 5 minutes →</a></p>
+    <p class="more"><a class="more-link" data-guide="learn" href="/what-is-an-etf/" data-t="moreLearn">Want to know more? ETFs in 5 minutes →</a></p>
   </section>
 
   <section aria-labelledby="h-fut" id="numbers">
     <h2 id="h-fut" data-t="hFut">What you could have</h2>
-    <p class="small"><span id="answers">Example: spending €1,500 a month, €8,000 in the bank, €300 a month into ETFs.</span> <button type="button" class="link-btn" id="change" data-t="change">Change my answers</button></p>
+    <p class="small"><span id="answers">Example: you spend €1,500 a month, have €8,000 in the bank and put €300 a month into ETFs.</span> <button type="button" class="link-btn" id="change" data-t="change">Change my answers</button></p>
     <div class="slider">
       <div class="slider-head">
         <label for="years" data-t="lYears">See what you’d have in</label>
@@ -544,48 +545,48 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="ticks"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span></div>
     </div>
     <label class="toggle"><input type="checkbox" id="real"> <span data-t="real">Show in today's euros (with 2% <a class="term" href="#g-infl">inflation</a> per year)</span></label>
-    <div class="feat card-base" id="feat"><span class="tag" style="--c:var(--s7)">Historical normal · 7%</span><span class="val num">€58,373</span><span class="small">You put in €44,000 in total.</span><span class="diff num">+€14,373 more than leaving it in the bank</span><span class="tax">Before tax. If your gains are taxed at 20%, you'd keep about €55,498.</span></div>
-    <div class="cmp card-base" id="cmp"><div class="row"><span><span class="tag" style="--c:var(--bank)">Do nothing</span><br>All in the bank (0%)</span><span class="val num">€44,000</span><span class="sub loss">Worth about €36,095 in today's money, because prices rise every year.</span></div><div class="row"><span><span class="tag" style="--c:var(--s5)">Cautious</span><br>ETFs at 5%</span><span class="val num">€53,695</span><span class="sub">You put in €44,000 in total.</span></div><div class="row"><span><span class="tag" style="--c:var(--s9)">Good decades</span><br>ETFs at 9%</span><span class="val num">€63,585</span><span class="sub">You put in €44,000 in total.</span></div></div>
+    <div class="feat card-base" id="feat"><span class="tag" style="--c:var(--s7)">Historical normal · 7%</span><span class="val num">€58,373</span><span class="small">You put in €44,000 in total.</span><span class="diff num">+€14,373 more than leaving it sitting in the bank</span><span class="tax">Before tax. If your gains are taxed at 20%, you'd keep about €55,498.</span></div>
+    <div class="cmp card-base" id="cmp"><div class="row"><span><span class="tag" style="--c:var(--bank)">Do nothing</span><br>All in the bank (0%)</span><span class="val num">€44,000</span><span class="sub loss">Looks like a lot, but in today’s money it’s worth about €36,095: prices go up every year.</span></div><div class="row"><span><span class="tag" style="--c:var(--s5)">Cautious</span><br>ETFs at 5%</span><span class="val num">€53,695</span><span class="sub">You put in €44,000 in total.</span></div><div class="row"><span><span class="tag" style="--c:var(--s9)">Good decades</span><br>ETFs at 9%</span><span class="val num">€63,585</span><span class="sub">You put in €44,000 in total.</span></div></div>
     <div class="chart-box card-base" id="chart-box">
       <svg id="chart" role="img" data-ta="chartAria" aria-label="Growth of savings over the years for each scenario" viewBox="0 0 768 260"><line x1="48" x2="682" y1="232.0" y2="232.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="236.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€0</text><line x1="48" x2="682" y1="159.3" y2="159.3" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="163.3" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€25k</text><line x1="48" x2="682" y1="86.7" y2="86.7" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="90.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€50k</text><line x1="48" x2="682" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"></line><text x="42.0" y="18.0" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">€75k</text><text x="48.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">today</text><text x="365.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">5y</text><text x="682.0" y="252.0" text-anchor="middle" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">10y</text><path d="M48 232 L48.0 208.7 L111.4 198.1 L174.8 186.8 L238.2 174.7 L301.6 161.7 L365.0 147.8 L428.4 132.9 L491.8 117.0 L555.2 100.0 L618.6 81.8 L682.0 62.3 L682 232Z" fill="var(--s7)" fill-opacity=".10"></path><path d="M48.0 208.7 L111.4 198.3 L174.8 187.8 L238.2 177.4 L301.6 166.9 L365.0 156.4 L428.4 146.0 L491.8 135.5 L555.2 125.0 L618.6 114.6 L682.0 104.1" fill="none" stroke="var(--bank)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 4"></path><circle cx="682.0" cy="104.1" r="3.5" fill="var(--bank)"></circle><path d="M48.0 208.7 L111.4 198.2 L174.8 187.1 L238.2 175.4 L301.6 163.2 L365.0 150.4 L428.4 136.9 L491.8 122.8 L555.2 107.9 L618.6 92.3 L682.0 75.9" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round"></path><circle cx="682.0" cy="75.9" r="3.5" fill="var(--s5)"></circle><path d="M48.0 208.7 L111.4 198.1 L174.8 186.8 L238.2 174.7 L301.6 161.7 L365.0 147.8 L428.4 132.9 L491.8 117.0 L555.2 100.0 L618.6 81.8 L682.0 62.3" fill="none" stroke="var(--s7)" stroke-width="3" stroke-linejoin="round"></path><circle cx="682.0" cy="62.3" r="4.5" fill="var(--s7)"></circle><path d="M48.0 208.7 L111.4 198.1 L174.8 186.5 L238.2 173.9 L301.6 160.1 L365.0 145.1 L428.4 128.7 L491.8 110.9 L555.2 91.5 L618.6 70.3 L682.0 47.2" fill="none" stroke="var(--s9)" stroke-width="2" stroke-linejoin="round"></path><circle cx="682.0" cy="47.2" r="3.5" fill="var(--s9)"></circle><text x="690.0" y="51.2" text-anchor="start" font-size="12" font-weight="600" fill="var(--s9)" font-family="Figtree,system-ui,sans-serif">9% €64k</text><text x="690.0" y="66.3" text-anchor="start" font-size="12" font-weight="700" fill="var(--s7)" font-family="Figtree,system-ui,sans-serif">7% €58k</text><text x="690.0" y="81.3" text-anchor="start" font-size="12" font-weight="600" fill="var(--s5)" font-family="Figtree,system-ui,sans-serif">5% €54k</text><text x="690.0" y="108.1" text-anchor="start" font-size="12" font-weight="600" fill="var(--bank)" font-family="Figtree,system-ui,sans-serif">0% €44k</text></svg>
     </div>
-    <p class="foot" id="explain">Shown as the number you'll see on your account. Tick "today's euros" to see what it's really worth after inflation.</p>
+    <p class="foot" id="explain">These are the numbers you’ll see on your account. Tick “today’s money” to see what they’re really worth after inflation.</p>
     <div class="fb-inline card-base" id="fb-result" hidden="">
       <div class="fb-row">
-        <span data-t="fbQ">Is this result clear?</span>
+        <span data-t="fbQ">Does this make sense?</span>
         <span class="fb-votes">
-          <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Yes, it's clear">👍</button>
-          <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="No, not really">👎</button>
+          <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Yes, clear">👍</button>
+          <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="Not really">👎</button>
         </span>
       </div>
       <form class="fb-form" id="fb-result-form" hidden="">
-        <label for="fb-result-text" data-t="fbMore">What would make it clearer? (optional)</label>
+        <label for="fb-result-text" data-t="fbMore">What doesn’t make sense? (if you like)</label>
         <textarea id="fb-result-text" maxlength="1000" rows="3"></textarea>
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="fb-send" data-t="fbSend">Send</button>
         <p class="fb-err" hidden="" data-t="fbErr">Couldn't send. Please try again in a moment.</p>
       </form>
-      <p class="fb-thanks" hidden="" data-t="fbThanks">Thanks! Every answer helps improve the page.</p>
+      <p class="fb-thanks" hidden="" data-t="fbThanks">Thanks! Every answer helps me make the page better.</p>
     </div>
   </section>
 
   <section aria-labelledby="h-ride">
-    <h2 id="h-ride" data-t="hRide">What it really feels like</h2>
-    <p data-t="ride1">The numbers above are smooth averages. Real markets jump up and down, sometimes a lot. World stock markets fell by about half between 2007 and 2009, and by about a third in a few weeks in 2020. Both times they came back: within a few years after 2009, and within months in 2020.</p>
+    <h2 id="h-ride" data-t="hRide">What it’s really like, no filter</h2>
+    <p data-t="ride1">The numbers above are averages, nice and smooth. Real life isn’t. Between 2007 and 2009 world stock markets lost about half. In 2020 they lost a third in a few weeks. Both times they came back: after a few years the first time, after a few months the second.</p>
     <div class="chart-box card-base" id="ride-box">
       <svg id="ride" role="img" data-ta="rideIll" aria-label="Illustration of a typical path, not real data" viewBox="0 0 768 200"><line x1="12" x2="756" y1="137.7" y2="137.7" stroke="var(--line)" stroke-dasharray="4 4"></line><text x="756.0" y="153.7" text-anchor="end" font-size="12" font-weight="500" fill="var(--muted)" font-family="Figtree,system-ui,sans-serif">your money</text><line x1="12.0" y1="137.7" x2="37.7" y2="133.1" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="37.7" y1="133.1" x2="63.3" y2="127.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="63.3" y1="127.7" x2="89.0" y2="122.3" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="89.0" y1="122.3" x2="114.6" y2="117.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="114.6" y1="117.7" x2="140.3" y2="134.6" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="140.3" y1="134.6" x2="165.9" y2="154.7" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="165.9" y1="154.7" x2="191.6" y2="166.3" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="191.6" y1="166.3" x2="217.2" y2="157.8" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="217.2" y1="157.8" x2="242.9" y2="147.0" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="242.9" y1="147.0" x2="268.6" y2="139.3" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="268.6" y1="139.3" x2="294.2" y2="131.5" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="294.2" y1="131.5" x2="319.9" y2="124.6" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="319.9" y1="124.6" x2="345.5" y2="117.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="345.5" y1="117.7" x2="371.2" y2="110.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="371.2" y1="110.7" x2="396.8" y2="104.5" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="396.8" y1="104.5" x2="422.5" y2="98.4" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="422.5" y1="98.4" x2="448.1" y2="92.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="448.1" y1="92.2" x2="473.8" y2="86.8" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="473.8" y1="86.8" x2="499.4" y2="81.4" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="499.4" y1="81.4" x2="525.1" y2="75.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="525.1" y1="75.2" x2="550.8" y2="71.4" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="550.8" y1="71.4" x2="576.4" y2="68.3" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="576.4" y1="68.3" x2="602.1" y2="62.1" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="602.1" y1="62.1" x2="627.7" y2="55.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="627.7" y1="55.2" x2="653.4" y2="108.4" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line><line x1="653.4" y1="108.4" x2="679.0" y2="82.2" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="679.0" y1="82.2" x2="704.7" y2="56.7" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="704.7" y1="56.7" x2="730.3" y2="45.1" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><line x1="730.3" y1="45.1" x2="756.0" y2="32.8" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"></line><circle cx="191.6" cy="166.3" r="4" fill="var(--surface)" stroke="var(--down)" stroke-width="2"></circle><text x="191.6" y="186.3" text-anchor="middle" font-size="12" font-weight="700" fill="var(--down)" font-family="Figtree,system-ui,sans-serif">−50%</text><circle cx="653.4" cy="108.4" r="4" fill="var(--surface)" stroke="var(--down)" stroke-width="2"></circle><text x="653.4" y="128.4" text-anchor="middle" font-size="12" font-weight="700" fill="var(--down)" font-family="Figtree,system-ui,sans-serif">−33%</text></svg>
       <p class="foot" style="padding:4px 8px 0" data-t="rideIll">Illustration of a typical path, not real data</p>
     </div>
-    <p class="ride-you" id="ride-you">With your plan, after 10 years you'd have about <strong>€49,373</strong> in ETFs. In a crash like 2008 your account could show about <strong>€24,686</strong> for a while. That's the moment most beginners sell and turn a temporary drop into a real loss. If you keep your monthly payment going, you're buying cheap.</p>
+    <p class="ride-you" id="ride-you">With your plan, after 10 years you’d have about <strong>€49,373</strong> in ETFs. In a crash like 2008, your account could show about <strong>€24,686</strong> for a while. That’s when a lot of people sell out of fear, and a loss on paper becomes a real one. Keep adding every month and you’re buying on sale.</p>
   </section>
 
   <section aria-labelledby="h-rule">
     <div class="rule">
       <span class="eyebrow" data-t="ruleEyebrow">The 3% rule</span>
-      <h2 id="h-rule">A second salary for life, in 10 years</h2>
+      <h2 id="h-rule">In 10 years, extra money every month</h2>
       <div class="rule-main num" id="rule-main">€123 a month</div>
       <p class="small" id="rule-sub">3% a year of the €49,373 in your ETFs, at the 7% average.</p>
-      <p class="small" data-t="ruleTxt">After these years you could stop adding money and take out 3% of your ETFs every year as a monthly income. Historically, taking 3% a year from a mostly-stock portfolio has lasted 30 years or more in almost every period, and often the money kept growing. It's a guide, not a guarantee. The emergency fund stays in the bank.</p>
+      <p class="small" data-t="ruleTxt">Here’s how it works: you stop adding and every year you take out 3% of what you’ve got. In the past, taking 3% a year from ETFs that are nearly all stocks, the money lasted 30 years or more almost every time, and often kept growing. It’s a guide, not a promise. Your emergency fund stays in the bank.</p>
       <div class="rule-rows num" id="rule-rows"><span>Cautious 5%: €112 a month</span><span>Good decades 9%: €136 a month</span></div>
     </div>
   </section>
@@ -593,30 +594,30 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section aria-labelledby="h-start" id="start">
     <h2 id="h-start" data-t="hStart">How to start this week</h2>
     <ol class="start">
-      <li><div data-t="st1"><b>Open an account with a low-cost broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and hold ETFs. Pick one that is regulated in your country and charges little each time you buy. Check how ETF taxes work where you live.</div></li>
-      <li><div data-t="st2"><b>Look for an ETF, for example a world one</b>A common choice for beginners follows an <a class="term" href="#g-index">index</a> of the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> works too. These are criteria, not a recommendation: compare a few before you choose.</div></li>
-      <li><div data-t="st3"><b>Add a bit every month and leave it alone</b>Every month, after payday, add the monthly amount from your plan above. Then don't check it every day.</div></li>
+      <li><div data-t="st1"><b>Open an account with a cheap broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and keep your ETFs. Make sure it’s regulated in your country and check what it charges every time you buy: the less, the better. And check how ETF taxes work where you live.</div></li>
+      <li><div data-t="st2"><b>Pick a world ETF</b>One that follows an <a class="term" href="#g-index">index</a> of the whole world (search “MSCI World” or “All-World”), <a class="term" href="#g-acc">accumulating</a> (“Acc” in the name) and cheap per year (<a class="term" href="#g-ter">TER</a> under 0.25%). Want fewer ups and downs? An all-in-one ETF with some <a class="term" href="#g-bonds">bonds</a> works too. I won’t tell you which one to buy: look at two or three and pick.</div></li>
+      <li><div data-t="st3"><b>Add every month and leave it alone</b>Every month, after payday, put in the amount from your plan. And don’t check it every day: it doesn’t help, it just stresses you out.</div></li>
     </ol>
-    <p class="more"><a class="more-link" data-guide="first" href="/how-to-buy-etf/" data-t="moreFirst">The full guide, step by step →</a></p>
+    <p class="more"><a class="more-link" data-guide="first" href="/how-to-buy-etf/" data-t="moreFirst">Every step, one by one →</a></p>
   </section>
 
   <section aria-labelledby="h-faq">
     <h2 id="h-faq" data-t="hFaq">Questions everyone asks</h2>
     <div style="display:flex;flex-direction:column;gap:8px">
-      <details><summary data-t="q1">Can I lose money?</summary><div data-t="a1">Yes, in the short term, and sometimes for several years. Over 15 years or more, a world ETF has historically ended up higher, but that's not guaranteed. That's why you only invest money you won't need for a long time, and keep the emergency fund in the bank.</div></details>
-      <details><summary data-t="q2">What if I need the money?</summary><div data-t="a2">You can sell any day the market is open, and the cash arrives in a few days. But selling right after a drop locks in the loss. That's what the emergency fund is for.</div></details>
-      <details><summary data-t="q3">Do I pay taxes?</summary><div data-t="a3">Usually you pay tax only on your gains, and only when you sell. Rates and rules depend on your country, so check before you start. The results on this page are before tax.</div></details>
-      <details><summary data-t="q4">When should I start?</summary><div data-t="a4">As soon as your emergency fund is in place, even with a small amount. Time in the market matters more than picking the right moment, and nobody can reliably pick it.</div></details>
-      <details><summary data-t="q5">How much do I need to start?</summary><div data-t="a5">Less than you think. With many brokers you can buy ETFs with a few tens of euros, and some charge nothing for each purchase. Start small, then raise it when you can. Keep your emergency fund first.</div></details>
-      <details><summary data-t="q6">What if the broker goes bust?</summary><div data-t="a6">Your ETFs stay yours. In the EU a broker must keep clients’ investments separate from its own money and cannot use them to pay its debts, so they are given back to you. If something were missing, a national investor compensation scheme pays out at least €20,000 per person (more in some countries, such as €100,000 in Spain). The money inside the ETF is also held by a separate depositary bank, not by the company that runs the ETF.</div></details>
-      <details><summary data-t="q7">ETF, or the fund my bank offers?</summary><div data-t="a7">Compare the yearly costs. In the EU equity ETFs cost about 0.2% a year on average, while actively managed equity funds cost about 1.2–1.4% (ESMA, 2026), often plus entry fees. Over 20 years that difference can be worth tens of thousands of euros, and most active funds don’t beat their index over the long run. Ask your bank for the fund’s total yearly cost, in writing. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Compare with your numbers →</a></div></details>
-      <details id="glossary"><summary data-t="glossTitle">Words explained</summary><div><dl class="gloss" id="gloss"><div id="g-etf"><dt>ETF</dt><dd>A fund you buy and sell on the stock exchange like a single share, but it holds many companies at once.</dd></div><div id="g-acc"><dt>Accumulating</dt><dd>Dividends are not paid out to you. The fund reinvests them automatically, which is the simplest way to let the money grow.</dd></div><div id="g-bonds"><dt>Bonds</dt><dd>Loans to governments or companies that pay interest. They move less than stocks, so they calm a portfolio down, but on average they earn less.</dd></div><div id="g-infl"><dt>Inflation</dt><dd>Prices going up over time. At 2% a year, something that costs €100 today will cost about €149 in 20 years.</dd></div><div id="g-ter"><dt>TER</dt><dd>The yearly cost of an ETF, as a percentage. A TER of 0.2% on €10,000 is about €20 a year, taken out of the fund's value automatically.</dd></div><div id="g-broker"><dt>Broker</dt><dd>The bank or app where you buy, hold and sell your ETFs.</dd></div><div id="g-pac"><dt>ETF plan (monthly plan)</dt><dd>Adding some money to your ETFs every month, usually the same amount. You choose how much.</dd></div><div id="g-index"><dt>Index</dt><dd>A list of companies that measures a market, for example the MSCI World (about 1,300 large companies in 23 developed countries). An ETF copies an index, so it holds those companies.</dd></div><div id="g-isin"><dt>ISIN</dt><dd>A 12-character code that identifies one specific ETF, like a number plate. You type it in your broker’s app to find exactly that ETF.</dd></div></dl></div></details>
+      <details><summary data-t="q1">Can I lose money?</summary><div data-t="a1">Yes. In the short run, and sometimes for a few years. Over 15 years or more a world ETF has historically ended up higher, but nobody can promise you that. That’s why you only put in money you won’t need for a good while, and your emergency fund stays in the bank.</div></details>
+      <details><summary data-t="q2">What if I need the money?</summary><div data-t="a2">You can sell any day the market’s open, and the money’s in your account within a few days. But sell right after a drop and the loss becomes real. That’s what the emergency fund is for.</div></details>
+      <details><summary data-t="q3">Do I pay taxes?</summary><div data-t="a3">Usually you only pay tax on what you’ve gained, and only when you sell. Rates and rules depend on your country, so check before you start. The numbers on this page are before tax.</div></details>
+      <details><summary data-t="q4">When should I start?</summary><div data-t="a4">As soon as your emergency fund is sorted, even with a small amount. Time in the market beats trying to pick the right moment. Nobody knows the right moment.</div></details>
+      <details><summary data-t="q5">How much do I need to start?</summary><div data-t="a5">Less than you think. With lots of brokers you can buy ETFs with a few tens of euros, and some charge nothing per buy. Start small and add more when you can. But emergency fund first.</div></details>
+      <details><summary data-t="q6">What if the broker goes bust?</summary><div data-t="a6">Your ETFs stay yours. By law a broker has to keep clients’ investments separate from its own money and can’t use them to pay its debts: if it goes bust, you get them back. If anything were missing, a national compensation scheme pays out at least €20,000 per person (more in some countries, like €100,000 in Spain). And the money inside the ETF is held by a separate bank, not by the company running it.</div></details>
+      <details><summary data-t="q7">ETF, or the fund my bank offers?</summary><div data-t="a7">Look at what they cost per year. A stock ETF costs about 0.2% a year on average. An actively managed stock fund about 1.2–1.4% (ESMA, 2026), often with an entry fee on top. Sounds like nothing, but over 20 years it’s tens of thousands of euros. And most of those funds do worse than their index in the long run. Ask your bank for the fund’s total yearly cost, in writing. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Run the numbers with yours →</a></div></details>
+      <details id="glossary"><summary data-t="glossTitle">Words explained</summary><div><dl class="gloss" id="gloss"><div id="g-etf"><dt>ETF</dt><dd>A bundle of lots of companies that you buy and sell on the stock exchange as if it were a single share.</dd></div><div id="g-acc"><dt>Accumulating</dt><dd>Dividends (the part of profits companies pay out) aren’t paid to you: the fund puts them back in by itself. Your money grows without you doing anything.</dd></div><div id="g-bonds"><dt>Bonds</dt><dd>Loans to governments or companies that pay you interest. They move less than stocks: calmer, but on average they earn less.</dd></div><div id="g-infl"><dt>Inflation</dt><dd>Prices going up over time. At 2% a year, something that costs €100 today will cost about €149 in 20 years.</dd></div><div id="g-ter"><dt>TER</dt><dd>What the ETF costs each year. With a TER of 0.2% on €10,000 you pay about €20 a year, taken out of the fund’s value.</dd></div><div id="g-broker"><dt>Broker</dt><dd>The app or bank where you buy, keep and sell your ETFs.</dd></div><div id="g-pac"><dt>ETF plan (monthly plan)</dt><dd>Adding some money to your ETFs every month, usually the same amount. You choose how much.</dd></div><div id="g-index"><dt>Index</dt><dd>A list of companies picked with fixed rules. The MSCI World, for example, is about 1,300 big companies in 23 countries. The ETF just copies the list.</dd></div><div id="g-isin"><dt>ISIN</dt><dd>A 12-character code, like a number plate. Type it in your broker’s app and you find exactly that ETF.</dd></div></dl></div></details>
     </div>
   </section>
 
   <section class="card-base" id="fb-bottom" aria-labelledby="h-fb" style="padding:20px" hidden="">
-    <h2 id="h-fb" data-t="fbH">What's missing?</h2>
-    <p class="small" data-t="fbTxt">Something you didn't understand, a question you still have, an idea? Write it here. No name or email needed.</p>
+    <h2 id="h-fb" data-t="fbH">Something missing?</h2>
+    <p class="small" data-t="fbTxt">Something you didn’t get, a question, an idea? Write it here. No name, no email.</p>
     <form class="fb-form" id="fb-bottom-form">
       <label for="fb-bottom-text" data-t="fbLabel">Your message</label>
       <textarea id="fb-bottom-text" maxlength="1000" rows="4"></textarea>
@@ -624,13 +625,13 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <button type="submit" class="fb-send" data-t="fbSend">Send</button>
       <p class="fb-err" hidden="" data-t="fbErr">Couldn't send. Please try again in a moment.</p>
     </form>
-    <p class="fb-thanks" hidden="" data-t="fbThanks">Thanks! Every answer helps improve the page.</p>
+    <p class="fb-thanks" hidden="" data-t="fbThanks">Thanks! Every answer helps me make the page better.</p>
   </section>
 
   
 
-  <p class="taxnote"><span data-t="taxNote"><b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.</span></p>
-  <p class="disclaimer" data-t="disc"><strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing in ETFs can lose money. Do your own research or talk to a qualified adviser before you invest in ETFs.</p>
+  <p class="taxnote"><span data-t="taxNote"><b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in October 2026. Before any big move, ask an accountant: it costs less than a mistake.</span></p>
+  <p class="disclaimer" data-t="disc"><strong>Not financial advice.</strong> It’s a tool to help you understand, with estimates. Returns aren’t guaranteed and change every year: here they’re averages. Taxes and fees aren’t in the results, and the bank account is counted at zero interest. Investing in ETFs means you can lose money too. Do your homework, or talk to an adviser, before you invest in ETFs.</p>
   <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: no cookies and no personal data. To improve the page we count visits and clicks anonymously, with a code that changes every day and can't identify you. Feedback is stored without names.</p>
   <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/" hreflang="en" lang="en">English</a> · <a href="/it/" hreflang="it" lang="it">Italiano</a> · <a href="/es/" hreflang="es" lang="es">Español</a></p>
 </div>
@@ -648,19 +649,19 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const T={
     en:{
       title:`Your ETF Plan`, locale:`en-IE`, taxRate:0.20,
-      lead:`See what happens to your money if you invest part of it every month in ETFs instead of leaving it in the bank. A free ETF investment calculator: no sign-up, nothing to buy.`,
+      lead:`Three things and you’re good. The rest you pick up as you go.`,
       quickH:`Got a specific case?`, q1c:`Savings in the bank`, q2c:`Buying a home`, q3c:`An inheritance`, q4c:`A house I don’t use`, q5c:`Buy to rent out`,
-      guidesH:`Understand ETFs first`,
+      guidesH:`First things first: get what ETFs are`,
       g1t:`What is an ETF?`,
-      g1d:`Explained simply, in 5 minutes, with a quick quiz.`,
+      g1d:`In 5 minutes, no jargon. With a quick quiz at the end.`,
       g2t:`How to buy your first ETF`,
-      g2d:`Step by step: broker, account, ETF, first purchase.`,
+      g2d:`Step by step: from opening the account to your first buy.`,
       g3t:`ETF or the bank’s fund?`,
-      g3d:`What the yearly costs add up to over the years.`,
-      moreLearn:`Want to know more? What is an ETF, in 5 minutes →`,
-      moreFirst:`The full guide, step by step →`,
+      g3d:`What the bank’s fund really costs you.`,
+      moreLearn:`Want to know more? ETFs in 5 minutes →`,
+      moreFirst:`Every step, one by one →`,
       casesH:`What's your situation?`,
-      casesSub:`Short guides with their own calculator, for the most common questions about investing in ETFs.`,
+      casesSub:`The most common situations, each with its own numbers.`,
       c1t:`I keep my savings in the bank`,
       c1d:`What I have and what I save each month: leave it there, or invest in ETFs?`,
       c2t:`I want to buy a home to live in`,
@@ -673,126 +674,126 @@ details > div{padding:0 0 14px;color:var(--muted)}
       c5t:`I want to buy a home to rent out`,
       c5d:`Or invest the same money in ETFs?`,
       h30:`ETFs in 30 seconds`,
-      e1:`<b>A basket of companies</b>An <a class="term" href="#g-etf">ETF</a> holds hundreds or thousands of companies at once, like Apple, Nestlé and Toyota. One purchase buys you a small slice of all of them.`,
-      e2:`<b>You add a bit every month</b>Every month, when your salary comes in, you put a little more into your ETF: that’s your <a class="term" href="#g-pac">ETF plan</a>. Some months you buy when prices are high, some when they are low. Over time it evens out.`,
-      e3:`<b>Your slice grows with the companies</b>Over long periods companies earn more and become worth more, and so does your slice. Not every year, and sometimes it drops a lot. Over 15–20 years it has historically grown.`,
-      change:`Change my answers`, ansEx:(sp,c,m)=>`Example: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`, ansYou:(sp,c,m)=>`Your answers: spending ${sp} a month, ${c} in the bank, ${m} a month into ETFs.`,
+      e1:`<b>A slice of loads of companies</b>With one buy you get a tiny slice of Apple, Nestlé, Toyota and hundreds of other companies, all together. That’s an <a class="term" href="#g-etf">ETF</a>. If one company does badly, the others carry the rest.`,
+      e2:`<b>You add a bit every month</b>Every month, when you get paid, you put a bit more in: that’s your <a class="term" href="#g-pac">ETF plan</a>. Some months you buy high, some months you buy cheap. Over time it evens out.`,
+      e3:`<b>And you wait</b>Over time companies earn more and are worth more, and your slice grows with them. Not every year: there are bad years. But over 15–20 years, historically, it has grown.`,
+      change:`Change my answers`, ansEx:(sp,c,m)=>`Example: you spend ${sp} a month, have ${c} in the bank and put ${m} a month into ETFs.`, ansYou:(sp,c,m)=>`Your numbers: you spend ${sp} a month, have ${c} in the bank and put ${m} a month into ETFs.`,
       hFut:`What you could have`, lYears:`See what you’d have in`, years:n=>`${n} years`,
       real:`Show in today's euros (with 2% <a class="term" href="#g-infl">inflation</a> per year)`,
       scen:[[`All in the bank`,`Do nothing`],[`ETFs at 5%`,`Cautious`],[`ETFs at 7%`,`Historical normal`],[`ETFs at 9%`,`Good decades`]],
       paidIn:p=>`You put in ${p} in total.`,
-      vsBank:d=>`${d} more than leaving it in the bank`,
+      vsBank:d=>`${d} more than leaving it sitting in the bank`,
       afterTax:(r,v)=>`Before tax. If your gains are taxed at ${r}, you'd keep about ${v}.`,
-      bankNom:v=>`Worth about ${v} in today's money, because prices rise every year.`,
-      bankReal:p=>`You put aside ${p}, but in today's money it buys less.`,
-      explainReal:(y,v)=>`Shown in today's euros. In ${y} years, €1,000 will buy what about ${v} buys today. That's why money sitting in the bank loses value even though the number on the account doesn't go down.`,
-      explainNom:`Shown as the number you'll see on your account. Tick "today's euros" to see what it's really worth after inflation.`,
+      bankNom:v=>`Looks like a lot, but in today’s money it’s worth about ${v}: prices go up every year.`,
+      bankReal:p=>`You put in ${p}, but that money buys less than it does today.`,
+      explainReal:(y,v)=>`In today’s money. In ${y} years, €1,000 will buy what about ${v} buys today. That’s why money sitting in the bank loses value even when the number on your account doesn’t go down.`,
+      explainNom:`These are the numbers you’ll see on your account. Tick “today’s money” to see what they’re really worth after inflation.`,
       chartAria:`Growth of savings over the years for each scenario`,
-      hRide:`What it really feels like`,
-      ride1:`The numbers above are smooth averages. Real markets jump up and down, sometimes a lot. World stock markets fell by about half between 2007 and 2009, and by about a third in a few weeks in 2020. Both times they came back: within a few years after 2009, and within months in 2020.`,
+      hRide:`What it’s really like, no filter`,
+      ride1:`The numbers above are averages, nice and smooth. Real life isn’t. Between 2007 and 2009 world stock markets lost about half. In 2020 they lost a third in a few weeks. Both times they came back: after a few years the first time, after a few months the second.`,
       rideIll:`Illustration of a typical path, not real data`,
-      rideYou:(y,v,h)=>`With your plan, after ${y} years you'd have about <strong>${v}</strong> in ETFs. In a crash like 2008 your account could show about <strong>${h}</strong> for a while. That's the moment most beginners sell and turn a temporary drop into a real loss. If you keep your monthly payment going, you're buying cheap.`,
-      rideYouNone:`If you keep investing through the drops, you buy more for the same money. Selling during a drop is what turns it into a real loss.`,
+      rideYou:(y,v,h)=>`With your plan, after ${y} years you’d have about <strong>${v}</strong> in ETFs. In a crash like 2008, your account could show about <strong>${h}</strong> for a while. That’s when a lot of people sell out of fear, and a loss on paper becomes a real one. Keep adding every month and you’re buying on sale.`,
+      rideYouNone:`If you keep buying when markets drop, the same money gets you more. It’s only a real loss if you sell.`,
       ridePeak:`peak`, rideLow:`low`, rideBack:`back up`, rideStart:`your money`,
       ruleEyebrow:`The 3% rule`,
-      ruleH:y=>`A second salary for life, in ${y} years`,
+      ruleH:y=>`In ${y} years, extra money every month`,
       perMonth:` a month`,
       ruleSub:v=>`3% a year of the ${v} in your ETFs, at the 7% average.`,
-      ruleTxt:`After these years you could stop adding money and take out 3% of your ETFs every year as a monthly income. Historically, taking 3% a year from a mostly-stock portfolio has lasted 30 years or more in almost every period, and often the money kept growing. It's a guide, not a guarantee. The emergency fund stays in the bank.`,
+      ruleTxt:`Here’s how it works: you stop adding and every year you take out 3% of what you’ve got. In the past, taking 3% a year from ETFs that are nearly all stocks, the money lasted 30 years or more almost every time, and often kept growing. It’s a guide, not a promise. Your emergency fund stays in the bank.`,
       ruleOther:(t,v)=>`${t}: ${v} a month`,
       hStart:`How to start this week`,
-      st1:`<b>Open an account with a low-cost broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and hold ETFs. Pick one that is regulated in your country and charges little each time you buy. Check how ETF taxes work where you live.`,
-      st2:`<b>Look for an ETF, for example a world one</b>A common choice for beginners follows an <a class="term" href="#g-index">index</a> of the whole world stock market, is <a class="term" href="#g-acc">accumulating</a> and has a low yearly fee (<a class="term" href="#g-ter">TER</a>), ideally under 0.25%. If you want fewer ups and downs, an all-in-one ETF that also holds <a class="term" href="#g-bonds">bonds</a> works too. These are criteria, not a recommendation: compare a few before you choose.`,
-      st3:`<b>Add a bit every month and leave it alone</b>Every month, after payday, add the monthly amount from your plan above. Then don't check it every day.`,
+      st1:`<b>Open an account with a cheap broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and keep your ETFs. Make sure it’s regulated in your country and check what it charges every time you buy: the less, the better. And check how ETF taxes work where you live.`,
+      st2:`<b>Pick a world ETF</b>One that follows an <a class="term" href="#g-index">index</a> of the whole world (search “MSCI World” or “All-World”), <a class="term" href="#g-acc">accumulating</a> (“Acc” in the name) and cheap per year (<a class="term" href="#g-ter">TER</a> under 0.25%). Want fewer ups and downs? An all-in-one ETF with some <a class="term" href="#g-bonds">bonds</a> works too. I won’t tell you which one to buy: look at two or three and pick.`,
+      st3:`<b>Add every month and leave it alone</b>Every month, after payday, put in the amount from your plan. And don’t check it every day: it doesn’t help, it just stresses you out.`,
       hFaq:`Questions everyone asks`,
       q1:`Can I lose money?`,
-      a1:`Yes, in the short term, and sometimes for several years. Over 15 years or more, a world ETF has historically ended up higher, but that's not guaranteed. That's why you only invest money you won't need for a long time, and keep the emergency fund in the bank.`,
+      a1:`Yes. In the short run, and sometimes for a few years. Over 15 years or more a world ETF has historically ended up higher, but nobody can promise you that. That’s why you only put in money you won’t need for a good while, and your emergency fund stays in the bank.`,
       q2:`What if I need the money?`,
-      a2:`You can sell any day the market is open, and the cash arrives in a few days. But selling right after a drop locks in the loss. That's what the emergency fund is for.`,
+      a2:`You can sell any day the market’s open, and the money’s in your account within a few days. But sell right after a drop and the loss becomes real. That’s what the emergency fund is for.`,
       q3:`Do I pay taxes?`,
-      a3:`Usually you pay tax only on your gains, and only when you sell. Rates and rules depend on your country, so check before you start. The results on this page are before tax.`,
+      a3:`Usually you only pay tax on what you’ve gained, and only when you sell. Rates and rules depend on your country, so check before you start. The numbers on this page are before tax.`,
       q4:`When should I start?`,
-      a4:`As soon as your emergency fund is in place, even with a small amount. Time in the market matters more than picking the right moment, and nobody can reliably pick it.`,
+      a4:`As soon as your emergency fund is sorted, even with a small amount. Time in the market beats trying to pick the right moment. Nobody knows the right moment.`,
       q5:`How much do I need to start?`,
-      a5:`Less than you think. With many brokers you can buy ETFs with a few tens of euros, and some charge nothing for each purchase. Start small, then raise it when you can. Keep your emergency fund first.`,
+      a5:`Less than you think. With lots of brokers you can buy ETFs with a few tens of euros, and some charge nothing per buy. Start small and add more when you can. But emergency fund first.`,
       q6:`What if the broker goes bust?`,
-      a6:`Your ETFs stay yours. In the EU a broker must keep clients’ investments separate from its own money and cannot use them to pay its debts, so they are given back to you. If something were missing, a national investor compensation scheme pays out at least €20,000 per person (more in some countries, such as €100,000 in Spain). The money inside the ETF is also held by a separate depositary bank, not by the company that runs the ETF.`,
+      a6:`Your ETFs stay yours. By law a broker has to keep clients’ investments separate from its own money and can’t use them to pay its debts: if it goes bust, you get them back. If anything were missing, a national compensation scheme pays out at least €20,000 per person (more in some countries, like €100,000 in Spain). And the money inside the ETF is held by a separate bank, not by the company running it.`,
       q7:`ETF, or the fund my bank offers?`,
-      a7:`Compare the yearly costs. In the EU equity ETFs cost about 0.2% a year on average, while actively managed equity funds cost about 1.2–1.4% (ESMA, 2026), often plus entry fees. Over 20 years that difference can be worth tens of thousands of euros, and most active funds don’t beat their index over the long run. Ask your bank for the fund’s total yearly cost, in writing. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Compare with your numbers →</a>`,
-      whatEtf:`An <b>ETF</b> is a basket with thousands of companies inside: you buy a small slice of all of them, even with a few euros. An <b>ETF plan</b> means adding a bit every month. <a href="#h-30">What it is, in 30 seconds ↓</a>`,
+      a7:`Look at what they cost per year. A stock ETF costs about 0.2% a year on average. An actively managed stock fund about 1.2–1.4% (ESMA, 2026), often with an entry fee on top. Sounds like nothing, but over 20 years it’s tens of thousands of euros. And most of those funds do worse than their index in the long run. Ask your bank for the fund’s total yearly cost, in writing. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Run the numbers with yours →</a>`,
+      whatEtf:`With a few euros you buy a tiny slice of thousands of companies, all at once: that’s an <b>ETF</b>. Add a bit every month and that’s your <b>ETF plan</b>. <a href="#h-30">Explained in 30 seconds ↓</a>`,
       glossTitle:`Words explained`,
       gloss:[
-        ['g-etf',`ETF`,`A fund you buy and sell on the stock exchange like a single share, but it holds many companies at once.`],
-        ['g-acc',`Accumulating`,`Dividends are not paid out to you. The fund reinvests them automatically, which is the simplest way to let the money grow.`],
-        ['g-bonds',`Bonds`,`Loans to governments or companies that pay interest. They move less than stocks, so they calm a portfolio down, but on average they earn less.`],
+        ['g-etf',`ETF`,`A bundle of lots of companies that you buy and sell on the stock exchange as if it were a single share.`],
+        ['g-acc',`Accumulating`,`Dividends (the part of profits companies pay out) aren’t paid to you: the fund puts them back in by itself. Your money grows without you doing anything.`],
+        ['g-bonds',`Bonds`,`Loans to governments or companies that pay you interest. They move less than stocks: calmer, but on average they earn less.`],
         ['g-infl',`Inflation`,`Prices going up over time. At 2% a year, something that costs €100 today will cost about €149 in 20 years.`],
-        ['g-ter',`TER`,`The yearly cost of an ETF, as a percentage. A TER of 0.2% on €10,000 is about €20 a year, taken out of the fund's value automatically.`],
-        ['g-broker',`Broker`,`The bank or app where you buy, hold and sell your ETFs.`],
+        ['g-ter',`TER`,`What the ETF costs each year. With a TER of 0.2% on €10,000 you pay about €20 a year, taken out of the fund’s value.`],
+        ['g-broker',`Broker`,`The app or bank where you buy, keep and sell your ETFs.`],
         ['g-pac',`ETF plan (monthly plan)`,`Adding some money to your ETFs every month, usually the same amount. You choose how much.`],
-        ['g-index',`Index`,`A list of companies that measures a market, for example the MSCI World (about 1,300 large companies in 23 developed countries). An ETF copies an index, so it holds those companies.`],
-        ['g-isin',`ISIN`,`A 12-character code that identifies one specific ETF, like a number plate. You type it in your broker’s app to find exactly that ETF.`]
+        ['g-index',`Index`,`A list of companies picked with fixed rules. The MSCI World, for example, is about 1,300 big companies in 23 countries. The ETF just copies the list.`],
+        ['g-isin',`ISIN`,`A 12-character code, like a number plate. Type it in your broker’s app and you find exactly that ETF.`]
       ],
       hSup:`Found this useful?`,
       supTxt:`I’m Marco, an engineer who invests in ETFs myself. This page is free, with no ads and no affiliate links. If it helped you, you can buy me a coffee.`,
       hSupNo:`Who made this`,
       supTxtNo:`I’m Marco, an engineer who invests in ETFs myself. This page is free, with no ads and no affiliate links.`,
       coffee:`Buy me a coffee`,
-      taxNote:`<b>Taxes change, and they vary.</b> Tax rules change often, sometimes every year, and depend on your country, your region and your own situation. What you read here is a general summary, checked in October 2026: always check the current rules with an accountant or tax adviser before deciding.`,
-      disc:`<strong>Not financial advice.</strong> This is an educational tool with rough estimates. Returns are not guaranteed and change every year; here they are constant averages. Taxes and fees are not included in the results, and they vary by country. The bank account is calculated at zero interest. Investing in ETFs can lose money. Do your own research or talk to a qualified adviser before you invest in ETFs.`,
-      fbQ:`Is this result clear?`,
-      fbYes:`Yes, it's clear`,
-      fbNo:`No, not really`,
-      fbMore:`What would make it clearer? (optional)`,
+      taxNote:`<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in October 2026. Before any big move, ask an accountant: it costs less than a mistake.`,
+      disc:`<strong>Not financial advice.</strong> It’s a tool to help you understand, with estimates. Returns aren’t guaranteed and change every year: here they’re averages. Taxes and fees aren’t in the results, and the bank account is counted at zero interest. Investing in ETFs means you can lose money too. Do your homework, or talk to an adviser, before you invest in ETFs.`,
+      fbQ:`Does this make sense?`,
+      fbYes:`Yes, clear`,
+      fbNo:`Not really`,
+      fbMore:`What doesn’t make sense? (if you like)`,
       fbSend:`Send`,
-      fbThanks:`Thanks! Every answer helps improve the page.`,
-      fbH:`What's missing?`,
-      fbTxt:`Something you didn't understand, a question you still have, an idea? Write it here. No name or email needed.`,
+      fbThanks:`Thanks! Every answer helps me make the page better.`,
+      fbH:`Something missing?`,
+      fbTxt:`Something you didn’t get, a question, an idea? Write it here. No name, no email.`,
       fbLabel:`Your message`,
       fbErr:`Couldn't send. Please try again in a moment.`,
       privacy:`Privacy: no cookies and no personal data. To improve the page we count visits and clicks anonymously, with a code that changes every day and can't identify you. Feedback is stored without names.`,
       today:`today`, yAbbr:`y`,
-      w:{badge:'Free · 10 minutes', h1:'Your first <em>ETF plan</em>, in 10 minutes.',
-      sub:'Answer 3 questions. You get a plan on one page: how much to keep in the bank, how much to invest in ETFs each month, what to look for in an ETF and how to set it up.',
+      w:{badge:'Free · 10 minutes', h1:'Money sitting in the bank loses value. <em>Here’s what you can do, in 10 minutes.</em>',
+      sub:'Answer 3 questions and I’ll put together a one-page plan: how much to keep in the bank, how much to put into ETFs each month and how to get started. I show you what I do, then you decide.',
       heroAlt:'A calendar sends coins into a jar, and a tree grows out of it',
       start:'Make my plan', t1:'Free', t2:'No sign-up', t3:'No ads',
       getH:'At the end you’ll have', g1:'A safety cushion', g2:'A monthly amount', g3:'What to look for in an ETF',
       step:(i)=>`Question ${i} of 3`, next:'Next', last:'See my plan', back:'Back',
       qs:[
-        {h:'How much do you spend a month?', p:'Rent, food, bills, everything. A rough number is fine.'},
-        {h:'How much is in your bank account today?', p:'Savings you could use. Not counting what you need this month.'},
-        {h:'How much can you put aside each month?', p:'What is usually left at the end of the month.'}],
-      rEyebrow:'Your plan', rH:'Here’s what to do',
-      keep:'Keep in the bank', keepP:'6 months of expenses, for surprises. It means you never have to sell your ETFs at a bad moment.',
-      keepGap:(g,m)=>`You’re ${g} short: for the first ${m} ${m===1?'month':'months'} your savings go here, then the ETF starts.`,
-      now:'Invest now', nowP:'What you have above the cushion. All at once, or spread over 6–12 months.',
+        {h:'How much do you spend a month?', p:'Rent or mortgage, food, bills, everything. A rough number is fine.'},
+        {h:'How much is in your bank account today?', p:'The savings you’ve got, not counting what you need this month.'},
+        {h:'How much is left at the end of the month?', p:'What you usually manage to put aside.'}],
+      rEyebrow:'Your plan', rH:'Here’s your plan',
+      keep:'Keep in the bank', keepP:'6 months of expenses, for when something breaks. That way you never have to sell your ETFs at the wrong moment.',
+      keepGap:(g,m)=>`You’re ${g} short: for the first ${m} ${m===1?'month':'months'} your savings go here, then you start your ETF plan.`,
+      now:'Invest now', nowP:'What you’ve got above the cushion. All at once or in 6–12 goes, whatever lets you sleep better.',
       monthly:'Every month into an ETF', monthlyP:'Every month, after payday, add this amount to your ETFs.',
       monthlyNone:'Nothing yet', monthlyNoneP:'First find a little room each month, even €50. Then come back here.',
-      etf:'What to look for', etfAmt:'For example, a world ETF', etfP:'A common choice for beginners: thousands of companies worldwide, accumulating, yearly cost (TER) under 0.25%. It’s an example, not a recommendation: compare a few before you choose.',
+      etf:'What to look for', etfAmt:'For example, a world ETF', etfP:'One that buys the whole world: thousands of companies, “Acc” in the name, yearly cost (TER) under 0.25%. It’s an example, I’m not telling you which one: look at two or three and pick.',
       where:'Where', whereAmt:'A low-cost broker', whereP:'Regulated in your country, and cheap each time you buy. Check how ETF taxes work where you live.',
       gLab:y=>`In ${y} years you could have`, gRng:(lo,hi)=>`Between ${lo} and ${hi}, depending on the markets (5–9% a year, 7% shown).`,
       gVs:(d)=>`That’s <strong>${d} more</strong> than leaving it in the bank.`,
       years:n=>`${n} years`, yrsAria:'Years',
-      honest:'Honestly: some years will be red. In 2008 world markets roughly halved and came back within a few years. The plan works if you keep going.',
+      honest:'Straight up: there will be red years. In 2008 world markets lost almost half, and it took a few years to get back. The plan works if you don’t quit.',
       full:'See every detail below', print:'Save / print my plan', again:'Start again',
-      share:'Send this to a friend', shareText:'Free and simple: your first plan for investing in ETFs in 10 minutes. No sign-up.', shared:'Link copied ✓',
-      whoH:'I made it for my brother, now it’s for everyone', who:'I’m Marco, an engineer who invests in ETFs. I started this to show my brother how ETFs work, then built it for anyone who wants to understand them: free, no ads, no affiliate links, no sign-up.', whoAlt:'Two brothers, one with an arm around the other'
+      share:'Send this to a friend', shareText:'Free, no sign-up: your first plan for investing in ETFs in 10 minutes.', shared:'Link copied ✓',
+      whoH:'I made it for my brother, now it’s for everyone', who:'I’m Marco, an engineer. I invest in ETFs myself. I started this page to explain it to my brother, then figured it could help a lot of people. I’m not selling anything: no ads, no affiliate links, no sign-up.', whoAlt:'Two brothers, one with an arm around the other'
       }
     },
     it:{
       title:`Il tuo piano ETF · Your ETF Plan`, locale:`it-IT`, taxRate:0.26,
-      lead:`Guarda cosa succede ai tuoi soldi con un piano di accumulo (PAC) in ETF: ne investi una parte ogni mese invece di lasciarli in banca. Nessuna registrazione, niente da comprare.`,
+      lead:`Tre cose e basta. Il resto lo impari strada facendo.`,
       quickH:`Hai un caso preciso?`, q1c:`Risparmi in banca`, q2c:`Comprare casa`, q3c:`Un’eredità`, q4c:`Una casa che non uso`, q5c:`Comprare per affittare`,
-      guidesH:`Prima capisci gli ETF`,
+      guidesH:`Prima di tutto: capire gli ETF`,
       g1t:`Cosa sono gli ETF?`,
-      g1d:`Spiegati semplice, in 5 minuti, con un quiz veloce.`,
+      g1d:`In 5 minuti, senza paroloni. Con un quiz alla fine.`,
       g2t:`Come comprare il tuo primo ETF`,
-      g2d:`Passo per passo: broker, conto, ETF, PAC.`,
+      g2d:`Passo per passo: dal conto al primo acquisto.`,
       g3t:`ETF o fondo della banca?`,
-      g3d:`Quanto ti costano davvero i costi annui negli anni.`,
-      moreLearn:`Vuoi saperne di più? Cosa sono gli ETF, in 5 minuti →`,
-      moreFirst:`La guida completa, passo per passo →`,
+      g3d:`Quanto ti costa davvero il fondo della banca.`,
+      moreLearn:`Vuoi capirci di più? Gli ETF in 5 minuti →`,
+      moreFirst:`Tutti i passi, uno per uno →`,
       casesH:`Qual è il tuo caso?`,
-      casesSub:`Guide brevi con il loro calcolatore, per le domande più comuni su come investire in ETF.`,
+      casesSub:`Le situazioni più comuni, ognuna con i suoi numeri.`,
       c1t:`Tengo i miei risparmi in banca`,
       c1d:`Quelli che ho e quelli che metto da parte ogni mese: lasciarli lì o investire in ETF?`,
       c2t:`Voglio comprare casa per viverci`,
@@ -805,127 +806,127 @@ details > div{padding:0 0 14px;color:var(--muted)}
       c5t:`Voglio comprare casa da affittare`,
       c5d:`O investire gli stessi soldi in ETF?`,
       h30:`Gli ETF in 30 secondi`,
-      e1:`<b>Un paniere di aziende</b>Un <a class="term" href="#g-etf">ETF</a> contiene centinaia o migliaia di aziende insieme, come Apple, Nestlé e Toyota. Con un solo acquisto ne possiedi un pezzettino di tutte.`,
-      e2:`<b>Aggiungi un po' ogni mese</b>Ogni mese, quando arriva lo stipendio, metti qualcosa in più nel tuo ETF: è il tuo <a class="term" href="#g-pac">PAC</a>, piano di accumulo. Alcuni mesi compri quando i prezzi sono alti, altri quando sono bassi. Nel tempo si compensa.`,
-      e3:`<b>Il tuo pezzettino cresce con le aziende</b>Nel lungo periodo le aziende guadagnano di più e valgono di più, e con loro il tuo pezzettino. Non ogni anno, e a volte scende parecchio. Su 15–20 anni storicamente è cresciuto.`,
-      change:`Cambia le risposte`, ansEx:(sp,c,m)=>`Esempio: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`, ansYou:(sp,c,m)=>`Le tue risposte: spese di ${sp} al mese, ${c} in banca, ${m} al mese in ETF.`,
+      e1:`<b>Un pezzettino di tante aziende</b>Con un solo acquisto ti prendi un pezzettino di Apple, Nestlé, Toyota e centinaia di altre aziende, tutte insieme. Questa cosa si chiama <a class="term" href="#g-etf">ETF</a>. Se un’azienda va male, le altre tengono su il resto.`,
+      e2:`<b>Ci aggiungi un po’ ogni mese</b>Ogni mese, quando arriva lo stipendio, ci metti qualcosa in più: questo è il <a class="term" href="#g-pac">PAC</a>. Certi mesi compri caro, altri compri a sconto. Alla lunga si pareggia.`,
+      e3:`<b>E aspetti</b>Col tempo le aziende guadagnano di più e valgono di più, e il tuo pezzettino con loro. Non tutti gli anni: ci sono anni brutti. Ma su 15–20 anni, storicamente, è cresciuto.`,
+      change:`Cambia le risposte`, ansEx:(sp,c,m)=>`Esempio: spendi ${sp} al mese, hai ${c} in banca e metti ${m} al mese in ETF.`, ansYou:(sp,c,m)=>`I tuoi numeri: spendi ${sp} al mese, hai ${c} in banca e metti ${m} al mese in ETF.`,
       hFut:`Quanto potresti avere`, lYears:`Vedi quanto avresti tra`, years:n=>`${n} anni`,
       real:`Mostra in euro di oggi (con <a class="term" href="#g-infl">inflazione</a> al 2% l'anno)`,
       scen:[[`Tutto in banca`,`Non fare nulla`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Storico normale`],[`ETF al 9%`,`Decenni buoni`]],
-      paidIn:p=>`Hai versato ${p} in tutto.`,
-      vsBank:d=>`${d} in più che lasciarli in banca`,
-      afterTax:(r,v)=>`Prima delle tasse. Con il ${r} sui guadagni ti resterebbero circa ${v}.`,
-      bankNom:v=>`Vale circa ${v} in euro di oggi, perché i prezzi salgono ogni anno.`,
-      bankReal:p=>`Hai messo da parte ${p}, ma in euro di oggi ci compri meno.`,
-      explainReal:(y,v)=>`Valori in euro di oggi. Tra ${y} anni 1.000 € compreranno quello che oggi compri con circa ${v}. Per questo i soldi fermi in banca perdono valore anche se il numero sul conto non scende.`,
-      explainNom:`Valori come li vedrai sul conto. Spunta "euro di oggi" per vedere quanto valgono davvero tolta l'inflazione.`,
+      paidIn:p=>`Ci hai messo ${p} in tutto.`,
+      vsBank:d=>`${d} in più che tenerli fermi in banca`,
+      afterTax:(r,v)=>`Prima delle tasse. Tolto il ${r} sui guadagni, ti resterebbero circa ${v}.`,
+      bankNom:v=>`Sembrano tanti, ma in euro di oggi valgono circa ${v}: i prezzi salgono ogni anno.`,
+      bankReal:p=>`Ci hai messo ${p}, ma con quei soldi compri meno di oggi.`,
+      explainReal:(y,v)=>`In euro di oggi. Tra ${y} anni con 1.000 € comprerai quello che oggi compri con circa ${v}. Ecco perché i soldi fermi in banca perdono valore anche se il numero sul conto non scende.`,
+      explainNom:`Questi sono i numeri che vedrai sul conto. Spunta “euro di oggi” per vedere quanto valgono davvero, tolta l’inflazione.`,
       chartAria:`Crescita del patrimonio negli anni per ogni scenario`,
-      hRide:`Come ci si sente davvero`,
-      ride1:`I numeri qui sopra sono medie regolari. I mercati veri salgono e scendono, a volte parecchio. Le borse mondiali sono scese di circa la metà tra il 2007 e il 2009, e di circa un terzo in poche settimane nel 2020. Entrambe le volte sono risalite: in pochi anni dopo il 2009, e in pochi mesi nel 2020.`,
+      hRide:`Com’è davvero, senza filtri`,
+      ride1:`I numeri qui sopra sono medie, tutte belle lisce. La realtà no. Tra il 2007 e il 2009 le borse mondiali hanno perso circa la metà. Nel 2020, in poche settimane, un terzo. Tutte e due le volte sono tornate su: dopo qualche anno la prima, dopo pochi mesi la seconda.`,
       rideIll:`Esempio di un andamento tipico, non dati reali`,
-      rideYou:(y,v,h)=>`Con il tuo piano, dopo ${y} anni avresti circa <strong>${v}</strong> in ETF. In un crollo come quello del 2008 il conto potrebbe mostrare circa <strong>${h}</strong> per un po'. È il momento in cui molti principianti vendono e trasformano un calo temporaneo in una perdita vera. Se continui con il versamento mensile, stai comprando a sconto.`,
-      rideYouNone:`Se continui a investire durante i cali, con gli stessi soldi compri di più. È vendere durante un calo che lo trasforma in una perdita vera.`,
+      rideYou:(y,v,h)=>`Col tuo piano, dopo ${y} anni avresti circa <strong>${v}</strong> in ETF. In un crollo come il 2008, per un po’ il conto potrebbe segnare circa <strong>${h}</strong>. È lì che tanti vendono per paura, e una perdita sulla carta diventa una perdita vera. Se invece continui ad aggiungere ogni mese, stai comprando a sconto.`,
+      rideYouNone:`Se nei cali continui a comprare, con gli stessi soldi ti porti a casa di più. La perdita diventa vera solo se vendi.`,
       ridePeak:`picco`, rideLow:`minimo`, rideBack:`risalita`, rideStart:`i tuoi soldi`,
       ruleEyebrow:`La regola del 3%`,
-      ruleH:y=>`Un secondo stipendio per sempre, tra ${y} anni`,
+      ruleH:y=>`Tra ${y} anni, un’entrata in più ogni mese`,
       perMonth:` al mese`,
       ruleSub:v=>`Il 3% l'anno dei ${v} che avresti in ETF, con la media del 7%.`,
-      ruleTxt:`Dopo questi anni potresti smettere di versare e prelevare ogni anno il 3% dei tuoi ETF come entrata mensile. Storicamente, prelevare il 3% l'anno da un portafoglio quasi tutto azionario è durato 30 anni o più in quasi tutti i periodi, e spesso il capitale ha continuato a crescere. È un riferimento, non una garanzia. Il fondo emergenza resta in banca.`,
+      ruleTxt:`Funziona così: smetti di aggiungere e ogni anno ti prendi il 3% di quello che hai. In passato, prelevando il 3% l’anno da ETF quasi tutti in azioni, i soldi sono durati 30 anni o più quasi sempre, e spesso hanno continuato a crescere. È un riferimento, non una promessa. Il fondo emergenza resta in banca.`,
       ruleOther:(t,v)=>`${t}: ${v} al mese`,
-      hStart:`Come iniziare questa settimana`,
-      st1:`<b>Apri un conto con un broker a basso costo</b>Il <a class="term" href="#g-broker">broker</a> è la banca o l'app dove compri e tieni gli ETF. Sceglilo in <a class="term" href="#g-amm">regime amministrato</a>: così le tasse le paga lui per te e non devi dichiarare nulla. Controlla che costi poco ogni volta che compri.`,
-      st2:`<b>Cerca un ETF, per esempio uno mondiale</b>Una scelta comune per chi inizia segue un <a class="term" href="#g-index">indice</a> di tutto il mercato azionario mondiale, è ad <a class="term" href="#g-acc">accumulazione</a> e ha un costo annuo basso (<a class="term" href="#g-ter">TER</a>), idealmente sotto lo 0,25%. Se vuoi meno sbalzi va bene anche un ETF tutto-in-uno che contiene anche <a class="term" href="#g-bonds">obbligazioni</a>. Sono criteri, non un consiglio: confrontane qualcuno prima di scegliere.`,
-      st3:`<b>Aggiungi ogni mese e lascialo crescere</b>Ogni mese, dopo lo stipendio, aggiungi l'importo del tuo piano qui sopra. Poi non guardarlo ogni giorno.`,
+      hStart:`Come partire questa settimana`,
+      st1:`<b>Apri un conto da un broker che costa poco</b>Il <a class="term" href="#g-broker">broker</a> è l’app o la banca dove compri e tieni gli ETF. Prendilo in <a class="term" href="#g-amm">regime amministrato</a>: le tasse le paga lui per te e non devi dichiarare niente. E guarda quanto ti chiede ogni volta che compri: meno è, meglio è.`,
+      st2:`<b>Scegli un ETF mondiale</b>Uno che segue un <a class="term" href="#g-index">indice</a> di tutto il mondo (cerca “MSCI World” o “All-World”), ad <a class="term" href="#g-acc">accumulazione</a> (“Acc” nel nome) e che costi poco all’anno (<a class="term" href="#g-ter">TER</a> sotto lo 0,25%). Se vuoi meno su e giù, va bene anche uno “tutto in uno” con dentro un po’ di <a class="term" href="#g-bonds">obbligazioni</a>. Non ti dico quale comprare: guardane due o tre e scegli tu.`,
+      st3:`<b>Aggiungi ogni mese e lascialo stare</b>Ogni mese, dopo lo stipendio, ci metti la cifra del tuo piano. Poi non guardarlo tutti i giorni: non serve, e fa solo venire l’ansia.`,
       hFaq:`Le domande che si fanno tutti`,
       q1:`Posso perdere soldi?`,
-      a1:`Sì, nel breve periodo, e a volte per qualche anno. Su 15 anni o più un ETF mondiale storicamente è finito più in alto, ma non è garantito. Per questo investi solo soldi che non ti servono per molto tempo, e tieni il fondo emergenza in banca.`,
+      a1:`Sì. Nel breve sì, e a volte per qualche anno. Su 15 anni o più un ETF mondiale storicamente è finito più su, ma nessuno te lo garantisce. Per questo ci metti solo soldi che non ti servono per un bel po’, e il fondo emergenza resta in banca.`,
       q2:`E se mi servono i soldi?`,
-      a2:`Puoi vendere in qualsiasi giorno di borsa aperta e i soldi arrivano in pochi giorni. Ma vendere subito dopo un calo rende la perdita definitiva. A questo serve il fondo emergenza.`,
+      a2:`Li vendi quando vuoi, in qualsiasi giorno di borsa aperta, e in pochi giorni sono sul conto. Ma se vendi subito dopo un calo, la perdita diventa vera. Per questo esiste il fondo emergenza.`,
       q3:`Si pagano tasse?`,
-      a3:`In Italia paghi il 26% solo sui guadagni e solo quando vendi, più l'imposta di bollo dello 0,2% l'anno sul valore. Con un broker in regime amministrato se ne occupa lui. I risultati di questa pagina sono prima delle tasse.`,
+      a3:`In Italia paghi il 26% solo su quello che guadagni, e solo quando vendi. In più c’è il bollo: lo 0,2% l’anno sul valore. Con un broker in regime amministrato fa tutto lui. I numeri di questa pagina sono prima delle tasse.`,
       q4:`Quando conviene iniziare?`,
-      a4:`Appena hai il fondo emergenza, anche con poco. Conta più il tempo passato investiti che azzeccare il momento giusto, che nessuno sa prevedere.`,
+      a4:`Appena hai il fondo emergenza, anche con poco. Conta più il tempo che resti dentro che azzeccare il momento giusto. Il momento giusto non lo sa nessuno.`,
       q5:`Quanto serve per iniziare?`,
-      a5:`Meno di quanto pensi. Con molti broker puoi comprare ETF anche con qualche decina di euro, e alcuni non fanno pagare niente per ogni acquisto. Inizia con poco e aumenta quando puoi. Prima però metti da parte il fondo emergenza.`,
+      a5:`Meno di quanto pensi. Con tanti broker compri ETF anche con qualche decina di euro, e alcuni non ti fanno pagare niente per ogni acquisto. Parti piccolo e aumenti quando puoi. Ma prima il fondo emergenza.`,
       q6:`E se il broker fallisce?`,
-      a6:`I tuoi ETF restano tuoi. Per legge il broker deve tenere gli investimenti dei clienti separati dai propri soldi e non può usarli per pagare i suoi debiti: in caso di fallimento ti vengono restituiti. Se mancasse qualcosa, il Fondo Nazionale di Garanzia indennizza fino a 20.000 € a persona. In più, i soldi dentro l’ETF sono custoditi da una banca depositaria separata dalla società che lo gestisce.`,
+      a6:`I tuoi ETF restano tuoi. Per legge il broker li deve tenere separati dai suoi soldi e non li può usare per pagare i suoi debiti: se fallisce, te li ridanno. Se mancasse qualcosa, il Fondo Nazionale di Garanzia ti copre fino a 20.000 €. E i soldi dentro l’ETF li custodisce una banca a parte, non la società che lo gestisce.`,
       q7:`Meglio un ETF o il fondo che mi propone la banca?`,
-      a7:`Confronta i costi annui. In Europa gli ETF azionari costano in media circa lo 0,2% l’anno, i fondi azionari a gestione attiva circa l’1,2–1,4% (ESMA, 2026), e l’Italia è tra i paesi dove costano di più, spesso con commissioni d’ingresso in aggiunta. Su 20 anni la differenza può valere decine di migliaia di euro, e la maggior parte dei fondi attivi nel lungo periodo non batte il proprio indice. Chiedi alla banca il costo totale annuo del fondo, per iscritto. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Fai il confronto con le tue cifre →</a>`,
-      whatEtf:`Un <b>ETF</b> è un paniere con dentro migliaia di aziende: ne compri un pezzettino di tutte, anche con pochi euro. Un <b>PAC</b> è aggiungerne un po’ ogni mese. <a href="#h-30">Cos’è, in 30 secondi ↓</a>`,
+      a7:`Guarda quanto costano all’anno. Un ETF azionario costa in media lo 0,2% l’anno. Un fondo azionario a gestione attiva circa l’1,2–1,4% (ESMA, 2026), e in Italia anche di più, spesso con una commissione d’ingresso sopra. Sembra niente, ma su 20 anni sono decine di migliaia di euro. E la gran parte di quei fondi, alla lunga, fa peggio del suo indice. Chiedi alla banca il costo totale annuo, per iscritto. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Fai il conto con le tue cifre →</a>`,
+      whatEtf:`Con pochi euro compri un pezzettino di migliaia di aziende tutte insieme: questo è un <b>ETF</b>. Se ci aggiungi un po’ ogni mese, quello è il <b>PAC</b>. <a href="#h-30">Spiegato in 30 secondi ↓</a>`,
       glossTitle:`Le parole spiegate`,
       gloss:[
-        ['g-etf',`ETF`,`Un fondo che compri e vendi in borsa come una singola azione, ma che contiene tante aziende insieme.`],
-        ['g-acc',`Accumulazione`,`I dividendi non ti vengono pagati: il fondo li reinveste in automatico. È il modo più semplice per far crescere i soldi.`],
-        ['g-bonds',`Obbligazioni`,`Prestiti a stati o aziende che pagano un interesse. Si muovono meno delle azioni, quindi rendono il portafoglio più tranquillo, ma in media rendono meno.`],
-        ['g-infl',`Inflazione`,`L'aumento dei prezzi nel tempo. Al 2% l'anno, quello che oggi costa 100 € tra 20 anni costerà circa 149 €.`],
-        ['g-ter',`TER`,`Il costo annuo dell'ETF, in percentuale. Un TER dello 0,2% su 10.000 € sono circa 20 € l'anno, tolti in automatico dal valore del fondo.`],
-        ['g-broker',`Broker`,`La banca o l'app dove compri, tieni e vendi i tuoi ETF.`],
-        ['g-pac',`PAC (piano di accumulo)`,`Aggiungere ogni mese un po’ di soldi ai tuoi ETF, di solito sempre la stessa cifra. Scegli tu quanto.`],
-        ['g-index',`Indice`,`Un elenco di aziende che misura un mercato, per esempio l’MSCI World (circa 1.300 grandi aziende di 23 paesi sviluppati). Un ETF copia un indice, quindi contiene quelle aziende.`],
-        ['g-isin',`ISIN`,`Un codice di 12 caratteri che identifica un ETF preciso, come una targa. Lo scrivi nell’app del broker per trovare proprio quell’ETF.`],
-        ['g-amm',`Regime amministrato`,`Il broker calcola e paga per te le tasse sui guadagni quando vendi, e il bollo ogni anno. Tu non devi mettere niente in dichiarazione. Con i broker esteri di solito non c’è: allora tocca a te.`]
+        ['g-etf',`ETF`,`Un pacchetto di tante aziende insieme, che compri e vendi in borsa come fosse una sola azione.`],
+        ['g-acc',`Accumulazione`,`I dividendi (la parte di utili che le aziende distribuiscono) non te li pagano: il fondo li rimette dentro da solo. Così i soldi crescono senza che tu faccia niente.`],
+        ['g-bonds',`Obbligazioni`,`Prestiti a stati o aziende, che ti pagano un interesse. Si muovono meno delle azioni: più tranquille, ma in media rendono meno.`],
+        ['g-infl',`Inflazione`,`I prezzi che salgono col tempo. Al 2% l’anno, quello che oggi costa 100 € tra 20 anni costerà circa 149 €.`],
+        ['g-ter',`TER`,`Quanto costa l’ETF ogni anno. Con un TER dello 0,2% su 10.000 € paghi circa 20 € l’anno, e te li tolgono da soli dal valore del fondo.`],
+        ['g-broker',`Broker`,`L’app o la banca dove compri, tieni e vendi i tuoi ETF.`],
+        ['g-pac',`PAC (piano di accumulo)`,`Aggiungere ogni mese un po’ di soldi ai tuoi ETF, di solito sempre la stessa cifra. Decidi tu quanto.`],
+        ['g-index',`Indice`,`Una lista di aziende scelta con regole fisse. L’MSCI World, per esempio, sono circa 1.300 grandi aziende di 23 paesi. L’ETF copia la lista e basta.`],
+        ['g-isin',`ISIN`,`Un codice di 12 caratteri, tipo una targa. Lo scrivi nell’app del broker e trovi proprio quell’ETF.`],
+        ['g-amm',`Regime amministrato`,`Il broker fa i conti delle tasse e le paga per te, bollo compreso. Tu in dichiarazione non metti niente. Con i broker esteri di solito non c’è, e allora tocca a te.`]
       ],
       hSup:`Ti è stata utile?`,
       supTxt:`Sono Marco, un ingegnere che investe in ETF anch’io. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione. Se ti è servita, puoi offrirmi un caffè.`,
       hSupNo:`Chi l'ha fatta`,
       supTxtNo:`Sono Marco, un ingegnere che investe in ETF anch’io. Questa pagina è gratuita, senza pubblicità e senza link di affiliazione.`,
       coffee:`Offrimi un caffè`,
-      taxNote:`<b>Le tasse cambiano, e variano.</b> Le regole fiscali cambiano spesso, a volte ogni anno, e dipendono dal paese, dalla regione e dalla tua situazione personale. Quello che leggi qui è un riassunto generale, verificato a ottobre 2026: controlla sempre le regole in vigore con un commercialista prima di decidere.`,
-      disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento educativo con stime indicative. I rendimenti non sono garantiti e cambiano ogni anno; qui sono medie costanti. Tasse e commissioni non sono incluse nei risultati. Il conto in banca è calcolato a interesse zero. Investire in ETF comporta il rischio di perdere denaro. Informati bene o parla con un consulente qualificato prima di investire in ETF.`,
-      fbQ:`Questo risultato è chiaro?`,
-      fbYes:`Sì, è chiaro`,
-      fbNo:`No, non molto`,
-      fbMore:`Cosa lo renderebbe più chiaro? (facoltativo)`,
+      taxNote:`<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a ottobre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.`,
+      disc:`<strong>Non è una consulenza finanziaria.</strong> È uno strumento per capire, con delle stime. I rendimenti non sono garantiti e cambiano ogni anno: qui sono medie. Tasse e commissioni non sono nei risultati, e il conto in banca è calcolato a interesse zero. Investire in ETF vuol dire che puoi anche perdere soldi. Informati bene, o parla con un consulente, prima di investire in ETF.`,
+      fbQ:`Si capisce?`,
+      fbYes:`Sì, chiaro`,
+      fbNo:`Non tanto`,
+      fbMore:`Cosa non si capisce? (se vuoi)`,
       fbSend:`Invia`,
-      fbThanks:`Grazie! Ogni risposta aiuta a migliorare la pagina.`,
-      fbH:`Cosa manca?`,
-      fbTxt:`Qualcosa che non hai capito, una domanda che ti resta, un'idea? Scrivila qui. Non servono nome né email.`,
+      fbThanks:`Grazie! Ogni risposta mi aiuta a migliorare la pagina.`,
+      fbH:`Manca qualcosa?`,
+      fbTxt:`Una cosa che non hai capito, una domanda, un’idea? Scrivila qui. Niente nome, niente email.`,
       fbLabel:`Il tuo messaggio`,
       fbErr:`Invio non riuscito. Riprova tra poco.`,
       privacy:`Privacy: niente cookie e niente dati personali. Per migliorare la pagina contiamo visite e click in forma anonima, con un codice che cambia ogni giorno e non permette di identificarti. I feedback vengono salvati senza nomi.`,
       today:`oggi`, yAbbr:`a`,
-      w:{badge:'Gratis · 10 minuti', h1:'Il tuo primo <em>PAC in ETF</em>, in 10 minuti.',
-      sub:'Rispondi a 3 domande. Alla fine hai il tuo piano su una pagina: quanto tenere in banca, quanto investire in ETF ogni mese, cosa cercare in un ETF e come impostarlo.',
+      w:{badge:'Gratis · 10 minuti', h1:'I soldi fermi in banca perdono valore. <em>Ecco cosa puoi fare, in 10 minuti.</em>',
+      sub:'Rispondi a 3 domande e ti preparo un piano su una pagina: quanto tenere in banca, quanto mettere in ETF ogni mese e come partire. Ti mostro come faccio io, poi decidi tu.',
       heroAlt:'Un calendario manda monete in un barattolo, da cui cresce un albero',
       start:'Crea il mio piano', t1:'Gratis', t2:'Senza registrazione', t3:'Senza pubblicità',
       getH:'Alla fine avrai', g1:'Un cuscinetto di sicurezza', g2:'Un importo mensile', g3:'Cosa cercare in un ETF',
       step:(i)=>`Domanda ${i} di 3`, next:'Avanti', last:'Vedi il mio piano', back:'Indietro',
       qs:[
-        {h:'Quanto spendi al mese?', p:'Affitto, spesa, bollette, tutto. Va bene un numero indicativo.'},
-        {h:'Quanti soldi hai in banca oggi?', p:'Risparmi che potresti usare. Senza contare quello che ti serve questo mese.'},
-        {h:'Quanto riesci a mettere da parte ogni mese?', p:'Quello che di solito ti avanza a fine mese.'}],
-      rEyebrow:'Il tuo piano', rH:'Ecco cosa fare',
-      keep:'Tieni in banca', keepP:'6 mesi di spese, per gli imprevisti. Così non sei mai costretto a vendere gli ETF nel momento sbagliato.',
-      keepGap:(g,m)=>`Ti mancano ${g}: ${m===1?'il primo mese':'per i primi '+m+' mesi'} il risparmio va qui, poi parte il PAC.`,
-      now:'Investi subito', nowP:'Quello che hai oltre il cuscinetto. Tutto subito o in 6–12 rate.',
+        {h:'Quanto spendi al mese?', p:'Affitto o mutuo, spesa, bollette, tutto. Va bene un numero a occhio.'},
+        {h:'Quanti soldi hai in banca oggi?', p:'I risparmi che hai, senza contare quello che ti serve questo mese.'},
+        {h:'Quanto ti avanza a fine mese?', p:'Quello che di solito riesci a mettere da parte.'}],
+      rEyebrow:'Il tuo piano', rH:'Ecco il tuo piano',
+      keep:'Tieni in banca', keepP:'6 mesi di spese, per quando si rompe qualcosa. Così gli ETF non li devi mai vendere nel momento sbagliato.',
+      keepGap:(g,m)=>`Ti mancano ${g}: ${m===1?'il primo mese':'per i primi '+m+' mesi'} metti da parte qui, poi parti con il PAC.`,
+      now:'Investi subito', nowP:'Quello che hai oltre il cuscinetto. Tutto subito o in 6–12 volte: come ti fa dormire più tranquillo.',
       monthly:'Ogni mese in ETF (PAC)', monthlyP:'Ogni mese, dopo lo stipendio, aggiungi questa cifra ai tuoi ETF.',
       monthlyNone:'Per ora niente', monthlyNoneP:'Prima trova un piccolo margine ogni mese, anche 50 €. Poi torna qui.',
-      etf:'Cosa cercare', etfAmt:'Per esempio, un ETF mondiale', etfP:'Una scelta comune per chi inizia: migliaia di aziende in tutto il mondo, ad accumulazione, costo annuo (TER) sotto lo 0,25%. È un esempio, non un consiglio: confrontane qualcuno prima di scegliere.',
-      where:'Dove', whereAmt:'Un broker a basso costo', whereP:'In regime amministrato, così le tasse le paga lui per te, e che costi poco ogni volta che compri.',
+      etf:'Cosa cercare', etfAmt:'Per esempio, un ETF mondiale', etfP:'Uno che compra tutto il mondo: migliaia di aziende, “Acc” nel nome, costo annuo (TER) sotto lo 0,25%. È un esempio, non ti dico quale: guardane due o tre e scegli tu.',
+      where:'Dove', whereAmt:'Un broker a basso costo', whereP:'In regime amministrato, così le tasse le paga lui, e che costi poco ogni volta che compri.',
       gLab:y=>`Tra ${y} anni potresti avere`, gRng:(lo,hi)=>`Tra ${lo} e ${hi}, a seconda dei mercati (5–9% l’anno, qui il 7%).`,
       gVs:(d)=>`Cioè <strong>${d} in più</strong> che lasciarli in banca.`,
       years:n=>`${n} anni`, yrsAria:'Anni',
-      honest:'Onestamente: ci saranno anni in rosso. Nel 2008 le borse mondiali si sono quasi dimezzate e si sono riprese in pochi anni. Il piano funziona se continui.',
+      honest:'Te lo dico chiaro: ci saranno anni in rosso. Nel 2008 le borse mondiali hanno perso quasi la metà, e ci hanno messo qualche anno a tornare su. Il piano funziona se non molli.',
       full:'Vedi tutti i dettagli qui sotto', print:'Salva / stampa il mio piano', again:'Ricomincia',
-      share:'Mandalo a un amico', shareText:'Gratis e semplice: il tuo primo piano per investire in ETF in 10 minuti. Senza registrazione.', shared:'Link copiato ✓',
-      whoH:'L’ho fatto per mio fratello, ora è per tutti', who:'Sono Marco, un ingegnere che investe in ETF. Ho iniziato per spiegare a mio fratello come funzionano gli ETF, poi l’ho fatto per chiunque voglia capirli: gratis, senza pubblicità, senza link di affiliazione, senza registrazione.', whoAlt:'Due fratelli, uno abbraccia l’altro'
+      share:'Mandalo a un amico', shareText:'Gratis e senza registrazione: il tuo primo piano per investire in ETF in 10 minuti.', shared:'Link copiato ✓',
+      whoH:'L’ho fatto per mio fratello, ora è per tutti', who:'Sono Marco, ingegnere. Investo in ETF anch’io. Ho iniziato questa pagina per spiegarlo a mio fratello, poi ho pensato che poteva servire a tanti. Non vendo niente: niente pubblicità, niente link di affiliazione, niente registrazione.', whoAlt:'Due fratelli, uno abbraccia l’altro'
       }
     },
     es:{
       title:`Tu plan ETF · Your ETF Plan`, locale:`es-ES`, taxRate:0.21,
-      lead:`Mira qué pasa con tu dinero si inviertes una parte cada mes en ETF en lugar de dejarlo en el banco. Una calculadora gratuita: sin registro y sin nada que comprar.`,
+      lead:`Tres cosas y listo. Lo demás lo vas aprendiendo sobre la marcha.`,
       quickH:`¿Tienes un caso concreto?`, q1c:`Ahorros en el banco`, q2c:`Comprar casa`, q3c:`Una herencia`, q4c:`Una casa que no uso`, q5c:`Comprar para alquilar`,
-      guidesH:`Primero, entiende los ETF`,
+      guidesH:`Lo primero: entender los ETF`,
       g1t:`¿Qué es un ETF?`,
-      g1d:`Explicado fácil, en 5 minutos, con un test rápido.`,
+      g1d:`En 5 minutos, sin tecnicismos. Con un test al final.`,
       g2t:`Cómo comprar tu primer ETF`,
-      g2d:`Paso a paso: bróker, cuenta, ETF, primera compra.`,
+      g2d:`Paso a paso: de abrir la cuenta a tu primera compra.`,
       g3t:`¿ETF o el fondo del banco?`,
-      g3d:`Cuánto suman de verdad los costes anuales con los años.`,
-      moreLearn:`¿Quieres saber más? Qué es un ETF, en 5 minutos →`,
-      moreFirst:`La guía completa, paso a paso →`,
+      g3d:`Lo que te cuesta de verdad el fondo del banco.`,
+      moreLearn:`¿Quieres saber más? Los ETF en 5 minutos →`,
+      moreFirst:`Todos los pasos, uno a uno →`,
       casesH:`¿Cuál es tu caso?`,
-      casesSub:`Guías breves con su propia calculadora, para las preguntas más comunes sobre invertir en ETF.`,
+      casesSub:`Las situaciones más comunes, cada una con sus números.`,
       c1t:`Tengo mis ahorros en el banco`,
       c1d:`Lo que tengo y lo que ahorro cada mes: ¿dejarlo ahí o invertir en ETF?`,
       c2t:`Quiero comprar una casa para vivir`,
@@ -938,109 +939,109 @@ details > div{padding:0 0 14px;color:var(--muted)}
       c5t:`Quiero comprar una casa para alquilar`,
       c5d:`¿O invertir el mismo dinero en ETF?`,
       h30:`Los ETF en 30 segundos`,
-      e1:`<b>Una cesta de empresas</b>Un <a class="term" href="#g-etf">ETF</a> contiene cientos o miles de empresas a la vez, como Apple, Nestlé o Toyota. Con una sola compra tienes un trocito de todas.`,
-      e2:`<b>Añades un poco cada mes</b>Cada mes, cuando cobras, metes algo más en tu ETF: es tu <a class="term" href="#g-pac">plan en ETF</a>. Algunos meses compras cuando los precios están altos y otros cuando están bajos. Con el tiempo se compensa.`,
-      e3:`<b>Tu trocito crece con las empresas</b>A largo plazo las empresas ganan más y valen más, y tu trocito con ellas. No todos los años, y a veces baja mucho. En 15–20 años, históricamente ha crecido.`,
-      change:`Cambiar mis respuestas`, ansEx:(sp,c,m)=>`Ejemplo: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`, ansYou:(sp,c,m)=>`Tus respuestas: gastos de ${sp} al mes, ${c} en el banco, ${m} al mes en ETF.`,
+      e1:`<b>Un trocito de muchas empresas</b>Con una sola compra te llevas un trocito de Apple, Nestlé, Toyota y cientos de empresas más, todas juntas. Eso se llama <a class="term" href="#g-etf">ETF</a>. Si a una empresa le va mal, las demás tiran del resto.`,
+      e2:`<b>Le añades un poco cada mes</b>Cada mes, cuando cobras, metes algo más: ese es tu <a class="term" href="#g-pac">plan en ETF</a>. Unos meses compras caro, otros compras barato. A la larga se compensa.`,
+      e3:`<b>Y esperas</b>Con el tiempo las empresas ganan más y valen más, y tu trocito con ellas. No todos los años: hay años malos. Pero a 15–20 años, históricamente, ha crecido.`,
+      change:`Cambiar mis respuestas`, ansEx:(sp,c,m)=>`Ejemplo: gastas ${sp} al mes, tienes ${c} en el banco y metes ${m} al mes en ETF.`, ansYou:(sp,c,m)=>`Tus números: gastas ${sp} al mes, tienes ${c} en el banco y metes ${m} al mes en ETF.`,
       hFut:`Lo que podrías tener`, lYears:`Mira lo que tendrías dentro de`, years:n=>`${n} años`,
       real:`Mostrar en euros de hoy (con un 2% de <a class="term" href="#g-infl">inflación</a> al año)`,
       scen:[[`Todo en el banco`,`No hacer nada`],[`ETF al 5%`,`Prudente`],[`ETF al 7%`,`Histórico normal`],[`ETF al 9%`,`Décadas buenas`]],
-      paidIn:p=>`Has aportado ${p} en total.`,
-      vsBank:d=>`${d} más que dejarlo en el banco`,
+      paidIn:p=>`Has metido ${p} en total.`,
+      vsBank:d=>`${d} más que dejándolo parado en el banco`,
       afterTax:(r,v)=>`Antes de impuestos. Si tus ganancias tributan, por ejemplo, al ${r}, te quedarían unos ${v}.`,
-      bankNom:v=>`Equivale a unos ${v} de hoy, porque los precios suben cada año.`,
-      bankReal:p=>`Has ahorrado ${p}, pero en euros de hoy te da para menos.`,
-      explainReal:(y,v)=>`Valores en euros de hoy. Dentro de ${y} años, 1.000 € comprarán lo que hoy compras con unos ${v}. Por eso el dinero parado en el banco pierde valor aunque la cifra de la cuenta no baje.`,
-      explainNom:`Valores tal como los verás en tu cuenta. Marca "euros de hoy" para ver lo que valen de verdad descontando la inflación.`,
+      bankNom:v=>`Parece mucho, pero en euros de hoy vale unos ${v}: los precios suben cada año.`,
+      bankReal:p=>`Has metido ${p}, pero con ese dinero compras menos que hoy.`,
+      explainReal:(y,v)=>`En euros de hoy. Dentro de ${y} años, con 1.000 € comprarás lo que hoy compras con unos ${v}. Por eso el dinero parado en el banco pierde valor aunque el número de la cuenta no baje.`,
+      explainNom:`Estos son los números que verás en la cuenta. Marca “euros de hoy” para ver lo que valen de verdad, quitando la inflación.`,
       chartAria:`Crecimiento del patrimonio a lo largo de los años en cada escenario`,
-      hRide:`Cómo se vive de verdad`,
-      ride1:`Los números de arriba son medias suaves. Los mercados reales suben y bajan, a veces mucho. Las bolsas mundiales cayeron más o menos a la mitad entre 2007 y 2009, y alrededor de un tercio en pocas semanas en 2020. Las dos veces se recuperaron: en pocos años después de 2009 y en pocos meses en 2020.`,
+      hRide:`Cómo es de verdad, sin filtros`,
+      ride1:`Los números de arriba son medias, todo muy bonito. La realidad no. Entre 2007 y 2009 las bolsas mundiales perdieron cerca de la mitad. En 2020, en pocas semanas, un tercio. Las dos veces volvieron a subir: la primera al cabo de unos años, la segunda en pocos meses.`,
       rideIll:`Ejemplo de un recorrido típico, no son datos reales`,
-      rideYou:(y,v,h)=>`Con tu plan, después de ${y} años tendrías unos <strong>${v}</strong> en ETF. En una caída como la de 2008 tu cuenta podría mostrar unos <strong>${h}</strong> durante un tiempo. Es el momento en que muchos principiantes venden y convierten una bajada temporal en una pérdida real. Si sigues con tu aportación mensual, estás comprando más barato.`,
-      rideYouNone:`Si sigues invirtiendo durante las caídas, con el mismo dinero compras más. Lo que convierte una caída en una pérdida real es vender en ese momento.`,
+      rideYou:(y,v,h)=>`Con tu plan, después de ${y} años tendrías unos <strong>${v}</strong> en ETF. En una caída como la de 2008, durante un tiempo la cuenta podría marcar unos <strong>${h}</strong>. Ahí es cuando mucha gente vende por miedo, y una pérdida en papel se convierte en una pérdida real. Si sigues añadiendo cada mes, estás comprando más barato.`,
+      rideYouNone:`Si en las caídas sigues comprando, con el mismo dinero te llevas más. La pérdida solo es real si vendes.`,
       ridePeak:`máximo`, rideLow:`mínimo`, rideBack:`recuperación`, rideStart:`tu dinero`,
       ruleEyebrow:`La regla del 3%`,
-      ruleH:y=>`Un segundo sueldo para siempre, dentro de ${y} años`,
+      ruleH:y=>`Dentro de ${y} años, un ingreso extra cada mes`,
       perMonth:` al mes`,
       ruleSub:v=>`El 3% al año de los ${v} que tendrías en ETF, con la media del 7%.`,
-      ruleTxt:`Después de estos años podrías dejar de aportar y retirar cada año el 3% de tus ETF como un ingreso mensual. Históricamente, retirar un 3% al año de una cartera casi toda en acciones ha durado 30 años o más en casi todos los periodos, y a menudo el capital ha seguido creciendo. Es una referencia, no una garantía. El fondo de emergencia se queda en el banco.`,
+      ruleTxt:`Funciona así: dejas de añadir y cada año sacas el 3% de lo que tienes. En el pasado, sacando un 3% al año de ETF casi todo en acciones, el dinero ha durado 30 años o más casi siempre, y muchas veces ha seguido creciendo. Es una referencia, no una promesa. El fondo de emergencia se queda en el banco.`,
       ruleOther:(t,v)=>`${t}: ${v} al mes`,
       hStart:`Cómo empezar esta semana`,
-      st1:`<b>Abre una cuenta en un bróker de bajo coste</b>El <a class="term" href="#g-broker">bróker</a> es el banco o la app donde compras y guardas tus ETF. Elige uno regulado en España o en la UE que cobre poco cada vez que compras.`,
-      st2:`<b>Busca un ETF, por ejemplo uno mundial</b>Una opción habitual para empezar sigue un <a class="term" href="#g-index">índice</a> de todo el mercado de acciones mundial, es de <a class="term" href="#g-acc">acumulación</a> y tiene un coste anual bajo (<a class="term" href="#g-ter">TER</a>), idealmente por debajo del 0,25%. Si quieres menos sustos, también vale un ETF todo en uno que incluya <a class="term" href="#g-bonds">bonos</a>. Son criterios, no una recomendación: compara varios antes de elegir.`,
-      st3:`<b>Añade cada mes y déjalo crecer</b>Cada mes, después de cobrar, añade el importe mensual de tu plan de arriba. Y no lo mires todos los días.`,
+      st1:`<b>Abre una cuenta en un bróker barato</b>El <a class="term" href="#g-broker">bróker</a> es la app o el banco donde compras y guardas los ETF. Que esté regulado en España o en la UE, y mira lo que te cobra cada vez que compras: cuanto menos, mejor.`,
+      st2:`<b>Elige un ETF mundial</b>Uno que siga un <a class="term" href="#g-index">índice</a> de todo el mundo (busca “MSCI World” o “All-World”), de <a class="term" href="#g-acc">acumulación</a> (“Acc” en el nombre) y que cueste poco al año (<a class="term" href="#g-ter">TER</a> por debajo del 0,25%). Si quieres menos sustos, vale también uno “todo en uno” con algo de <a class="term" href="#g-bonds">bonos</a>. No te digo cuál comprar: mira dos o tres y elige tú.`,
+      st3:`<b>Añade cada mes y déjalo tranquilo</b>Cada mes, después de cobrar, metes la cantidad de tu plan. Y no lo mires todos los días: no sirve de nada y solo te da ansiedad.`,
       hFaq:`Las preguntas que todo el mundo se hace`,
       q1:`¿Puedo perder dinero?`,
-      a1:`Sí, a corto plazo, y a veces durante algunos años. En 15 años o más, un ETF mundial históricamente ha terminado más arriba, pero no está garantizado. Por eso solo inviertes dinero que no vas a necesitar en mucho tiempo, y mantienes el fondo de emergencia en el banco.`,
+      a1:`Sí. A corto plazo sí, y a veces durante unos años. A 15 años o más un ETF mundial históricamente ha acabado más arriba, pero nadie te lo garantiza. Por eso solo metes dinero que no vas a necesitar en bastante tiempo, y el fondo de emergencia se queda en el banco.`,
       q2:`¿Y si necesito el dinero?`,
-      a2:`Puedes vender cualquier día que la bolsa esté abierta y el dinero llega en pocos días. Pero vender justo después de una caída hace que la pérdida sea definitiva. Para eso está el fondo de emergencia.`,
+      a2:`Lo vendes cuando quieras, cualquier día de bolsa abierta, y en pocos días lo tienes en la cuenta. Pero si vendes justo después de una caída, la pérdida se vuelve real. Para eso está el fondo de emergencia.`,
       q3:`¿Se pagan impuestos?`,
-      a3:`En España pagas entre el 19% y el 30% solo sobre las ganancias y solo cuando vendes, y lo declaras en la renta. Un detalle: los fondos indexados permiten traspasos entre fondos sin pagar impuestos y los ETF no. Los resultados de esta página son antes de impuestos.`,
+      a3:`En España pagas entre el 19% y el 30%, solo sobre lo que ganas y solo cuando vendes, y lo declaras en la renta. Ojo: los fondos indexados permiten pasar de un fondo a otro sin pagar impuestos (traspasos); los ETF no. Los números de esta página son antes de impuestos.`,
       q4:`¿Cuándo conviene empezar?`,
-      a4:`En cuanto tengas el fondo de emergencia, aunque sea con poco. Importa más el tiempo que pasas invertido que acertar el momento, y nadie sabe predecirlo.`,
+      a4:`En cuanto tengas el fondo de emergencia, aunque sea con poco. Cuenta más el tiempo que estás dentro que acertar el momento. El momento perfecto no lo sabe nadie.`,
       q5:`¿Cuánto necesito para empezar?`,
-      a5:`Menos de lo que crees. Con muchos brókers puedes comprar ETF con unas decenas de euros, y algunos no cobran nada por cada compra. Empieza con poco y súbelo cuando puedas. Antes, eso sí, guarda tu fondo de emergencia.`,
+      a5:`Menos de lo que crees. Con muchos brókers compras ETF con unas decenas de euros, y algunos no te cobran nada por compra. Empieza con poco y sube cuando puedas. Pero primero, el fondo de emergencia.`,
       q6:`¿Y si el bróker quiebra?`,
-      a6:`Tus ETF siguen siendo tuyos. Por ley el bróker tiene que mantener las inversiones de los clientes separadas de su propio dinero y no puede usarlas para pagar sus deudas: si quiebra, te las devuelven. Si faltara algo, el FOGAIN cubre hasta 100.000 € por inversor. Además, el dinero dentro del ETF lo custodia un banco depositario, separado de la gestora.`,
+      a6:`Tus ETF siguen siendo tuyos. Por ley el bróker tiene que tenerlos separados de su propio dinero y no puede usarlos para pagar sus deudas: si quiebra, te los devuelven. Si faltara algo, el FOGAIN te cubre hasta 100.000 €. Y el dinero de dentro del ETF lo guarda un banco aparte, no la gestora.`,
       q7:`¿ETF o el fondo que me ofrece el banco?`,
-      a7:`Compara los costes anuales. En Europa los ETF de acciones cuestan de media un 0,2% al año, y los fondos de acciones de gestión activa un 1,2–1,4% (ESMA, 2026), a menudo con comisiones de entrada aparte. En 20 años la diferencia puede valer decenas de miles de euros, y la mayoría de los fondos activos no bate a su índice a largo plazo. Pide al banco el coste total anual del fondo, por escrito. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Compara con tus cifras →</a>`,
-      whatEtf:`Un <b>ETF</b> es una cesta con miles de empresas dentro: compras un trocito de todas, incluso con pocos euros. Un <b>plan en ETF</b> es añadir un poco cada mes. <a href="#h-30">Qué es, en 30 segundos ↓</a>`,
+      a7:`Mira lo que cuestan al año. Un ETF de acciones cuesta de media un 0,2% al año. Un fondo de acciones de gestión activa, un 1,2–1,4% (ESMA, 2026), muchas veces con comisión de entrada encima. Parece poco, pero en 20 años son decenas de miles de euros. Y la mayoría de esos fondos, a la larga, lo hace peor que su índice. Pide al banco el coste total anual del fondo, por escrito. <a class="more-link" data-guide="fund" href="/etf-vs-bank-fund/">Haz la cuenta con tus números →</a>`,
+      whatEtf:`Con pocos euros compras un trocito de miles de empresas a la vez: eso es un <b>ETF</b>. Si le añades un poco cada mes, ese es tu <b>plan en ETF</b>. <a href="#h-30">Explicado en 30 segundos ↓</a>`,
       glossTitle:`Las palabras, explicadas`,
       gloss:[
-        ['g-etf',`ETF`,`Un fondo que compras y vendes en bolsa como si fuera una acción, pero que contiene muchas empresas a la vez.`],
-        ['g-acc',`Acumulación`,`Los dividendos no se te pagan: el fondo los reinvierte automáticamente. Es la forma más sencilla de hacer crecer el dinero.`],
-        ['g-bonds',`Bonos`,`Préstamos a gobiernos o empresas que pagan un interés. Se mueven menos que las acciones, así que dan más tranquilidad a la cartera, pero de media rinden menos.`],
-        ['g-infl',`Inflación`,`La subida de los precios con el tiempo. Al 2% anual, lo que hoy cuesta 100 € costará unos 149 € dentro de 20 años.`],
-        ['g-ter',`TER`,`El coste anual del ETF, en porcentaje. Un TER del 0,2% sobre 10.000 € son unos 20 € al año, descontados automáticamente del valor del fondo.`],
-        ['g-broker',`Bróker`,`El banco o la app donde compras, guardas y vendes tus ETF.`],
+        ['g-etf',`ETF`,`Un paquete de muchas empresas juntas que compras y vendes en bolsa como si fuera una sola acción.`],
+        ['g-acc',`Acumulación`,`Los dividendos (la parte de beneficios que reparten las empresas) no te los pagan: el fondo los vuelve a meter él solo. Así tu dinero crece sin que hagas nada.`],
+        ['g-bonds',`Bonos`,`Préstamos a gobiernos o empresas que te pagan un interés. Se mueven menos que las acciones: más tranquilos, pero de media rinden menos.`],
+        ['g-infl',`Inflación`,`Los precios que suben con el tiempo. Al 2% anual, lo que hoy cuesta 100 € dentro de 20 años costará unos 149 €.`],
+        ['g-ter',`TER`,`Lo que cuesta el ETF cada año. Con un TER del 0,2% sobre 10.000 € pagas unos 20 € al año, y te los descuentan solos del valor del fondo.`],
+        ['g-broker',`Bróker`,`La app o el banco donde compras, guardas y vendes tus ETF.`],
         ['g-pac',`Plan en ETF (aportación mensual)`,`Añadir cada mes algo de dinero a tus ETF, normalmente la misma cantidad. Tú eliges cuánto.`],
-        ['g-index',`Índice`,`Una lista de empresas que mide un mercado, por ejemplo el MSCI World (unas 1.300 grandes empresas de 23 países desarrollados). Un ETF copia un índice, así que contiene esas empresas.`],
-        ['g-isin',`ISIN`,`Un código de 12 caracteres que identifica un ETF concreto, como una matrícula. Lo escribes en la app del bróker para encontrar justo ese ETF.`]
+        ['g-index',`Índice`,`Una lista de empresas elegida con reglas fijas. El MSCI World, por ejemplo, son unas 1.300 grandes empresas de 23 países. El ETF copia la lista y punto.`],
+        ['g-isin',`ISIN`,`Un código de 12 caracteres, como una matrícula. Lo escribes en la app del bróker y encuentras justo ese ETF.`]
       ],
       hSup:`¿Te ha sido útil?`,
       supTxt:`Soy Marco, un ingeniero que también invierte en ETF. Esta página es gratuita, sin publicidad y sin enlaces de afiliado. Si te ha servido, puedes invitarme a un café.`,
       hSupNo:`Quién la ha hecho`,
       supTxtNo:`Soy Marco, un ingeniero que también invierte en ETF. Esta página es gratuita, sin publicidad y sin enlaces de afiliado.`,
       coffee:`Invítame a un café`,
-      taxNote:`<b>Los impuestos cambian, y varían.</b> Las normas fiscales cambian a menudo, a veces cada año, y dependen del país, de la comunidad autónoma y de tu situación personal. Lo que lees aquí es un resumen general, revisado en octubre de 2026: comprueba siempre las normas vigentes con un gestor o asesor fiscal antes de decidir.`,
-      disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta educativa con estimaciones aproximadas. Las rentabilidades no están garantizadas y cambian cada año; aquí son medias constantes. Los impuestos y las comisiones no están incluidos en los resultados. La cuenta del banco se calcula sin intereses. Invertir en ETF conlleva el riesgo de perder dinero. Infórmate bien o habla con un asesor cualificado antes de invertir en ETF.`,
-      fbQ:`¿Se entiende este resultado?`,
-      fbYes:`Sí, se entiende`,
+      taxNote:`<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en octubre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.`,
+      disc:`<strong>No es asesoramiento financiero.</strong> Es una herramienta para entender, con estimaciones. Las rentabilidades no están garantizadas y cambian cada año: aquí son medias. Los impuestos y las comisiones no están en los resultados, y la cuenta del banco se calcula sin intereses. Invertir en ETF significa que también puedes perder dinero. Infórmate bien, o habla con un asesor, antes de invertir en ETF.`,
+      fbQ:`¿Se entiende?`,
+      fbYes:`Sí, claro`,
       fbNo:`No mucho`,
-      fbMore:`¿Qué lo haría más claro? (opcional)`,
+      fbMore:`¿Qué no se entiende? (si quieres)`,
       fbSend:`Enviar`,
-      fbThanks:`¡Gracias! Cada respuesta ayuda a mejorar la página.`,
-      fbH:`¿Qué falta?`,
-      fbTxt:`¿Algo que no has entendido, una duda que te queda, una idea? Escríbela aquí. No hace falta nombre ni email.`,
+      fbThanks:`¡Gracias! Cada respuesta me ayuda a mejorar la página.`,
+      fbH:`¿Falta algo?`,
+      fbTxt:`¿Algo que no has entendido, una duda, una idea? Escríbela aquí. Sin nombre, sin email.`,
       fbLabel:`Tu mensaje`,
       fbErr:`No se ha podido enviar. Inténtalo de nuevo en un momento.`,
       privacy:`Privacidad: sin cookies y sin datos personales. Para mejorar la página contamos visitas y clics de forma anónima, con un código que cambia cada día y no permite identificarte. Los comentarios se guardan sin nombres.`,
       today:`hoy`, yAbbr:`a`,
-      w:{badge:'Gratis · 10 minutos', h1:'Tu primer <em>plan en ETF</em>, en 10 minutos.',
-      sub:'Responde 3 preguntas. Al final tienes tu plan en una página: cuánto dejar en el banco, cuánto invertir en ETF cada mes, qué buscar en un ETF y cómo programarlo.',
+      w:{badge:'Gratis · 10 minutos', h1:'El dinero parado en el banco pierde valor. <em>Mira lo que puedes hacer, en 10 minutos.</em>',
+      sub:'Responde 3 preguntas y te preparo un plan en una página: cuánto dejar en el banco, cuánto meter en ETF cada mes y cómo empezar. Te enseño lo que hago yo, y luego decides tú.',
       heroAlt:'Un calendario envía monedas a un tarro, del que crece un árbol',
       start:'Crear mi plan', t1:'Gratis', t2:'Sin registro', t3:'Sin publicidad',
       getH:'Al final tendrás', g1:'Un colchón de seguridad', g2:'Un importe mensual', g3:'Qué buscar en un ETF',
       step:(i)=>`Pregunta ${i} de 3`, next:'Siguiente', last:'Ver mi plan', back:'Atrás',
       qs:[
-        {h:'¿Cuánto gastas al mes?', p:'Alquiler, comida, facturas, todo. Vale un número aproximado.'},
-        {h:'¿Cuánto dinero tienes en el banco hoy?', p:'Ahorros que podrías usar. Sin contar lo que necesitas este mes.'},
-        {h:'¿Cuánto puedes ahorrar cada mes?', p:'Lo que normalmente te sobra a final de mes.'}],
-      rEyebrow:'Tu plan', rH:'Esto es lo que tienes que hacer',
-      keep:'Deja en el banco', keepP:'6 meses de gastos, para imprevistos. Así nunca tienes que vender tus ETF en un mal momento.',
-      keepGap:(g,m)=>`Te faltan ${g}: ${m===1?'el primer mes':'durante los primeros '+m+' meses'} el ahorro va aquí y después empieza el ETF.`,
-      now:'Invierte ya', nowP:'Lo que tienes por encima del colchón. Todo de golpe o repartido en 6–12 meses.',
+        {h:'¿Cuánto gastas al mes?', p:'Alquiler o hipoteca, comida, facturas, todo. Vale un número a ojo.'},
+        {h:'¿Cuánto dinero tienes hoy en el banco?', p:'Los ahorros que tienes, sin contar lo que necesitas este mes.'},
+        {h:'¿Cuánto te sobra a final de mes?', p:'Lo que normalmente consigues ahorrar.'}],
+      rEyebrow:'Tu plan', rH:'Este es tu plan',
+      keep:'Deja en el banco', keepP:'6 meses de gastos, para cuando algo se rompe. Así nunca tienes que vender tus ETF en mal momento.',
+      keepGap:(g,m)=>`Te faltan ${g}: ${m===1?'el primer mes':'durante los primeros '+m+' meses'} el ahorro va aquí y después empiezas con los ETF.`,
+      now:'Invierte ya', nowP:'Lo que tienes por encima del colchón. Todo de golpe o en 6–12 veces: lo que te deje dormir más tranquilo.',
       monthly:'Cada mes en un ETF', monthlyP:'Cada mes, después de cobrar, añade esta cantidad a tus ETF.',
       monthlyNone:'Por ahora nada', monthlyNoneP:'Primero busca un pequeño margen cada mes, aunque sean 50 €. Después vuelve aquí.',
-      etf:'Qué buscar', etfAmt:'Por ejemplo, un ETF mundial', etfP:'Una opción habitual para empezar: miles de empresas de todo el mundo, de acumulación, coste anual (TER) por debajo del 0,25%. Es un ejemplo, no una recomendación: compara varios antes de elegir.',
+      etf:'Qué buscar', etfAmt:'Por ejemplo, un ETF mundial', etfP:'Uno que compre todo el mundo: miles de empresas, “Acc” en el nombre, coste anual (TER) por debajo del 0,25%. Es un ejemplo, no te digo cuál: mira dos o tres y elige tú.',
       where:'Dónde', whereAmt:'Un bróker de bajo coste', whereP:'Regulado en España o en la UE, y que cobre poco cada vez que compras.',
       gLab:y=>`Dentro de ${y} años podrías tener`, gRng:(lo,hi)=>`Entre ${lo} y ${hi}, según los mercados (5–9% al año, aquí el 7%).`,
       gVs:(d)=>`Es decir, <strong>${d} más</strong> que dejarlo en el banco.`,
       years:n=>`${n} años`, yrsAria:'Años',
-      honest:'Con sinceridad: habrá años en rojo. En 2008 las bolsas mundiales casi se redujeron a la mitad y se recuperaron en pocos años. El plan funciona si sigues.',
+      honest:'Te lo digo claro: habrá años en rojo. En 2008 las bolsas mundiales perdieron casi la mitad y tardaron unos años en volver. El plan funciona si no lo dejas.',
       full:'Ver todos los detalles abajo', print:'Guardar / imprimir mi plan', again:'Empezar de nuevo',
-      share:'Envíaselo a un amigo', shareText:'Gratis y sencillo: tu primer plan para invertir en ETF en 10 minutos. Sin registro.', shared:'Enlace copiado ✓',
-      whoH:'Lo hice para mi hermano, ahora es para todos', who:'Soy Marco, un ingeniero que invierte en ETF. Empecé para explicarle a mi hermano cómo funcionan los ETF, y luego lo hice para cualquiera que quiera entenderlos: gratis, sin publicidad, sin enlaces de afiliado, sin registro.', whoAlt:'Dos hermanos, uno abraza al otro'
+      share:'Envíaselo a un amigo', shareText:'Gratis y sin registro: tu primer plan para invertir en ETF en 10 minutos.', shared:'Enlace copiado ✓',
+      whoH:'Lo hice para mi hermano, ahora es para todos', who:'Soy Marco, ingeniero. Yo también invierto en ETF. Empecé esta página para explicárselo a mi hermano, y luego pensé que le podía servir a mucha gente. No vendo nada: ni publicidad, ni enlaces de afiliado, ni registro.', whoAlt:'Dos hermanos, uno abraza al otro'
       }
     }
   };
