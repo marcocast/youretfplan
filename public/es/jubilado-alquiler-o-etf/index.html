@@ -194,6 +194,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 .income .inc-note{grid-column:1/-1;margin:0}
 .income span b{display:inline;font:inherit;font-weight:800;color:var(--ink)}
 .pain li{margin-bottom:2px}
+.howcalc{margin:0;background:var(--bg);border:2px dashed var(--ink);border-radius:14px;padding:12px 14px;font-size:.95rem}
 </style>
 <script type="application/ld+json">
 [
@@ -325,22 +326,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <p class="note" data-t="hrentNote">Al mes, antes de impuestos.</p>
     </div>
     <div class="ctrl">
-      <div class="ctrl-head"><label for="mix" data-t="lMix">Cuánto en acciones</label><span class="ctrl-val num" id="mix-out">40&nbsp;%</span></div>
-      <input type="range" id="mix" min="0" max="100" step="10" value="40">
-      <p class="note" id="mix-note">40&nbsp;% acciones (crecen más, pero suben y bajan más) y 60&nbsp;% bonos (más tranquilos). Rentabilidad esperada de unos 4,9&nbsp;% al año de media, no garantizada.</p>
-    </div>
-    <div class="ctrl">
-      <div class="ctrl-head"><label for="wr" data-t="lWr">Cuánto sacas cada año</label><span class="ctrl-val num" id="wr-out">3,5&nbsp;% · 499&nbsp;€/mes</span></div>
-      <input type="range" id="wr" min="2" max="6" step="0.25" value="3.5">
-      <p class="note" data-t="wrNote">En % del dinero inicial, subiéndolo cada año con los precios. Un 3–4% es una elección habitual para una jubilación que dure.</p>
-    </div>
-    <div class="ctrl">
       <div class="ctrl-head"><label for="hyears" data-t="lYears">Mira cómo va dentro de</label><span class="ctrl-val num" id="hyears-out">20 años</span></div>
       <input type="range" id="hyears" min="5" max="35" step="1" value="20">
     </div>
     <details class="assume">
       <summary data-t="assumeH">Venta, gastos y supuestos (toca para cambiarlos)</summary>
       <div>
+        <div class="ctrl">
+          <div class="ctrl-head"><label for="mix" data-t="lMix">Cuánto en acciones (nosotros decimos 40%)</label><span class="ctrl-val num" id="mix-out">40&nbsp;%</span></div>
+          <input type="range" id="mix" min="0" max="100" step="10" value="40">
+          <p class="note" id="mix-note">40&nbsp;% acciones y 60&nbsp;% bonos. Rentabilidad esperada de unos 4,9&nbsp;% al año de media, no garantizada. Más acciones rinden más pero suben y bajan más.</p>
+        </div>
         <div class="ctrl">
           <div class="ctrl-head"><label for="paid" data-t="lPaid">Lo que pagaste por él</label><span class="ctrl-val num" id="paid-out">100.000&nbsp;€</span></div>
           <input type="range" id="paid" min="0" max="2000000" step="5000" value="100000">
@@ -375,8 +371,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
       </div>
     </details>
 
+    <p class="howcalc" id="howcalc"><b>Cuánto puedes sacar te lo decimos nosotros.</b> Usamos una mezcla tranquila: 40% acciones y 60% bonos, que de media rinde un 4,9&nbsp;% al año. Quitando la subida de precios, queda un 2,9&nbsp;% al año: es lo que puedes sacar sin comerte el capital. Sobre tus 171.100&nbsp;€ son unos <b>413&nbsp;€ al mes</b>, que suben cada año con los precios.</p>
     <h3 data-t="incH">Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)</h3>
-    <div class="income" id="income"><div><b>371&nbsp;€</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span></div><div><b>468&nbsp;€</b><span>al mes si lo <b>vendes e inviertes en ETF</b>: lo que sacas, menos los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy.</p></div>
+    <div class="income" id="income"><div><b>371&nbsp;€</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span></div><div><b>388&nbsp;€</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, sin tocar el capital, quitando los impuestos sobre la ganancia</span></div><p class="note inc-note">Media de los primeros 10 años, en euros de hoy.</p></div>
+    <p class="note" id="more">Si necesitaras más, por ejemplo 570&nbsp;€ al mes, se puede: pero el capital baja poco a poco, y dentro de 20 años te quedarían unos 122.302&nbsp;€ (a ese ritmo dura unos 47 años).</p>
 
     <h3 data-t="cashH">Dinero que puedes usar cuando quieras</h3>
     <div class="income" id="cash"><div><b>0 €</b><span>con el piso: para tener el dinero hay que venderlo, y lleva meses</span></div><div><b>171.100&nbsp;€</b><span>con los ETF: vendes un trozo cualquier día de bolsa abierta</span></div></div>
@@ -384,9 +382,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="res-head" id="h-head">Dentro de 20 años, lo que te queda, en euros de hoy:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bHouse">Sigues alquilando <small>el valor del piso (sin vender)</small></span><span class="val num" id="v-house">200.000&nbsp;€</span><div class="track"><div class="fill" id="f-house" style="background: var(--coral); width: 95.2%;"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bPort">Lo vendes e inviertes en ETF <small>lo que queda después de todo lo que has sacado</small></span><span class="val num" id="v-port">144.483&nbsp;€</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 68.8%;"></div></div></div>
+      <div class="bar"><span class="lab" data-t="bPort">Lo vendes e inviertes en ETF <small>el capital que te queda, después de sacar dinero cada mes</small></span><span class="val num" id="v-port">171.100&nbsp;€</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 81.5%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict">Después de 20 años sacando dinero cada mes, todavía tendrías unos <b class="gain">144.483&nbsp;€</b> en ETF.</p>
+    <p class="verdict" id="verdict">El capital se queda entero: después de 20 años todavía tienes unos <b class="gain">171.100&nbsp;€</b> en ETF, en euros de hoy, y mientras tanto cada mes has cobrado tu ingreso. De media: en los años malos baja, y luego vuelve a subir.</p>
     <p class="note" id="crash">Te lo digo claro: en un año malo como 2022 las carteras mixtas de acciones y bonos perdieron en torno a un 13–16%. Sobre tu dinero significa ver unos 25.665&nbsp;€ menos durante un tiempo. Guarda 1–2 años de retiradas en un depósito, y en los años malos no tienes que vender nada.</p>
     <p class="note" data-t="calcNote">Acciones 7% y bonos 3,5% al año de media, precios +2% al año. El alquiler sube con los precios. Estimaciones para entender, no una promesa.</p>
   </section>
@@ -466,7 +464,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       painEnd:'In the end you’re a bit of a hostage in your own flat. It doesn’t have to be that way: below you can see the other way, with your numbers.',
       calcH:'Your flat',
       lValue:'What the flat is worth today', lHrent:'Rent you get now', hrentNote:'Per month, before taxes.',
-      lMix:'How much in shares', mixNote:(s,b,r)=>`${s} shares (they grow more, but swing more) and ${b} bonds (calmer). Expected return about ${r} a year on average, not guaranteed.`,
+      lMix:'How much in shares (we suggest 40%)', mixNote:(s,b,r)=>`${s} shares and ${b} bonds. Expected return about ${r} a year on average, not guaranteed. More shares earn more but swing more.`,
       lWr:'How much you take out each year', wrNote:'% of the money you start with, raised every year with prices. 3–4% is a common choice for a retirement that lasts.',
       lYears:'See how it looks in', years:n=>n+(n===1?' year':' years'),
       assumeH:'Sale, costs and assumptions (tap to change)',
@@ -475,17 +473,20 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the contract.', lEmpty:'Months with no rent per year', lHgrow:'House value growth per year',
       incH:'Money in your pocket each month (after taxes and costs)',
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
-      incPort:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>: what you take out, minus tax on the gains</span>`,
+      incPort:v=>`<b>${v}</b><span>a month if you <b>sell and invest in ETFs</b>, without touching the capital, after tax on the gains</span>`,
+      howCalc:(r,k,p,m)=>`<b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about ${r} a year. Take away rising prices and there’s about ${k} a year left: that’s what you can take without eating into your capital. On your ${p} that’s about <b>${m} a month</b>, going up every year with prices.`,
+      more:(m,y,left,gone)=>`If you needed more, say ${m} a month, you can: but the capital goes down slowly, and in ${y} years about ${left} would be left${gone}.`,
+      moreGone:n=>` (at that pace it lasts about ${n} years)`,
       incNote:'Average of the first 10 years, in today’s money.',
       cashH:'Money you can use when you want',
       cashRent:`<b>€0</b><span>with the flat: to get money out you have to sell it, and that takes months</span>`,
       cashPort:v=>`<b>${v}</b><span>with ETFs: you can sell a piece any day the market is open</span>`,
       hHead:y=>`In ${y} years, what’s left, in today’s money:`,
-      bHouse:'Keep renting <small>the flat’s value (not sold)</small>', bPort:'Sell and invest in ETFs <small>what’s left after all the money you took out</small>',
-      vOk:(y,v)=>`After ${y} years of taking money out every month, you’d still have about <b class="gain">${v}</b> in ETFs.`,
+      bHouse:'Keep renting <small>the flat’s value (not sold)</small>', bPort:'Sell and invest in ETFs <small>the capital left, after taking money out every month</small>',
+      vOk:(y,v)=>`Your capital stays whole: after ${y} years you still have about <b class="gain">${v}</b> in ETFs, in today’s money, and meanwhile you took your income every month. On average: in bad years it drops, then comes back.`,
       vOut:(n)=>`At this pace the money lasts about <b class="loss">${n} years</b>. Take out a bit less, or put more in bonds and less in shares, and it lasts longer.`,
       crash:(v)=>`Honestly: in a bad year like 2022, mixed shares-and-bonds portfolios lost around 13–16%. On your money that means seeing about ${v} less for a while. Keep 1–2 years of withdrawals in a deposit and you never have to sell in a bad year.`,
-      calcNote:'Shares 7% and bonds 3.5% a year on average, prices +2% a year. The rent grows with prices. Estimates to help you understand, not a promise.',
+      calcNote:'Shares 7% and bonds 3.5% a year on average, prices +2% a year. Rent grows with prices. Estimates to help you understand, not a promise.',
       whyH:'Why not everything in shares',
       whyL:'<li><b>When you’re retired, you’re taking money out.</b> If markets fall just as you start, you sell low and the money lasts less.</li><li><b>Bonds are the brakes:</b> loans to governments that pay interest. They move less, so in a bad year you can live on them while shares recover.</li><li><b>Fewer swings, less stress:</b> a calmer mix earns less, but it lets you sleep. At 70 that counts more than one extra percent.</li>',
       howH:'How it works in practice',
@@ -514,7 +515,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       painEnd:'Alla fine sei un po’ ostaggio della tua stessa casa. Non deve per forza essere così: qui sotto vedi l’altra strada, con i tuoi numeri.',
       calcH:'La tua casa',
       lValue:'Quanto vale oggi la casa', lHrent:'Affitto che prendi adesso', hrentNote:'Al mese, prima delle tasse.',
-      lMix:'Quanto in azioni', mixNote:(s,b,r)=>`${s} azioni (crescono di più, ma vanno su e giù di più) e ${b} obbligazioni (più tranquille). Rendimento atteso circa ${r} l’anno in media, non garantito.`,
+      lMix:'Quanto in azioni (noi diciamo 40%)', mixNote:(s,b,r)=>`${s} azioni e ${b} obbligazioni. Rendimento atteso circa ${r} l’anno in media, non garantito. Più azioni rendono di più ma vanno su e giù di più.`,
       lWr:'Quanto prelevi ogni anno', wrNote:'In % dei soldi di partenza, aumentato ogni anno con i prezzi. Il 3–4% è una scelta comune per una pensione che dura.',
       lYears:'Vedi come va tra', years:n=>n+(n===1?' anno':' anni'),
       assumeH:'Vendita, costi e ipotesi (tocca per cambiarle)',
@@ -523,14 +524,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi senza affitto all’anno', lHgrow:'Crescita del valore della casa all’anno',
       incH:'Quanto ti entra in tasca ogni mese (tolte tasse e costi)',
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
-      incPort:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>: quello che prelevi, meno le tasse sui guadagni</span>`,
+      incPort:v=>`<b>${v}</b><span>al mese se la <b>vendi e investi in ETF</b>, senza toccare il capitale, tolte le tasse sui guadagni</span>`,
+      howCalc:(r,k,p,m)=>`<b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa ${r} l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa ${k} l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi ${p} fanno circa <b>${m} al mese</b>, che salgono ogni anno con i prezzi.`,
+      more:(m,y,left,gone)=>`Se ti servisse di più, per esempio ${m} al mese, si può: però il capitale scende piano, e tra ${y} anni ne resterebbero circa ${left}${gone}.`,
+      moreGone:n=>` (a quel ritmo durano circa ${n} anni)`,
       incNote:'Media dei primi 10 anni, in euro di oggi.',
       cashH:'Soldi che puoi usare quando vuoi',
       cashRent:`<b>0 €</b><span>con la casa: per avere i soldi la devi vendere, e ci vogliono mesi</span>`,
       cashPort:v=>`<b>${v}</b><span>con gli ETF: ne vendi un pezzo in qualsiasi giorno di borsa aperta</span>`,
       hHead:y=>`Tra ${y} anni, quanto ti resta, in euro di oggi:`,
-      bHouse:'Continui ad affittarla <small>il valore della casa (non venduta)</small>', bPort:'La vendi e investi in ETF <small>quello che resta dopo tutti i prelievi</small>',
-      vOk:(y,v)=>`Dopo ${y} anni di prelievi ogni mese, avresti ancora circa <b class="gain">${v}</b> in ETF.`,
+      bHouse:'Continui ad affittarla <small>il valore della casa (non venduta)</small>', bPort:'La vendi e investi in ETF <small>il capitale che ti resta, dopo aver prelevato ogni mese</small>',
+      vOk:(y,v)=>`Il capitale resta intero: dopo ${y} anni hai ancora circa <b class="gain">${v}</b> in ETF, in euro di oggi, e intanto ogni mese ti sei preso la tua entrata. In media: negli anni brutti scende, poi risale.`,
       vOut:(n)=>`A questo ritmo i soldi durano circa <b class="loss">${n} anni</b>. Prelevando un po’ meno, o mettendo più obbligazioni e meno azioni, durano di più.`,
       crash:(v)=>`Te lo dico chiaro: in un anno brutto come il 2022 i portafogli misti di azioni e obbligazioni hanno perso intorno al 13–16%. Sui tuoi soldi vuol dire vedere circa ${v} in meno per un po’. Tieni 1–2 anni di prelievi su un conto deposito, e negli anni brutti non devi vendere niente.`,
       calcNote:'Azioni 7% e obbligazioni 3,5% l’anno in media, prezzi +2% l’anno. L’affitto cresce con i prezzi. Stime per capire, non una promessa.',
@@ -562,7 +566,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       painEnd:'Al final eres un poco rehén de tu propio piso. No tiene por qué ser así: aquí abajo ves el otro camino, con tus números.',
       calcH:'Tu piso',
       lValue:'Lo que vale hoy el piso', lHrent:'Alquiler que cobras ahora', hrentNote:'Al mes, antes de impuestos.',
-      lMix:'Cuánto en acciones', mixNote:(s,b,r)=>`${s} acciones (crecen más, pero suben y bajan más) y ${b} bonos (más tranquilos). Rentabilidad esperada de unos ${r} al año de media, no garantizada.`,
+      lMix:'Cuánto en acciones (nosotros decimos 40%)', mixNote:(s,b,r)=>`${s} acciones y ${b} bonos. Rentabilidad esperada de unos ${r} al año de media, no garantizada. Más acciones rinden más pero suben y bajan más.`,
       lWr:'Cuánto sacas cada año', wrNote:'En % del dinero inicial, subiéndolo cada año con los precios. Un 3–4% es una elección habitual para una jubilación que dure.',
       lYears:'Mira cómo va dentro de', years:n=>n+(n===1?' año':' años'),
       assumeH:'Venta, gastos y supuestos (toca para cambiarlos)',
@@ -571,14 +575,17 @@ details > div{padding:0 0 14px;color:var(--muted)}
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.', lEmpty:'Meses sin alquilar al año', lHgrow:'Revalorización del piso al año',
       incH:'Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)',
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
-      incPort:v=>`<b>${v}</b><span>al mes si lo <b>vendes e inviertes en ETF</b>: lo que sacas, menos los impuestos sobre la ganancia</span>`,
+      incPort:v=>`<b>${v}</b><span>al mes si lo <b>vendes e inviertes en ETF</b>, sin tocar el capital, quitando los impuestos sobre la ganancia</span>`,
+      howCalc:(r,k,p,m)=>`<b>Cuánto puedes sacar te lo decimos nosotros.</b> Usamos una mezcla tranquila: 40% acciones y 60% bonos, que de media rinde un ${r} al año. Quitando la subida de precios, queda un ${k} al año: es lo que puedes sacar sin comerte el capital. Sobre tus ${p} son unos <b>${m} al mes</b>, que suben cada año con los precios.`,
+      more:(m,y,left,gone)=>`Si necesitaras más, por ejemplo ${m} al mes, se puede: pero el capital baja poco a poco, y dentro de ${y} años te quedarían unos ${left}${gone}.`,
+      moreGone:n=>` (a ese ritmo dura unos ${n} años)`,
       incNote:'Media de los primeros 10 años, en euros de hoy.',
       cashH:'Dinero que puedes usar cuando quieras',
       cashRent:`<b>0 €</b><span>con el piso: para tener el dinero hay que venderlo, y lleva meses</span>`,
       cashPort:v=>`<b>${v}</b><span>con los ETF: vendes un trozo cualquier día de bolsa abierta</span>`,
       hHead:y=>`Dentro de ${y} años, lo que te queda, en euros de hoy:`,
-      bHouse:'Sigues alquilando <small>el valor del piso (sin vender)</small>', bPort:'Lo vendes e inviertes en ETF <small>lo que queda después de todo lo que has sacado</small>',
-      vOk:(y,v)=>`Después de ${y} años sacando dinero cada mes, todavía tendrías unos <b class="gain">${v}</b> en ETF.`,
+      bHouse:'Sigues alquilando <small>el valor del piso (sin vender)</small>', bPort:'Lo vendes e inviertes en ETF <small>el capital que te queda, después de sacar dinero cada mes</small>',
+      vOk:(y,v)=>`El capital se queda entero: después de ${y} años todavía tienes unos <b class="gain">${v}</b> en ETF, en euros de hoy, y mientras tanto cada mes has cobrado tu ingreso. De media: en los años malos baja, y luego vuelve a subir.`,
       vOut:(n)=>`A este ritmo el dinero dura unos <b class="loss">${n} años</b>. Sacando un poco menos, o con más bonos y menos acciones, dura más.`,
       crash:(v)=>`Te lo digo claro: en un año malo como 2022 las carteras mixtas de acciones y bonos perdieron en torno a un 13–16%. Sobre tu dinero significa ver unos ${v} menos durante un tiempo. Guarda 1–2 años de retiradas en un depósito, y en los años malos no tienes que vender nada.`,
       calcNote:'Acciones 7% y bonos 3,5% al año de media, precios +2% al año. El alquiler sube con los precios. Estimaciones para entender, no una promesa.',
@@ -618,36 +625,50 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   function render(){
     const V0=+$('hvalue').value, R0=+$('hrent').value, Y=+$('hyears').value, paid=+$('paid').value;
-    const s=+$('mix').value/100, wr=+$('wr').value/100;
+    const s=+$('mix').value/100;
     const oc=+$('ocost').value/100, tax=+$('rtax').value/100, emptyM=+$('empty').value, sc=+$('scost').value/100, g=+$('hgrow').value/100, gt=+$('gtax').value/100;
-    const r=s*STOCKS+(1-s)*BONDS, et=etaxFor(lang,s);
+    const r=s*STOCKS+(1-s)*BONDS, et=etaxFor(lang,s), grow=(1+r)*(1-BOLLO[lang]);
     // Sell today: price minus selling costs, minus tax on the gain over what you paid.
     const net0=V0*(1-sc), P0=net0-Math.max(0,net0-paid)*gt;
-    // Year by year: the portfolio grows at the mix's average; each year you take out wr of the starting money, raised with prices.
-    let P=P0, basis=P0, Vh=V0, rentSum=0, portSum=0, lasts=null;
+    // What you can take out each year without eating into the capital: the return left after rising prices.
+    const keep=Math.max(0,grow-(1+INFL)), more=Math.max(0.04,keep+0.01);
+    // Year by year with a given yearly rate (of the starting money, raised with prices).
+    function run(rate){
+      let P=P0, basis=P0, sum=0, lasts=null, end=0;
+      for(let t=1;t<=Math.max(Y,10)||(lasts===null&&t<=60);t++){
+        const d=Math.pow(1+INFL,t);
+        P*=grow;
+        const w=Math.min(P,rate*P0*Math.pow(1+INFL,t-1));
+        const gain=P>0?Math.max(0,1-basis/P):0, tx=w*gain*et;
+        basis*=P>0?1-w/P:0; P-=w;
+        if(t<=10)sum+=(w-tx)/d;
+        if(P<=1&&lasts===null)lasts=t;
+        if(t===Y)end=Math.max(0,P)/d;
+        if(t>=Math.max(Y,10)&&(lasts!==null||t>=60))break;
+      }
+      return {month:sum/120,end,lasts};
+    }
+    const base=run(keep), hi=run(more);
+    let Vh=V0, rentSum=0, houseEnd=0;
     for(let t=1;t<=Math.max(Y,10);t++){
       const d=Math.pow(1+INFL,t);
-      P*=(1+r)*(1-BOLLO[lang]);
-      let w=Math.min(P,wr*P0*Math.pow(1+INFL,t-1));
-      const gain=P>0?Math.max(0,1-basis/P):0, tx=w*gain*et;
-      basis*=P>0?1-w/P:0; P-=w;
       const netRent=R0*Math.pow(1+INFL,t-1)*(12-emptyM)*(1-tax)-Vh*oc; Vh*=1+g;
-      if(t<=10){rentSum+=netRent/d; portSum+=(w-tx)/d}
-      if(P<=1&&lasts===null)lasts=t;
-      if(t===Y){var houseEnd=Vh/d, portEnd=Math.max(0,P)/d}
+      if(t<=10)rentSum+=netRent/d;
+      if(t===Y)houseEnd=Vh/d;
     }
     $('hvalue-out').textContent=fmt(V0); $('hrent-out').textContent=fmt(R0); $('hyears-out').textContent=L.years(Y);
     $('mix-out').textContent=pct(s); $('mix-note').textContent=L.mixNote(pct(s),pct(1-s),pct(r));
-    $('wr-out').textContent=pct(wr)+' · '+fmt(wr*P0/12)+'/'+({en:'mo',it:'mese',es:'mes'})[lang];
     $('paid-out').textContent=fmt(paid); $('gtax-out').textContent=pct(gt); $('scost-out').textContent=pct(sc);
     $('ocost-out').textContent=pct(oc); $('rtax-out').textContent=pct(tax); $('empty-out').textContent=String(emptyM).replace('.',L.locale==='en-IE'?'.':','); $('hgrow-out').textContent=pct(g);
-    $('income').innerHTML='<div>'+L.incRent(fmt(Math.max(0,rentSum/120)))+'</div><div>'+L.incPort(fmt(portSum/120))+'</div><p class="note inc-note">'+L.incNote+'</p>';
+    $('howcalc').innerHTML=L.howCalc(pct(r),pct(keep),fmt(P0),fmt(keep*P0/12));
+    $('income').innerHTML='<div>'+L.incRent(fmt(Math.max(0,rentSum/120)))+'</div><div>'+L.incPort(fmt(base.month))+'</div><p class="note inc-note">'+L.incNote+'</p>';
+    $('more').textContent=L.more(fmt(more*P0/12),Y,fmt(hi.end),hi.lasts!==null?L.moreGone(hi.lasts):'');
     $('cash').innerHTML='<div>'+L.cashRent+'</div><div>'+L.cashPort(fmt(P0))+'</div>';
     $('h-head').textContent=L.hHead(Y);
-    $('v-house').textContent=fmt(houseEnd); $('v-port').textContent=fmt(portEnd);
-    const top=Math.max(houseEnd,portEnd,1)*1.05;
-    $('f-house').style.width=Math.max(1,houseEnd/top*100).toFixed(1)+'%'; $('f-port').style.width=Math.max(1,portEnd/top*100).toFixed(1)+'%';
-    $('verdict').innerHTML=lasts!==null&&lasts<=Y?L.vOut(lasts):L.vOk(Y,fmt(portEnd));
+    $('v-house').textContent=fmt(houseEnd); $('v-port').textContent=fmt(base.end);
+    const top=Math.max(houseEnd,base.end,1)*1.05;
+    $('f-house').style.width=Math.max(1,houseEnd/top*100).toFixed(1)+'%'; $('f-port').style.width=Math.max(1,base.end/top*100).toFixed(1)+'%';
+    $('verdict').innerHTML=L.vOk(Y,fmt(base.end));
     $('crash').textContent=L.crash(fmt(P0*0.15));
   }
 
@@ -670,7 +691,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     lang=k;countryDefaults();applyLang();
   }
   ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
-  const INPUTS=['hvalue','hrent','mix','wr','hyears','paid','gtax','scost','ocost','rtax','empty','hgrow'];
+  const INPUTS=['hvalue','hrent','hyears','mix','paid','gtax','scost','ocost','rtax','empty','hgrow'];
   INPUTS.forEach(id=>$(id).addEventListener('input',render));
 
   // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.

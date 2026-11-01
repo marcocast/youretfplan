@@ -66,3 +66,9 @@ One dated entry per daily growth session. Newest at the bottom.
   - Sitemap lastmod 2026-11-01 after today's full rewrite, so Google recrawls.
 - **Watch tomorrow:** start_seen now well below view; first `search:` sources in the funnel; whether bot-like "direct" EN views keep inflating `view` (if so, consider excluding them from the conversion rates, e.g. views with no scroll or input). Next growth work should be traffic, not conversion: a search-driven page from the roadmap (ETF glossary, or "how a crash feels" with real data).
 - 1 Nov: new scenario 6 'Retired with a rental flat' (`retire`): 'Sound familiar?' list of landlord problems (late payment, slow evictions, sudden exits, separations, children, repairs, building costs, taxes, can't sell with a tenant, rules on the tenant's side), then net rent vs selling and living off a calm mix of ETFs (shares/bonds slider, default 40/60, stocks 7% bonds 3.5%; yearly withdrawal default 3.5% raised with inflation), money available any day, what's left after N years, 2022 crash note (60/40 lost ~13-16%, justETF). IT tax: 26% shares, 12.5% govt bonds, bollo; ES: over-65 renta vitalicia exemption up to 240k. Home card + quick pill. Bonds 3.5%: 10y Bund 3.45%, BTP 4.61% on 6 Oct 2026 (QuiFinanza).
+
+## 2026-11-01 — Retiree page: we tell you how much to take out
+- Marco: asking the mix and the withdrawal rate is too complicated, and with ETFs you may eat the capital. We now tell them.
+- Mix fixed at 40% shares / 60% bonds by default (moved into the details, "noi diciamo 40%").
+- Withdrawal = what's left after inflation (and bollo in IT): about 2.7–2.9% a year, so the capital stays whole in today's money. IT defaults: 190,000 € → about 426 €/month gross, 401 € after tax, vs 334 € net rent.
+- New "if you need more" line: about 4% a year, shows what's left after Y years and how long it lasts.
