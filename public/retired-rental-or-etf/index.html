@@ -338,8 +338,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <p class="note" data-t="hrentNote">Per month, before taxes.</p>
     </div>
     <div class="ctrl">
-      <div class="ctrl-head"><label for="hyears" data-t="lYears">See how it looks in</label><span class="ctrl-val num" id="hyears-out">20 years</span></div>
-      <input type="range" id="hyears" min="5" max="35" step="1" value="20">
+      <div class="ctrl-head"><label for="hyears" data-t="lYears">See how it looks in</label><span class="ctrl-val num" id="hyears-out">10 years</span></div>
+      <input type="range" id="hyears" min="3" max="30" step="1" value="10">
     </div>
     <details class="assume">
       <summary data-t="assumeH">Sale, costs and assumptions (tap to change)</summary>
@@ -386,9 +386,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="howcalc" id="howcalc"><b>We tell you how much you can take out.</b> We use a calm mix: 40% shares and 60% bonds, which on average returns about 4.9% a year. Take away rising prices and there’s about 2.9% a year left: that’s what you can take without eating into your capital. On your €172,000 that’s about <b>€416 a month</b> before tax, going up every year with prices.</p>
     <p class="pick-h" data-t="pickH">If you want, pick how much to take:</p>
     <div class="pick" id="pick" role="group" data-ta="pickH" aria-label="If you want, pick how much to take:">
-      <button type="button" data-pick="less" aria-pressed="false"><b>Less: €260 a month</b><span>Your capital grows: in 20 years about €216,595</span></button>
-      <button type="button" data-pick="keep" aria-pressed="true"><b>Just right: €397 a month</b><span>Your capital stays whole: in 20 years about €172,000. This is what we suggest.</span></button>
-      <button type="button" data-pick="more" aria-pressed="false"><b>More: €548 a month</b><span>Your capital goes down slowly: in 20 years about €122,946 (at that pace it lasts about 47 years)</span></button>
+      <button type="button" data-pick="less" aria-pressed="false"><b>Less: €260 a month</b><span>Your capital grows: in 10 years about €191,192</span></button>
+      <button type="button" data-pick="keep" aria-pressed="true"><b>Just right: €397 a month</b><span>Your capital stays whole: in 10 years about €172,000. This is what we suggest.</span></button>
+      <button type="button" data-pick="more" aria-pressed="false"><b>More: €548 a month</b><span>Your capital goes down slowly: in 10 years about €150,889 (at that pace it lasts about 47 years)</span></button>
     </div>
     <p class="note" data-t="pickNote">After tax, in today’s money, average of the first 10 years.</p>
     <h3 data-t="incH">Money in your pocket each month (after taxes and costs)</h3>
@@ -398,12 +398,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <h3 data-t="cashH">Money you can use when you want</h3>
     <div class="income" id="cash"><div><b>€0</b><span>with the flat: to get money out you have to sell it, and that takes months</span></div><div><b>€172,000</b><span>with ETFs: you can sell a piece any day the market is open</span></div></div>
 
-    <p class="res-head" id="h-head">In 20 years, what’s left, in today’s money:</p>
+    <p class="res-head" id="h-head">In 10 years, what’s left, in today’s money:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bHouse">Keep renting <small>the flat’s value (not sold)</small></span><span class="val num" id="v-house">€200,000</span><div class="track"><div class="fill" id="f-house" style="background: var(--coral); width: 95.2%;"></div></div></div>
       <div class="bar"><span class="lab" data-t="bPort">Sell and invest in ETFs <small>the capital left, after taking money out every month</small></span><span class="val num" id="v-port">€172,000</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 81.9%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict">Your capital stays whole: after 20 years you still have about <b class="gain">€172,000</b> in ETFs, in today’s money, and meanwhile you took your income every month. On average: in bad years it drops, then comes back.</p>
+    <p class="verdict" id="verdict">Your capital stays whole: after 10 years you still have about <b class="gain">€172,000</b> in ETFs, in today’s money, and meanwhile you took your income every month. On average: in bad years it drops, then comes back.</p>
     <p class="note" id="crash">Honestly: in a bad year like 2022, mixed shares-and-bonds portfolios lost around 13–16%. On your money that means seeing about €25,800 less for a while. Keep 1–2 years of withdrawals in a deposit and you never have to sell in a bad year.</p>
     <p class="note" data-t="calcNote">Shares 7% and bonds 3.5% a year on average, prices +2% a year. Rent grows with prices. Estimates to help you understand, not a promise.</p>
   </section>

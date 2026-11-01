@@ -338,8 +338,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <p class="note" data-t="hrentNote">Al mese, prima delle tasse.</p>
     </div>
     <div class="ctrl">
-      <div class="ctrl-head"><label for="hyears" data-t="lYears">Vedi come va tra</label><span class="ctrl-val num" id="hyears-out">20 anni</span></div>
-      <input type="range" id="hyears" min="5" max="35" step="1" value="20">
+      <div class="ctrl-head"><label for="hyears" data-t="lYears">Vedi come va tra</label><span class="ctrl-val num" id="hyears-out">10 anni</span></div>
+      <input type="range" id="hyears" min="3" max="30" step="1" value="10">
     </div>
     <details class="assume">
       <summary data-t="assumeH">Vendita, costi e ipotesi (tocca per cambiarle)</summary>
@@ -386,9 +386,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <p class="howcalc" id="howcalc"><b>Quanto puoi prelevare te lo diciamo noi.</b> Prendiamo un mix tranquillo: 40% azioni e 60% obbligazioni, che in media rende circa 4,9% l’anno. Tolti l’aumento dei prezzi e il bollo, restano circa 2,69% l’anno: è quello che puoi prendere senza mangiarti il capitale. Sui tuoi 190.000&nbsp;€ fanno circa <b>426&nbsp;€ al mese</b> prima delle tasse, che salgono ogni anno con i prezzi.</p>
     <p class="pick-h" data-t="pickH">Se vuoi, scegli tu quanto prendere:</p>
     <div class="pick" id="pick" role="group" data-ta="pickH" aria-label="Se vuoi, scegli tu quanto prendere:">
-      <button type="button" data-pick="less" aria-pressed="false"><b>Meno: 257&nbsp;€ al mese</b><span>Il capitale cresce: tra 20 anni circa 238.247&nbsp;€</span></button>
-      <button type="button" data-pick="keep" aria-pressed="true"><b>Il giusto: 409&nbsp;€ al mese</b><span>Il capitale resta intero: tra 20 anni circa 190.000&nbsp;€. Te lo consigliamo noi.</span></button>
-      <button type="button" data-pick="more" aria-pressed="false"><b>Di più: 609&nbsp;€ al mese</b><span>Il capitale scende piano: tra 20 anni circa 126.806&nbsp;€ (a quel ritmo durano circa 43 anni)</span></button>
+      <button type="button" data-pick="less" aria-pressed="false"><b>Meno: 257&nbsp;€ al mese</b><span>Il capitale cresce: tra 10 anni circa 211.001&nbsp;€</span></button>
+      <button type="button" data-pick="keep" aria-pressed="true"><b>Il giusto: 409&nbsp;€ al mese</b><span>Il capitale resta intero: tra 10 anni circa 190.000&nbsp;€. Te lo consigliamo noi.</span></button>
+      <button type="button" data-pick="more" aria-pressed="false"><b>Di più: 609&nbsp;€ al mese</b><span>Il capitale scende piano: tra 10 anni circa 162.493&nbsp;€ (a quel ritmo durano circa 43 anni)</span></button>
     </div>
     <p class="note" data-t="pickNote">Cifre già tolte le tasse, in euro di oggi, media dei primi 10 anni.</p>
     <h3 data-t="incH">Quanto ti entra in tasca ogni mese (tolte tasse e costi)</h3>
@@ -398,12 +398,12 @@ details > div{padding:0 0 14px;color:var(--muted)}
     <h3 data-t="cashH">Soldi che puoi usare quando vuoi</h3>
     <div class="income" id="cash"><div><b>0 €</b><span>con la casa: per avere i soldi la devi vendere, e ci vogliono mesi</span></div><div><b>190.000&nbsp;€</b><span>con gli ETF: ne vendi un pezzo in qualsiasi giorno di borsa aperta</span></div></div>
 
-    <p class="res-head" id="h-head">Tra 20 anni, quanto ti resta, in euro di oggi:</p>
+    <p class="res-head" id="h-head">Tra 10 anni, quanto ti resta, in euro di oggi:</p>
     <div class="bars" aria-live="polite">
       <div class="bar"><span class="lab" data-t="bHouse">Continui ad affittarla <small>il valore della casa (non venduta)</small></span><span class="val num" id="v-house">200.000&nbsp;€</span><div class="track"><div class="fill" id="f-house" style="background: var(--coral); width: 95.2%;"></div></div></div>
       <div class="bar"><span class="lab" data-t="bPort">La vendi e investi in ETF <small>il capitale che ti resta, dopo aver prelevato ogni mese</small></span><span class="val num" id="v-port">190.000&nbsp;€</span><div class="track"><div class="fill" id="f-port" style="background: var(--etf); width: 90.5%;"></div></div></div>
     </div>
-    <p class="verdict" id="verdict">Il capitale resta intero: dopo 20 anni hai ancora circa <b class="gain">190.000&nbsp;€</b> in ETF, in euro di oggi, e intanto ogni mese ti sei preso la tua entrata. In media: negli anni brutti scende, poi risale.</p>
+    <p class="verdict" id="verdict">Il capitale resta intero: dopo 10 anni hai ancora circa <b class="gain">190.000&nbsp;€</b> in ETF, in euro di oggi, e intanto ogni mese ti sei preso la tua entrata. In media: negli anni brutti scende, poi risale.</p>
     <p class="note" id="crash">Te lo dico chiaro: in un anno brutto come il 2022 i portafogli misti di azioni e obbligazioni hanno perso intorno al 13–16%. Sui tuoi soldi vuol dire vedere circa 28.500&nbsp;€ in meno per un po’. Tieni 1–2 anni di prelievi su un conto deposito, e negli anni brutti non devi vendere niente.</p>
     <p class="note" data-t="calcNote">Azioni 7% e obbligazioni 3,5% l’anno in media, prezzi +2% l’anno. L’affitto cresce con i prezzi. Stime per capire, non una promessa.</p>
   </section>
