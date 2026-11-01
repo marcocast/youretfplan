@@ -100,7 +100,7 @@ details{background:var(--surface);border:2px solid var(--line);border-radius:14p
 summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
-details[open] summary::after{content:"−"}
+details[open] > summary::after{content:"−"}
 details > div{padding:0 0 14px;color:var(--muted)}
 details > div p{margin:0 0 8px}
 details > div p:last-child{margin:0}
@@ -183,6 +183,13 @@ details > div p:last-child{margin:0}
 .bill p.row span:last-child{white-space:nowrap;font-weight:700}
 .bill p.row.tot{border-bottom:0;font-weight:800;font-size:1rem}
 .bill p.note{margin:8px 0 0}
+.answer{background:var(--accent-soft);border:2px solid var(--ink);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:4px 4px 0 var(--ink)}
+.answer h3{margin:0}
+.answer p{margin:0}
+.answer .ans div{background:var(--surface)}
+.answer .ans b{font-size:1.9rem}
+.seemore{border-style:solid;border-color:var(--ink)}
+.seemore > div > .assume{background:var(--surface)}
 .howcalc{margin:0;background:var(--bg);border:2px dashed var(--ink);border-radius:14px;padding:12px 14px;font-size:.95rem}
 </style>
 
@@ -249,75 +256,82 @@ details > div p:last-child{margin:0}
       <input type="range" id="hrent" min="0" max="5000" step="25" value="700">
       <p class="note" data-t="hrentNote"></p>
     </div>
-    <div class="ctrl">
-      <div class="ctrl-head"><label for="hyears" data-t="lYears"></label><span class="ctrl-val num" id="hyears-out"></span></div>
-      <input type="range" id="hyears" min="3" max="30" step="1" value="10">
+
+    <div class="answer" aria-live="polite">
+      <h3 data-t="ansH"></h3>
+      <div class="income ans" id="ans"></div>
+      <p data-t="ansWhat"></p>
+      <p class="note" id="crash"></p>
     </div>
     <details class="assume">
-      <summary data-t="assumeH"></summary>
+      <summary id="billSum"></summary>
+      <div class="bill" id="bill"></div>
+    </details>
+    <details class="assume seemore">
+      <summary data-t="moreSum"></summary>
       <div>
         <div class="ctrl">
-          <div class="ctrl-head"><label for="mix" data-t="lMix"></label><span class="ctrl-val num" id="mix-out"></span></div>
-          <input type="range" id="mix" min="0" max="100" step="10" value="40">
-          <p class="note" id="mix-note"></p>
+          <div class="ctrl-head"><label for="hyears" data-t="lYears"></label><span class="ctrl-val num" id="hyears-out"></span></div>
+          <input type="range" id="hyears" min="3" max="30" step="1" value="10">
         </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="paid" data-t="lPaid"></label><span class="ctrl-val num" id="paid-out"></span></div>
-          <input type="range" id="paid" min="0" max="2000000" step="5000" value="100000">
+        <p class="howcalc" id="howcalc"></p>
+        <p class="pick-h" data-t="pickH"></p>
+        <div class="pick" id="pick" role="group" data-ta="pickH">
+          <button type="button" data-pick="less" aria-pressed="false"></button>
+          <button type="button" data-pick="keep" aria-pressed="true"></button>
+          <button type="button" data-pick="more" aria-pressed="false"></button>
         </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="gtax" data-t="lGtax"></label><span class="ctrl-val num" id="gtax-out"></span></div>
-          <input type="range" id="gtax" min="0" max="30" step="1" value="0">
-          <p class="note" data-t="gtaxNote"></p>
+        <p class="note" data-t="pickNote"></p>
+        <p class="res-head" id="h-head"></p>
+        <div class="bars" aria-live="polite">
+          <div class="bar"><span class="lab" data-t="bHouse"></span><span class="val num" id="v-house"></span><div class="track"><div class="fill" id="f-house" style="background:var(--coral)"></div></div></div>
+          <div class="bar"><span class="lab" data-t="bPort"></span><span class="val num" id="v-port"></span><div class="track"><div class="fill" id="f-port" style="background:var(--etf)"></div></div></div>
         </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="scost" data-t="lScost"></label><span class="ctrl-val num" id="scost-out"></span></div>
-          <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="ocost" data-t="lOcost"></label><span class="ctrl-val num" id="ocost-out"></span></div>
-          <input type="range" id="ocost" min="0" max="3" step="0.1" value="1">
-          <p class="note" data-t="ocostNote"></p>
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="rtax" data-t="lRtax"></label><span class="ctrl-val num" id="rtax-out"></span></div>
-          <input type="range" id="rtax" min="0" max="45" step="1" value="21">
-          <p class="note" data-t="rtaxNote"></p>
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="empty" data-t="lEmpty"></label><span class="ctrl-val num" id="empty-out"></span></div>
-          <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-head"><label for="hgrow" data-t="lHgrow"></label><span class="ctrl-val num" id="hgrow-out"></span></div>
-          <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
-        </div>
+        <p class="verdict" id="verdict"></p>
+        <details class="assume">
+          <summary data-t="assumeH"></summary>
+          <div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="mix" data-t="lMix"></label><span class="ctrl-val num" id="mix-out"></span></div>
+              <input type="range" id="mix" min="0" max="100" step="10" value="40">
+              <p class="note" id="mix-note"></p>
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="paid" data-t="lPaid"></label><span class="ctrl-val num" id="paid-out"></span></div>
+              <input type="range" id="paid" min="0" max="2000000" step="5000" value="100000">
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="gtax" data-t="lGtax"></label><span class="ctrl-val num" id="gtax-out"></span></div>
+              <input type="range" id="gtax" min="0" max="30" step="1" value="0">
+              <p class="note" data-t="gtaxNote"></p>
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="scost" data-t="lScost"></label><span class="ctrl-val num" id="scost-out"></span></div>
+              <input type="range" id="scost" min="0" max="10" step="0.5" value="4">
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="ocost" data-t="lOcost"></label><span class="ctrl-val num" id="ocost-out"></span></div>
+              <input type="range" id="ocost" min="0" max="3" step="0.1" value="1">
+              <p class="note" data-t="ocostNote"></p>
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="rtax" data-t="lRtax"></label><span class="ctrl-val num" id="rtax-out"></span></div>
+              <input type="range" id="rtax" min="0" max="45" step="1" value="21">
+              <p class="note" data-t="rtaxNote"></p>
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="empty" data-t="lEmpty"></label><span class="ctrl-val num" id="empty-out"></span></div>
+              <input type="range" id="empty" min="0" max="6" step="0.5" value="0.5">
+            </div>
+            <div class="ctrl">
+              <div class="ctrl-head"><label for="hgrow" data-t="lHgrow"></label><span class="ctrl-val num" id="hgrow-out"></span></div>
+              <input type="range" id="hgrow" min="-2" max="6" step="0.5" value="2">
+            </div>
+          </div>
+        </details>
+        <p class="note" data-t="calcNote"></p>
       </div>
     </details>
-
-    <p class="howcalc" id="howcalc"></p>
-    <p class="pick-h" data-t="pickH"></p>
-    <div class="pick" id="pick" role="group" data-ta="pickH">
-      <button type="button" data-pick="less" aria-pressed="false"></button>
-      <button type="button" data-pick="keep" aria-pressed="true"></button>
-      <button type="button" data-pick="more" aria-pressed="false"></button>
-    </div>
-    <p class="note" data-t="pickNote"></p>
-    <h3 data-t="incH"></h3>
-    <div class="income" id="income"></div>
-    <div class="bill" id="bill"></div>
-
-    <h3 data-t="cashH"></h3>
-    <div class="income" id="cash"></div>
-
-    <p class="res-head" id="h-head"></p>
-    <div class="bars" aria-live="polite">
-      <div class="bar"><span class="lab" data-t="bHouse"></span><span class="val num" id="v-house"></span><div class="track"><div class="fill" id="f-house" style="background:var(--coral)"></div></div></div>
-      <div class="bar"><span class="lab" data-t="bPort"></span><span class="val num" id="v-port"></span><div class="track"><div class="fill" id="f-port" style="background:var(--etf)"></div></div></div>
-    </div>
-    <p class="verdict" id="verdict"></p>
-    <p class="note" id="crash"></p>
-    <p class="note" data-t="calcNote"></p>
   </section>
 
   <section aria-labelledby="h-why">
@@ -394,7 +408,12 @@ details > div p:last-child{margin:0}
       painH:'Sound familiar?',
       painL:'<li><b>The tenant stops paying.</b> Getting them out can take many months, sometimes more than a year, with lawyers and courts. Meanwhile, you pay the bills.</li><li><b>They leave out of the blue,</b> and the flat sits empty for months. Property tax, building costs and bills keep coming.</li><li><b>Life changes:</b> a couple splits up, one leaves and the other can’t pay any more. Kids arrive, and asking a family to leave gets even harder.</li><li><b>Something always breaks:</b> the boiler, the roof, a leak, an appliance. And they call you.</li><li><b>The building:</b> extra charges, meetings, works decided by others that you pay for too.</li><li><b>Taxes:</b> tax on the rent, property tax, and the tax return every year.</li><li><b>You need money, but you can’t sell:</b> with a tenant inside and a long contract, you either sell for less or wait years.</li><li><b>The rules are on the tenant’s side:</b> you have few tools and long waits.</li>',
       painEnd:'In the end you’re a bit of a hostage in your own flat. It doesn’t have to be that way: below you can see the other way, with your numbers.',
-      calcH:'Your flat',
+      calcH:'Your numbers',
+      moreSum:'Want to see more? How we do the math, and what happens if you take more or less',
+      ansWhat:'On top of that: no tenants, and you take the money when you want. Calm ETFs means: 60 euros out of 100 in government bonds, 40 in shares of companies all over the world.',
+      ansEtf:(v,p)=>`<b>${v}</b><span>a month if you sell and put the money in calm ETFs. And your ${p} stays there, whole.</span>`,
+      ansRent:v=>`<b>${v}</b><span>a month is what the rent leaves you today, after tax and costs</span>`,
+      ansH:'The answer',
       lValue:'What the flat is worth today', lHrent:'Rent you get now', hrentNote:'Per month, before taxes.',
       lMix:'How much in shares (we suggest 40%)', mixNote:(s,b,r)=>`${s} shares and ${b} bonds. Expected return about ${r} a year on average, not guaranteed. More shares earn more but swing more.`,
       lWr:'How much you take out each year', wrNote:'% of the money you start with, raised every year with prices. 3–4% is a common choice for a retirement that lasts.',
@@ -405,7 +424,7 @@ details > div p:last-child{margin:0}
       lRtax:'Tax on the rent', rtaxNote:'Depends on the country and the contract.', lEmpty:'Months with no rent per year', lHgrow:'House value growth per year',
       incH:'Money in your pocket each month (after taxes and costs)',
       incRent:v=>`<b>${v}</b><span>a month if you <b>keep renting</b>: the rent, minus tax, house costs and empty months</span>`,
-      billH:(v)=>`Why is the rent only ${v} net? Here’s the math, per month:`,
+      billH:(v)=>`How do we get ${v} from the rent? See the math`,
       bRent:'Rent you get',
       bEmpty:(n)=>`Empty months (${n==='0.5'?'half a month':n+' months'} a year on average)`,
       bTax:(p)=>`Tax on the rent (${p})`,
@@ -430,7 +449,7 @@ details > div p:last-child{margin:0}
       bHouse:'Keep renting <small>the flat’s value (not sold)</small>', bPort:'Sell and invest in ETFs <small>the capital left, after taking money out every month</small>',
       vOk:(y,v)=>`Your capital stays whole: after ${y} years you still have about <b class="gain">${v}</b> in ETFs, in today’s money, and meanwhile you took your income every month. On average: in bad years it drops, then comes back.`,
       vOut:(n)=>`At this pace the money lasts about <b class="loss">${n} years</b>. Take out a bit less, or put more in bonds and less in shares, and it lasts longer.`,
-      crash:(v)=>`Honestly: in a bad year like 2022, mixed shares-and-bonds portfolios lost around 13–16%. On your money that means seeing about ${v} less for a while. Keep 1–2 years of withdrawals in a deposit and you never have to sell in a bad year.`,
+      crash:(v)=>`Good to know: in a bad year the money goes down, even by ${v}, for a while. Then, on average, it comes back. That’s why you keep 1 or 2 years of money aside in the bank.`,
       calcNote:'Shares 7% and bonds 3.5% a year on average, prices +2% a year. Rent grows with prices. Estimates to help you understand, not a promise.',
       whyH:'Why not everything in shares',
       whyL:'<li><b>When you’re retired, you’re taking money out.</b> If markets fall just as you start, you sell low and the money lasts less.</li><li><b>Bonds are the brakes:</b> loans to governments that pay interest. They move less, so in a bad year you can live on them while shares recover.</li><li><b>Fewer swings, less stress:</b> a calmer mix earns less, but it lets you sleep. At 70 that counts more than one extra percent.</li>',
@@ -459,7 +478,12 @@ details > div p:last-child{margin:0}
       painH:'Ti suona familiare?',
       painL:'<li><b>L’inquilino non paga.</b> E per mandarlo via ci vogliono mesi, a volte più di un anno, tra avvocato e tribunale. Nel frattempo le spese le paghi tu.</li><li><b>Se ne va all’improvviso,</b> e la casa resta vuota per mesi. IMU, condominio e bollette però arrivano lo stesso.</li><li><b>La vita cambia:</b> una coppia si separa, uno se ne va e l’altro non ce la fa più a pagare. Arrivano dei bambini, e mandare via una famiglia diventa ancora più difficile.</li><li><b>Si rompe sempre qualcosa:</b> la caldaia, il tetto, un’infiltrazione, un elettrodomestico. E chiamano te.</li><li><b>Il condominio:</b> spese straordinarie, assemblee, lavori decisi da altri che paghi anche tu.</li><li><b>Le tasse:</b> cedolare o IRPEF sull’affitto, IMU, e la dichiarazione ogni anno.</li><li><b>Ti servono soldi, ma non puoi vendere:</b> con l’inquilino dentro e un contratto 4+4 o 3+2, la casa la vendi solo a meno, oppure aspetti anni.</li><li><b>Le regole sono dalla parte dell’inquilino:</b> tu hai pochi strumenti e tempi lunghi.</li>',
       painEnd:'Alla fine sei un po’ ostaggio della tua stessa casa. Non deve per forza essere così: qui sotto vedi l’altra strada, con i tuoi numeri.',
-      calcH:'La tua casa',
+      calcH:'I tuoi numeri',
+      moreSum:'Vuoi vedere di più? Come facciamo il conto, e cosa succede se prendi di più o di meno',
+      ansWhat:'E in più: niente inquilini, e i soldi li prendi quando vuoi. ETF tranquilli vuol dire: 60 euro su 100 in titoli di Stato, 40 in azioni di aziende di tutto il mondo.',
+      ansEtf:(v,p)=>`<b>${v}</b><span>al mese se la vendi e metti i soldi in ETF tranquilli. E i tuoi ${p} restano lì, interi.</span>`,
+      ansRent:v=>`<b>${v}</b><span>al mese ti restano oggi con l’affitto, tolte tasse e spese</span>`,
+      ansH:'La risposta',
       lValue:'Quanto vale oggi la casa', lHrent:'Affitto che prendi adesso', hrentNote:'Al mese, prima delle tasse.',
       lMix:'Quanto in azioni (noi diciamo 40%)', mixNote:(s,b,r)=>`${s} azioni e ${b} obbligazioni. Rendimento atteso circa ${r} l’anno in media, non garantito. Più azioni rendono di più ma vanno su e giù di più.`,
       lWr:'Quanto prelevi ogni anno', wrNote:'In % dei soldi di partenza, aumentato ogni anno con i prezzi. Il 3–4% è una scelta comune per una pensione che dura.',
@@ -470,7 +494,7 @@ details > div p:last-child{margin:0}
       lRtax:'Tasse sull’affitto', rtaxNote:'Con la cedolare secca: 21%, oppure 10% a canone concordato.', lEmpty:'Mesi senza affitto all’anno', lHgrow:'Crescita del valore della casa all’anno',
       incH:'Quanto ti entra in tasca ogni mese (tolte tasse e costi)',
       incRent:v=>`<b>${v}</b><span>al mese se <b>continui ad affittarla</b>: l’affitto, meno tasse, spese della casa e mesi vuoti</span>`,
-      billH:(v)=>`Perché l’affitto netto è solo ${v}? Ecco il conto, al mese:`,
+      billH:(v)=>`Come escono i ${v} dell’affitto? Guarda il conto`,
       bRent:'Affitto che prendi',
       bEmpty:(n)=>`Mesi vuoti (${n==='0,5'?'mezzo mese':n+' mesi'} all’anno in media)`,
       bTax:(p)=>`Tasse sull’affitto (${p})`,
@@ -495,7 +519,7 @@ details > div p:last-child{margin:0}
       bHouse:'Continui ad affittarla <small>il valore della casa (non venduta)</small>', bPort:'La vendi e investi in ETF <small>il capitale che ti resta, dopo aver prelevato ogni mese</small>',
       vOk:(y,v)=>`Il capitale resta intero: dopo ${y} anni hai ancora circa <b class="gain">${v}</b> in ETF, in euro di oggi, e intanto ogni mese ti sei preso la tua entrata. In media: negli anni brutti scende, poi risale.`,
       vOut:(n)=>`A questo ritmo i soldi durano circa <b class="loss">${n} anni</b>. Prelevando un po’ meno, o mettendo più obbligazioni e meno azioni, durano di più.`,
-      crash:(v)=>`Te lo dico chiaro: in un anno brutto come il 2022 i portafogli misti di azioni e obbligazioni hanno perso intorno al 13–16%. Sui tuoi soldi vuol dire vedere circa ${v} in meno per un po’. Tieni 1–2 anni di prelievi su un conto deposito, e negli anni brutti non devi vendere niente.`,
+      crash:(v)=>`Da sapere: in un anno brutto i soldi scendono, anche di ${v}, per un po’. Poi, in media, risalgono. Per questo si tengono 1 o 2 anni di soldi da parte sul conto.`,
       calcNote:'Azioni 7% e obbligazioni 3,5% l’anno in media, prezzi +2% l’anno. L’affitto cresce con i prezzi. Stime per capire, non una promessa.',
       whyH:'Perché non tutto in azioni',
       whyL:'<li><b>In pensione i soldi li togli.</b> Se la borsa scende proprio quando inizi, vendi a prezzi bassi e i soldi durano meno.</li><li><b>Le obbligazioni sono il freno:</b> prestiti agli Stati che pagano un interesse. Si muovono meno, così in un anno brutto vivi di quelle mentre le azioni si riprendono.</li><li><b>Meno su e giù, meno pensieri:</b> un mix più tranquillo rende un po’ meno, ma ti fa dormire. A 70 anni conta più di un punto in più.</li>',
@@ -524,7 +548,12 @@ details > div p:last-child{margin:0}
       painH:'¿Te suena?',
       painL:'<li><b>El inquilino no paga.</b> Y echarlo puede llevar muchos meses, a veces más de un año, entre abogado y juzgado; con familias vulnerables a veces se suspende. Mientras tanto, los gastos los pagas tú.</li><li><b>Se va de repente,</b> y el piso se queda vacío meses. El IBI, la comunidad y los recibos llegan igual.</li><li><b>La vida cambia:</b> una pareja se separa, uno se va y el otro ya no puede pagar. Llegan niños, y sacar a una familia se vuelve aún más difícil.</li><li><b>Siempre se rompe algo:</b> la caldera, el tejado, una gotera, un electrodoméstico. Y te llaman a ti.</li><li><b>La comunidad:</b> derramas, juntas, obras que deciden otros y que pagas tú también.</li><li><b>Los impuestos:</b> el IRPF del alquiler, el IBI y la declaración cada año.</li><li><b>Necesitas dinero, pero no puedes vender:</b> con el inquilino dentro y un contrato de 5 años (7 si el casero es una empresa), solo vendes más barato, o esperas años.</li><li><b>Las leyes están del lado del inquilino:</b> en zonas tensionadas hasta el precio está limitado, y tú tienes pocas herramientas y plazos largos.</li>',
       painEnd:'Al final eres un poco rehén de tu propio piso. No tiene por qué ser así: aquí abajo ves el otro camino, con tus números.',
-      calcH:'Tu piso',
+      calcH:'Tus números',
+      moreSum:'¿Quieres ver más? Cómo hacemos la cuenta, y qué pasa si sacas más o menos',
+      ansWhat:'Y además: sin inquilinos, y sacas el dinero cuando quieras. ETF tranquilos quiere decir: 60 euros de cada 100 en deuda del Estado, 40 en acciones de empresas de todo el mundo.',
+      ansEtf:(v,p)=>`<b>${v}</b><span>al mes si lo vendes y pones el dinero en ETF tranquilos. Y tus ${p} se quedan ahí, enteros.</span>`,
+      ansRent:v=>`<b>${v}</b><span>al mes te quedan hoy con el alquiler, quitando impuestos y gastos</span>`,
+      ansH:'La respuesta',
       lValue:'Lo que vale hoy el piso', lHrent:'Alquiler que cobras ahora', hrentNote:'Al mes, antes de impuestos.',
       lMix:'Cuánto en acciones (nosotros decimos 40%)', mixNote:(s,b,r)=>`${s} acciones y ${b} bonos. Rentabilidad esperada de unos ${r} al año de media, no garantizada. Más acciones rinden más pero suben y bajan más.`,
       lWr:'Cuánto sacas cada año', wrNote:'En % del dinero inicial, subiéndolo cada año con los precios. Un 3–4% es una elección habitual para una jubilación que dure.',
@@ -535,7 +564,7 @@ details > div p:last-child{margin:0}
       lRtax:'Impuestos sobre el alquiler', rtaxNote:'El alquiler tributa en el IRPF; si es vivienda habitual del inquilino puede tener reducciones.', lEmpty:'Meses sin alquilar al año', lHgrow:'Revalorización del piso al año',
       incH:'Lo que te entra en el bolsillo cada mes (después de impuestos y gastos)',
       incRent:v=>`<b>${v}</b><span>al mes si <b>sigues alquilando</b>: el alquiler, menos impuestos, gastos del piso y meses vacío</span>`,
-      billH:(v)=>`¿Por qué el alquiler neto es solo ${v}? Aquí tienes la cuenta, al mes:`,
+      billH:(v)=>`¿Cómo salen los ${v} del alquiler? Mira la cuenta`,
       bRent:'Alquiler que cobras',
       bEmpty:(n)=>`Meses vacío (${n==='0,5'?'medio mes':n+' meses'} al año de media)`,
       bTax:(p)=>`Impuestos sobre el alquiler (${p})`,
@@ -560,7 +589,7 @@ details > div p:last-child{margin:0}
       bHouse:'Sigues alquilando <small>el valor del piso (sin vender)</small>', bPort:'Lo vendes e inviertes en ETF <small>el capital que te queda, después de sacar dinero cada mes</small>',
       vOk:(y,v)=>`El capital se queda entero: después de ${y} años todavía tienes unos <b class="gain">${v}</b> en ETF, en euros de hoy, y mientras tanto cada mes has cobrado tu ingreso. De media: en los años malos baja, y luego vuelve a subir.`,
       vOut:(n)=>`A este ritmo el dinero dura unos <b class="loss">${n} años</b>. Sacando un poco menos, o con más bonos y menos acciones, dura más.`,
-      crash:(v)=>`Te lo digo claro: en un año malo como 2022 las carteras mixtas de acciones y bonos perdieron en torno a un 13–16%. Sobre tu dinero significa ver unos ${v} menos durante un tiempo. Guarda 1–2 años de retiradas en un depósito, y en los años malos no tienes que vender nada.`,
+      crash:(v)=>`Para que lo sepas: en un año malo el dinero baja, incluso ${v}, durante un tiempo. Luego, de media, vuelve a subir. Por eso se guardan 1 o 2 años de dinero aparte en el banco.`,
       calcNote:'Acciones 7% y bonos 3,5% al año de media, precios +2% al año. El alquiler sube con los precios. Estimaciones para entender, no una promesa.',
       whyH:'Por qué no todo en acciones',
       whyL:'<li><b>Jubilado, el dinero lo sacas.</b> Si la bolsa cae justo cuando empiezas, vendes barato y el dinero dura menos.</li><li><b>Los bonos son el freno:</b> préstamos a los Estados que pagan un interés. Se mueven menos, así que en un año malo vives de ellos mientras las acciones se recuperan.</li><li><b>Menos sustos, menos preocupaciones:</b> una mezcla más tranquila rinde algo menos, pero te deja dormir. A los 70 eso cuenta más que un punto de más.</li>',
@@ -638,19 +667,19 @@ details > div p:last-child{margin:0}
     $('paid-out').textContent=fmt(paid); $('gtax-out').textContent=pct(gt); $('scost-out').textContent=pct(sc);
     $('ocost-out').textContent=pct(oc); $('rtax-out').textContent=pct(tax); $('empty-out').textContent=String(emptyM).replace('.',L.locale==='en-IE'?'.':','); $('hgrow-out').textContent=pct(g);
     $('howcalc').innerHTML=L.howCalc(pct(r),pct(keep),fmt(P0),fmt(keep*P0/12));
-    $('income').innerHTML='<div>'+L.incRent(fmt(Math.max(0,rentSum/120)))+'</div><div>'+L.incPort(fmt(base.month))+'</div><p class="note inc-note">'+L.incNote+'</p>';
     document.querySelectorAll('#pick button').forEach(b=>{const k=b.dataset.pick, o=RUNS[k];
       b.innerHTML=k==='less'?L.pLess(fmt(o.month),Y,fmt(o.end)):k==='keep'?L.pKeep(fmt(o.month),Y,fmt(o.end)):L.pMore(fmt(o.month),Y,fmt(o.end),o.lasts!==null?L.moreGone(o.lasts):'');
       b.setAttribute('aria-pressed',k===PICK)});
     const nr=Math.max(0,rentSum/120), num=v=>String(v).replace('.',L.locale==='en-IE'?'.':',');
-    $('bill').innerHTML='<h4>'+L.billH(fmt(nr))+'</h4><p class="row"><span>'+L.bRent+'</span><span>'+fmt(R0)+'</span></p><p class="row"><span>'+L.bEmpty(num(emptyM))+'</span><span>−'+fmt(bEmpty/120)+'</span></p><p class="row"><span>'+L.bTax(pct(tax))+'</span><span>−'+fmt(bTax/120)+'</span></p><p class="row"><span>'+L.bCost(pct(oc))+'</span><span>−'+fmt(bCost/120)+'</span></p><p class="row tot"><span>'+L.bLeft+'</span><span>'+fmt(nr)+'</span></p><p class="note">'+L.billNote+'</p>';
-    $('cash').innerHTML='<div>'+L.cashRent+'</div><div>'+L.cashPort(fmt(P0))+'</div>';
+    $('ans').innerHTML='<div>'+L.ansRent(fmt(nr))+'</div><div>'+L.ansEtf(fmt(RUNS.keep.month),fmt(P0))+'</div>';
+    $('billSum').textContent=L.billH(fmt(nr));
+    $('bill').innerHTML='<p class="row"><span>'+L.bRent+'</span><span>'+fmt(R0)+'</span></p><p class="row"><span>'+L.bEmpty(num(emptyM))+'</span><span>−'+fmt(bEmpty/120)+'</span></p><p class="row"><span>'+L.bTax(pct(tax))+'</span><span>−'+fmt(bTax/120)+'</span></p><p class="row"><span>'+L.bCost(pct(oc))+'</span><span>−'+fmt(bCost/120)+'</span></p><p class="row tot"><span>'+L.bLeft+'</span><span>'+fmt(nr)+'</span></p><p class="note">'+L.billNote+'</p>';
     $('h-head').textContent=L.hHead(Y);
     $('v-house').textContent=fmt(houseEnd); $('v-port').textContent=fmt(base.end);
     const top=Math.max(houseEnd,base.end,1)*1.05;
     $('f-house').style.width=Math.max(1,houseEnd/top*100).toFixed(1)+'%'; $('f-port').style.width=Math.max(1,base.end/top*100).toFixed(1)+'%';
     $('verdict').innerHTML=PICK==='less'?L.vUp(Y,fmt(base.end),fmt(P0)):PICK==='more'?L.vDown(Y,fmt(base.end),fmt(P0)):L.vOk(Y,fmt(base.end));
-    $('crash').textContent=L.crash(fmt(P0*0.15));
+    $('crash').textContent=L.crash(fmt(Math.round(P0*0.15/1000)*1000));
   }
 
   function applyLang(){
