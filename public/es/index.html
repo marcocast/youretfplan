@@ -589,7 +589,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
   </section>
 
-  <section aria-labelledby="h-start" id="start">
+  <section aria-labelledby="h-start" id="how-start">
     <h2 id="h-start" data-t="hStart">Cómo empezar esta semana</h2>
     <ol class="start">
       <li><div data-t="st1"><b>Abre una cuenta en un bróker barato</b>El <a class="term" href="#g-broker">bróker</a> es la app o el banco donde compras y guardas los ETF. Que esté regulado en España o en la UE, y mira lo que te cobra cada vez que compras: cuanto menos, mejor.</div></li>
@@ -1363,7 +1363,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     addEventListener('pagehide',flushSteps);
     track('view');
     if('IntersectionObserver' in window){
-      const seen=[['numbers','calc_seen'],['start','start_seen'],['privacy','bottom']];
+      const seen=[['numbers','calc_seen'],['how-start','start_seen'],['privacy','bottom']];
       const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const m=seen.find(x=>$(x[0])===e.target);if(m)track(m[1]);io.unobserve(e.target)}}),{threshold:.3});
       seen.forEach(([id])=>{const el=$(id);if(el)io.observe(el)});
     }

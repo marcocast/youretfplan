@@ -589,7 +589,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     </div>
   </section>
 
-  <section aria-labelledby="h-start" id="start">
+  <section aria-labelledby="h-start" id="how-start">
     <h2 id="h-start" data-t="hStart">How to start this week</h2>
     <ol class="start">
       <li><div data-t="st1"><b>Open an account with a cheap broker</b>A <a class="term" href="#g-broker">broker</a> is the app or bank where you buy and keep your ETFs. Make sure it’s regulated in your country and check what it charges every time you buy: the less, the better. And check how ETF taxes work where you live.</div></li>
@@ -1363,7 +1363,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     addEventListener('pagehide',flushSteps);
     track('view');
     if('IntersectionObserver' in window){
-      const seen=[['numbers','calc_seen'],['start','start_seen'],['privacy','bottom']];
+      const seen=[['numbers','calc_seen'],['how-start','start_seen'],['privacy','bottom']];
       const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const m=seen.find(x=>$(x[0])===e.target);if(m)track(m[1]);io.unobserve(e.target)}}),{threshold:.3});
       seen.forEach(([id])=>{const el=$(id);if(el)io.observe(el)});
     }

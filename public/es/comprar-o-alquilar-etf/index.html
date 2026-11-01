@@ -353,7 +353,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <div class="legend"><span><i style="background:var(--coral)"></i><span data-t="lgBuy">Compra</span></span><span><i style="background:var(--etf)"></i><span data-t="lgRent">Alquila e invierte en ETF</span></span></div>
     </div>
 
-    <div class="monthly" id="monthly"><div class="mbox"><b>El primer día</b><span>Quien alquila invierte 77.500&nbsp;€ en ETF: la entrada y los gastos que quien compra gasta</span></div><div class="mbox"><b>Quien compra paga</b><span>Cuota 1001&nbsp;€ + gastos 208&nbsp;€ al mes</span></div><div class="mbox"><b>Quien alquila paga</b><span>Alquiler 900&nbsp;€ al mes e invierte 310&nbsp;€ en ETF</span></div></div>
+    <div class="monthly" id="monthly"><div class="mbox"><b>El primer día</b><span>Quien alquila invierte 77.500&nbsp;€ en ETF: la entrada y los gastos que quien compra gasta</span></div><div class="mbox"><b>Quien compra paga</b><span>Cuota 1.001&nbsp;€ + gastos 208&nbsp;€ al mes</span></div><div class="mbox"><b>Quien alquila paga</b><span>Alquiler 900&nbsp;€ al mes e invierte 310&nbsp;€ en ETF</span></div></div>
     <p class="note" data-t="calcNote">En euros de hoy (precios +2% al año). Como si al final los dos lo vendieran todo: para la casa, quitando la hipoteca pendiente, los gastos de venta y los impuestos sobre la ganancia; para los ETF, quitando los impuestos sobre la ganancia. Una estimación para entender, no asesoramiento.</p>
   </section>
 
@@ -642,7 +642,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     L=T[lang];
     document.documentElement.lang=lang;
     if(!FIXED)document.title=L.title;
-    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
     const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:1});
     fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});

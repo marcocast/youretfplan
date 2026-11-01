@@ -675,7 +675,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     L=T[lang];
     document.documentElement.lang=lang;
     if(!FIXED)document.title=L.title;
-    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
     const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:1});
     fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});

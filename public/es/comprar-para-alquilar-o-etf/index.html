@@ -375,8 +375,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
   <section aria-labelledby="h-when">
     <h2 id="h-when" data-t="whenH">Cuándo gana comprar para alquilar y cuándo invertir en ETF</h2>
     <div class="two">
-      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Comprar para alquilar suele ganar si…</span></h3><ul id="letL"><li>El alquiler de un año, antes de impuestos y gastos, es al menos el <b>6%</b> del precio. Para una casa de 200.000&nbsp;€: al menos <b>12.000&nbsp;€</b> al año, es decir 1000&nbsp;€ al mes.</li><li>El tipo de la hipoteca es bajo y el alquiler cubre la cuota.</li><li>Lo mantienes <b>10 años o más</b> y no te importa gestionarlo.</li></ul></div>
-      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="etfH">Invertir en ETF suele ganar si…</span></h3><ul id="etfL"><li>El alquiler de un año, antes de impuestos y gastos, es menos del <b>4%</b> del precio. Para una casa de 200.000&nbsp;€: menos de <b>8000&nbsp;€</b> al año, es decir 667&nbsp;€ al mes.</li><li>Los tipos de la hipoteca son altos, o los gastos de compra pesan mucho.</li><li>Quieres algo sencillo, que puedas vender en un día.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-key"></use></svg><span data-t="letH">Comprar para alquilar suele ganar si…</span></h3><ul id="letL"><li>El alquiler de un año, antes de impuestos y gastos, es al menos el <b>6%</b> del precio. Para una casa de 200.000&nbsp;€: al menos <b>12.000&nbsp;€</b> al año, es decir 1.000&nbsp;€ al mes.</li><li>El tipo de la hipoteca es bajo y el alquiler cubre la cuota.</li><li>Lo mantienes <b>10 años o más</b> y no te importa gestionarlo.</li></ul></div>
+      <div class="box"><h3><svg aria-hidden="true"><use href="#i-tree"></use></svg><span data-t="etfH">Invertir en ETF suele ganar si…</span></h3><ul id="etfL"><li>El alquiler de un año, antes de impuestos y gastos, es menos del <b>4%</b> del precio. Para una casa de 200.000&nbsp;€: menos de <b>8.000&nbsp;€</b> al año, es decir 667&nbsp;€ al mes.</li><li>Los tipos de la hipoteca son altos, o los gastos de compra pesan mucho.</li><li>Quieres algo sencillo, que puedas vender en un día.</li></ul></div>
     </div>
   </section>
 
@@ -675,7 +675,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     L=T[lang];
     document.documentElement.lang=lang;
     if(!FIXED)document.title=L.title;
-    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0});
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
     const pf=new Intl.NumberFormat(L.locale,{style:'percent',minimumFractionDigits:0,maximumFractionDigits:1});
     fmt=v=>nf.format(Math.round(v)); pct=v=>pf.format(v);
     document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
