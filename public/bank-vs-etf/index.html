@@ -264,7 +264,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <p class="note" data-t="monthlyNote">What you usually save each month. Put 0 if you don’t add anything.</p>
     </div>
     <div class="ctrl">
-      <div class="ctrl-head"><label for="years" data-t="lYears">How long you leave the money</label><span class="ctrl-val num" id="years-out">10 years</span></div>
+      <div class="ctrl-head"><label for="years" data-t="lYears">See what it’s worth in</label><span class="ctrl-val num" id="years-out">10 years</span></div>
       <input type="range" id="years" min="1" max="30" step="1" value="10">
     </div>
     <div class="ctrl">
@@ -343,7 +343,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       sub:'Got savings in your account, or put a bit aside every month? See what they turn into in a current account, a savings deposit or in ETFs. In today’s money, so counting that prices go up.',
       illAlt:'A bank whose pile of coins shrinks, next to a jar where a tree grows',
       calcH:'Your numbers',
-      lAmount:'Money in the bank today', lMonthly:'And each month you add', monthlyNote:'What you usually save each month. Put 0 if you don’t add anything.', lYears:'How long you leave the money', lRate:'Savings deposit rate',
+      lAmount:'Money in the bank today', lMonthly:'And each month you add', monthlyNote:'What you usually save each month. Put 0 if you don’t add anything.', lYears:'See what it’s worth in', lRate:'Savings deposit rate',
       rateNote:'Put in what your bank pays. The current account is counted at 0%, because that’s usually what you get.',
       years:n=>n===1?'1 year':n+' years',
       resHead:y=>`In ${y===1?'1 year':y+' years'}, in today’s money:`,
@@ -390,7 +390,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       sub:'Hai dei risparmi sul conto, o ne metti da parte un po’ ogni mese? Guarda cosa diventano sul conto, su un conto deposito o in ETF. In euro di oggi, cioè tenendo conto che i prezzi salgono.',
       illAlt:'Una banca con una pila di monete che si rimpicciolisce, accanto a un barattolo dove cresce un albero',
       calcH:'I tuoi numeri',
-      lAmount:'Soldi in banca oggi', lMonthly:'E ogni mese ci aggiungi', monthlyNote:'Quello che di solito metti da parte ogni mese. Metti 0 se non aggiungi niente.', lYears:'Per quanti anni lasci i soldi', lRate:'Tasso del conto deposito',
+      lAmount:'Soldi in banca oggi', lMonthly:'E ogni mese ci aggiungi', monthlyNote:'Quello che di solito metti da parte ogni mese. Metti 0 se non aggiungi niente.', lYears:'Vedi quanto valgono tra', lRate:'Tasso del conto deposito',
       rateNote:'Metti quello che ti dà la tua banca. Il conto corrente lo calcoliamo a 0%, perché di solito è così.',
       years:n=>n===1?'1 anno':n+' anni',
       resHead:y=>`Tra ${y===1?'1 anno':y+' anni'}, in euro di oggi:`,
@@ -437,7 +437,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       sub:'¿Tienes ahorros en la cuenta, o apartas algo cada mes? Mira en qué se convierten en la cuenta, en un depósito o en ETF. En euros de hoy, o sea, contando que los precios suben.',
       illAlt:'Un banco con una pila de monedas que se encoge, junto a un tarro donde crece un árbol',
       calcH:'Tus números',
-      lAmount:'Dinero en el banco hoy', lMonthly:'Y cada mes añades', monthlyNote:'Lo que sueles ahorrar cada mes. Pon 0 si no añades nada.', lYears:'Cuántos años dejas el dinero', lRate:'Interés del depósito',
+      lAmount:'Dinero en el banco hoy', lMonthly:'Y cada mes añades', monthlyNote:'Lo que sueles ahorrar cada mes. Pon 0 si no añades nada.', lYears:'Mira cuánto vale dentro de', lRate:'Interés del depósito',
       rateNote:'Pon lo que te da tu banco. La cuenta corriente la calculamos al 0%, porque normalmente es lo que da.',
       years:n=>n===1?'1 año':n+' años',
       resHead:y=>`Dentro de ${y===1?'1 año':y+' años'}, en euros de hoy:`,
