@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-01T13:24:39+00:00",
+ "generated_at": "2026-11-02T07:54:36+00:00",
  "range": {
-  "from": "2026-09-27",
-  "to": "2026-11-01"
+  "from": "2026-09-28",
+  "to": "2026-11-02"
  },
  "errors": [],
  "web_analytics": {
@@ -24,50 +24,50 @@
    },
    {
     "date": "2026-11-01",
-    "pageviews": 90,
-    "visits": 40
+    "pageviews": 200,
+    "visits": 60
    }
   ],
   "last_7_days": {
    "pages": [
     {
      "requestPath": "/it/",
-     "pageviews": 168,
+     "pageviews": 184,
      "visits": 9
     },
     {
      "requestPath": "/",
-     "pageviews": 153,
-     "visits": 124
+     "pageviews": 161,
+     "visits": 130
     },
     {
      "requestPath": "/es/",
-     "pageviews": 21,
-     "visits": 4
+     "pageviews": 34,
+     "visits": 11
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 14,
-     "visits": 1
+     "pageviews": 22,
+     "visits": 3
     },
     {
      "requestPath": "/it/affittare-o-vendere-casa-etf/",
-     "pageviews": 12,
-     "visits": 2
-    },
-    {
-     "requestPath": "/it/eredita-investire-etf/",
-     "pageviews": 7,
-     "visits": 0
+     "pageviews": 17,
+     "visits": 3
     },
     {
      "requestPath": "/it/come-comprare-etf/",
-     "pageviews": 6,
+     "pageviews": 8,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/eredita-investire-etf/",
+     "pageviews": 8,
      "visits": 0
     },
     {
      "requestPath": "/it/banca-vs-etf/",
-     "pageviews": 5,
+     "pageviews": 6,
      "visits": 0
     },
     {
@@ -76,18 +76,23 @@
      "visits": 5
     },
     {
+     "requestPath": "/it/etf-o-fondo-della-banca/",
+     "pageviews": 4,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/comprare-casa-o-affitto-etf/",
+     "pageviews": 4,
+     "visits": 0
+    },
+    {
      "requestPath": "/es/que-es-un-etf/",
      "pageviews": 4,
      "visits": 0
     },
     {
-     "requestPath": "/it/etf-o-fondo-della-banca/",
-     "pageviews": 3,
-     "visits": 0
-    },
-    {
-     "requestPath": "/it/comprare-casa-o-affitto-etf/",
-     "pageviews": 3,
+     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
+     "pageviews": 4,
      "visits": 0
     },
     {
@@ -106,7 +111,7 @@
      "visits": 2
     },
     {
-     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
+     "requestPath": "/es/banco-vs-etf/",
      "pageviews": 2,
      "visits": 0
     },
@@ -139,27 +144,22 @@
      "requestPath": "/what-is-an-etf/",
      "pageviews": 1,
      "visits": 0
-    },
-    {
-     "requestPath": "/es/banco-vs-etf/",
-     "pageviews": 1,
-     "visits": 0
     }
    ],
    "referrers": [
     {
      "refererHost": "www.youretfplan.com",
-     "pageviews": 154,
+     "pageviews": 179,
      "visits": 1
     },
     {
      "refererHost": "",
-     "pageviews": 149,
-     "visits": 149
+     "pageviews": 165,
+     "visits": 165
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 114,
+     "pageviews": 132,
      "visits": 0
     },
     {
@@ -181,23 +181,23 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 252,
+     "pageviews": 278,
      "visits": 38
     },
     {
-     "countryName": "US",
-     "pageviews": 57,
-     "visits": 57
+     "countryName": "FR",
+     "pageviews": 68,
+     "visits": 17
     },
     {
-     "countryName": "FR",
-     "pageviews": 53,
-     "visits": 10
+     "countryName": "US",
+     "pageviews": 61,
+     "visits": 61
     },
     {
      "countryName": "IT",
-     "pageviews": 14,
-     "visits": 6
+     "pageviews": 26,
+     "visits": 9
     },
     {
      "countryName": "NL",
@@ -230,6 +230,11 @@
      "visits": 2
     },
     {
+     "countryName": "CN",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
      "countryName": "SG",
      "pageviews": 1,
      "visits": 1
@@ -248,13 +253,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 210,
-     "visits": 96
+     "pageviews": 245,
+     "visits": 104
     },
     {
      "deviceType": "mobile",
-     "pageviews": 106,
-     "visits": 45
+     "pageviews": 130,
+     "visits": 53
     },
     {
      "deviceType": "tablet",
@@ -332,32 +337,47 @@
    },
    {
     "day": "2026-11-01",
-    "view": 28,
-    "hook": 1,
-    "plan": 1,
-    "calc_seen": 5,
-    "active": 6,
+    "view": 31,
+    "hook": 3,
+    "plan": 4,
+    "calc_seen": 9,
+    "active": 9,
     "explore": 1,
-    "start_seen": 22,
+    "start_seen": 25,
     "faq": 2,
-    "bottom": 5,
+    "bottom": 7,
     "feedback": 0,
     "share": 0,
-    "sc_bank_active": 1,
-    "sc_bank_view": 2,
-    "sc_buy_active": 1,
-    "sc_buy_view": 1,
+    "sc_bank_active": 2,
+    "sc_bank_view": 4,
+    "sc_buy_active": 2,
+    "sc_buy_view": 2,
     "sc_first_view": 2,
     "sc_fund_active": 1,
-    "sc_fund_view": 1,
-    "sc_inherit_view": 3,
+    "sc_fund_view": 2,
+    "sc_inherit_active": 1,
+    "sc_inherit_view": 4,
     "sc_learn_view": 2,
-    "sc_let_active": 1,
-    "sc_let_view": 1,
-    "sc_own_active": 3,
-    "sc_own_view": 5,
-    "sc_retire_active": 3,
-    "sc_retire_view": 4
+    "sc_let_active": 2,
+    "sc_let_view": 3,
+    "sc_own_active": 5,
+    "sc_own_view": 7,
+    "sc_retire_active": 5,
+    "sc_retire_view": 5
+   },
+   {
+    "day": "2026-11-02",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -366,7 +386,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 32
+    "n": 33
    },
    {
     "step": "view",
@@ -380,7 +400,7 @@
     "lang": "it",
     "device": "mobile",
     "source": "internal",
-    "n": 10
+    "n": 11
    },
    {
     "step": "calc_seen",
@@ -401,14 +421,14 @@
     "lang": "it",
     "device": "mobile",
     "source": "internal",
-    "n": 7
+    "n": 8
    },
    {
     "step": "calc_seen",
     "lang": "it",
     "device": "mobile",
     "source": "internal",
-    "n": 6
+    "n": 7
    },
    {
     "step": "hook",
@@ -425,21 +445,21 @@
     "n": 5
    },
    {
-    "step": "plan",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 4
-   },
-   {
     "step": "sc_own_active",
     "lang": "it",
     "device": "mobile",
     "source": "internal",
-    "n": 4
+    "n": 5
    },
    {
     "step": "sc_own_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 5
+   },
+   {
+    "step": "plan",
     "lang": "it",
     "device": "mobile",
     "source": "internal",
@@ -451,6 +471,20 @@
     "device": "desktop",
     "source": "internal",
     "n": 4
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 3
    },
    {
     "step": "calc_seen",
@@ -481,6 +515,34 @@
     "n": 3
    },
    {
+    "step": "sc_own_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "sc_retire_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "sc_retire_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "view",
+    "lang": "es",
+    "device": "mobile",
+    "source": "internal",
+    "n": 3
+   },
+   {
     "step": "view",
     "lang": "it",
     "device": "mobile",
@@ -490,20 +552,20 @@
    {
     "step": "active",
     "lang": "en",
-    "device": "mobile",
-    "source": "direct",
-    "n": 2
-   },
-   {
-    "step": "active",
-    "lang": "it",
     "device": "desktop",
     "source": "internal",
     "n": 2
    },
    {
-    "step": "calc_seen",
-    "lang": "it",
+    "step": "active",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 2
+   },
+   {
+    "step": "hook",
+    "lang": "en",
     "device": "desktop",
     "source": "internal",
     "n": 2
@@ -523,9 +585,30 @@
     "n": 2
    },
    {
+    "step": "plan",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_bank_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 2
+   },
+   {
     "step": "sc_bank_active",
     "lang": "it",
     "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_bank_view",
+    "lang": "it",
+    "device": "desktop",
     "source": "internal",
     "n": 2
    },
@@ -553,7 +636,21 @@
    {
     "step": "sc_inherit_active",
     "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_inherit_active",
+    "lang": "it",
     "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_inherit_view",
+    "lang": "it",
+    "device": "desktop",
     "source": "internal",
     "n": 2
    },
@@ -572,9 +669,23 @@
     "n": 2
    },
    {
-    "step": "sc_own_active",
+    "step": "sc_let_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_let_view",
     "lang": "it",
     "device": "desktop",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "sc_let_view",
+    "lang": "it",
+    "device": "mobile",
     "source": "internal",
     "n": 2
    },
@@ -586,17 +697,24 @@
     "n": 2
    },
    {
+    "step": "sc_own_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 2
+   },
+   {
     "step": "sc_retire_active",
     "lang": "it",
-    "device": "mobile",
+    "device": "desktop",
     "source": "internal",
     "n": 2
    },
    {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
+    "step": "view",
+    "lang": "es",
+    "device": "desktop",
+    "source": "direct",
     "n": 2
    },
    {
@@ -608,24 +726,10 @@
    },
    {
     "step": "view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "view",
     "lang": "it",
     "device": "desktop",
     "source": "direct",
     "n": 2
-   },
-   {
-    "step": "active",
-    "lang": "en",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
    },
    {
     "step": "active",
@@ -660,6 +764,20 @@
     "lang": "en",
     "device": "mobile",
     "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "es",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "es",
+    "device": "mobile",
+    "source": "direct",
     "n": 1
    },
    {
@@ -671,9 +789,9 @@
    },
    {
     "step": "hook",
-    "lang": "en",
-    "device": "desktop",
-    "source": "internal",
+    "lang": "es",
+    "device": "mobile",
+    "source": "direct",
     "n": 1
    },
    {
@@ -685,22 +803,22 @@
    },
    {
     "step": "plan",
-    "lang": "es",
-    "device": "mobile",
+    "lang": "en",
+    "device": "desktop",
     "source": "internal",
     "n": 1
    },
    {
     "step": "plan",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
+    "lang": "es",
+    "device": "mobile",
+    "source": "direct",
     "n": 1
    },
    {
-    "step": "sc_bank_active",
-    "lang": "it",
-    "device": "desktop",
+    "step": "plan",
+    "lang": "es",
+    "device": "mobile",
     "source": "internal",
     "n": 1
    },
@@ -713,6 +831,20 @@
    },
    {
     "step": "sc_bank_view",
+    "lang": "es",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_buy_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_buy_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -747,7 +879,7 @@
     "n": 1
    },
    {
-    "step": "sc_inherit_active",
+    "step": "sc_fund_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -758,13 +890,6 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "sc_inherit_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
     "n": 1
    },
    {
@@ -789,45 +914,10 @@
     "n": 1
    },
    {
-    "step": "sc_let_active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_let_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_let_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
     "step": "sc_own_view",
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "sc_own_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_retire_active",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
     "n": 1
    },
    {
@@ -860,13 +950,6 @@
    },
    {
     "step": "view",
-    "lang": "es",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "view",
     "lang": "it",
     "device": "mobile",
     "source": "investing.com",
@@ -880,7 +963,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 6
+    "active_user_days": 9
    }
   ]
  },
