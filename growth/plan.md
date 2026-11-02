@@ -3,7 +3,8 @@
 ## Goal
 - **100,000 active users by 30 September 2027.**
 - **Active user** = someone who enters their own numbers in the calculator (not just a page view).
-- Intermediate checkpoints to be set once the first month of real data is in.
+- Intermediate checkpoints to be set once the first month of real data is in (first full month: November 2026).
+- Pace: ~301 active users/day (~2,100/week) from 2 Nov 2026. Week of 26 Oct–1 Nov: 21, almost all testers. Traffic from search is the bottleneck.
 
 ## Constraints (from Marco)
 - No social media posting by Marco. Growth comes from search, word of mouth (users sharing), and links.
@@ -42,4 +43,4 @@
 - 2026-10-29: anonymous funnel counter and feedback (after results + bottom) live via Worker + D1; privacy line added.
 
 ## Scenario pages (agreed with Marco 2026-10-30)
-Order: 1) money in the bank vs investing in ETFs (live), 2) buy your home vs rent and invest in ETFs (live), 3) inheritance (money or a house, live), 4) I own a house: rent it or sell and invest in ETFs (live), 5) buy a home to rent out vs invest in ETFs (Marco's idea, live), 6) retired with a rental flat: keep renting or sell and live off a calm mix of ETFs (live 2026-11-01). Beginner guides live: what is an ETF, how to buy your first ETF, ETF or the bank's fund. Next ideas: ETF glossary page, all-in-one vs world ETF, how a crash feels (with real data). Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".
+Order: 1) money in the bank vs investing in ETFs (live), 2) buy your home vs rent and invest in ETFs (live), 3) inheritance (money or a house, live), 4) I own a house: rent it or sell and invest in ETFs (live), 5) buy a home to rent out vs invest in ETFs (Marco's idea, live), 6) retired with a rental flat: keep renting or sell and live off a calm mix of ETFs (live 2026-11-01). Beginner guides live: what is an ETF, how to buy your first ETF, ETF or the bank's fund, when markets fall (2008/2020/2022 in euros, live 2026-11-02). Next ideas: ETF glossary page, all-in-one vs world ETF, "PAC/how much to invest each month" in Italian (high search volume), ETF taxes in Italy/Spain explained simply. Each has its own page per language, its own calculator, a card on the main page, and verified country-specific tax notes. Always say "investing in ETFs".
