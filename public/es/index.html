@@ -516,6 +516,10 @@ details > div{padding:0 0 14px;color:var(--muted)}
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="w-ink" x="10" y="26" width="26" height="28" rx="6" fill="var(--surface)"></rect><path class="w-ink" d="M8 24 23 14l15 10Z" fill="var(--coral)"></path><circle class="w-ink" cx="46" cy="44" r="10" fill="var(--sun)"></circle><path d="M42 44h8M46 40v8" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"></path></svg>
         <span><b data-t="g3t">¿ETF o el fondo del banco?</b><span class="d" data-t="g3d">Lo que te cuesta de verdad el fondo del banco.</span></span><span class="go" aria-hidden="true">→</span>
       </a>
+      <a class="case" id="case-crash" href="/es/bolsa-cae-etf/">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 46H58" stroke="var(--line)" stroke-width="3" stroke-dasharray="5 5"></path><path class="w-ink" d="M6 30 20 24 30 46 42 34 58 14" fill="none" stroke="var(--leaf2)"></path><circle class="w-ink" cx="30" cy="46" r="5" fill="var(--coral)"></circle><circle class="w-ink" cx="58" cy="14" r="5" fill="var(--sun)"></circle></svg>
+        <span><b data-t="g4t">La bolsa cae: ¿qué pasa?</b><span class="d" data-t="g4d">2008, 2020 y 2022 en euros, con tu cantidad.</span></span><span class="go" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
@@ -580,6 +584,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       <p class="foot" style="padding:4px 8px 0" data-t="rideIll">Ejemplo de un recorrido típico, no son datos reales</p>
     </div>
     <p class="ride-you" id="ride-you">Con tu plan, después de 10 años tendrías unos <strong>49.373&nbsp;€</strong> en ETF. En una caída como la de 2008, durante un tiempo la cuenta podría marcar unos <strong>24.686&nbsp;€</strong>. Ahí es cuando mucha gente vende por miedo, y una pérdida en papel se convierte en una pérdida real. Si sigues añadiendo cada mes, estás comprando más barato.</p>
+    <p class="more"><a class="more-link" data-guide="crash" href="/es/bolsa-cae-etf/" data-t="moreCrash">Mira 3 caídas reales en euros, con tu cantidad →</a></p>
   </section>
 
   <section aria-labelledby="h-rule">
@@ -660,6 +665,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
       g2d:`Step by step: from opening the account to your first buy.`,
       g3t:`ETF or the bank’s fund?`,
       g3d:`What the bank’s fund really costs you.`,
+      g4t:`Markets fall: what happens?`,
+      g4d:`2008, 2020 and 2022 in euros, on your amount.`,
+      moreCrash:`See 3 real falls in euros, on your amount →`,
       moreLearn:`Want to know more? ETFs in 5 minutes →`,
       moreFirst:`Every step, one by one →`,
       casesH:`What's your situation?`,
@@ -794,6 +802,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
       g2d:`Passo per passo: dal conto al primo acquisto.`,
       g3t:`ETF o fondo della banca?`,
       g3d:`Quanto ti costa davvero il fondo della banca.`,
+      g4t:`La borsa crolla: cosa succede?`,
+      g4d:`2008, 2020 e 2022 in euro, sulla tua cifra.`,
+      moreCrash:`Guarda 3 crolli veri in euro, sulla tua cifra →`,
       moreLearn:`Vuoi capirci di più? Gli ETF in 5 minuti →`,
       moreFirst:`Tutti i passi, uno per uno →`,
       casesH:`Qual è il tuo caso?`,
@@ -929,6 +940,9 @@ details > div{padding:0 0 14px;color:var(--muted)}
       g2d:`Paso a paso: de abrir la cuenta a tu primera compra.`,
       g3t:`¿ETF o el fondo del banco?`,
       g3d:`Lo que te cuesta de verdad el fondo del banco.`,
+      g4t:`La bolsa cae: ¿qué pasa?`,
+      g4d:`2008, 2020 y 2022 en euros, con tu cantidad.`,
+      moreCrash:`Mira 3 caídas reales en euros, con tu cantidad →`,
       moreLearn:`¿Quieres saber más? Los ETF en 5 minutos →`,
       moreFirst:`Todos los pasos, uno a uno →`,
       casesH:`¿Cuál es tu caso?`,
@@ -1095,8 +1109,8 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('case-let').href=(FIXED?'':'https://youretfplan.com')+({en:'/buy-to-let-vs-etf/',it:'/it/comprare-casa-da-affittare-o-etf/',es:'/es/comprar-para-alquilar-o-etf/'})[lang];
     $('case-retire').href=(FIXED?'':'https://youretfplan.com')+({en:'/retired-rental-or-etf/',it:'/it/pensione-affitto-o-etf/',es:'/es/jubilado-alquiler-o-etf/'})[lang];
     document.querySelectorAll('.w-quick a').forEach(a=>{a.setAttribute('href',$('case-'+a.dataset.case).getAttribute('href'))});
-    const GUIDES={learn:{en:'/what-is-an-etf/',it:'/it/cosa-sono-gli-etf/',es:'/es/que-es-un-etf/'},first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},fund:{en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'}};
-    ['learn','first','fund'].forEach(k=>{$('case-'+k).href=(FIXED?'':'https://youretfplan.com')+GUIDES[k][lang]});
+    const GUIDES={learn:{en:'/what-is-an-etf/',it:'/it/cosa-sono-gli-etf/',es:'/es/que-es-un-etf/'},first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},fund:{en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'},crash:{en:'/when-markets-fall-etf/',it:'/it/borsa-crolla-etf/',es:'/es/bolsa-cae-etf/'}};
+    ['learn','first','fund','crash'].forEach(k=>{$('case-'+k).href=(FIXED?'':'https://youretfplan.com')+GUIDES[k][lang]});
     document.querySelectorAll('[data-guide]').forEach(a=>{a.href=(FIXED?'':'https://youretfplan.com')+GUIDES[a.dataset.guide][lang]});
     document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
     $('gloss').innerHTML=L.gloss.map(g=>'<div id="'+g[0]+'"><dt>'+g[1]+'</dt><dd>'+g[2]+'</dd></div>').join('');

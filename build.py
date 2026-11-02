@@ -179,6 +179,20 @@ GROUPS = {
             "es": "Calculadora: compara un fondo del banco a cerca del 1,5% anual con un ETF al 0,2%, con tus cantidades. Las 5 preguntas para tu banco y cómo leer el KID.",
         },
     ),
+    "crash": scenario(
+        "crash.html",
+        {"en": "/when-markets-fall-etf/", "it": "/it/borsa-crolla-etf/", "es": "/es/bolsa-cae-etf/"},
+        {
+            "en": "Markets fall: what happens to your ETFs? 2008, 2020 and 2022 in euros | Your ETF Plan",
+            "it": "Se la borsa crolla, cosa succede ai tuoi ETF? 2008, 2020 e 2022 in euro | Your ETF Plan",
+            "es": "Si la bolsa cae, ¿qué pasa con tus ETF? 2008, 2020 y 2022 en euros | Your ETF Plan",
+        },
+        {
+            "en": "Three real market falls in euros, on your amount: what you'd see on your screen at the worst, and what you had if you did nothing. What to do when markets fall.",
+            "it": "Tre crolli veri in euro, sulla tua cifra: quanto vedresti sul conto nel momento peggiore, e quanto avevi senza far niente. Cosa fare quando la borsa scende e i tuoi ETF vanno in rosso.",
+            "es": "Tres caídas reales en euros, con tu cantidad: cuánto verías en la cuenta en el peor momento, y cuánto tenías sin hacer nada. Qué hacer cuando la bolsa cae y tus ETF están en rojo.",
+        },
+    ),
     "learn": scenario(
         "learn.html",
         {"en": "/what-is-an-etf/", "it": "/it/cosa-sono-gli-etf/", "es": "/es/que-es-un-etf/"},
