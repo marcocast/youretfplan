@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T07:54:36+00:00",
+ "generated_at": "2026-11-02T12:41:57+00:00",
  "range": {
   "from": "2026-09-28",
   "to": "2026-11-02"
@@ -32,8 +32,8 @@
    "pages": [
     {
      "requestPath": "/it/",
-     "pageviews": 184,
-     "visits": 9
+     "pageviews": 186,
+     "visits": 10
     },
     {
      "requestPath": "/",
@@ -47,7 +47,7 @@
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 22,
+     "pageviews": 23,
      "visits": 3
     },
     {
@@ -56,12 +56,12 @@
      "visits": 3
     },
     {
-     "requestPath": "/it/come-comprare-etf/",
+     "requestPath": "/it/eredita-investire-etf/",
      "pageviews": 8,
      "visits": 0
     },
     {
-     "requestPath": "/it/eredita-investire-etf/",
+     "requestPath": "/it/come-comprare-etf/",
      "pageviews": 8,
      "visits": 0
     },
@@ -76,7 +76,7 @@
      "visits": 5
     },
     {
-     "requestPath": "/it/etf-o-fondo-della-banca/",
+     "requestPath": "/es/que-es-un-etf/",
      "pageviews": 4,
      "visits": 0
     },
@@ -86,12 +86,12 @@
      "visits": 0
     },
     {
-     "requestPath": "/es/que-es-un-etf/",
+     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
      "pageviews": 4,
      "visits": 0
     },
     {
-     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
+     "requestPath": "/it/etf-o-fondo-della-banca/",
      "pageviews": 4,
      "visits": 0
     },
@@ -104,6 +104,11 @@
      "requestPath": "/v3/",
      "pageviews": 2,
      "visits": 2
+    },
+    {
+     "requestPath": "/it/borsa-crolla-etf/",
+     "pageviews": 2,
+     "visits": 0
     },
     {
      "requestPath": "/inheritance-etf/",
@@ -131,17 +136,17 @@
      "visits": 0
     },
     {
-     "requestPath": "/es/jubilado-alquiler-o-etf/",
-     "pageviews": 1,
-     "visits": 0
-    },
-    {
      "requestPath": "/es/etf-o-fondo-del-banco/",
      "pageviews": 1,
      "visits": 0
     },
     {
      "requestPath": "/what-is-an-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/es/jubilado-alquiler-o-etf/",
      "pageviews": 1,
      "visits": 0
     }
@@ -154,12 +159,12 @@
     },
     {
      "refererHost": "",
-     "pageviews": 165,
-     "visits": 165
+     "pageviews": 166,
+     "visits": 166
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 132,
+     "pageviews": 136,
      "visits": 0
     },
     {
@@ -181,8 +186,8 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 278,
-     "visits": 38
+     "pageviews": 283,
+     "visits": 39
     },
     {
      "countryName": "FR",
@@ -253,8 +258,8 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 245,
-     "visits": 104
+     "pageviews": 250,
+     "visits": 105
     },
     {
      "deviceType": "mobile",
@@ -367,17 +372,21 @@
    },
    {
     "day": "2026-11-02",
-    "view": 1,
+    "view": 2,
     "hook": 0,
-    "plan": 0,
-    "calc_seen": 0,
-    "active": 0,
+    "plan": 1,
+    "calc_seen": 1,
+    "active": 1,
     "explore": 0,
-    "start_seen": 0,
+    "start_seen": 1,
     "faq": 0,
-    "bottom": 0,
+    "bottom": 1,
     "feedback": 0,
-    "share": 0
+    "share": 0,
+    "sc_crash_active": 1,
+    "sc_crash_view": 1,
+    "sc_retire_active": 1,
+    "sc_retire_view": 1
    }
   ],
   "last_7_days_breakdown": [
@@ -459,32 +468,32 @@
     "n": 5
    },
    {
-    "step": "plan",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 4
-   },
-   {
     "step": "view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 4
+    "n": 5
    },
    {
     "step": "active",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 3
+    "n": 4
    },
    {
     "step": "calc_seen",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 3
+    "n": 4
+   },
+   {
+    "step": "plan",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 4
    },
    {
     "step": "calc_seen",
@@ -516,6 +525,13 @@
    },
    {
     "step": "sc_own_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 3
+   },
+   {
+    "step": "sc_retire_active",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -704,7 +720,7 @@
     "n": 2
    },
    {
-    "step": "sc_retire_active",
+    "step": "sc_retire_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -820,6 +836,13 @@
     "lang": "es",
     "device": "mobile",
     "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "plan",
+    "lang": "it",
+    "device": "desktop",
+    "source": "direct",
     "n": 1
    },
    {
@@ -845,6 +868,20 @@
    },
    {
     "step": "sc_buy_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_crash_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_crash_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -928,13 +965,6 @@
     "n": 1
    },
    {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
     "step": "view",
     "lang": "en",
     "device": "desktop",
@@ -963,7 +993,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 9
+    "active_user_days": 10
    }
   ]
  },
