@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="en">
+<title>Markets fall: what happens to your ETFs? 2008, 2020 and 2022 in euros | Your ETF Plan</title>
+<meta name="description" content="Three real market falls in euros, on your amount: what you'd see on your screen at the worst, and what you had if you did nothing. What to do when markets fall.">
+<link rel="canonical" href="https://youretfplan.com/when-markets-fall-etf/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/when-markets-fall-etf/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/borsa-crolla-etf/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/bolsa-cae-etf/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/when-markets-fall-etf/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/when-markets-fall-etf/">
+<meta property="og:title" content="Markets fall: what happens to your ETFs? 2008, 2020 and 2022 in euros | Your ETF Plan">
+<meta property="og:description" content="Three real market falls in euros, on your amount: what you'd see on your screen at the worst, and what you had if you did nothing. What to do when markets fall.">
+<meta property="og:image" content="https://youretfplan.com/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* ETF or the bank's fund: yearly cost calculator. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+/* guide pages: numbered steps, progress, small calculator */
+.guide{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{gap:12px}
+.step h2{display:flex;align-items:center;gap:12px;font-size:1.3rem}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-size:1rem;color:#17322a}
+.step p{margin:0 0 8px}
+.step p:last-child{margin-bottom:0}
+.step a{color:var(--ink);font-weight:700}
+.step.is-done{border-color:var(--leaf2);box-shadow:6px 6px 0 var(--leaf2)}
+.step.is-done .n{background:var(--leaf);color:#fff}
+.done{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;background:var(--bg)}
+.done input{width:20px;height:20px;accent-color:var(--leaf2);margin:0}
+.progress{height:14px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--leaf);transition:width .3s}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:1.05rem;margin:0}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+/* when markets fall: 3 real falls in euros, on your amount */
+.tabs.three{grid-template-columns:repeat(3,1fr)}
+.tabs.three button{font-size:.95rem;padding:10px 4px}
+.fall-what{font-size:1.02rem}
+.trio{display:flex;flex-direction:column;gap:8px}
+.trio div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px}
+.trio span{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.25}
+.trio b{font-family:var(--display);font-size:1.35rem;line-height:1.15;text-align:right;white-space:nowrap}
+.trio small{grid-column:2;text-align:right;font-weight:700;font-size:.82rem}
+.trio .low b,.trio .low small{color:var(--down)}
+.trio .back b{color:var(--leaf2)}
+.fall-chart svg{display:block;width:100%;height:150px}
+.worst{background:var(--warn-soft);border-left:4px solid var(--warn);padding:14px 16px;border-radius:6px;display:flex;flex-direction:column;gap:8px}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Markets fall: what happens to your ETFs? 2008, 2020 and 2022 in euros",
+  "url": "https://youretfplan.com/when-markets-fall-etf/",
+  "description": "Three real market falls in euros, on your amount: what you'd see on your screen at the worst, and what you had if you did nothing. What to do when markets fall.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Can my ETF go to zero?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Shouldn’t I sell before it falls, and buy back later?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "I have a lump sum. All in now, or bit by bit?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "And if a fall lasts longer than ever before?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="true">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="false">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="false">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Guide · when markets fall</span>
+    <h1 id="h1" data-t="h1">Markets fall. <em>What happens to your ETFs?</em></h1>
+    <p class="sub" data-t="sub">It will happen. Not if, when. Here are three real falls, in euros, on your amount: how much you’d see on your screen at the worst, and what happened if you did nothing.</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="A line that drops and climbs back higher, with a calm person sitting next to it">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <path d="M20 150H340" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 8"></path>
+      <path d="M20 92 70 70 104 60 132 128 150 150 176 120 210 104 246 84 282 60 340 34" fill="none" stroke="var(--leaf2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+      <circle class="w-ink" cx="150" cy="150" r="9" fill="var(--coral)"></circle>
+      <circle class="w-ink" cx="340" cy="34" r="9" fill="var(--sun)"></circle>
+      <!-- calm person sitting -->
+      <circle class="w-ink" cx="64" cy="128" r="11" fill="var(--sun)"></circle>
+      <path class="w-ink" d="M64 139v18l14 8M64 147l-12 8M64 157l-8 20M78 165l2 12" fill="none"></path>
+      <path class="w-ink" d="M44 178h48" fill="none"></path>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH">Pick a fall, put your amount</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="amount" data-t="lAmount">Money you have in ETFs</label><span class="ctrl-val num" id="amount-out">€10,000</span></div>
+      <input type="range" id="amount" min="47" max="1000" step="1" value="216">
+    </div>
+    <div class="tabs three" role="tablist" data-ta="tabsLbl" aria-label="Which fall">
+      <button type="button" role="tab" id="t-2008" data-c="2008" aria-selected="true">2008</button>
+      <button type="button" role="tab" id="t-2020" data-c="2020" aria-selected="false">2020</button>
+      <button type="button" role="tab" id="t-2022" data-c="2022" aria-selected="false">2022</button>
+    </div>
+    <p class="fall-what" id="fall-what" aria-live="polite"><b>2008, the big financial crisis.</b> Banks in trouble all over the world. A world ETF in euros lost 37% in one year, and in early 2009 it went even lower.</p>
+    <div class="trio num" aria-live="polite">
+      <div><span id="lb-before">Before</span><b id="v-before">€10,000</b></div>
+      <div class="low"><span id="lb-low">End of 2008</span><b id="v-low">€6,300</b><small id="v-loss">−€3,700 on paper</small></div>
+      <div class="back"><span id="lb-back">End of 2013, if you did nothing</span><b id="v-back">€11,050</b></div>
+    </div>
+    <div class="chart-box fall-chart"><svg id="chart" viewBox="0 0 320 150" role="img" aria-label="How 2008 went, from the start of the fall to the recovery"><line x1="8" x2="312" y1="42.8" y2="42.8" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 5"></line><polyline points="8.0,42.8 58.7,114.3 109.3,88.6 160.0,65.6 210.7,73.3 261.3,57.1 312.0,22.5" fill="none" stroke="var(--leaf2)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"></polyline><circle cx="58.7" cy="114.3" r="6" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"></circle><circle cx="312.0" cy="22.5" r="6" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"></circle><text x="8.0" y="144" text-anchor="start" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2007</text><text x="58.7" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2008</text><text x="109.3" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2009</text><text x="160.0" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2010</text><text x="210.7" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2011</text><text x="261.3" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2012</text><text x="312.0" y="144" text-anchor="end" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">2013</text></svg></div>
+    <p class="verdict" id="verdict">Sell at the worst and you keep <b class="loss">€6,300</b>: the €3,700 loss becomes real. Sit still and you were back above where you started during 2013, about 5 years later. At the end of 2013 you had <b class="gain">€11,050</b>.</p>
+    <p class="note" data-t="calcNote">Real numbers, not a promise. 2008: a world ETF (iShares MSCI World) in euros, year by year. 2020: the fall is the world index in dollars; the end of 2020 in euros. 2022: the world index in euros, dividends included. Before tax. Sources: zendepot.de, investingintheweb.com, chartrow.com.</p>
+  </section>
+
+  <section aria-labelledby="h-worst">
+    <h2 id="h-worst" data-t="worstH">The worst ever, said plainly</h2>
+    <div class="worst" data-t="worst"><p>For someone in euros, the worst stretch of the last 25 years went from <b>May 2001 to March 2009</b>. Two crises one after the other. The world index lost <b>54%</b>: €10,000 became about €4,600.</p><p>That’s why the money you need in the next 3-5 years stays in the bank. ETFs are only for money you won’t need for at least 5 years. The longer the better: over 15 years or more, historically, it has always gone well.</p></div>
+  </section>
+
+  <section aria-labelledby="h-do">
+    <h2 id="h-do" data-t="doH">What to do when it falls</h2>
+    <ol class="steps" data-t="doL"><li><span><b>Nothing.</b> A fall is a loss on paper. It becomes real only if you sell.</span></li><li><span><b>Don’t look every day.</b> If the red numbers keep you awake, close the app for a few weeks.</span></li><li><span><b>Keep adding a bit every month.</b> In the red months the same €100 buys more pieces of the ETF.</span></li><li><span><b>Keep the money you need soon in the bank.</b> Then no fall can force you to sell at the worst moment.</span></li><li><span><b>Don’t listen to the news.</b> Nobody knows when a fall starts or when it ends. Not even the experts on TV.</span></li></ol>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Questions</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">Can my ETF go to zero?</summary><div data-t="a1">A single company can. For a world ETF to go to zero, about 1,300 big companies in 23 countries would all have to go bust together. And the money inside the ETF is held by a depositary bank, separate from the company that runs it.</div></details>
+      <details><summary data-t="q2">Shouldn’t I sell before it falls, and buy back later?</summary><div data-t="a2">You’d have to guess right twice: when to get out, and when to get back in. Almost nobody does it. The rises often come suddenly, when the news is still bad. If you’re out, you miss them.</div></details>
+      <details><summary data-t="q3">I have a lump sum. All in now, or bit by bit?</summary><div data-t="a3">Putting it all in at once did better about 2 times out of 3 (Vanguard research, 1976–2022), because markets go up more often than they go down. But if a fall right after would make you sell, spread it over 12 months: you sleep better, and on average the difference is small. <a data-link="inherit" href="/inheritance-etf/">See it with your numbers →</a></div></details>
+      <details><summary data-t="q4">And if a fall lasts longer than ever before?</summary><div data-t="a4">It can happen. History doesn’t promise anything. That’s why you never put in money you’ll need soon, and why you spread it over the whole world and not over a few companies or one country.</div></details>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Now your plan</h2>
+    <p data-t="next">3 questions, and you see how much to keep in the bank, how much to invest in ETFs and how much to add every month.</p>
+    <a class="btn" id="next-btn" href="/#wizard"><span data-t="nextBtn">Make my plan</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">Did this page help?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Yes">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="Not really">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">Thanks!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>Not financial advice.</strong> These are past numbers to help you understand. The future can go differently. Investing in ETFs means you can lose money too. Before any big decision, do your homework or talk to a professional. No ties to any bank or broker, no affiliate links.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/when-markets-fall-etf/" hreflang="en" lang="en">English</a> · <a href="/it/borsa-crolla-etf/" hreflang="it" lang="it">Italiano</a> · <a href="/es/bolsa-cae-etf/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const MAX=1000000;
+  const PAGE_URLS={en:'/when-markets-fall-etf/',it:'/it/borsa-crolla-etf/',es:'/es/bolsa-cae-etf/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const INHERIT={en:'/inheritance-etf/',it:'/it/eredita-investire-etf/',es:'/es/herencia-invertir-etf/'};
+
+  // Real falls, value of 1 € invested at the start, before tax.
+  // 2008: iShares MSCI World in EUR, calendar years 2008 −37%, 2009 +21.1%, 2010 +15.6%, 2011 −4.5%,
+  //       2012 +10.0%, 2013 +19.3% (zendepot.de return triangle). Back above 1 during 2013.
+  // 2020: MSCI World −34.0% from 12 Feb to 23 Mar 2020, back on 26 Aug 2020 (price, USD, chartrow.com);
+  //       whole of 2020 in EUR +6.33% (MSCI World net, investingintheweb.com).
+  // 2022: MSCI World net in EUR 2022 −12.78%, 2023 +19.60%, 2024 +26.60% (investingintheweb.com).
+  const C={
+    '2008':{low:0.63, back:1.105, path:[1,0.63,0.763,0.882,0.842,0.926,1.105], ticks:['2007','2008','2009','2010','2011','2012','2013']},
+    '2020':{low:0.66, back:1.063, path:[1,0.66,1,1.063], ticks:['Feb','Mar','Aug','Dec']},
+    '2022':{low:0.872, back:1.321, path:[1,0.872,1.043,1.321], ticks:['2021','2022','2023','2024']}
+  };
+
+  const T={
+    en:{locale:'en-IE', title:'Markets fall: what happens to your ETFs? 2008, 2020 and 2022 in euros | Your ETF Plan',
+      badge:'Guide · when markets fall',
+      h1:'Markets fall. <em>What happens to your ETFs?</em>',
+      sub:'It will happen. Not if, when. Here are three real falls, in euros, on your amount: how much you’d see on your screen at the worst, and what happened if you did nothing.',
+      illAlt:'A line that drops and climbs back higher, with a calm person sitting next to it',
+      calcH:'Pick a fall, put your amount',
+      lAmount:'Money you have in ETFs', tabsLbl:'Which fall',
+      what:{'2008':'<b>2008, the big financial crisis.</b> Banks in trouble all over the world. A world ETF in euros lost 37% in one year, and in early 2009 it went even lower.',
+        '2020':'<b>2020, Covid.</b> The world stopped. From 12 February to 23 March the world index lost 34%, in 40 days.',
+        '2022':'<b>2022, prices and interest rates up.</b> Everything cost more and money cost more. A world ETF in euros lost 13% in the year, and at times more during it.'},
+      before:'Before', low:{'2008':'End of 2008','2020':'23 March 2020','2022':'End of 2022'},
+      back:{'2008':'End of 2013, if you did nothing','2020':'End of 2020, if you did nothing','2022':'End of 2024, if you did nothing'},
+      loss:v=>v+' on paper',
+      verdict:{'2008':(lo,l,b)=>`Sell at the worst and you keep <b class="loss">${lo}</b>: the ${l} loss becomes real. Sit still and you were back above where you started during 2013, about 5 years later. At the end of 2013 you had <b class="gain">${b}</b>.`,
+        '2020':(lo,l,b)=>`Sell at the worst and you keep <b class="loss">${lo}</b>: the ${l} loss becomes real. Sit still and it was all back in about 6 months. At the end of 2020 you had <b class="gain">${b}</b>.`,
+        '2022':(lo,l,b)=>`Sell at the worst and you keep <b class="loss">${lo}</b>: the ${l} loss becomes real. Sit still and you were back above where you started during 2023. At the end of 2024 you had <b class="gain">${b}</b>.`},
+      chartAlt:c=>'How '+c+' went, from the start of the fall to the recovery',
+      calcNote:'Real numbers, not a promise. 2008: a world ETF (iShares MSCI World) in euros, year by year. 2020: the fall is the world index in dollars; the end of 2020 in euros. 2022: the world index in euros, dividends included. Before tax. Sources: zendepot.de, investingintheweb.com, chartrow.com.',
+      worstH:'The worst ever, said plainly',
+      worst:'<p>For someone in euros, the worst stretch of the last 25 years went from <b>May 2001 to March 2009</b>. Two crises one after the other. The world index lost <b>54%</b>: €10,000 became about €4,600.</p><p>That’s why the money you need in the next 3-5 years stays in the bank. ETFs are only for money you won’t need for at least 5 years. The longer the better: over 15 years or more, historically, it has always gone well.</p>',
+      doH:'What to do when it falls',
+      doL:'<li><span><b>Nothing.</b> A fall is a loss on paper. It becomes real only if you sell.</span></li><li><span><b>Don’t look every day.</b> If the red numbers keep you awake, close the app for a few weeks.</span></li><li><span><b>Keep adding a bit every month.</b> In the red months the same €100 buys more pieces of the ETF.</span></li><li><span><b>Keep the money you need soon in the bank.</b> Then no fall can force you to sell at the worst moment.</span></li><li><span><b>Don’t listen to the news.</b> Nobody knows when a fall starts or when it ends. Not even the experts on TV.</span></li>',
+      faqH:'Questions',
+      q1:'Can my ETF go to zero?', a1:'A single company can. For a world ETF to go to zero, about 1,300 big companies in 23 countries would all have to go bust together. And the money inside the ETF is held by a depositary bank, separate from the company that runs it.',
+      q2:'Shouldn’t I sell before it falls, and buy back later?', a2:'You’d have to guess right twice: when to get out, and when to get back in. Almost nobody does it. The rises often come suddenly, when the news is still bad. If you’re out, you miss them.',
+      q3:'I have a lump sum. All in now, or bit by bit?', a3:`Putting it all in at once did better about 2 times out of 3 (Vanguard research, 1976–2022), because markets go up more often than they go down. But if a fall right after would make you sell, spread it over 12 months: you sleep better, and on average the difference is small. <a data-link="inherit" href="#">See it with your numbers →</a>`,
+      q4:'And if a fall lasts longer than ever before?', a4:'It can happen. History doesn’t promise anything. That’s why you never put in money you’ll need soon, and why you spread it over the whole world and not over a few companies or one country.',
+      nextH:'Now your plan', next:'3 questions, and you see how much to keep in the bank, how much to invest in ETFs and how much to add every month.', nextBtn:'Make my plan',
+      fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial advice.</strong> These are past numbers to help you understand. The future can go differently. Investing in ETFs means you can lose money too. Before any big decision, do your homework or talk to a professional. No ties to any bank or broker, no affiliate links.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'Se la borsa crolla, cosa succede ai tuoi ETF? 2008, 2020 e 2022 in euro | Your ETF Plan',
+      badge:'Guida · quando la borsa scende',
+      h1:'La borsa crolla. <em>Cosa succede ai tuoi ETF?</em>',
+      sub:'Succederà. Non se, ma quando. Qui trovi tre crolli veri, in euro, sulla tua cifra: quanto vedresti sul conto nel momento peggiore, e com’è andata a chi non ha fatto niente.',
+      illAlt:'Una linea che scende e poi risale più in alto, con una persona tranquilla seduta accanto',
+      calcH:'Scegli un crollo, metti la tua cifra',
+      lAmount:'Soldi che hai in ETF', tabsLbl:'Quale crollo',
+      what:{'2008':'<b>2008, la grande crisi finanziaria.</b> Banche nei guai in tutto il mondo. Un ETF mondiale in euro ha perso il 37% in un anno, e all’inizio del 2009 è sceso ancora.',
+        '2020':'<b>2020, il Covid.</b> Il mondo si è fermato. Dal 12 febbraio al 23 marzo l’indice mondiale ha perso il 34%, in 40 giorni.',
+        '2022':'<b>2022, prezzi e tassi su.</b> Tutto costava di più, anche i mutui. Un ETF mondiale in euro ha perso il 13% nell’anno, e a tratti di più durante l’anno.'},
+      before:'Prima', low:{'2008':'Fine 2008','2020':'23 marzo 2020','2022':'Fine 2022'},
+      back:{'2008':'Fine 2013, senza far niente','2020':'Fine 2020, senza far niente','2022':'Fine 2024, senza far niente'},
+      loss:v=>v+' sulla carta',
+      verdict:{'2008':(lo,l,b)=>`Se vendi nel momento peggiore ti restano <b class="loss">${lo}</b>: i ${l} persi diventano veri. Se stai fermo, nel corso del 2013 eri di nuovo sopra la cifra di partenza, circa 5 anni dopo. A fine 2013 avevi <b class="gain">${b}</b>.`,
+        '2020':(lo,l,b)=>`Se vendi nel momento peggiore ti restano <b class="loss">${lo}</b>: i ${l} persi diventano veri. Se stai fermo, in circa 6 mesi era tornato tutto. A fine 2020 avevi <b class="gain">${b}</b>.`,
+        '2022':(lo,l,b)=>`Se vendi nel momento peggiore ti restano <b class="loss">${lo}</b>: i ${l} persi diventano veri. Se stai fermo, nel corso del 2023 eri di nuovo sopra la cifra di partenza. A fine 2024 avevi <b class="gain">${b}</b>.`},
+      chartAlt:c=>'Com’è andato il '+c+', dall’inizio del crollo alla ripresa',
+      calcNote:'Numeri veri, non una promessa. 2008: un ETF mondiale (iShares MSCI World) in euro, anno per anno. 2020: il crollo è dell’indice mondiale in dollari; la fine del 2020 in euro. 2022: l’indice mondiale in euro, dividendi compresi. Prima delle tasse. Fonti: zendepot.de, investingintheweb.com, chartrow.com.',
+      worstH:'Il caso peggiore, detto chiaro',
+      worst:'<p>Per chi ragiona in euro, il periodo peggiore degli ultimi 25 anni va da <b>maggio 2001 a marzo 2009</b>. Due crisi una dopo l’altra. L’indice mondiale ha perso il <b>54%</b>: 10.000&nbsp;€ sono diventati circa 4.600&nbsp;€.</p><p>Per questo i soldi che ti servono nei prossimi 3-5 anni restano in banca. Negli ETF metti solo soldi che non ti servono per almeno 5 anni. Più lungo è, meglio è: su 15 anni o più, storicamente, è sempre andata bene.</p>',
+      doH:'Cosa fare quando scende',
+      doL:'<li><span><b>Niente.</b> Un crollo è una perdita sulla carta. Diventa vera solo se vendi.</span></li><li><span><b>Non guardare ogni giorno.</b> Se i numeri rossi non ti fanno dormire, non aprire l’app per qualche settimana.</span></li><li><span><b>Continua ad aggiungere un po’ ogni mese.</b> Nei mesi rossi con gli stessi 100&nbsp;€ compri più pezzi di ETF.</span></li><li><span><b>Tieni in banca i soldi che ti servono a breve.</b> Così nessun crollo ti obbliga a vendere nel momento peggiore.</span></li><li><span><b>Non ascoltare il telegiornale.</b> Nessuno sa quando un crollo comincia o quando finisce. Neanche gli esperti in TV.</span></li>',
+      faqH:'Domande',
+      q1:'Il mio ETF può andare a zero?', a1:'Una singola azienda sì. Perché un ETF mondiale vada a zero dovrebbero fallire tutte insieme circa 1.300 grandi aziende in 23 paesi. E i soldi dentro l’ETF li custodisce una banca depositaria, separata dalla società che lo gestisce.',
+      q2:'Non conviene vendere prima che scenda, e ricomprare dopo?', a2:'Dovresti indovinare due volte: quando uscire e quando rientrare. Non ci riesce quasi nessuno. Le salite spesso arrivano all’improvviso, quando le notizie sono ancora brutte. Se sei fuori, te le perdi.',
+      q3:'Ho una somma. Tutto subito o un po’ alla volta?', a3:`Mettere tutto subito è andato meglio circa 2 volte su 3 (studi Vanguard, 1976–2022), perché la borsa sale più spesso di quanto scende. Ma se un crollo subito dopo ti farebbe vendere, dividilo in 12 mesi: dormi meglio, e in media la differenza è piccola. <a data-link="inherit" href="#">Guardalo con le tue cifre →</a>`,
+      q4:'E se un crollo durasse più di sempre?', a4:'Può succedere. La storia non promette niente. Per questo non ci metti mai soldi che ti servono presto, e li spargi su tutto il mondo e non su poche aziende o un solo paese.',
+      nextH:'Adesso il tuo piano', next:'3 domande, e vedi quanto tenere in banca, quanto investire in ETF e quanto aggiungere ogni mese.', nextBtn:'Fai il mio piano',
+      fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Sono numeri del passato per capire. Il futuro può andare diversamente. Investire in ETF vuol dire che puoi anche perdere soldi. Prima di decisioni grosse, informati bene o parla con un professionista. Nessun legame con banche o broker, nessun link di affiliazione.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'Si la bolsa cae, ¿qué pasa con tus ETF? 2008, 2020 y 2022 en euros | Your ETF Plan',
+      badge:'Guía · cuando la bolsa cae',
+      h1:'La bolsa cae. <em>¿Qué pasa con tus ETF?</em>',
+      sub:'Va a pasar. No es si, es cuándo. Aquí tienes tres caídas reales, en euros, con tu cantidad: cuánto verías en la cuenta en el peor momento, y qué le pasó a quien no hizo nada.',
+      illAlt:'Una línea que baja y luego sube más alto, con una persona tranquila sentada al lado',
+      calcH:'Elige una caída, pon tu cantidad',
+      lAmount:'Dinero que tienes en ETF', tabsLbl:'Qué caída',
+      what:{'2008':'<b>2008, la gran crisis financiera.</b> Bancos en apuros en todo el mundo. Un ETF mundial en euros perdió un 37% en un año, y a principios de 2009 bajó todavía más.',
+        '2020':'<b>2020, el Covid.</b> El mundo se paró. Del 12 de febrero al 23 de marzo el índice mundial perdió un 34%, en 40 días.',
+        '2022':'<b>2022, precios y tipos al alza.</b> Todo costaba más, también las hipotecas. Un ETF mundial en euros perdió un 13% en el año, y en algunos momentos más.'},
+      before:'Antes', low:{'2008':'Final de 2008','2020':'23 de marzo de 2020','2022':'Final de 2022'},
+      back:{'2008':'Final de 2013, sin hacer nada','2020':'Final de 2020, sin hacer nada','2022':'Final de 2024, sin hacer nada'},
+      loss:v=>v+' en papel',
+      verdict:{'2008':(lo,l,b)=>`Si vendes en el peor momento te quedan <b class="loss">${lo}</b>: los ${l} perdidos se vuelven reales. Si te quedas quieto, a lo largo de 2013 volviste a estar por encima de lo que pusiste, unos 5 años después. A final de 2013 tenías <b class="gain">${b}</b>.`,
+        '2020':(lo,l,b)=>`Si vendes en el peor momento te quedan <b class="loss">${lo}</b>: los ${l} perdidos se vuelven reales. Si te quedas quieto, en unos 6 meses había vuelto todo. A final de 2020 tenías <b class="gain">${b}</b>.`,
+        '2022':(lo,l,b)=>`Si vendes en el peor momento te quedan <b class="loss">${lo}</b>: los ${l} perdidos se vuelven reales. Si te quedas quieto, a lo largo de 2023 volviste a estar por encima de lo que pusiste. A final de 2024 tenías <b class="gain">${b}</b>.`},
+      chartAlt:c=>'Cómo fue '+c+', desde el inicio de la caída hasta la recuperación',
+      calcNote:'Números reales, no una promesa. 2008: un ETF mundial (iShares MSCI World) en euros, año a año. 2020: la caída es del índice mundial en dólares; el final de 2020 en euros. 2022: el índice mundial en euros, con dividendos. Antes de impuestos. Fuentes: zendepot.de, investingintheweb.com, chartrow.com.',
+      worstH:'El peor caso, dicho claro',
+      worst:'<p>Para quien piensa en euros, el peor periodo de los últimos 25 años fue de <b>mayo de 2001 a marzo de 2009</b>. Dos crisis seguidas. El índice mundial perdió un <b>54%</b>: 10.000&nbsp;€ se quedaron en unos 4.600&nbsp;€.</p><p>Por eso el dinero que necesitas en los próximos 3-5 años se queda en el banco. En ETF solo metes dinero que no vas a necesitar en al menos 5 años. Cuanto más largo, mejor: a 15 años o más, históricamente, siempre ha ido bien.</p>',
+      doH:'Qué hacer cuando cae',
+      doL:'<li><span><b>Nada.</b> Una caída es una pérdida en papel. Solo se vuelve real si vendes.</span></li><li><span><b>No mires cada día.</b> Si los números en rojo no te dejan dormir, no abras la app durante unas semanas.</span></li><li><span><b>Sigue añadiendo un poco cada mes.</b> En los meses rojos, con los mismos 100&nbsp;€ compras más trozos del ETF.</span></li><li><span><b>Deja en el banco el dinero que necesitas pronto.</b> Así ninguna caída te obliga a vender en el peor momento.</span></li><li><span><b>No hagas caso al telediario.</b> Nadie sabe cuándo empieza una caída ni cuándo acaba. Ni los expertos de la tele.</span></li>',
+      faqH:'Preguntas',
+      q1:'¿Mi ETF puede llegar a cero?', a1:'Una sola empresa sí. Para que un ETF mundial llegue a cero, unas 1.300 grandes empresas de 23 países tendrían que quebrar todas a la vez. Y el dinero dentro del ETF lo custodia un banco depositario, separado de la gestora que lo lleva.',
+      q2:'¿No es mejor vender antes de que caiga y volver a comprar después?', a2:'Tendrías que acertar dos veces: cuándo salir y cuándo volver a entrar. Casi nadie lo consigue. Las subidas suelen llegar de golpe, cuando las noticias todavía son malas. Si estás fuera, te las pierdes.',
+      q3:'Tengo una cantidad. ¿Todo ahora o poco a poco?', a3:`Meterlo todo de golpe salió mejor unas 2 de cada 3 veces (estudios de Vanguard, 1976–2022), porque la bolsa sube más a menudo de lo que baja. Pero si una caída justo después te haría vender, repártelo en 12 meses: duermes mejor, y de media la diferencia es pequeña. <a data-link="inherit" href="#">Míralo con tus números →</a>`,
+      q4:'¿Y si una caída dura más que nunca?', a4:'Puede pasar. La historia no promete nada. Por eso nunca metes dinero que vas a necesitar pronto, y lo repartes por todo el mundo y no en pocas empresas o un solo país.',
+      nextH:'Ahora tu plan', next:'3 preguntas, y ves cuánto dejar en el banco, cuánto invertir en ETF y cuánto añadir cada mes.', nextBtn:'Hacer mi plan',
+      fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero.</strong> Son números del pasado para entender. El futuro puede ir de otra manera. Invertir en ETF significa que también puedes perder dinero. Antes de una decisión grande, infórmate bien o habla con un profesional. Sin relación con ningún banco ni bróker, sin enlaces de afiliado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+  const MONTHS={it:{Feb:'feb',Mar:'mar',Aug:'ago',Dec:'dic'},es:{Feb:'feb',Mar:'mar',Aug:'ago',Dec:'dic'},en:{}};
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt, cur='2008';
+
+  // Curved slider 0–1M (cube), like the other pages. Position 216 = 10,000 €.
+  function amountFromPos(p){const v=MAX*Math.pow(p/1000,3);const st=v<10000?100:v<100000?1000:v<1000000?5000:10000;return Math.max(100,Math.round(v/st)*st)}
+
+  function chart(c){
+    const d=C[c], W=320, H=150, padL=8, padR=8, top=14, bot=26;
+    const hi=Math.max(...d.path)*1.04, lo=Math.min(...d.path)*0.92;
+    const x=i=>padL+i*(W-padL-padR)/(d.path.length-1), y=v=>top+(hi-v)/(hi-lo)*(H-top-bot);
+    const pts=d.path.map((v,i)=>x(i).toFixed(1)+','+y(v).toFixed(1)).join(' ');
+    const iLow=d.path.indexOf(Math.min(...d.path));
+    const tick=t=>(MONTHS[lang]&&MONTHS[lang][t])||t;
+    let s='<line x1="'+padL+'" x2="'+(W-padR)+'" y1="'+y(1).toFixed(1)+'" y2="'+y(1).toFixed(1)+'" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 5"/>';
+    s+='<polyline points="'+pts+'" fill="none" stroke="var(--leaf2)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>';
+    s+='<circle cx="'+x(iLow).toFixed(1)+'" cy="'+y(d.low).toFixed(1)+'" r="6" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"/>';
+    s+='<circle cx="'+x(d.path.length-1).toFixed(1)+'" cy="'+y(d.back).toFixed(1)+'" r="6" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"/>';
+    d.ticks.forEach((t,i)=>{const a=i===0?'start':i===d.ticks.length-1?'end':'middle';s+='<text x="'+x(i).toFixed(1)+'" y="'+(H-6)+'" text-anchor="'+a+'" font-size="12" font-weight="600" fill="var(--muted)" font-family="Figtree, sans-serif">'+tick(t)+'</text>'});
+    $('chart').innerHTML=s; $('chart').setAttribute('aria-label',L.chartAlt(c));
+  }
+
+  function render(){
+    const A=amountFromPos(+$('amount').value), d=C[cur];
+    const low=A*d.low, back=A*d.back, loss=A-low;
+    $('amount-out').textContent=fmt(A);
+    ['2008','2020','2022'].forEach(k=>$('t-'+k).setAttribute('aria-selected',k===cur));
+    $('fall-what').innerHTML=L.what[cur];
+    $('lb-before').textContent=L.before; $('v-before').textContent=fmt(A);
+    $('lb-low').textContent=L.low[cur]; $('v-low').textContent=fmt(low); $('v-loss').textContent=L.loss('−'+fmt(loss));
+    $('lb-back').textContent=L.back[cur]; $('v-back').textContent=fmt(back);
+    $('verdict').innerHTML=L.verdict[cur](fmt(low),fmt(loss),fmt(back));
+    chart(cur);
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
+    fmt=v=>nf.format(Math.round(v));
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    const base=FIXED?'':'https://youretfplan.com';
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=base+HOME[lang]+'#wizard';
+    document.querySelectorAll('[data-link="inherit"]').forEach(a=>{a.href=base+INHERIT[lang]});
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  $('amount').addEventListener('input',render);
+  document.querySelectorAll('[role="tab"]').forEach(b=>b.addEventListener('click',()=>{cur=b.dataset.c;render()}));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_crash_view']);
+    $('amount').addEventListener('input',()=>send(['sc_crash_active','active']));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_crash',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>
