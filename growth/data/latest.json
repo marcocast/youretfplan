@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-02T15:51:29+00:00",
+ "generated_at": "2026-11-03T12:08:16+00:00",
  "range": {
-  "from": "2026-09-28",
-  "to": "2026-11-02"
+  "from": "2026-09-29",
+  "to": "2026-11-03"
  },
  "errors": [],
  "web_analytics": {
@@ -26,19 +26,24 @@
     "date": "2026-11-01",
     "pageviews": 200,
     "visits": 60
+   },
+   {
+    "date": "2026-11-03",
+    "pageviews": 10,
+    "visits": 0
    }
   ],
   "last_7_days": {
    "pages": [
     {
      "requestPath": "/it/",
-     "pageviews": 189,
+     "pageviews": 190,
      "visits": 10
     },
     {
      "requestPath": "/",
-     "pageviews": 162,
-     "visits": 131
+     "pageviews": 165,
+     "visits": 134
     },
     {
      "requestPath": "/es/",
@@ -47,7 +52,7 @@
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 23,
+     "pageviews": 24,
      "visits": 3
     },
     {
@@ -159,12 +164,12 @@
     },
     {
      "refererHost": "",
-     "pageviews": 167,
-     "visits": 167
+     "pageviews": 170,
+     "visits": 170
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 136,
+     "pageviews": 138,
      "visits": 0
     },
     {
@@ -186,7 +191,7 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 283,
+     "pageviews": 285,
      "visits": 39
     },
     {
@@ -215,12 +220,12 @@
      "visits": 10
     },
     {
-     "countryName": "DE",
-     "pageviews": 7,
-     "visits": 7
+     "countryName": "CA",
+     "pageviews": 8,
+     "visits": 8
     },
     {
-     "countryName": "CA",
+     "countryName": "DE",
      "pageviews": 7,
      "visits": 7
     },
@@ -236,6 +241,11 @@
     },
     {
      "countryName": "CN",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
+     "countryName": "FI",
      "pageviews": 2,
      "visits": 2
     },
@@ -258,18 +268,18 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 257,
-     "visits": 106
+     "pageviews": 220,
+     "visits": 80
     },
     {
      "deviceType": "mobile",
      "pageviews": 130,
-     "visits": 53
+     "visits": 40
     },
     {
      "deviceType": "tablet",
-     "pageviews": 104,
-     "visits": 12
+     "pageviews": 100,
+     "visits": 0
     }
    ]
   }
@@ -372,11 +382,11 @@
    },
    {
     "day": "2026-11-02",
-    "view": 3,
+    "view": 6,
     "hook": 0,
     "plan": 1,
     "calc_seen": 2,
-    "active": 1,
+    "active": 2,
     "explore": 0,
     "start_seen": 2,
     "faq": 1,
@@ -386,7 +396,24 @@
     "sc_crash_active": 1,
     "sc_crash_view": 2,
     "sc_let_view": 1,
-    "sc_own_view": 1,
+    "sc_own_active": 1,
+    "sc_own_view": 2,
+    "sc_retire_active": 1,
+    "sc_retire_view": 1
+   },
+   {
+    "day": "2026-11-03",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 1,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0,
     "sc_retire_active": 1,
     "sc_retire_view": 1
    }
@@ -397,7 +424,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 33
+    "n": 36
    },
    {
     "step": "view",
@@ -442,6 +469,20 @@
     "n": 7
    },
    {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 6
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 5
+   },
+   {
     "step": "hook",
     "lang": "it",
     "device": "mobile",
@@ -470,20 +511,6 @@
     "n": 5
    },
    {
-    "step": "view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 5
-   },
-   {
-    "step": "active",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 4
-   },
-   {
     "step": "calc_seen",
     "lang": "it",
     "device": "desktop",
@@ -494,6 +521,13 @@
     "step": "plan",
     "lang": "it",
     "device": "mobile",
+    "source": "internal",
+    "n": 4
+   },
+   {
+    "step": "sc_retire_active",
+    "lang": "it",
+    "device": "desktop",
     "source": "internal",
     "n": 4
    },
@@ -549,14 +583,14 @@
    {
     "step": "sc_retire_active",
     "lang": "it",
-    "device": "desktop",
+    "device": "mobile",
     "source": "internal",
     "n": 3
    },
    {
-    "step": "sc_retire_active",
+    "step": "sc_retire_view",
     "lang": "it",
-    "device": "mobile",
+    "device": "desktop",
     "source": "internal",
     "n": 3
    },
@@ -743,13 +777,6 @@
     "n": 2
    },
    {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 2
-   },
-   {
     "step": "view",
     "lang": "es",
     "device": "desktop",
@@ -782,6 +809,13 @@
     "lang": "it",
     "device": "mobile",
     "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "search:google.com",
     "n": 1
    },
    {
@@ -953,10 +987,24 @@
     "n": 1
    },
    {
+    "step": "sc_own_active",
+    "lang": "it",
+    "device": "mobile",
+    "source": "search:google.com",
+    "n": 1
+   },
+   {
     "step": "sc_own_view",
     "lang": "en",
     "device": "desktop",
     "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "sc_own_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "search:google.com",
     "n": 1
    },
    {
@@ -995,7 +1043,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 10
+    "active_user_days": 12
    }
   ]
  },
