@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T12:08:16+00:00",
+ "generated_at": "2026-11-03T14:13:46+00:00",
  "range": {
   "from": "2026-09-29",
   "to": "2026-11-03"
@@ -268,18 +268,18 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 220,
-     "visits": 80
+     "pageviews": 262,
+     "visits": 109
     },
     {
      "deviceType": "mobile",
      "pageviews": 130,
-     "visits": 40
+     "visits": 53
     },
     {
      "deviceType": "tablet",
-     "pageviews": 100,
-     "visits": 0
+     "pageviews": 104,
+     "visits": 12
     }
    ]
   }
