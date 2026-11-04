@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T12:21:08+00:00",
+ "generated_at": "2026-11-04T14:31:57+00:00",
  "range": {
   "from": "2026-09-30",
   "to": "2026-11-04"
@@ -52,7 +52,7 @@
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 24,
+     "pageviews": 25,
      "visits": 3
     },
     {
@@ -169,7 +169,7 @@
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 140,
+     "pageviews": 141,
      "visits": 0
     },
     {
@@ -191,7 +191,7 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 287,
+     "pageviews": 288,
      "visits": 39
     },
     {
@@ -273,7 +273,7 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 265,
+     "pageviews": 266,
      "visits": 110
     },
     {
@@ -428,13 +428,15 @@
     "hook": 0,
     "plan": 0,
     "calc_seen": 1,
-    "active": 0,
+    "active": 1,
     "explore": 0,
     "start_seen": 1,
     "faq": 0,
     "bottom": 0,
     "feedback": 0,
-    "share": 0
+    "share": 0,
+    "sc_retire_active": 1,
+    "sc_retire_view": 1
    }
   ],
   "last_7_days_breakdown": [
@@ -499,7 +501,7 @@
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 5
+    "n": 6
    },
    {
     "step": "calc_seen",
@@ -537,6 +539,13 @@
     "n": 5
    },
    {
+    "step": "sc_retire_active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 5
+   },
+   {
     "step": "plan",
     "lang": "it",
     "device": "mobile",
@@ -544,7 +553,7 @@
     "n": 4
    },
    {
-    "step": "sc_retire_active",
+    "step": "sc_retire_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -603,13 +612,6 @@
     "step": "sc_retire_active",
     "lang": "it",
     "device": "mobile",
-    "source": "internal",
-    "n": 3
-   },
-   {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "desktop",
     "source": "internal",
     "n": 3
    },
@@ -1062,7 +1064,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 12
+    "active_user_days": 13
    }
   ]
  },
