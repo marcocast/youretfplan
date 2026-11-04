@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-03T14:13:46+00:00",
+ "generated_at": "2026-11-04T12:21:08+00:00",
  "range": {
-  "from": "2026-09-29",
-  "to": "2026-11-03"
+  "from": "2026-09-30",
+  "to": "2026-11-04"
  },
  "errors": [],
  "web_analytics": {
@@ -37,13 +37,13 @@
    "pages": [
     {
      "requestPath": "/it/",
-     "pageviews": 190,
+     "pageviews": 192,
      "visits": 10
     },
     {
      "requestPath": "/",
-     "pageviews": 165,
-     "visits": 134
+     "pageviews": 166,
+     "visits": 135
     },
     {
      "requestPath": "/es/",
@@ -164,12 +164,12 @@
     },
     {
      "refererHost": "",
-     "pageviews": 170,
-     "visits": 170
+     "pageviews": 171,
+     "visits": 171
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 138,
+     "pageviews": 140,
      "visits": 0
     },
     {
@@ -191,7 +191,7 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 285,
+     "pageviews": 287,
      "visits": 39
     },
     {
@@ -250,6 +250,11 @@
      "visits": 2
     },
     {
+     "countryName": "BE",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
      "countryName": "SG",
      "pageviews": 1,
      "visits": 1
@@ -268,8 +273,8 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 262,
-     "visits": 109
+     "pageviews": 265,
+     "visits": 110
     },
     {
      "deviceType": "mobile",
@@ -416,6 +421,20 @@
     "share": 0,
     "sc_retire_active": 1,
     "sc_retire_view": 1
+   },
+   {
+    "day": "2026-11-04",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 1,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 1,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -473,10 +492,17 @@
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 6
+    "n": 7
    },
    {
     "step": "active",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 5
+   },
+   {
+    "step": "calc_seen",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -509,13 +535,6 @@
     "device": "mobile",
     "source": "internal",
     "n": 5
-   },
-   {
-    "step": "calc_seen",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 4
    },
    {
     "step": "plan",
