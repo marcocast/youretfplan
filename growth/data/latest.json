@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-04T14:31:57+00:00",
+ "generated_at": "2026-11-05T12:35:21+00:00",
  "range": {
-  "from": "2026-09-30",
-  "to": "2026-11-04"
+  "from": "2026-10-01",
+  "to": "2026-11-05"
  },
  "errors": [],
  "web_analytics": {
@@ -31,19 +31,24 @@
     "date": "2026-11-03",
     "pageviews": 10,
     "visits": 0
+   },
+   {
+    "date": "2026-11-04",
+    "pageviews": 10,
+    "visits": 10
    }
   ],
   "last_7_days": {
    "pages": [
     {
      "requestPath": "/it/",
-     "pageviews": 192,
+     "pageviews": 193,
      "visits": 10
     },
     {
      "requestPath": "/",
-     "pageviews": 166,
-     "visits": 135
+     "pageviews": 168,
+     "visits": 137
     },
     {
      "requestPath": "/es/",
@@ -52,7 +57,7 @@
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 25,
+     "pageviews": 27,
      "visits": 3
     },
     {
@@ -111,6 +116,11 @@
      "visits": 0
     },
     {
+     "requestPath": "/es/banco-vs-etf/",
+     "pageviews": 3,
+     "visits": 1
+    },
+    {
      "requestPath": "/v3/",
      "pageviews": 2,
      "visits": 2
@@ -119,11 +129,6 @@
      "requestPath": "/inheritance-etf/",
      "pageviews": 2,
      "visits": 2
-    },
-    {
-     "requestPath": "/es/banco-vs-etf/",
-     "pageviews": 2,
-     "visits": 0
     },
     {
      "requestPath": "/rent-or-sell-house-etf/",
@@ -164,13 +169,18 @@
     },
     {
      "refererHost": "",
-     "pageviews": 171,
-     "visits": 171
+     "pageviews": 173,
+     "visits": 173
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 141,
+     "pageviews": 144,
      "visits": 0
+    },
+    {
+     "refererHost": "www.google.com",
+     "pageviews": 2,
+     "visits": 2
     },
     {
      "refererHost": "kino.watch",
@@ -181,18 +191,13 @@
      "refererHost": "www.investing.com",
      "pageviews": 1,
      "visits": 1
-    },
-    {
-     "refererHost": "www.google.com",
-     "pageviews": 1,
-     "visits": 1
     }
    ],
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 288,
-     "visits": 39
+     "pageviews": 292,
+     "visits": 40
     },
     {
      "countryName": "FR",
@@ -201,8 +206,8 @@
     },
     {
      "countryName": "US",
-     "pageviews": 62,
-     "visits": 62
+     "pageviews": 63,
+     "visits": 63
     },
     {
      "countryName": "IT",
@@ -221,8 +226,8 @@
     },
     {
      "countryName": "CA",
-     "pageviews": 8,
-     "visits": 8
+     "pageviews": 9,
+     "visits": 9
     },
     {
      "countryName": "DE",
@@ -273,13 +278,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 266,
-     "visits": 110
+     "pageviews": 271,
+     "visits": 112
     },
     {
      "deviceType": "mobile",
-     "pageviews": 130,
-     "visits": 53
+     "pageviews": 131,
+     "visits": 54
     },
     {
      "deviceType": "tablet",
@@ -424,17 +429,19 @@
    },
    {
     "day": "2026-11-04",
-    "view": 1,
+    "view": 2,
     "hook": 0,
     "plan": 0,
     "calc_seen": 1,
-    "active": 1,
+    "active": 2,
     "explore": 0,
     "start_seen": 1,
     "faq": 0,
     "bottom": 0,
     "feedback": 0,
     "share": 0,
+    "sc_bank_active": 1,
+    "sc_bank_view": 1,
     "sc_retire_active": 1,
     "sc_retire_view": 1
    }
@@ -445,7 +452,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 36
+    "n": 37
    },
    {
     "step": "view",
@@ -821,6 +828,13 @@
    {
     "step": "active",
     "lang": "es",
+    "device": "desktop",
+    "source": "search:google.com",
+    "n": 1
+   },
+   {
+    "step": "active",
+    "lang": "es",
     "device": "mobile",
     "source": "internal",
     "n": 1
@@ -910,10 +924,24 @@
     "n": 1
    },
    {
+    "step": "sc_bank_active",
+    "lang": "es",
+    "device": "desktop",
+    "source": "search:google.com",
+    "n": 1
+   },
+   {
     "step": "sc_bank_view",
     "lang": "en",
     "device": "desktop",
     "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "sc_bank_view",
+    "lang": "es",
+    "device": "desktop",
+    "source": "search:google.com",
     "n": 1
    },
    {
@@ -1064,7 +1092,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 13
+    "active_user_days": 14
    }
   ]
  },
