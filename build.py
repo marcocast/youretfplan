@@ -22,7 +22,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 SRC = ROOT / "src" / "page.html"
 PUBLIC = ROOT / "public"
 SITE = "https://youretfplan.com"
-LASTMOD = "2026-11-01"
+LASTMOD = "2026-11-09"
 
 MAIN = {
     "en": {
@@ -191,6 +191,20 @@ GROUPS = {
             "en": "Three real market falls in euros, on your amount: what you'd see on your screen at the worst, and what you had if you did nothing. What to do when markets fall.",
             "it": "Tre crolli veri in euro, sulla tua cifra: quanto vedresti sul conto nel momento peggiore, e quanto avevi senza far niente. Cosa fare quando la borsa scende e i tuoi ETF vanno in rosso.",
             "es": "Tres caídas reales en euros, con tu cantidad: cuánto verías en la cuenta en el peor momento, y cuánto tenías sin hacer nada. Qué hacer cuando la bolsa cae y tus ETF están en rojo.",
+        },
+    ),
+    "monthly": scenario(
+        "monthly.html",
+        {"en": "/how-much-to-invest-in-etfs-monthly/", "it": "/it/pac-etf-quanto-investire-al-mese/", "es": "/es/cuanto-invertir-en-etf-al-mes/"},
+        {
+            "en": "How much to invest in ETFs every month? Calculator: €50, €100, €200 a month | Your ETF Plan",
+            "it": "PAC in ETF: quanto investire ogni mese? Calcolatore 50, 100, 200 € al mese | Your ETF Plan",
+            "es": "¿Cuánto invertir en ETF cada mes? Calculadora: 50, 100, 200 € al mes | Your ETF Plan",
+        },
+        {
+            "en": "Calculator: what €50, €100, €200 or your own amount a month in ETFs can become in 10, 20 or 30 years, in euros. How much to keep in the bank first, what waiting costs, taxes.",
+            "it": "Calcolatore PAC: cosa possono diventare 50, 100, 200 € al mese, o la tua cifra, investendo in ETF per 10, 20 o 30 anni, in euro. Quanto tenere prima in banca, quanto costa aspettare, tasse.",
+            "es": "Calculadora: en qué se pueden convertir 50, 100, 200 € al mes, o tu cantidad, invirtiendo en ETF durante 10, 20 o 30 años, en euros. Cuánto dejar antes en el banco, lo que cuesta esperar, impuestos.",
         },
     ),
     "learn": scenario(
