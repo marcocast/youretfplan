@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /v2/
 Disallow: /v3/
+Disallow: /api/
 
 Sitemap: https://youretfplan.com/sitemap.xml

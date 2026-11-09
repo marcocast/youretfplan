@@ -1231,7 +1231,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
     $('prog-txt').textContent=W.step(wStep+1);
     document.querySelectorAll('.w-dots i').forEach((d,i)=>d.classList.toggle('on',i<=wStep));
     $('q-h').textContent=t.h; $('q-p').textContent=t.p;
-    $('q-ill').innerHTML='<use href="'+q.ill+'"/>';
+    $('q-ill').innerHTML='<use href='+JSON.stringify(q.ill)+'/>'; // no href="..." in the source: Google read '+q.ill+' as a link (404)
     if(q.curve){r.min=0;r.max=1000;r.step=1;r.value=curvePos(q,wAns[q.key])}else{r.min=q.min;r.max=q.max;r.step=q.step;r.value=wAns[q.key]}
     $('tk-lo').textContent=fmt(q.min); $('tk-hi').textContent=fmt(q.max)+(q.key==='cash'?'+':'');
     $('q-val').textContent=fmt(wAns[q.key]); r.setAttribute('aria-valuetext',fmt(wAns[q.key]));
@@ -1254,7 +1254,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
 
   function renderResult(){
     const E=wAns.spend*MONTHS, gap=Math.max(0,E-wAns.cash), lump=Math.max(0,wAns.cash-E), m=wAns.monthly;
-    const li=(ic,t,amt,p)=>'<li><svg><use href="'+ic+'"/></svg><div><b>'+t+'</b><span class="w-amt num">'+amt+'</span><p>'+p+'</p></div></li>';
+    const li=(ic,t,amt,p)=>'<li><svg><use href='+JSON.stringify(ic)+'/></svg><div><b>'+t+'</b><span class="w-amt num">'+amt+'</span><p>'+p+'</p></div></li>';
     let h=li('#i-shield',W.keep,fmt(E),gap>0&&m>0?W.keepGap(fmt(gap),Math.ceil(gap/m)):W.keepP);
     if(lump>0)h+=li('#i-rocket',W.now,fmt(lump),W.nowP);
     h+=m>0?li('#i-cal',W.monthly,fmt(m),W.monthlyP):li('#i-cal',W.monthly,W.monthlyNone,W.monthlyNoneP);

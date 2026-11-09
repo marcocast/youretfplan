@@ -386,7 +386,7 @@ async def main() -> None:
         encoding="utf-8",
     )
     (PUBLIC / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nDisallow: /v2/\nDisallow: /v3/\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8"
+        f"User-agent: *\nAllow: /\nDisallow: /v2/\nDisallow: /v3/\nDisallow: /api/\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8"
     )
     print("built public/sitemap.xml, public/robots.txt")
 
