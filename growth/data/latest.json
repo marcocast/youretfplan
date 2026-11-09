@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-08T13:25:01+00:00",
+ "generated_at": "2026-11-09T07:51:07+00:00",
  "range": {
-  "from": "2026-10-04",
-  "to": "2026-11-08"
+  "from": "2026-10-05",
+  "to": "2026-11-09"
  },
  "errors": [],
  "web_analytics": {
@@ -47,54 +47,64 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 70,
-     "visits": 60
+     "pageviews": 18,
+     "visits": 18
     },
     {
      "requestPath": "/it/",
-     "pageviews": 50,
-     "visits": 0
-    },
-    {
-     "requestPath": "/es/",
-     "pageviews": 40,
-     "visits": 10
-    },
-    {
-     "requestPath": "/it/affittare-o-vendere-casa-etf/",
-     "pageviews": 30,
-     "visits": 0
+     "pageviews": 12,
+     "visits": 1
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 20,
+     "pageviews": 7,
      "visits": 0
     },
     {
-     "requestPath": "/it/comprare-casa-o-affitto-etf/",
-     "pageviews": 10,
+     "requestPath": "/it/borsa-crolla-etf/",
+     "pageviews": 3,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/affittare-o-vendere-casa-etf/",
+     "pageviews": 2,
      "visits": 0
     },
     {
      "requestPath": "/es/banco-vs-etf/",
-     "pageviews": 10,
-     "visits": 10
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
+     "requestPath": "/it/banca-vs-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/retired-rental-or-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/comprare-casa-da-affittare-o-etf/",
+     "pageviews": 1,
+     "visits": 0
     }
    ],
    "referrers": [
     {
+     "refererHost": "",
+     "pageviews": 19,
+     "visits": 19
+    },
+    {
      "refererHost": "www.youretfplan.com",
-     "pageviews": 99,
+     "pageviews": 13,
      "visits": 0
     },
     {
-     "refererHost": "",
-     "pageviews": 73,
-     "visits": 73
-    },
-    {
      "refererHost": "youretfplan.com",
-     "pageviews": 33,
+     "pageviews": 13,
      "visits": 0
     },
     {
@@ -106,55 +116,65 @@
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 120,
-     "visits": 10
-    },
-    {
-     "countryName": "FR",
-     "pageviews": 40,
-     "visits": 10
+     "pageviews": 20,
+     "visits": 3
     },
     {
      "countryName": "US",
-     "pageviews": 30,
-     "visits": 30
-    },
-    {
-     "countryName": "NL",
-     "pageviews": 10,
-     "visits": 10
+     "pageviews": 9,
+     "visits": 9
     },
     {
      "countryName": "IT",
-     "pageviews": 10,
+     "pageviews": 6,
      "visits": 0
     },
     {
-     "countryName": "CN",
-     "pageviews": 10,
-     "visits": 10
+     "countryName": "FR",
+     "pageviews": 3,
+     "visits": 0
     },
     {
-     "countryName": "DE",
-     "pageviews": 10,
-     "visits": 10
+     "countryName": "CA",
+     "pageviews": 3,
+     "visits": 3
+    },
+    {
+     "countryName": "FI",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
+     "countryName": "BE",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "IN",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "KR",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "TW",
+     "pageviews": 1,
+     "visits": 1
     }
    ],
    "devices": [
     {
-     "deviceType": "mobile",
-     "pageviews": 110,
-     "visits": 40
-    },
-    {
      "deviceType": "desktop",
-     "pageviews": 100,
-     "visits": 40
+     "pageviews": 37,
+     "visits": 18
     },
     {
-     "deviceType": "tablet",
-     "pageviews": 20,
-     "visits": 0
+     "deviceType": "mobile",
+     "pageviews": 10,
+     "visits": 3
     }
    ]
   }
@@ -341,7 +361,7 @@
    },
    {
     "day": "2026-11-08",
-    "view": 1,
+    "view": 4,
     "hook": 0,
     "plan": 0,
     "calc_seen": 1,
@@ -354,7 +374,7 @@
     "share": 0,
     "sc_bank_view": 1,
     "sc_own_view": 1,
-    "sc_retire_view": 1
+    "sc_retire_view": 2
    }
   ],
   "last_7_days_breakdown": [
@@ -363,103 +383,40 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 24
+    "n": 10
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 4
    },
    {
     "step": "active",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 5
-   },
-   {
-    "step": "active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 5
-   },
-   {
-    "step": "sc_own_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 5
+    "n": 3
    },
    {
     "step": "sc_retire_active",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 5
-   },
-   {
-    "step": "view",
-    "lang": "en",
-    "device": "mobile",
-    "source": "direct",
-    "n": 5
-   },
-   {
-    "step": "view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 5
-   },
-   {
-    "step": "calc_seen",
-    "lang": "en",
-    "device": "desktop",
-    "source": "direct",
-    "n": 4
-   },
-   {
-    "step": "calc_seen",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 4
-   },
-   {
-    "step": "sc_own_active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 4
+    "n": 3
    },
    {
     "step": "sc_retire_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
-    "n": 4
-   },
-   {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 4
-   },
-   {
-    "step": "sc_retire_active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 3
-   },
-   {
-    "step": "view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
     "n": 3
    },
    {
     "step": "calc_seen",
     "lang": "it",
-    "device": "mobile",
+    "device": "desktop",
     "source": "internal",
     "n": 2
    },
@@ -468,13 +425,6 @@
     "lang": "es",
     "device": "desktop",
     "source": "search:google.com",
-    "n": 2
-   },
-   {
-    "step": "sc_bank_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
     "n": 2
    },
    {
@@ -485,80 +435,17 @@
     "n": 2
    },
    {
-    "step": "sc_inherit_view",
+    "step": "sc_retire_view",
     "lang": "it",
     "device": "mobile",
     "source": "internal",
     "n": 2
-   },
-   {
-    "step": "sc_let_active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "sc_let_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "sc_let_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "sc_own_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "direct",
-    "n": 2
-   },
-   {
-    "step": "view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "direct",
-    "n": 2
-   },
-   {
-    "step": "active",
-    "lang": "en",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
    },
    {
     "step": "active",
     "lang": "es",
     "device": "desktop",
     "source": "search:google.com",
-    "n": 1
-   },
-   {
-    "step": "active",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
     "n": 1
    },
    {
@@ -570,63 +457,21 @@
    },
    {
     "step": "calc_seen",
-    "lang": "es",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "calc_seen",
-    "lang": "es",
-    "device": "mobile",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "calc_seen",
-    "lang": "it",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "calc_seen",
-    "lang": "it",
-    "device": "mobile",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "hook",
     "lang": "en",
     "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "hook",
-    "lang": "es",
-    "device": "mobile",
     "source": "direct",
     "n": 1
    },
    {
-    "step": "hook",
+    "step": "calc_seen",
     "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "plan",
-    "lang": "en",
     "device": "desktop",
-    "source": "internal",
+    "source": "direct",
     "n": 1
    },
    {
-    "step": "plan",
-    "lang": "es",
+    "step": "calc_seen",
+    "lang": "it",
     "device": "mobile",
     "source": "direct",
     "n": 1
@@ -636,20 +481,6 @@
     "lang": "it",
     "device": "desktop",
     "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "plan",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "plan",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
     "n": 1
    },
    {
@@ -660,63 +491,7 @@
     "n": 1
    },
    {
-    "step": "sc_bank_active",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_bank_active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
     "step": "sc_bank_view",
-    "lang": "en",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "sc_bank_view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_bank_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_buy_active",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_buy_active",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_buy_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_buy_view",
     "lang": "it",
     "device": "mobile",
     "source": "internal",
@@ -730,77 +505,7 @@
     "n": 1
    },
    {
-    "step": "sc_first_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_first_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_fund_active",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_fund_view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_fund_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_inherit_active",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_inherit_view",
-    "lang": "en",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "sc_inherit_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_learn_view",
-    "lang": "en",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_learn_view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_own_active",
+    "step": "sc_let_view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
@@ -815,16 +520,16 @@
    },
    {
     "step": "sc_own_view",
-    "lang": "en",
+    "lang": "it",
     "device": "desktop",
-    "source": "direct",
+    "source": "internal",
     "n": 1
    },
    {
     "step": "sc_own_view",
     "lang": "it",
-    "device": "desktop",
-    "source": "direct",
+    "device": "mobile",
+    "source": "internal",
     "n": 1
    },
    {
@@ -835,15 +540,8 @@
     "n": 1
    },
    {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "direct",
-    "n": 1
-   },
-   {
     "step": "view",
-    "lang": "es",
+    "lang": "it",
     "device": "desktop",
     "source": "direct",
     "n": 1
@@ -853,6 +551,13 @@
     "lang": "it",
     "device": "mobile",
     "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
     "n": 1
    }
   ],
