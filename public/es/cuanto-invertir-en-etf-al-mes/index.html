@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="es">
+<title>¿Cuánto invertir en ETF cada mes? Calculadora: 50, 100, 200 € al mes | Your ETF Plan</title>
+<meta name="description" content="Calculadora: en qué se pueden convertir 50, 100, 200 € al mes, o tu cantidad, invirtiendo en ETF durante 10, 20 o 30 años, en euros. Cuánto dejar antes en el banco, lo que cuesta esperar, impuestos.">
+<link rel="canonical" href="https://youretfplan.com/es/cuanto-invertir-en-etf-al-mes/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/how-much-to-invest-in-etfs-monthly/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/pac-etf-quanto-investire-al-mese/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/cuanto-invertir-en-etf-al-mes/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/how-much-to-invest-in-etfs-monthly/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/es/cuanto-invertir-en-etf-al-mes/">
+<meta property="og:title" content="¿Cuánto invertir en ETF cada mes? Calculadora: 50, 100, 200 € al mes | Your ETF Plan">
+<meta property="og:description" content="Calculadora: en qué se pueden convertir 50, 100, 200 € al mes, o tu cantidad, invirtiendo en ETF durante 10, 20 o 30 años, en euros. Cuánto dejar antes en el banco, lo que cuesta esperar, impuestos.">
+<meta property="og:image" content="https://youretfplan.com/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* ETF or the bank's fund: yearly cost calculator. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. One calculator, then the honest comparison. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+/* guide pages: numbered steps, progress, small calculator */
+.guide{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{gap:12px}
+.step h2{display:flex;align-items:center;gap:12px;font-size:1.3rem}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-size:1rem;color:#17322a}
+.step p{margin:0 0 8px}
+.step p:last-child{margin-bottom:0}
+.step a{color:var(--ink);font-weight:700}
+.step.is-done{border-color:var(--leaf2);box-shadow:6px 6px 0 var(--leaf2)}
+.step.is-done .n{background:var(--leaf);color:#fff}
+.done{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;background:var(--bg)}
+.done input{width:20px;height:20px;accent-color:var(--leaf2);margin:0}
+.progress{height:14px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--leaf);transition:width .3s}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:1.05rem;margin:0}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+/* when markets fall: 3 real falls in euros, on your amount */
+.tabs.three{grid-template-columns:repeat(3,1fr)}
+.tabs.three button{font-size:.95rem;padding:10px 4px}
+.fall-what{font-size:1.02rem}
+.trio{display:flex;flex-direction:column;gap:8px}
+.trio div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px}
+.trio span{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.25}
+.trio b{font-family:var(--display);font-size:1.35rem;line-height:1.15;text-align:right;white-space:nowrap}
+.trio small{grid-column:2;text-align:right;font-weight:700;font-size:.82rem}
+.trio .low b,.trio .low small{color:var(--down)}
+.trio .back b{color:var(--leaf2)}
+.fall-chart svg{display:block;width:100%;height:150px}
+.worst{background:var(--warn-soft);border-left:4px solid var(--warn);padding:14px 16px;border-radius:6px;display:flex;flex-direction:column;gap:8px}
+/* how much every month: quick table + waiting box */
+.tbl-wrap.small table{min-width:0}
+.tbl-wrap.small table{font-size:.84rem}
+.tbl-wrap.small td,.tbl-wrap.small th{padding:9px 6px;white-space:nowrap}
+.tbl-wrap.small td:first-child,.tbl-wrap.small th:first-child{padding-left:10px}
+.tbl-wrap.small td small{display:block;color:var(--muted);font-size:.78rem;font-weight:500}
+.wait{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.wait b.loss{color:var(--down)}
+.range{font-size:.95rem;color:var(--muted)}
+.taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
+.taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "¿Cuánto invertir en ETF cada mes? Calculadora: 50, 100, 200 € al mes",
+  "url": "https://youretfplan.com/es/cuanto-invertir-en-etf-al-mes/",
+  "description": "Calculadora: en qué se pueden convertir 50, 100, 200 € al mes, o tu cantidad, invirtiendo en ETF durante 10, 20 o 30 años, en euros. Cuánto dejar antes en el banco, lo que cuesta esperar, impuestos.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "¿Merece la pena meter 50 € al mes?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Qué día del mes?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Puedo parar o cambiar la cantidad?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Cuando la bolsa cae, ¿paro?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Y los impuestos?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/es/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="false">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="true">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Guía · un poco cada mes</span>
+    <h1 id="h1" data-t="h1">¿Cuánto meter en ETF <em>cada mes?</em></h1>
+    <p class="sub" data-t="sub">Menos de lo que crees. Con 50&nbsp;€ ya empiezas. Mueve las dos barras y verás en qué se puede convertir una cantidad al mes, en euros, en los años que elijas.</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Montones de monedas que crecen mes a mes">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <rect class="w-ink" x="40" y="150" width="34" height="30" rx="4" fill="var(--sun)"></rect>
+      <rect class="w-ink" x="92" y="134" width="34" height="46" rx="4" fill="var(--sun)"></rect>
+      <rect class="w-ink" x="144" y="114" width="34" height="66" rx="4" fill="var(--sun)"></rect>
+      <rect class="w-ink" x="196" y="88" width="34" height="92" rx="4" fill="var(--leaf)"></rect>
+      <rect class="w-ink" x="248" y="56" width="34" height="124" rx="4" fill="var(--leaf)"></rect>
+      <circle class="w-ink" cx="318" cy="30" r="14" fill="var(--sun)"></circle>
+      <path class="w-ink" d="M318 24v12M313 30h10" fill="none"></path>
+      <path d="M57 140 109 122 161 100 213 74 265 42" fill="none" stroke="var(--coral)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"></path>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH">Tu cantidad, tus años</h2>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="monthly" data-t="lMonthly">Añades cada mes</label><span class="ctrl-val num" id="monthly-out">200&nbsp;€</span></div>
+      <input type="range" id="monthly" min="0" max="1000" step="1" value="258">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="years" data-t="lYears">Durante cuántos años</label><span class="ctrl-val num" id="years-out">20 años</span></div>
+      <input type="range" id="years" min="5" max="40" step="1" value="20">
+      <div class="ticks"><span>5</span><span>20</span><span>40</span></div>
+    </div>
+    <div class="trio num" aria-live="polite">
+      <div><span data-t="paid">Lo que pones tú</span><b id="v-paid">48.000&nbsp;€</b></div>
+      <div class="back"><span data-t="mid">Al 7% al año podrías tener</span><b id="v-mid">102.081&nbsp;€</b></div>
+      <div><span data-t="growth">De eso, lo ha puesto el mercado</span><b id="v-growth">54.081&nbsp;€</b></div>
+    </div>
+    <p class="range" id="range">Entre 81.492&nbsp;€ (5% al año) y 128.691&nbsp;€ (9% al año). Nadie sabe cuál de los dos.</p>
+    <p class="verdict" id="verdict">Tus 200&nbsp;€ al mes se convierten en unos <b class="gain">102.081&nbsp;€</b>. Tú pones 48.000&nbsp;€. El resto, 54.081&nbsp;€, es el mercado trabajando para ti. En dinero de hoy, con los precios subiendo un 2% al año, es como tener 68.698&nbsp;€ ahora.</p>
+    <p class="note" data-t="calcNote">El 7% al año es lo normal a largo plazo para un ETF mundial, antes de impuestos e inflación. Desde finales de 2000, con dos grandes caídas dentro, el índice mundial en euros dio cerca de un 6,6% al año (investingintheweb.com, datos hasta agosto de 2026). Hay años en rojo: −37% en 2008. Son ejemplos, no una promesa.</p>
+  </section>
+
+  <section aria-labelledby="h-table">
+    <h2 id="h-table" data-t="tableH">La tabla rápida</h2>
+    <p class="muted" data-t="tableSub">Al 7% al año, antes de impuestos. Debajo, lo que pones tú.</p>
+    <div class="tbl-wrap small"><table class="num" id="qtable"><thead><tr><th scope="col">Cada mes</th><th scope="col">10 años</th><th scope="col">20 años</th><th scope="col">30 años</th></tr></thead><tbody><tr><th scope="row">50&nbsp;€</th><td><b>8.601&nbsp;€</b><small>6.000&nbsp;€</small></td><td><b>25.520&nbsp;€</b><small>12.000&nbsp;€</small></td><td><b>58.803&nbsp;€</b><small>18.000&nbsp;€</small></td></tr><tr><th scope="row">100&nbsp;€</th><td><b>17.202&nbsp;€</b><small>12.000&nbsp;€</small></td><td><b>51.041&nbsp;€</b><small>24.000&nbsp;€</small></td><td><b>117.606&nbsp;€</b><small>36.000&nbsp;€</small></td></tr><tr><th scope="row">200&nbsp;€</th><td><b>34.404&nbsp;€</b><small>24.000&nbsp;€</small></td><td><b>102.081&nbsp;€</b><small>48.000&nbsp;€</small></td><td><b>235.213&nbsp;€</b><small>72.000&nbsp;€</small></td></tr><tr><th scope="row">300&nbsp;€</th><td><b>51.606&nbsp;€</b><small>36.000&nbsp;€</small></td><td><b>153.122&nbsp;€</b><small>72.000&nbsp;€</small></td><td><b>352.819&nbsp;€</b><small>108.000&nbsp;€</small></td></tr><tr><th scope="row">500&nbsp;€</th><td><b>86.009&nbsp;€</b><small>60.000&nbsp;€</small></td><td><b>255.203&nbsp;€</b><small>120.000&nbsp;€</small></td><td><b>588.032&nbsp;€</b><small>180.000&nbsp;€</small></td></tr></tbody></table></div>
+  </section>
+
+  <section aria-labelledby="h-how">
+    <h2 id="h-how" data-t="howH">¿Entonces cuánto? Cuatro pasos</h2>
+    <ol class="steps" data-t="howL"><li><span><b>Primero, un colchón en el banco.</b> De 3 a 6 meses de tus gastos. Es para el coche que se rompe, el dentista, un mes sin trabajo.</span></li><li><span><b>El dinero que necesitas en los próximos 3-5 años también se queda en el banco.</b> Un coche, una boda, la entrada de un piso. En ETF solo metes dinero que no vas a necesitar en al menos 5 años. Cuanto más largo, mejor: a 15 años o más, históricamente, siempre ha ido bien.</span></li><li><span><b>De lo que te sobra cada mes, elige una cantidad que no eches de menos.</b> Ni en un mes malo. Mejor 100&nbsp;€ que mantienes 20 años que 500&nbsp;€ que dejas a los seis meses.</span></li><li><span><b>Una vez al año, súbela un poco.</b> ¿Te han subido el sueldo? Mete una parte.</span></li></ol>
+  </section>
+
+  <section aria-labelledby="h-wait">
+    <h2 id="h-wait" data-t="waitH">Lo que cuesta esperar</h2>
+    <div class="wait" id="wait" aria-live="polite"><p>200&nbsp;€ al mes durante 20 años: unos <b>102.081&nbsp;€</b>.</p><p>La misma cantidad, pero empiezas 5 años más tarde (15 años): unos <b>62.573&nbsp;€</b>.</p><p>Esperar 5 años te cuesta unos <b class="loss">39.508&nbsp;€</b>. Los últimos años son los que más crece.</p></div>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Preguntas</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">¿Merece la pena meter 50&nbsp;€ al mes?</summary><div data-t="a1">Sí, si comprar te cuesta poco. Mira cuánto te cobra tu bróker por cada compra. 2&nbsp;€ sobre 50&nbsp;€ es un 4% que se va de golpe. Sobre 500&nbsp;€ es un 0,4%. Muchos brókers tienen planes mensuales donde cada compra cuesta poco o nada. Con cantidades pequeñas elige uno de esos, o compra cada dos o tres meses. <a data-link="first" href="/es/como-comprar-etf/">Cómo comprar tu primer ETF →</a></div></details>
+      <details><summary data-t="q2">¿Qué día del mes?</summary><div data-t="a2">Casi no cambia nada. Elige el día después de cobrar la nómina: el dinero entra antes de que lo gastes.</div></details>
+      <details><summary data-t="q3">¿Puedo parar o cambiar la cantidad?</summary><div data-t="a3">Sí. Con un ETF en un bróker no hay contrato que te ate. Puedes parar, bajar o subir cuando quieras. Lo que ya tienes sigue invertido. Algunos planes del banco con fondos tienen comisiones de entrada: pregunta antes de firmar.</div></details>
+      <details><summary data-t="q4">Cuando la bolsa cae, ¿paro?</summary><div data-t="a4">No. Justo entonces, con los mismos 100&nbsp;€ compras más trozos del ETF. A quien mejor le fue es a quien siguió añadiendo también en los años rojos. <a data-link="crash" href="/es/bolsa-cae-etf/">Mira 3 caídas reales en euros →</a></div></details>
+      <details><summary data-t="q5">¿Y los impuestos?</summary><div data-t="a5">Pagas sobre la ganancia cuando vendes, en la base del ahorro: 19% hasta 6.000&nbsp;€, 21% hasta 50.000&nbsp;€, 23% hasta 200.000&nbsp;€, y más por encima, hasta el 30%. Los números de esta página son antes de impuestos. Ojo: los fondos indexados permiten traspasos sin pagar impuestos; los ETF no.</div></details>
+    </div>
+    <p class="taxnote"><span data-t="taxNote"><b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.</span></p>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Ahora tu plan</h2>
+    <p data-t="next">3 preguntas, y ves cuánto dejar en el banco, cuánto invertir en ETF y cuánto añadir cada mes.</p>
+    <a class="btn" id="next-btn" href="/es/#wizard"><span data-t="nextBtn">Hacer mi plan</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">¿Te ha servido esta página?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sí">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="No mucho">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">¡Gracias!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>No es asesoramiento financiero.</strong> Son ejemplos para entender. El futuro puede ir de otra manera. Invertir en ETF significa que también puedes perder dinero. Antes de una decisión grande, infórmate bien o habla con un profesional. Sin relación con ningún banco ni bróker, sin enlaces de afiliado.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/how-much-to-invest-in-etfs-monthly/" hreflang="en" lang="en">English</a> · <a href="/it/pac-etf-quanto-investire-al-mese/" hreflang="it" lang="it">Italiano</a> · <a href="/es/cuanto-invertir-en-etf-al-mes/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const PAGE_URLS={en:'/how-much-to-invest-in-etfs-monthly/',it:'/it/pac-etf-quanto-investire-al-mese/',es:'/es/cuanto-invertir-en-etf-al-mes/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const LINKS={first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},crash:{en:'/when-markets-fall-etf/',it:'/it/borsa-crolla-etf/',es:'/es/bolsa-cae-etf/'}};
+  // Same assumptions as the main page: 7% a year (5–9% range), 2% inflation, money added at the start of each month.
+  // Anchor: MSCI World net in EUR, end 2000 – Aug 2026: 6.64% a year (investingintheweb.com).
+  const MID=0.07, LO=0.05, HI=0.09, INFL=0.02;
+
+  const T={
+    en:{locale:'en-IE', title:'How much to invest in ETFs every month? Calculator: €50, €100, €200 a month | Your ETF Plan',
+      badge:'Guide · a bit every month',
+      h1:'How much should you put in ETFs <em>every month?</em>',
+      sub:'Less than you think. €50 is already a start. Move the two sliders and you see what a monthly amount can become, in euros, over the years you pick.',
+      illAlt:'Stacks of coins growing taller month after month',
+      calcH:'Your amount, your years',
+      lMonthly:'You add every month', lYears:'For how many years', yrs:y=>y+' years',
+      paid:'You put in', mid:'At 7% a year you could have', growth:'Of which the markets made',
+      range:(lo,hi)=>`Between ${lo} (5% a year) and ${hi} (9% a year). Nobody knows which.`,
+      verdict:(m,p,v,g,r)=>`Your ${m} a month become about <b class="gain">${v}</b>. You put in ${p}. The rest, ${g}, is the markets working for you. In today’s money, with prices up 2% a year, it’s like having ${r} now.`,
+      calcNote:'7% a year is the long-run normal for a world ETF, before tax and inflation. Since the end of 2000, with two big crashes inside, the world index in euros made about 6.6% a year (investingintheweb.com, data to August 2026). Some years are red: −37% in 2008. These are examples, not a promise.',
+      tableH:'The quick table', tableSub:'At 7% a year, before tax. Underneath, what you put in.',
+      cols:['Every month','10 years','20 years','30 years'],
+      howH:'So how much? Four steps',
+      howL:'<li><span><b>First, a cushion in the bank.</b> 3 to 6 months of your spending. It’s for the broken car, the dentist, a month without work.</span></li><li><span><b>Money you need in the next 3-5 years stays in the bank too.</b> A car, a wedding, the deposit on a house. ETFs are only for money you won’t need for at least 5 years. The longer the better: over 15 years or more, historically, it has always gone well.</span></li><li><span><b>From what’s left each month, pick an amount you won’t miss.</b> Not even in a bad month. Better €100 you keep up for 20 years than €500 you drop after six months.</span></li><li><span><b>Once a year, raise it a little.</b> Got a pay rise? Put part of it in.</span></li>',
+      waitH:'What waiting costs',
+      wait:(m,y,a,y2,b,d)=>`<p>${m} a month for ${y} years: about <b>${a}</b>.</p><p>Same amount, but you start 5 years later (${y2} years): about <b>${b}</b>.</p><p>Waiting 5 years costs you about <b class="loss">${d}</b>. The last years are the ones where it grows the most.</p>`,
+      waitShort:'Set 10 years or more to see what waiting 5 years costs.',
+      faqH:'Questions',
+      q1:'Is €50 a month worth it?', a1:'Yes, if buying costs you little. Check what your broker charges for each purchase. €2 on €50 is 4% gone straight away. On €500 it’s 0.4%. Many brokers have monthly plans where each purchase costs little or nothing. With small amounts, pick one of those, or buy every two or three months. <a data-link="first" href="#">How to buy your first ETF →</a>',
+      q2:'Which day of the month?', a2:'It makes almost no difference. Pick the day after your pay comes in: the money goes in before you spend it.',
+      q3:'Can I stop, or change the amount?', a3:'Yes. With an ETF at a broker there’s no contract tying you. You can pause, lower or raise it whenever you want. What you already have stays invested. Some bank savings plans in funds have entry fees: ask before you sign.',
+      q4:'When markets fall, should I stop?', a4:'No. That’s when the same €100 buys more pieces of the ETF. The people who did best kept adding through the red years. <a data-link="crash" href="#">See 3 real falls in euros →</a>',
+      q5:'What about taxes?', a5:'You pay tax on the gain when you sell. How much depends on where you live. In Italy it’s 26% on the gain, plus 0.2% a year on the value. In Spain it’s 19% to 30%, depending on how big the gain is. The numbers on this page are before tax.',
+      taxNote:'<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in November 2026. Before any big move, ask an accountant: it costs less than a mistake.',
+      nextH:'Now your plan', next:'3 questions, and you see how much to keep in the bank, how much to invest in ETFs and how much to add every month.', nextBtn:'Make my plan',
+      fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not financial advice.</strong> These are examples to help you understand. The future can go differently. Investing in ETFs means you can lose money too. Before any big decision, do your homework or talk to a professional. No ties to any bank or broker, no affiliate links.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'PAC in ETF: quanto investire ogni mese? Calcolatore 50, 100, 200&nbsp;€ al mese | Your ETF Plan',
+      badge:'Guida · un po’ ogni mese',
+      h1:'Quanto mettere in ETF <em>ogni mese?</em>',
+      sub:'Meno di quanto pensi. Anche 50&nbsp;€ sono un inizio. Muovi i due cursori e vedi cosa può diventare una cifra al mese, in euro, negli anni che scegli. Mettere un po’ ogni mese ha un nome: PAC, piano di accumulo.',
+      illAlt:'Pile di monete che crescono mese dopo mese',
+      calcH:'La tua cifra, i tuoi anni',
+      lMonthly:'Aggiungi ogni mese', lYears:'Per quanti anni', yrs:y=>y+' anni',
+      paid:'Ci metti tu', mid:'Al 7% l’anno potresti avere', growth:'Di cui l’hanno fatto i mercati',
+      range:(lo,hi)=>`Tra ${lo} (5% l’anno) e ${hi} (9% l’anno). Nessuno sa quale dei due.`,
+      verdict:(m,p,v,g,r)=>`I tuoi ${m} al mese diventano circa <b class="gain">${v}</b>. Tu ci metti ${p}. Il resto, ${g}, è il lavoro dei mercati. In soldi di oggi, con i prezzi che salgono del 2% l’anno, è come avere ${r} adesso.`,
+      calcNote:'Il 7% l’anno è il normale di lungo periodo per un ETF mondiale, prima di tasse e inflazione. Dalla fine del 2000, con dentro due grandi crolli, l’indice mondiale in euro ha fatto circa il 6,6% l’anno (investingintheweb.com, dati ad agosto 2026). Alcuni anni sono rossi: −37% nel 2008. Sono esempi, non una promessa.',
+      tableH:'La tabella veloce', tableSub:'Al 7% l’anno, prima delle tasse. Sotto, quello che ci metti tu.',
+      cols:['Ogni mese','10 anni','20 anni','30 anni'],
+      howH:'Quindi quanto? Quattro passi',
+      howL:'<li><span><b>Prima, un cuscino in banca.</b> Da 3 a 6 mesi delle tue spese. Serve per la macchina rotta, il dentista, un mese senza lavoro.</span></li><li><span><b>Anche i soldi che ti servono nei prossimi 3-5 anni restano in banca.</b> La macchina, un matrimonio, l’anticipo per la casa. Negli ETF metti solo soldi che non ti servono per almeno 5 anni. Più lungo è, meglio è: su 15 anni o più, storicamente, è sempre andata bene.</span></li><li><span><b>Da quello che avanza ogni mese, scegli una cifra che non ti manca.</b> Neanche nel mese storto. Meglio 100&nbsp;€ che tieni per 20 anni che 500&nbsp;€ che molli dopo sei mesi.</span></li><li><span><b>Una volta l’anno, alzala un po’.</b> Ti hanno aumentato lo stipendio? Mettine dentro una parte.</span></li>',
+      waitH:'Quanto costa aspettare',
+      wait:(m,y,a,y2,b,d)=>`<p>${m} al mese per ${y} anni: circa <b>${a}</b>.</p><p>Stessa cifra, ma cominci 5 anni dopo (${y2} anni): circa <b>${b}</b>.</p><p>Aspettare 5 anni ti costa circa <b class="loss">${d}</b>. Sono gli ultimi anni quelli in cui cresce di più.</p>`,
+      waitShort:'Metti 10 anni o più per vedere quanto costa aspettare 5 anni.',
+      faqH:'Domande',
+      q1:'Ha senso mettere 50&nbsp;€ al mese?', a1:'Sì, se comprare ti costa poco. Guarda quanto chiede il tuo broker per ogni acquisto. 2&nbsp;€ su 50&nbsp;€ sono il 4% che se ne va subito. Su 500&nbsp;€ sono lo 0,4%. Molti broker hanno piani mensili dove ogni acquisto costa poco o niente. Con cifre piccole scegli uno di quelli, oppure compra ogni due o tre mesi. <a data-link="first" href="#">Come comprare il primo ETF →</a>',
+      q2:'Che giorno del mese?', a2:'Non cambia quasi niente. Scegli il giorno dopo lo stipendio: i soldi entrano prima che tu li spenda.',
+      q3:'Posso fermarmi o cambiare cifra?', a3:'Sì. Con un ETF dal broker non c’è un contratto che ti lega. Puoi fermarti, abbassare o alzare quando vuoi. Quello che hai già resta investito. Certi PAC della banca sui fondi hanno commissioni d’ingresso: chiedi prima di firmare.',
+      q4:'Quando la borsa scende, mi fermo?', a4:'No. È proprio lì che con gli stessi 100&nbsp;€ compri più pezzi di ETF. Chi ha fatto meglio ha continuato ad aggiungere anche negli anni rossi. <a data-link="crash" href="#">Guarda 3 crolli veri in euro →</a>',
+      q5:'E le tasse?', a5:'Paghi il 26% sul guadagno, quando vendi. In più c’è il bollo dello 0,2% l’anno sul valore. Con un broker italiano in regime amministrato fa tutto lui. I numeri di questa pagina sono prima delle tasse.',
+      taxNote:'<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a novembre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.',
+      nextH:'Adesso il tuo piano', next:'3 domande, e vedi quanto tenere in banca, quanto investire in ETF e quanto aggiungere ogni mese.', nextBtn:'Fai il mio piano',
+      fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza finanziaria.</strong> Sono esempi per capire. Il futuro può andare diversamente. Investire in ETF vuol dire che puoi anche perdere soldi. Prima di decisioni grosse, informati bene o parla con un professionista. Nessun legame con banche o broker, nessun link di affiliazione.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'¿Cuánto invertir en ETF cada mes? Calculadora: 50, 100, 200&nbsp;€ al mes | Your ETF Plan',
+      badge:'Guía · un poco cada mes',
+      h1:'¿Cuánto meter en ETF <em>cada mes?</em>',
+      sub:'Menos de lo que crees. Con 50&nbsp;€ ya empiezas. Mueve las dos barras y verás en qué se puede convertir una cantidad al mes, en euros, en los años que elijas.',
+      illAlt:'Montones de monedas que crecen mes a mes',
+      calcH:'Tu cantidad, tus años',
+      lMonthly:'Añades cada mes', lYears:'Durante cuántos años', yrs:y=>y+' años',
+      paid:'Lo que pones tú', mid:'Al 7% al año podrías tener', growth:'De eso, lo ha puesto el mercado',
+      range:(lo,hi)=>`Entre ${lo} (5% al año) y ${hi} (9% al año). Nadie sabe cuál de los dos.`,
+      verdict:(m,p,v,g,r)=>`Tus ${m} al mes se convierten en unos <b class="gain">${v}</b>. Tú pones ${p}. El resto, ${g}, es el mercado trabajando para ti. En dinero de hoy, con los precios subiendo un 2% al año, es como tener ${r} ahora.`,
+      calcNote:'El 7% al año es lo normal a largo plazo para un ETF mundial, antes de impuestos e inflación. Desde finales de 2000, con dos grandes caídas dentro, el índice mundial en euros dio cerca de un 6,6% al año (investingintheweb.com, datos hasta agosto de 2026). Hay años en rojo: −37% en 2008. Son ejemplos, no una promesa.',
+      tableH:'La tabla rápida', tableSub:'Al 7% al año, antes de impuestos. Debajo, lo que pones tú.',
+      cols:['Cada mes','10 años','20 años','30 años'],
+      howH:'¿Entonces cuánto? Cuatro pasos',
+      howL:'<li><span><b>Primero, un colchón en el banco.</b> De 3 a 6 meses de tus gastos. Es para el coche que se rompe, el dentista, un mes sin trabajo.</span></li><li><span><b>El dinero que necesitas en los próximos 3-5 años también se queda en el banco.</b> Un coche, una boda, la entrada de un piso. En ETF solo metes dinero que no vas a necesitar en al menos 5 años. Cuanto más largo, mejor: a 15 años o más, históricamente, siempre ha ido bien.</span></li><li><span><b>De lo que te sobra cada mes, elige una cantidad que no eches de menos.</b> Ni en un mes malo. Mejor 100&nbsp;€ que mantienes 20 años que 500&nbsp;€ que dejas a los seis meses.</span></li><li><span><b>Una vez al año, súbela un poco.</b> ¿Te han subido el sueldo? Mete una parte.</span></li>',
+      waitH:'Lo que cuesta esperar',
+      wait:(m,y,a,y2,b,d)=>`<p>${m} al mes durante ${y} años: unos <b>${a}</b>.</p><p>La misma cantidad, pero empiezas 5 años más tarde (${y2} años): unos <b>${b}</b>.</p><p>Esperar 5 años te cuesta unos <b class="loss">${d}</b>. Los últimos años son los que más crece.</p>`,
+      waitShort:'Pon 10 años o más para ver lo que cuesta esperar 5 años.',
+      faqH:'Preguntas',
+      q1:'¿Merece la pena meter 50&nbsp;€ al mes?', a1:'Sí, si comprar te cuesta poco. Mira cuánto te cobra tu bróker por cada compra. 2&nbsp;€ sobre 50&nbsp;€ es un 4% que se va de golpe. Sobre 500&nbsp;€ es un 0,4%. Muchos brókers tienen planes mensuales donde cada compra cuesta poco o nada. Con cantidades pequeñas elige uno de esos, o compra cada dos o tres meses. <a data-link="first" href="#">Cómo comprar tu primer ETF →</a>',
+      q2:'¿Qué día del mes?', a2:'Casi no cambia nada. Elige el día después de cobrar la nómina: el dinero entra antes de que lo gastes.',
+      q3:'¿Puedo parar o cambiar la cantidad?', a3:'Sí. Con un ETF en un bróker no hay contrato que te ate. Puedes parar, bajar o subir cuando quieras. Lo que ya tienes sigue invertido. Algunos planes del banco con fondos tienen comisiones de entrada: pregunta antes de firmar.',
+      q4:'Cuando la bolsa cae, ¿paro?', a4:'No. Justo entonces, con los mismos 100&nbsp;€ compras más trozos del ETF. A quien mejor le fue es a quien siguió añadiendo también en los años rojos. <a data-link="crash" href="#">Mira 3 caídas reales en euros →</a>',
+      q5:'¿Y los impuestos?', a5:'Pagas sobre la ganancia cuando vendes, en la base del ahorro: 19% hasta 6.000&nbsp;€, 21% hasta 50.000&nbsp;€, 23% hasta 200.000&nbsp;€, y más por encima, hasta el 30%. Los números de esta página son antes de impuestos. Ojo: los fondos indexados permiten traspasos sin pagar impuestos; los ETF no.',
+      taxNote:'<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.',
+      nextH:'Ahora tu plan', next:'3 preguntas, y ves cuánto dejar en el banco, cuánto invertir en ETF y cuánto añadir cada mes.', nextBtn:'Hacer mi plan',
+      fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento financiero.</strong> Son ejemplos para entender. El futuro puede ir de otra manera. Invertir en ETF significa que también puedes perder dinero. Antes de una decisión grande, infórmate bien o habla con un profesional. Sin relación con ningún banco ni bróker, sin enlaces de afiliado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt;
+
+  // Curved slider 20–3,000&nbsp;€ a month (square). Position 258 = 200&nbsp;€.
+  function monthlyFromPos(p){const v=3000*Math.pow(p/1000,2);const st=v<100?5:v<1000?10:50;return Math.max(20,Math.round(v/st)*st)}
+  // Money added at the start of each month, growing at a yearly rate.
+  function fv(m,y,rate){const i=Math.pow(1+rate,1/12)-1,n=y*12;return m*(Math.pow(1+i,n)-1)/i*(1+i)}
+
+  function table(){
+    let h='<thead><tr>'+L.cols.map(c=>'<th scope="col">'+c+'</th>').join('')+'</tr></thead><tbody>';
+    [50,100,200,300,500].forEach(m=>{
+      h+='<tr><th scope="row">'+fmt(m)+'</th>'+[10,20,30].map(y=>'<td><b>'+fmt(fv(m,y,MID))+'</b><small>'+fmt(m*12*y)+'</small></td>').join('')+'</tr>';
+    });
+    $('qtable').innerHTML=h+'</tbody>';
+  }
+
+  function render(){
+    const m=monthlyFromPos(+$('monthly').value), y=+$('years').value;
+    const paid=m*12*y, mid=fv(m,y,MID);
+    $('monthly-out').textContent=fmt(m); $('years-out').textContent=L.yrs(y);
+    $('v-paid').textContent=fmt(paid); $('v-mid').textContent=fmt(mid); $('v-growth').textContent=fmt(mid-paid);
+    $('range').textContent=L.range(fmt(fv(m,y,LO)),fmt(fv(m,y,HI)));
+    $('verdict').innerHTML=L.verdict(fmt(m),fmt(paid),fmt(mid),fmt(mid-paid),fmt(mid/Math.pow(1+INFL,y)));
+    if(y>=10){const b=fv(m,y-5,MID);$('wait').innerHTML=L.wait(fmt(m),y,fmt(mid),y-5,fmt(b),fmt(mid-b))}
+    else $('wait').innerHTML='<p>'+L.waitShort+'</p>';
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
+    fmt=v=>nf.format(Math.round(v));
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    const base=FIXED?'':'https://youretfplan.com';
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=base+HOME[lang]+'#wizard';
+    document.querySelectorAll('[data-link]').forEach(a=>{a.href=base+LINKS[a.dataset.link][lang]});
+    table(); render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  $('monthly').addEventListener('input',render);
+  $('years').addEventListener('input',render);
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_monthly_view']);
+    ['monthly','years'].forEach(id=>$(id).addEventListener('input',()=>send(['sc_monthly_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_monthly',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>
