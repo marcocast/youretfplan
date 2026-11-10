@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T12:49:48+00:00",
+ "generated_at": "2026-11-10T14:52:58+00:00",
  "range": {
   "from": "2026-10-06",
   "to": "2026-11-10"
@@ -47,8 +47,8 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 11,
-     "visits": 11
+     "pageviews": 13,
+     "visits": 13
     },
     {
      "requestPath": "/it/",
@@ -84,8 +84,8 @@
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 11,
-     "visits": 11
+     "pageviews": 13,
+     "visits": 13
     },
     {
      "refererHost": "youretfplan.com",
@@ -120,6 +120,11 @@
      "visits": 0
     },
     {
+     "countryName": "CN",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
      "countryName": "CA",
      "pageviews": 2,
      "visits": 2
@@ -148,8 +153,8 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 19,
-     "visits": 10
+     "pageviews": 21,
+     "visits": 12
     },
     {
      "deviceType": "mobile",
@@ -355,6 +360,20 @@
     "sc_bank_view": 1,
     "sc_own_view": 1,
     "sc_retire_view": 2
+   },
+   {
+    "day": "2026-11-10",
+    "view": 2,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -363,7 +382,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 6
+    "n": 8
    },
    {
     "step": "view",
