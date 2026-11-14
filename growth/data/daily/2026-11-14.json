@@ -1,0 +1,496 @@
+{
+ "generated_at": "2026-11-14T11:38:15+00:00",
+ "range": {
+  "from": "2026-10-10",
+  "to": "2026-11-14"
+ },
+ "errors": [],
+ "web_analytics": {
+  "by_day": [
+   {
+    "date": "2026-10-29",
+    "pageviews": 70,
+    "visits": 30
+   },
+   {
+    "date": "2026-10-30",
+    "pageviews": 160,
+    "visits": 30
+   },
+   {
+    "date": "2026-10-31",
+    "pageviews": 10,
+    "visits": 0
+   },
+   {
+    "date": "2026-11-01",
+    "pageviews": 200,
+    "visits": 60
+   },
+   {
+    "date": "2026-11-03",
+    "pageviews": 10,
+    "visits": 0
+   },
+   {
+    "date": "2026-11-04",
+    "pageviews": 10,
+    "visits": 10
+   },
+   {
+    "date": "2026-11-08",
+    "pageviews": 10,
+    "visits": 10
+   },
+   {
+    "date": "2026-11-13",
+    "pageviews": 10,
+    "visits": 10
+   }
+  ],
+  "last_7_days": {
+   "pages": [
+    {
+     "requestPath": "/",
+     "pageviews": 12,
+     "visits": 12
+    },
+    {
+     "requestPath": "/it/pensione-affitto-o-etf/",
+     "pageviews": 3,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/",
+     "pageviews": 3,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/banca-vs-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/affittare-o-vendere-casa-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/retired-rental-or-etf/",
+     "pageviews": 1,
+     "visits": 0
+    }
+   ],
+   "referrers": [
+    {
+     "refererHost": "",
+     "pageviews": 12,
+     "visits": 12
+    },
+    {
+     "refererHost": "www.youretfplan.com",
+     "pageviews": 7,
+     "visits": 0
+    },
+    {
+     "refererHost": "youretfplan.com",
+     "pageviews": 2,
+     "visits": 0
+    }
+   ],
+   "countries": [
+    {
+     "countryName": "ES",
+     "pageviews": 6,
+     "visits": 0
+    },
+    {
+     "countryName": "CN",
+     "pageviews": 4,
+     "visits": 4
+    },
+    {
+     "countryName": "FR",
+     "pageviews": 3,
+     "visits": 0
+    },
+    {
+     "countryName": "US",
+     "pageviews": 3,
+     "visits": 3
+    },
+    {
+     "countryName": "IE",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
+     "countryName": "IN",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "CA",
+     "pageviews": 1,
+     "visits": 1
+    },
+    {
+     "countryName": "TW",
+     "pageviews": 1,
+     "visits": 1
+    }
+   ],
+   "devices": [
+    {
+     "deviceType": "desktop",
+     "pageviews": 12,
+     "visits": 10
+    },
+    {
+     "deviceType": "mobile",
+     "pageviews": 9,
+     "visits": 2
+    }
+   ]
+  }
+ },
+ "funnel": {
+  "note": "Counts are unique visitors per day per step. Monthly figures sum daily uniques, so a person active on 3 days counts 3 times.",
+  "by_day": [
+   {
+    "day": "2026-10-29",
+    "view": 16,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 15,
+    "active": 3,
+    "explore": 4,
+    "start_seen": 8,
+    "faq": 3,
+    "bottom": 7,
+    "feedback": 2,
+    "share": 0
+   },
+   {
+    "day": "2026-10-30",
+    "view": 19,
+    "hook": 7,
+    "plan": 6,
+    "calc_seen": 10,
+    "active": 8,
+    "explore": 4,
+    "start_seen": 14,
+    "faq": 1,
+    "bottom": 3,
+    "feedback": 0,
+    "share": 0,
+    "sc_bank_active": 2,
+    "sc_bank_view": 2,
+    "sc_buy_active": 2,
+    "sc_buy_view": 2,
+    "sc_first_active": 1,
+    "sc_first_view": 1,
+    "sc_fund_active": 1,
+    "sc_fund_view": 1,
+    "sc_inherit_active": 3,
+    "sc_inherit_view": 4,
+    "sc_learn_active": 1,
+    "sc_learn_view": 1,
+    "sc_let_active": 1,
+    "sc_let_view": 1,
+    "sc_own_active": 3,
+    "sc_own_view": 3
+   },
+   {
+    "day": "2026-10-31",
+    "view": 9,
+    "hook": 1,
+    "plan": 1,
+    "calc_seen": 1,
+    "active": 1,
+    "explore": 0,
+    "start_seen": 8,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 1,
+    "sc_first_view": 1,
+    "sc_fund_active": 1,
+    "sc_fund_view": 1,
+    "sc_learn_active": 1,
+    "sc_learn_view": 1
+   },
+   {
+    "day": "2026-11-01",
+    "view": 31,
+    "hook": 3,
+    "plan": 4,
+    "calc_seen": 9,
+    "active": 9,
+    "explore": 1,
+    "start_seen": 25,
+    "faq": 2,
+    "bottom": 7,
+    "feedback": 0,
+    "share": 0,
+    "sc_bank_active": 2,
+    "sc_bank_view": 4,
+    "sc_buy_active": 2,
+    "sc_buy_view": 2,
+    "sc_first_view": 2,
+    "sc_fund_active": 1,
+    "sc_fund_view": 2,
+    "sc_inherit_active": 1,
+    "sc_inherit_view": 4,
+    "sc_learn_view": 2,
+    "sc_let_active": 2,
+    "sc_let_view": 3,
+    "sc_own_active": 5,
+    "sc_own_view": 7,
+    "sc_retire_active": 5,
+    "sc_retire_view": 5
+   },
+   {
+    "day": "2026-11-02",
+    "view": 6,
+    "hook": 0,
+    "plan": 1,
+    "calc_seen": 2,
+    "active": 2,
+    "explore": 0,
+    "start_seen": 2,
+    "faq": 1,
+    "bottom": 2,
+    "feedback": 0,
+    "share": 0,
+    "sc_crash_active": 1,
+    "sc_crash_view": 2,
+    "sc_let_view": 1,
+    "sc_own_active": 1,
+    "sc_own_view": 2,
+    "sc_retire_active": 1,
+    "sc_retire_view": 1
+   },
+   {
+    "day": "2026-11-03",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 1,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0,
+    "sc_retire_active": 1,
+    "sc_retire_view": 1
+   },
+   {
+    "day": "2026-11-04",
+    "view": 2,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 1,
+    "active": 2,
+    "explore": 0,
+    "start_seen": 1,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0,
+    "sc_bank_active": 1,
+    "sc_bank_view": 1,
+    "sc_retire_active": 1,
+    "sc_retire_view": 1
+   },
+   {
+    "day": "2026-11-05",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 1,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 1,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0,
+    "sc_bank_view": 1
+   },
+   {
+    "day": "2026-11-06",
+    "view": 3,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
+   },
+   {
+    "day": "2026-11-08",
+    "view": 4,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 1,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 1,
+    "faq": 0,
+    "bottom": 1,
+    "feedback": 0,
+    "share": 0,
+    "sc_bank_view": 1,
+    "sc_own_view": 1,
+    "sc_retire_view": 2
+   },
+   {
+    "day": "2026-11-10",
+    "view": 2,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
+   },
+   {
+    "day": "2026-11-12",
+    "view": 2,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0,
+    "sc_retire_view": 1
+   },
+   {
+    "day": "2026-11-13",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 1,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 1,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
+   },
+   {
+    "day": "2026-11-14",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
+   }
+  ],
+  "last_7_days_breakdown": [
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "desktop",
+    "source": "direct",
+    "n": 7
+   },
+   {
+    "step": "sc_retire_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 2
+   },
+   {
+    "step": "calc_seen",
+    "lang": "en",
+    "device": "desktop",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "calc_seen",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "sc_bank_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_own_view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "sc_retire_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "direct",
+    "n": 1
+   },
+   {
+    "step": "view",
+    "lang": "it",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   }
+  ],
+  "monthly_active": [
+   {
+    "month": "2026-10",
+    "active_user_days": 12
+   },
+   {
+    "month": "2026-11",
+    "active_user_days": 14
+   }
+  ]
+ },
+ "new_feedback": 0
+}

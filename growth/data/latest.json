@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-13T14:34:27+00:00",
+ "generated_at": "2026-11-14T11:38:15+00:00",
  "range": {
-  "from": "2026-10-09",
-  "to": "2026-11-13"
+  "from": "2026-10-10",
+  "to": "2026-11-14"
  },
  "errors": [],
  "web_analytics": {
@@ -52,16 +52,16 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 13,
-     "visits": 13
-    },
-    {
-     "requestPath": "/it/",
-     "pageviews": 4,
-     "visits": 0
+     "pageviews": 12,
+     "visits": 12
     },
     {
      "requestPath": "/it/pensione-affitto-o-etf/",
+     "pageviews": 3,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/",
      "pageviews": 3,
      "visits": 0
     },
@@ -84,8 +84,8 @@
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 13,
-     "visits": 13
+     "pageviews": 12,
+     "visits": 12
     },
     {
      "refererHost": "www.youretfplan.com",
@@ -94,20 +94,15 @@
     },
     {
      "refererHost": "youretfplan.com",
-     "pageviews": 3,
+     "pageviews": 2,
      "visits": 0
     }
    ],
    "countries": [
     {
      "countryName": "ES",
-     "pageviews": 7,
+     "pageviews": 6,
      "visits": 0
-    },
-    {
-     "countryName": "US",
-     "pageviews": 5,
-     "visits": 5
     },
     {
      "countryName": "CN",
@@ -120,17 +115,22 @@
      "visits": 0
     },
     {
+     "countryName": "US",
+     "pageviews": 3,
+     "visits": 3
+    },
+    {
+     "countryName": "IE",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
      "countryName": "IN",
      "pageviews": 1,
      "visits": 1
     },
     {
      "countryName": "CA",
-     "pageviews": 1,
-     "visits": 1
-    },
-    {
-     "countryName": "KR",
      "pageviews": 1,
      "visits": 1
     },
@@ -143,13 +143,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 13,
+     "pageviews": 12,
      "visits": 10
     },
     {
      "deviceType": "mobile",
-     "pageviews": 10,
-     "visits": 3
+     "pageviews": 9,
+     "visits": 2
     }
    ]
   }
@@ -393,6 +393,20 @@
     "bottom": 0,
     "feedback": 0,
     "share": 0
+   },
+   {
+    "day": "2026-11-14",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -401,19 +415,12 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 8
+    "n": 7
    },
    {
     "step": "sc_retire_view",
     "lang": "it",
     "device": "mobile",
-    "source": "internal",
-    "n": 2
-   },
-   {
-    "step": "view",
-    "lang": "it",
-    "device": "desktop",
     "source": "internal",
     "n": 2
    },
@@ -447,6 +454,13 @@
    },
    {
     "step": "sc_retire_view",
+    "lang": "it",
+    "device": "desktop",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "view",
     "lang": "it",
     "device": "desktop",
     "source": "internal",
