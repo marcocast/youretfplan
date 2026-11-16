@@ -207,6 +207,20 @@ GROUPS = {
             "es": "Calculadora: en qué se pueden convertir 50, 100, 200 € al mes, o tu cantidad, invirtiendo en ETF durante 10, 20 o 30 años, en euros. Cuánto dejar antes en el banco, lo que cuesta esperar, impuestos.",
         },
     ),
+    "tax": scenario(
+        "tax.html",
+        {"en": "/etf-taxes-when-you-sell/", "it": "/it/tasse-etf-quando-vendi/", "es": "/es/impuestos-etf-al-vender/"},
+        {
+            "en": "ETF taxes: what you pay when you sell (calculator, Italy and Spain) | Your ETF Plan",
+            "it": "Tasse sugli ETF: quanto paghi quando vendi (calcolatore 26% e bollo) | Your ETF Plan",
+            "es": "Impuestos de los ETF: cuánto pagas al vender (calculadora por tramos) | Your ETF Plan",
+        },
+        {
+            "en": "Calculator: what you paid, what it's worth today, the tax when you sell and what you take home, in euros. ETF tax rules in Italy and Spain in plain words.",
+            "it": "Calcolatore: quanto hai versato, quanto vale oggi, le tasse quando vendi l'ETF e quanto ti resta, in euro. 26%, titoli di Stato al 12,5%, bollo, minusvalenze: le regole dette semplici.",
+            "es": "Calculadora: lo que metiste, lo que vale hoy, el impuesto al vender el ETF y lo que te queda, en euros. Tramos del ahorro, traspasos, pérdidas y Modelo 720, explicado fácil.",
+        },
+    ),
     "learn": scenario(
         "learn.html",
         {"en": "/what-is-an-etf/", "it": "/it/cosa-sono-gli-etf/", "es": "/es/que-es-un-etf/"},
