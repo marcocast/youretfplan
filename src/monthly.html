@@ -293,7 +293,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
   const $=id=>document.getElementById(id);
   const PAGE_URLS={en:'/how-much-to-invest-in-etfs-monthly/',it:'/it/pac-etf-quanto-investire-al-mese/',es:'/es/cuanto-invertir-en-etf-al-mes/'};
   const HOME={en:'/',it:'/it/',es:'/es/'};
-  const LINKS={first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},crash:{en:'/when-markets-fall-etf/',it:'/it/borsa-crolla-etf/',es:'/es/bolsa-cae-etf/'}};
+  const LINKS={first:{en:'/how-to-buy-etf/',it:'/it/come-comprare-etf/',es:'/es/como-comprar-etf/'},crash:{en:'/when-markets-fall-etf/',it:'/it/borsa-crolla-etf/',es:'/es/bolsa-cae-etf/'},tax:{en:'/etf-taxes-when-you-sell/',it:'/it/tasse-etf-quando-vendi/',es:'/es/impuestos-etf-al-vender/'}};
   // Same assumptions as the main page: 7% a year (5–9% range), 2% inflation, money added at the start of each month.
   // Anchor: MSCI World net in EUR, end 2000 – Aug 2026: 6.64% a year (investingintheweb.com).
   const MID=0.07, LO=0.05, HI=0.09, INFL=0.02;
@@ -322,7 +322,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q2:'Which day of the month?', a2:'It makes almost no difference. Pick the day after your pay comes in: the money goes in before you spend it.',
       q3:'Can I stop, or change the amount?', a3:'Yes. With an ETF at a broker there’s no contract tying you. You can pause, lower or raise it whenever you want. What you already have stays invested. Some bank savings plans in funds have entry fees: ask before you sign.',
       q4:'When markets fall, should I stop?', a4:'No. That’s when the same €100 buys more pieces of the ETF. The people who did best kept adding through the red years. <a data-link="crash" href="#">See 3 real falls in euros →</a>',
-      q5:'What about taxes?', a5:'You pay tax on the gain when you sell. How much depends on where you live. In Italy it’s 26% on the gain, plus 0.2% a year on the value. In Spain it’s 19% to 30%, depending on how big the gain is. The numbers on this page are before tax.',
+      q5:'What about taxes?', a5:'You pay tax on the gain when you sell. How much depends on where you live. In Italy it’s 26% on the gain, plus 0.2% a year on the value. In Spain it’s 19% to 30%, depending on how big the gain is. The numbers on this page are before tax. <a data-link="tax" href="#">ETF taxes on your numbers →</a>',
       taxNote:'<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in November 2026. Before any big move, ask an accountant: it costs less than a mistake.',
       nextH:'Now your plan', next:'3 questions, and you see how much to keep in the bank, how much to invest in ETFs and how much to add every month.', nextBtn:'Make my plan',
       fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
@@ -351,7 +351,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q2:'Che giorno del mese?', a2:'Non cambia quasi niente. Scegli il giorno dopo lo stipendio: i soldi entrano prima che tu li spenda.',
       q3:'Posso fermarmi o cambiare cifra?', a3:'Sì. Con un ETF dal broker non c’è un contratto che ti lega. Puoi fermarti, abbassare o alzare quando vuoi. Quello che hai già resta investito. Certi PAC della banca sui fondi hanno commissioni d’ingresso: chiedi prima di firmare.',
       q4:'Quando la borsa scende, mi fermo?', a4:'No. È proprio lì che con gli stessi 100&nbsp;€ compri più pezzi di ETF. Chi ha fatto meglio ha continuato ad aggiungere anche negli anni rossi. <a data-link="crash" href="#">Guarda 3 crolli veri in euro →</a>',
-      q5:'E le tasse?', a5:'Paghi il 26% sul guadagno, quando vendi. In più c’è il bollo dello 0,2% l’anno sul valore. Con un broker italiano in regime amministrato fa tutto lui. I numeri di questa pagina sono prima delle tasse.',
+      q5:'E le tasse?', a5:'Paghi il 26% sul guadagno, quando vendi. In più c’è il bollo dello 0,2% l’anno sul valore. Con un broker italiano in regime amministrato fa tutto lui. I numeri di questa pagina sono prima delle tasse. <a data-link="tax" href="#">Le tasse sulle tue cifre →</a>',
       taxNote:'<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a novembre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.',
       nextH:'Adesso il tuo piano', next:'3 domande, e vedi quanto tenere in banca, quanto investire in ETF e quanto aggiungere ogni mese.', nextBtn:'Fai il mio piano',
       fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
@@ -380,7 +380,7 @@ details > div{padding:0 0 14px;color:var(--muted)}
       q2:'¿Qué día del mes?', a2:'Casi no cambia nada. Elige el día después de cobrar la nómina: el dinero entra antes de que lo gastes.',
       q3:'¿Puedo parar o cambiar la cantidad?', a3:'Sí. Con un ETF en un bróker no hay contrato que te ate. Puedes parar, bajar o subir cuando quieras. Lo que ya tienes sigue invertido. Algunos planes del banco con fondos tienen comisiones de entrada: pregunta antes de firmar.',
       q4:'Cuando la bolsa cae, ¿paro?', a4:'No. Justo entonces, con los mismos 100&nbsp;€ compras más trozos del ETF. A quien mejor le fue es a quien siguió añadiendo también en los años rojos. <a data-link="crash" href="#">Mira 3 caídas reales en euros →</a>',
-      q5:'¿Y los impuestos?', a5:'Pagas sobre la ganancia cuando vendes, en la base del ahorro: 19% hasta 6.000&nbsp;€, 21% hasta 50.000&nbsp;€, 23% hasta 200.000&nbsp;€, y más por encima, hasta el 30%. Los números de esta página son antes de impuestos. Ojo: los fondos indexados permiten traspasos sin pagar impuestos; los ETF no.',
+      q5:'¿Y los impuestos?', a5:'Pagas sobre la ganancia cuando vendes, en la base del ahorro: 19% hasta 6.000&nbsp;€, 21% hasta 50.000&nbsp;€, 23% hasta 200.000&nbsp;€, y más por encima, hasta el 30%. Los números de esta página son antes de impuestos. Ojo: los fondos indexados permiten traspasos sin pagar impuestos; los ETF no. <a data-link="tax" href="#">El impuesto con tus números →</a>',
       taxNote:'<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.',
       nextH:'Ahora tu plan', next:'3 preguntas, y ves cuánto dejar en el banco, cuánto invertir en ETF y cuánto añadir cada mes.', nextBtn:'Hacer mi plan',
       fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
