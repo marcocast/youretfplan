@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T12:59:12+00:00",
+ "generated_at": "2026-11-16T15:45:28+00:00",
  "range": {
   "from": "2026-10-12",
   "to": "2026-11-16"
@@ -9,58 +9,43 @@
   "by_day": [
    {
     "date": "2026-10-29",
-    "pageviews": 60,
+    "pageviews": 70,
     "visits": 30
    },
    {
     "date": "2026-10-30",
-    "pageviews": 210,
-    "visits": 40
-   },
-   {
-    "date": "2026-10-31",
-    "pageviews": 40,
-    "visits": 20
-   },
-   {
-    "date": "2026-11-01",
-    "pageviews": 110,
+    "pageviews": 160,
     "visits": 30
    },
    {
-    "date": "2026-11-02",
+    "date": "2026-10-31",
     "pageviews": 10,
-    "visits": 10
+    "visits": 0
+   },
+   {
+    "date": "2026-11-01",
+    "pageviews": 200,
+    "visits": 60
+   },
+   {
+    "date": "2026-11-03",
+    "pageviews": 10,
+    "visits": 0
    },
    {
     "date": "2026-11-04",
     "pageviews": 10,
-    "visits": 0
+    "visits": 10
    },
    {
-    "date": "2026-11-05",
+    "date": "2026-11-08",
     "pageviews": 10,
     "visits": 10
    },
    {
-    "date": "2026-11-06",
+    "date": "2026-11-13",
     "pageviews": 10,
     "visits": 10
-   },
-   {
-    "date": "2026-11-10",
-    "pageviews": 10,
-    "visits": 10
-   },
-   {
-    "date": "2026-11-12",
-    "pageviews": 10,
-    "visits": 0
-   },
-   {
-    "date": "2026-11-14",
-    "pageviews": 10,
-    "visits": 0
    }
   ],
   "last_7_days": {
