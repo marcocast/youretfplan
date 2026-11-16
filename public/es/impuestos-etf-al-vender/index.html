@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-lang" content="es">
+<title>Impuestos de los ETF: cuánto pagas al vender (calculadora por tramos) | Your ETF Plan</title>
+<meta name="description" content="Calculadora: lo que metiste, lo que vale hoy, el impuesto al vender el ETF y lo que te queda, en euros. Tramos del ahorro, traspasos, pérdidas y Modelo 720, explicado fácil.">
+<link rel="canonical" href="https://youretfplan.com/es/impuestos-etf-al-vender/">
+<link rel="alternate" hreflang="en" href="https://youretfplan.com/etf-taxes-when-you-sell/">
+<link rel="alternate" hreflang="it" href="https://youretfplan.com/it/tasse-etf-quando-vendi/">
+<link rel="alternate" hreflang="es" href="https://youretfplan.com/es/impuestos-etf-al-vender/">
+<link rel="alternate" hreflang="x-default" href="https://youretfplan.com/etf-taxes-when-you-sell/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="theme-color" content="#1f6b52">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your ETF Plan">
+<meta property="og:url" content="https://youretfplan.com/es/impuestos-etf-al-vender/">
+<meta property="og:title" content="Impuestos de los ETF: cuánto pagas al vender (calculadora por tramos) | Your ETF Plan">
+<meta property="og:description" content="Calculadora: lo que metiste, lo que vale hoy, el impuesto al vender el ETF y lo que te queda, en euros. Tramos del ahorro, traspasos, pérdidas y Modelo 720, explicado fácil.">
+<meta property="og:image" content="https://youretfplan.com/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* ETF taxes: what you pay when you sell. Same look as the main page:
+   ink outlines, hard shadows, warm paper ground. */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --ink:#17322a; --muted:#5f6f68; --line:#e8dfcd;
+  --accent:#1f6b52; --accent-soft:#e3f2e9; --accent-ink:#ffffff;
+  --sun:#ffc94a; --coral:#ff7a59; --mint:#cdeedb; --leaf:#3aa76d; --leaf2:#2b8a57; --sky:#e9f3ff;
+  --bank:#8a8f8c; --dep:#2f6fb3; --etf:#1f8a5b; --warn:#a6561a; --warn-soft:#fbeee2; --down:#b5452f;
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10201a; --surface:#172a23; --ink:#eef3ef; --muted:#a3b3ab; --line:#2a3d35;
+  --accent:#6fd3a5; --accent-soft:#1f3a2f; --accent-ink:#10201a;
+  --sun:#f2bd3f; --coral:#ff8f72; --mint:#21443a; --leaf:#58c48a; --leaf2:#3fa872; --sky:#1b3140;
+  --bank:#a2a8a5; --dep:#6aa6e8; --etf:#4fc48e; --warn:#f0a868; --warn-soft:#3a2a1c; --down:#ef8a72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.1rem,9.5vw,3.1rem)}
+h2{font-size:clamp(1.4rem,6vw,1.75rem)}
+p{margin:0}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.w-ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--coral)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;background:var(--surface);gap:2px}
+.lang button{border:0;background:transparent;color:var(--ink);font:800 .75rem var(--body);letter-spacing:.06em;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:14px}
+.badge{align-self:flex-start;background:var(--sun);color:#17322a;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg)}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--sun) 62%,var(--sun) 92%,transparent 92%);padding:0 2px}
+.sub{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.ill{width:100%;height:auto;max-height:210px}
+
+/* calculator card */
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:20px 18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:18px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl-head label{font-weight:700}
+.ctrl-val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
+input[type=range]{width:100%;height:36px;margin:0;accent-color:var(--coral);cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:-6px}
+.res-head{font-weight:700;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bar .lab{font-weight:700}
+.bar .lab small{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+.bar .val{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.track{grid-column:1/-1;position:relative;height:18px;border-radius:9px;background:var(--line);border:2px solid var(--ink);overflow:visible}
+.fill{height:100%;border-radius:7px;transition:width .45s ease}
+.today{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--ink)}
+.legend-today{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.legend-today i{display:inline-block;width:0;height:14px;border-left:2px dashed var(--ink)}
+.verdict{background:var(--sky);border:2px solid var(--ink);border-radius:16px;padding:14px 16px;font-size:1.02rem;line-height:1.45}
+.verdict b.loss{color:var(--down)}
+.verdict b.gain{color:var(--leaf2)}
+.note{font-size:.84rem;color:var(--muted)}
+
+/* when / when not */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.box svg{width:40px;height:40px;flex:none}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* comparison table */
+.tbl-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:16px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);font-size:1rem;border-bottom:2px solid var(--ink)}
+tbody th{font-weight:700;color:var(--muted);width:20%}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+/* faq */
+details{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 16px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"−"}
+details > div{padding:0 0 14px;color:var(--muted)}
+.faqs{display:flex;flex-direction:column;gap:8px}
+
+/* next step */
+.next{background:var(--accent-soft);border:2px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:2px solid var(--ink);border-radius:16px;background:var(--accent);color:var(--accent-ink);font:800 1.05rem var(--body);padding:14px 20px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;align-self:flex-start}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* feedback + disclaimer */
+.fb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.fb-votes{display:flex;gap:8px}
+.fb-vote{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:1.1rem;line-height:1;cursor:pointer}
+.fb-vote[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fb-thanks{color:var(--accent)}
+.disclaimer{font-size:.86rem;background:var(--warn-soft);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+
+/* scenario 2 extras */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.chip.good{background:var(--accent-soft)}
+.chip.warn{background:var(--warn-soft)}
+.assume{background:var(--bg);border:2px dashed var(--line);border-radius:16px;padding:0 14px}
+.assume summary{font-weight:700;padding:12px 0}
+.assume > div{display:flex;flex-direction:column;gap:14px;padding:4px 0 14px;color:var(--ink)}
+.monthly{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mbox{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.mbox b{display:block;margin-bottom:4px}
+.mbox span{display:block;font-size:.92rem;color:var(--muted)}
+.chart-box{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:10px 8px 6px}
+.chart-box svg{display:block;width:100%;height:240px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted);padding:4px 6px 0}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.check{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+/* scenario 3: tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:4px}
+.tabs button{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:800 1rem var(--body);padding:10px 8px;cursor:pointer}
+.tabs button svg{width:28px;height:28px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps li::before{content:counter(st);width:30px;height:30px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#17322a}
+.income{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.income div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.income b{display:block;font-family:var(--display);font-size:1.35rem}
+.income span{font-size:.88rem;color:var(--muted)}
+.country{background:var(--surface);border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;font-size:.93rem}
+/* guide pages: numbered steps, progress, small calculator */
+.guide{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.step{gap:12px}
+.step h2{display:flex;align-items:center;gap:12px;font-size:1.3rem}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-size:1rem;color:#17322a}
+.step p{margin:0 0 8px}
+.step p:last-child{margin-bottom:0}
+.step a{color:var(--ink);font-weight:700}
+.step.is-done{border-color:var(--leaf2);box-shadow:6px 6px 0 var(--leaf2)}
+.step.is-done .n{background:var(--leaf);color:#fff}
+.done{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;background:var(--bg)}
+.done input{width:20px;height:20px;accent-color:var(--leaf2);margin:0}
+.progress{height:14px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--leaf);transition:width .3s}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:1.05rem;margin:0}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+/* when markets fall: 3 real falls in euros, on your amount */
+.tabs.three{grid-template-columns:repeat(3,1fr)}
+.tabs.three button{font-size:.95rem;padding:10px 4px}
+.fall-what{font-size:1.02rem}
+.trio{display:flex;flex-direction:column;gap:8px}
+.trio div{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px}
+.trio span{font-size:.9rem;color:var(--muted);font-weight:700;line-height:1.25}
+.trio b{font-family:var(--display);font-size:1.35rem;line-height:1.15;text-align:right;white-space:nowrap}
+.trio small{grid-column:2;text-align:right;font-weight:700;font-size:.82rem}
+.trio .low b,.trio .low small{color:var(--down)}
+.trio .back b{color:var(--leaf2)}
+.fall-chart svg{display:block;width:100%;height:150px}
+.worst{background:var(--warn-soft);border-left:4px solid var(--warn);padding:14px 16px;border-radius:6px;display:flex;flex-direction:column;gap:8px}
+/* how much every month: quick table + waiting box */
+.tbl-wrap.small table{min-width:0}
+.tbl-wrap.small table{font-size:.84rem}
+.tbl-wrap.small td,.tbl-wrap.small th{padding:9px 6px;white-space:nowrap}
+.tbl-wrap.small td:first-child,.tbl-wrap.small th:first-child{padding-left:10px}
+.tbl-wrap.small td small{display:block;color:var(--muted);font-size:.78rem;font-weight:500}
+.wait{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.wait b.loss{color:var(--down)}
+.range{font-size:.95rem;color:var(--muted)}
+.taxnote{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:2px solid var(--ink);border-left:10px solid var(--sun);border-radius:14px;padding:12px 14px;font-size:.93rem;margin:0}
+.taxnote::before{content:'!';flex:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;color:#17322a;font-size:.85rem}
+/* ETF taxes: what you pay when you sell */
+.tabs.three button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.split{font-size:.95rem;color:var(--muted)}
+.part{background:var(--bg);border:2px dashed var(--line);border-radius:14px;padding:12px 14px;font-size:.95rem}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Impuestos de los ETF: cuánto pagas al vender (calculadora por tramos)",
+  "url": "https://youretfplan.com/es/impuestos-etf-al-vender/",
+  "description": "Calculadora: lo que metiste, lo que vale hoy, el impuesto al vender el ETF y lo que te queda, en euros. Tramos del ahorro, traspasos, pérdidas y Modelo 720, explicado fácil.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "EUR"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Marco"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "¿Pago impuestos cada año?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Acumulación o distribución?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Si nunca vendo, ¿nunca pago?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿Y el dinero del banco no paga impuestos?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "¿El fondo del banco tributa distinto?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": ""
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top-row">
+    <a class="brand" id="home" href="/es/">youretfplan<span>.com</span></a>
+    <div class="lang" role="group" aria-label="Language / Lingua / Idioma">
+      <button type="button" id="l-en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="l-it" lang="it" aria-pressed="false">IT</button>
+      <button type="button" id="l-es" lang="es" aria-pressed="true">ES</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <span class="badge" data-t="badge">Guía · impuestos, fácil</span>
+    <h1 id="h1" data-t="h1">Impuestos de los ETF: <em>cuánto pagas</em> al vender</h1>
+    <p class="sub" data-t="sub">No pagas impuestos por todo. Solo por lo que has ganado. Pon lo que metiste y lo que vale hoy: ves el impuesto y lo que te queda en el bolsillo, en euros.</p>
+    <svg class="ill" viewBox="0 0 360 200" role="img" data-ta="illAlt" aria-label="Un bote de dinero pasa a otro un poco más pequeño, con un símbolo de porcentaje encima">
+      <ellipse cx="180" cy="186" rx="172" ry="12" fill="var(--mint)"></ellipse>
+      <rect class="w-ink" x="60" y="70" width="90" height="110" rx="8" fill="var(--sun)"></rect>
+      <rect class="w-ink" x="60" y="40" width="90" height="30" rx="8" fill="var(--leaf)"></rect>
+      <path class="w-ink" d="M168 105h46" fill="none"></path>
+      <path class="w-ink" d="M202 93l12 12-12 12" fill="none"></path>
+      <rect class="w-ink" x="232" y="80" width="80" height="100" rx="8" fill="var(--sun)"></rect>
+      <rect class="w-ink" x="232" y="58" width="80" height="22" rx="6" fill="var(--leaf)"></rect>
+      <circle class="w-ink" cx="300" cy="40" r="16" fill="var(--coral)"></circle>
+      <path d="M294 46l12-12" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"></path>
+      <circle cx="294" cy="35" r="2.5" fill="var(--ink)"></circle><circle cx="306" cy="45" r="2.5" fill="var(--ink)"></circle>
+    </svg>
+  </section>
+
+  <section class="card" id="calc" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcH">Tus números</h2>
+    <div class="tabs three" role="tablist" data-ta="whereL" aria-label="Dónde vives">
+      <button type="button" role="tab" id="c-it" data-c="it" data-t="cIt" aria-selected="false">Italia</button>
+      <button type="button" role="tab" id="c-es" data-c="es" data-t="cEs" aria-selected="true">España</button>
+      <button type="button" role="tab" id="c-other" data-c="other" data-t="cOther" aria-selected="false">Otro país</button>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="paid" data-t="lPaid">Metiste</label><span class="ctrl-val num" id="paid-out">20.000&nbsp;€</span></div>
+      <input type="range" id="paid" min="1000" max="200000" step="1000" value="20000">
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-head"><label for="worth" data-t="lWorth">Hoy vale</label><span class="ctrl-val num" id="worth-out">30.000&nbsp;€</span></div>
+      <input type="range" id="worth" min="1000" max="400000" step="1000" value="30000">
+    </div>
+    <div class="ctrl" id="rate-box" hidden="">
+      <div class="ctrl-head"><label for="rate" data-t="lRate">Impuesto sobre ganancias donde vives</label><span class="ctrl-val num" id="rate-out">20%</span></div>
+      <input type="range" id="rate" min="0" max="45" step="1" value="20">
+    </div>
+    <div class="trio num" aria-live="polite">
+      <div><span data-t="gainL">Tu ganancia</span><b id="v-gain">10.000&nbsp;€</b></div>
+      <div class="low"><span data-t="taxL">Impuesto al vender</span><b id="v-tax">1.980&nbsp;€</b></div>
+      <div class="back"><span data-t="homeL">Te queda</span><b id="v-home">28.020&nbsp;€</b></div>
+    </div>
+    <p class="split" id="split">19% sobre 6.000&nbsp;€, luego 21% sobre 4.000&nbsp;€.</p>
+    <p class="verdict" id="verdict">Metiste 20.000&nbsp;€. Hoy vale 30.000&nbsp;€. Pagas solo por la ganancia, 10.000&nbsp;€: son <b class="loss">1.980&nbsp;€</b>. Te quedan <b class="gain">28.020&nbsp;€</b>.</p>
+    <p class="part" id="part">¿Solo necesitas 5.000&nbsp;€? Vendes 5.000&nbsp;€ de ETF. De eso, solo 1.667&nbsp;€ es ganancia, así que el impuesto es de unos 317&nbsp;€. El resto sigue invertido.</p>
+    <p class="note" id="calc-note">Residente en España. Los tramos suman todas las rentas del ahorro del año: ganancias, intereses, dividendos. Aquí contamos solo esta venta. Solo impuestos, sin comisiones del bróker.</p>
+  </section>
+
+  <section aria-labelledby="h-rules">
+    <h2 id="h-rules" data-t="rulesH">Las reglas, en claro</h2>
+    <ol class="steps" id="rules"><li><span><b>Mientras no vendes, no pagas nada por la ganancia.</b> Con un ETF de acumulación no hay ningún impuesto anual por tenerlo.</span></li><li><span><b>Al vender, pagas solo por la ganancia, por tramos.</b> 19% por los primeros 6.000&nbsp;€, 21% hasta 50.000&nbsp;€, 23% hasta 200.000&nbsp;€, 27% hasta 300.000&nbsp;€, 30% por encima.</span></li><li><span><b>Un ETF no es un fondo indexado.</b> Con un fondo puedes pasar a otro fondo sin pagar (traspaso). Con un ETF no: cambiar de ETF es vender y pagar.</span></li><li><span><b>Las pérdidas restan de las ganancias.</b> Lo que sobre lo usas en los 4 años siguientes. Pero si vendes con pérdida y recompras el mismo ETF en 2 meses, esa pérdida todavía no cuenta.</span></li><li><span><b>¿Bróker extranjero?</b> Lo declaras tú en la renta. Si tienes más de 50.000&nbsp;€ en acciones y ETF fuera, también presentas el Modelo 720 (solo informativo).</span></li></ol>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" data-t="faqH">Preguntas</h2>
+    <div class="faqs">
+      <details><summary data-t="q1">¿Pago impuestos cada año?</summary><div data-t="a1">Por la ganancia, no: solo al vender, si el ETF es de acumulación. En España no hay nada anual por tener un ETF de acumulación. (En Italia sí: el bollo, 0,2% al año.)</div></details>
+      <details><summary data-t="q2">¿Acumulación o distribución?</summary><div data-t="a2">Acumulación, si no necesitas el dinero ahora. Los dividendos vuelven a entrar solos y pagas solo al final. Con un ETF de distribución tributas por cada pago, y te retienen el 19% en el momento. <a data-link="learn" href="/es/que-es-un-etf/">Qué es un ETF, en 7 lecciones →</a></div></details>
+      <details><summary data-t="q3">Si nunca vendo, ¿nunca pago?</summary><div data-t="a3">Pagas cuando vendes. Pero esperar ayuda: el dinero que habrías pagado en impuestos sigue invertido y sigue creciendo. Una razón más para meter en ETF solo dinero que no vas a necesitar en al menos 5 años. Cuanto más largo, mejor: a 15 años o más, históricamente, siempre ha ido bien.</div></details>
+      <details><summary data-t="q4">¿Y el dinero del banco no paga impuestos?</summary><div data-t="a4">Sí paga. Los intereses de un depósito tributan también, desde el 19%. Y tributan cada año, no al final.</div></details>
+      <details><summary data-t="q5">¿El fondo del banco tributa distinto?</summary><div data-t="a5">Mismos tramos sobre la ganancia. Una diferencia a favor del fondo: puedes traspasar de un fondo a otro sin pagar; un ETF no. En contra: el coste anual, a menudo del 1,5% o más, que pagas también en los años rojos. Un fondo indexado barato te da las dos cosas. <a data-link="fund" href="/es/etf-o-fondo-del-banco/">ETF o el fondo del banco →</a></div></details>
+    </div>
+    <p class="taxnote"><span data-t="taxNote"><b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.</span></p>
+  </section>
+
+  <section class="next" aria-labelledby="h-next">
+    <h2 id="h-next" data-t="nextH">Ahora tu plan</h2>
+    <p data-t="next">3 preguntas, y ves cuánto dejar en el banco, cuánto invertir en ETF y cuánto añadir cada mes.</p>
+    <a class="btn" id="next-btn" href="/es/#wizard"><span data-t="nextBtn">Hacer mi plan</span><span aria-hidden="true">→</span></a>
+  </section>
+
+  <div class="fb" id="fb" hidden="">
+    <span data-t="fbQ">¿Te ha servido esta página?</span>
+    <span class="fb-votes">
+      <button type="button" class="fb-vote" data-vote="1" data-ta="fbYes" aria-pressed="false" aria-label="Sí">👍</button>
+      <button type="button" class="fb-vote" data-vote="-1" data-ta="fbNo" aria-pressed="false" aria-label="No mucho">👎</button>
+    </span>
+    <span class="fb-thanks" data-t="fbThanks" hidden="">¡Gracias!</span>
+  </div>
+
+  <p class="disclaimer" data-t="disc"><strong>No es asesoramiento fiscal ni financiero.</strong> Son ejemplos para entender. Tu caso puede ser distinto: otros ingresos, otros países, regímenes especiales. Invertir en ETF significa que también puedes perder dinero. Sin relación con ningún banco ni bróker, sin enlaces de afiliado.</p>
+  <p class="foot" id="privacy" data-t="privacy" hidden="">Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.</p>
+  <p class="foot" style="text-align:center">© 2026 youretfplan.com · <a href="/etf-taxes-when-you-sell/" hreflang="en" lang="en">English</a> · <a href="/it/tasse-etf-quando-vendi/" hreflang="it" lang="it">Italiano</a> · <a href="/es/impuestos-etf-al-vender/" hreflang="es" lang="es">Español</a></p>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const PAGE_URLS={en:'/etf-taxes-when-you-sell/',it:'/it/tasse-etf-quando-vendi/',es:'/es/impuestos-etf-al-vender/'};
+  const HOME={en:'/',it:'/it/',es:'/es/'};
+  const LINKS={learn:{en:'/what-is-an-etf/',it:'/it/cosa-sono-gli-etf/',es:'/es/que-es-un-etf/'},fund:{en:'/etf-vs-bank-fund/',it:'/it/etf-o-fondo-della-banca/',es:'/es/etf-o-fondo-del-banco/'}};
+  // Rules checked in November 2026 (sources in the PR):
+  // Italy: 26% on ETF gains (12.5% on the government-bond share), only when you sell an accumulating ETF;
+  //   imposta di bollo 0.2% a year on the value (IVAFE with a foreign broker).
+  // Spain: base del ahorro 19% to 6,000, 21% to 50,000, 23% to 200,000, 27% to 300,000, 30% above.
+  const IT_RATE=0.26, BOLLO=0.002;
+  const ES_BR=[[6000,.19],[50000,.21],[200000,.23],[300000,.27],[Infinity,.30]];
+  function esTax(g){let t=0,lo=0,parts=[];for(const [hi,r] of ES_BR){if(g<=lo)break;const x=Math.min(g,hi)-lo;t+=x*r;parts.push([x,r]);lo=hi}return {t,parts}}
+
+  const T={
+    en:{locale:'en-IE', title:'ETF taxes: what you pay when you sell (calculator) | Your ETF Plan',
+      badge:'Guide · taxes, simply',
+      h1:'ETF taxes: <em>what you pay</em> when you sell',
+      sub:'You don’t pay tax on everything. Only on what you gained. Put in what you paid and what it’s worth today: you see the tax and what you take home, in euros.',
+      illAlt:'A pot of money passes to a slightly smaller pot, with a percent sign on top',
+      calcH:'Your numbers', whereL:'Where you live', cIt:'Italy', cEs:'Spain', cOther:'Elsewhere',
+      lPaid:'You put in', lWorth:'It’s worth today', lRate:'Tax rate on gains where you live', pct:p=>p+'%',
+      gainL:'Your gain', taxL:'Tax when you sell', homeL:'You take home',
+      splitIt:'26% on the gain.', splitOther:r=>r+'% on the gain.',
+      splitEs:parts=>parts.map(([x,r])=>Math.round(r*100)+'% on '+x).join(', then ')+'.',
+      verdict:(p,w,g,t,h)=>`You put in ${p}. Today it’s ${w}. You pay tax only on the gain, ${g}: that’s <b class="loss">${t}</b>. You take home <b class="gain">${h}</b>.`,
+      loss:(p,w,l)=>`You put in ${p} and today it’s ${w}. That’s a loss of <b class="loss">${l}</b>, so no tax to pay if you sell now. Often the loss can lower tax on other gains: see the rules below.`,
+      bollo:b=>` In Italy you also pay 0.2% a year on the value while you hold it: about ${b} a year at today’s value.`,
+      part:(s,g,t)=>`Need only ${s}? You sell ${s} of ETF. Only ${g} of it is gain, so the tax is about ${t}. The rest stays invested.`,
+      noteIt:'For an ETF of shares, like a world ETF. If the ETF holds government bonds, that part pays 12.5%. Accumulating ETF, Italian resident. Taxes only, no broker fees.',
+      noteEs:'Spanish resident. The brackets count all your savings income of the year together: gains, interest, dividends. Here we count only this sale. Taxes only, no broker fees.',
+      noteOther:'Many countries tax gains between 0% and 40%. Put in yours. Some also tax a bit every year, even if you don’t sell: check before you start.',
+      rulesH:'The rules, in plain words',
+      rules:{
+        it:'<li><span><b>While you don’t sell, you pay nothing on the gain.</b> With an accumulating ETF, the gains stay inside and keep working.</span></li><li><span><b>Every year there’s the stamp duty (bollo): 0.2% of what you have.</b> €10,000 → €20 a year. With a foreign broker it’s called IVAFE: same amount, you pay it in your tax return.</span></li><li><span><b>When you sell, 26% on the gain.</b> Not on the whole amount. The government-bond part of an ETF pays 12.5%.</span></li><li><span><b>An Italian broker does it all for you</b> (regime amministrato). With a foreign broker you put it in your tax return yourself, often with an accountant.</span></li><li><span><b>The odd rule.</b> A loss on an ETF can lower tax on gains from single shares or bonds in the next 4 years. Not on gains from another ETF.</span></li>',
+        es:'<li><span><b>While you don’t sell, you pay nothing on the gain.</b> With an accumulating ETF there’s no yearly tax on what you hold.</span></li><li><span><b>When you sell, tax on the gain only, in steps.</b> 19% on the first €6,000, 21% up to €50,000, 23% up to €200,000, 27% up to €300,000, 30% above.</span></li><li><span><b>ETFs are not index funds.</b> With an index fund you can move from one fund to another without paying (traspaso). With ETFs you can’t: changing ETF means selling and paying.</span></li><li><span><b>Losses lower your gains.</b> What’s left over you can use in the next 4 years. But if you sell at a loss and buy the same ETF back within 2 months, the loss doesn’t count yet.</span></li><li><span><b>Foreign broker?</b> You declare it yourself in your tax return. Over €50,000 in shares and ETFs abroad, you also file the Modelo 720 (information only).</span></li>',
+        other:'<li><span><b>Usually you pay only on the gain, when you sell.</b> Not on the whole amount, and not while you hold.</span></li><li><span><b>Accumulating ETFs reinvest the dividends inside.</b> In most countries that means no tax until you sell. Distributing ETFs pay you cash, and that’s taxed each time.</span></li><li><span><b>A few countries tax a bit every year, even if you don’t sell.</b> Check yours before you start.</span></li><li><span><b>Ask who pays the tax.</b> A local broker often does it for you. With a foreign one, you usually declare it yourself.</span></li><li><span><b>Losses often lower tax on gains.</b> The rules change a lot from country to country.</span></li>'},
+      faqH:'Questions',
+      q1:'Do I pay tax every year?', a1:'On the gain, no: only when you sell, if the ETF is accumulating. In Italy you do pay the 0.2% stamp duty every year on what you hold. In Spain there’s nothing yearly on an accumulating ETF.',
+      q2:'Accumulating or distributing?', a2:'Accumulating, if you don’t need the cash now. The dividends go back in by themselves and you pay tax only at the end. With a distributing ETF you pay tax on every payout: in Italy 26%, in Spain 19% is held back at once. <a data-link="learn" href="#">What an ETF is, in 7 lessons →</a>',
+      q3:'If I never sell, do I never pay?', a3:'You pay when you sell. But waiting helps: the money you’d have paid in tax stays invested and keeps growing. One more reason to keep ETFs for money you won’t need for at least 5 years. The longer the better: over 15 years or more, historically, it has always gone well.',
+      q4:'And the money in the bank, is it tax-free?', a4:'No. Interest on a bank deposit is taxed too: 26% in Italy, from 19% in Spain. And it’s taxed every year, not at the end.',
+      q5:'Is the bank’s fund taxed differently?', a5:'Same tax rate on the gain. The difference is the yearly cost, often 1.5% or more, paid even in red years. In Spain a fund can be moved to another fund without paying (traspaso), an ETF can’t. <a data-link="fund" href="#">ETF or the bank’s fund →</a>',
+      taxNote:'<b>Taxes change, and they depend on where you live.</b> Here you get today’s rules, checked in November 2026. Before any big move, ask an accountant: it costs less than a mistake.',
+      nextH:'Now your plan', next:'3 questions, and you see how much to keep in the bank, how much to invest in ETFs and how much to add every month.', nextBtn:'Make my plan',
+      fbQ:'Did this page help?', fbYes:'Yes', fbNo:'Not really', fbThanks:'Thanks!',
+      disc:'<strong>Not tax or financial advice.</strong> These are examples to help you understand. Your case can be different: other income, other countries, special regimes. Investing in ETFs means you can lose money too. No ties to any bank or broker, no affiliate links.',
+      privacy:'Privacy: no cookies and no personal data. We count visits and clicks anonymously, with a code that changes every day.'},
+    it:{locale:'it-IT', title:'Tasse sugli ETF: quanto paghi quando vendi (calcolatore) | Your ETF Plan',
+      badge:'Guida · tasse, semplici',
+      h1:'Tasse sugli ETF: <em>quanto paghi</em> quando vendi',
+      sub:'Non paghi le tasse su tutto. Solo su quello che hai guadagnato. Metti quanto hai versato e quanto vale oggi: vedi le tasse e quanto ti resta in tasca, in euro.',
+      illAlt:'Un barattolo di soldi passa in uno un po’ più piccolo, con un simbolo di percentuale sopra',
+      calcH:'I tuoi numeri', whereL:'Dove vivi', cIt:'Italia', cEs:'Spagna', cOther:'Altrove',
+      lPaid:'Hai versato', lWorth:'Oggi vale', lRate:'Tasse sui guadagni dove vivi', pct:p=>p+'%',
+      gainL:'Il tuo guadagno', taxL:'Tasse quando vendi', homeL:'Ti resta in tasca',
+      splitIt:'26% sul guadagno.', splitOther:r=>r+'% sul guadagno.',
+      splitEs:parts=>parts.map(([x,r])=>Math.round(r*100)+'% su '+x).join(', poi ')+'.',
+      verdict:(p,w,g,t,h)=>`Hai versato ${p}. Oggi vale ${w}. Paghi le tasse solo sul guadagno, ${g}: sono <b class="loss">${t}</b>. Ti restano <b class="gain">${h}</b>.`,
+      loss:(p,w,l)=>`Hai versato ${p} e oggi vale ${w}. È una perdita di <b class="loss">${l}</b>: se vendi adesso non paghi tasse. La perdita può servirti dopo: guarda le regole qui sotto.`,
+      bollo:b=>` Finché lo tieni paghi anche il bollo, 0,2% l’anno sul valore: circa ${b} l’anno, al valore di oggi.`,
+      part:(s,g,t)=>`Ti servono solo ${s}? Vendi ${s} di ETF. Di questi, solo ${g} sono guadagno, quindi le tasse sono circa ${t}. Il resto resta investito.`,
+      noteIt:'Per un ETF di azioni, come un ETF mondiale. Se l’ETF ha dentro titoli di Stato, quella parte paga il 12,5%. ETF ad accumulazione, residente in Italia. Solo tasse, senza costi del broker.',
+      noteEs:'Residente in Spagna. Gli scaglioni contano insieme tutti i redditi da risparmio dell’anno: guadagni, interessi, dividendi. Qui contiamo solo questa vendita. Solo tasse, senza costi del broker.',
+      noteOther:'In tanti paesi le tasse sui guadagni vanno dallo 0% al 40%. Metti la tua. Alcuni paesi tassano un po’ ogni anno anche se non vendi: controlla prima di partire.',
+      rulesH:'Le regole, dette semplici',
+      rules:{
+        it:'<li><span><b>Finché non vendi, sul guadagno non paghi niente.</b> Con un ETF ad accumulazione i guadagni restano dentro e continuano a lavorare.</span></li><li><span><b>Ogni anno c’è il bollo: 0,2% di quello che hai.</b> 10.000&nbsp;€ → 20&nbsp;€ l’anno. Con un broker estero si chiama IVAFE: stessa cifra, la paghi nella dichiarazione dei redditi.</span></li><li><span><b>Quando vendi, 26% sul guadagno.</b> Non su tutta la cifra. La parte di titoli di Stato dentro un ETF paga il 12,5%.</span></li><li><span><b>Con un broker italiano fa tutto lui</b> (regime amministrato). Con un broker estero lo metti tu nella dichiarazione dei redditi, spesso con il commercialista.</span></li><li><span><b>La regola strana.</b> Una perdita su un ETF può abbassare le tasse sui guadagni da azioni singole o obbligazioni nei 4 anni dopo. Ma non sui guadagni di un altro ETF.</span></li>',
+        es:'<li><span><b>Finché non vendi, sul guadagno non paghi niente.</b> Con un ETF ad accumulazione non c’è nessuna tassa annua.</span></li><li><span><b>Quando vendi, tasse solo sul guadagno, a scaglioni.</b> 19% sui primi 6.000&nbsp;€, 21% fino a 50.000&nbsp;€, 23% fino a 200.000&nbsp;€, 27% fino a 300.000&nbsp;€, 30% sopra.</span></li><li><span><b>Gli ETF non sono fondi indicizzati.</b> Con un fondo passi a un altro fondo senza pagare (traspaso). Con gli ETF no: cambiare ETF vuol dire vendere e pagare.</span></li><li><span><b>Le perdite abbassano i guadagni.</b> Quello che avanza lo usi nei 4 anni dopo. Ma se vendi in perdita e ricompri lo stesso ETF entro 2 mesi, la perdita per ora non conta.</span></li><li><span><b>Broker estero?</b> Lo dichiari tu. Sopra 50.000&nbsp;€ in azioni ed ETF all’estero presenti anche il Modelo 720 (solo informativo).</span></li>',
+        other:'<li><span><b>Di solito paghi solo sul guadagno, quando vendi.</b> Non su tutta la cifra, e non finché tieni.</span></li><li><span><b>Gli ETF ad accumulazione reinvestono i dividendi dentro.</b> Nella maggior parte dei paesi vuol dire niente tasse fino alla vendita. Quelli a distribuzione ti pagano, e paghi le tasse ogni volta.</span></li><li><span><b>Alcuni paesi tassano un po’ ogni anno, anche se non vendi.</b> Controlla il tuo prima di partire.</span></li><li><span><b>Chiedi chi paga le tasse.</b> Un broker locale spesso fa tutto lui. Con uno estero di solito dichiari tu.</span></li><li><span><b>Le perdite spesso abbassano le tasse sui guadagni.</b> Le regole cambiano molto da paese a paese.</span></li>'},
+      faqH:'Domande',
+      q1:'Pago le tasse ogni anno?', a1:'Sul guadagno no: solo quando vendi, se l’ETF è ad accumulazione. Ogni anno paghi solo il bollo, 0,2% di quello che hai. Con un broker italiano te lo toglie lui dal conto.',
+      q2:'Accumulazione o distribuzione?', a2:'Accumulazione, se i soldi non ti servono adesso. I dividendi rientrano da soli e paghi le tasse solo alla fine. Con un ETF a distribuzione paghi il 26% su ogni cedola, ogni volta. <a data-link="learn" href="#">Cos’è un ETF, in 7 lezioni →</a>',
+      q3:'Se non vendo mai, non pago mai?', a3:'Paghi quando vendi. Ma aspettare aiuta: i soldi che avresti dato in tasse restano investiti e continuano a crescere. Un motivo in più per mettere in ETF solo soldi che non ti servono per almeno 5 anni. Più lungo è, meglio è: su 15 anni o più, storicamente, è sempre andata bene.',
+      q4:'E i soldi in banca, sono senza tasse?', a4:'No. Gli interessi del conto deposito pagano il 26% anche loro. E sul conto c’è il bollo anche lì. Solo che gli interessi li tassano ogni anno, non alla fine.',
+      q5:'Il fondo della banca paga tasse diverse?', a5:'Stessa aliquota sul guadagno, 26%. La differenza sono i costi annui, spesso 1,5% o più, che paghi anche negli anni rossi. <a data-link="fund" href="#">ETF o fondo della banca →</a>',
+      taxNote:'<b>Le tasse cambiano, e dipendono da dove vivi.</b> Qui trovi le regole di oggi, verificate a novembre 2026. Prima di fare mosse grosse, chiedi a un commercialista: costa meno di un errore.',
+      nextH:'Adesso il tuo piano', next:'3 domande, e vedi quanto tenere in banca, quanto investire in ETF e quanto aggiungere ogni mese.', nextBtn:'Fai il mio piano',
+      fbQ:'Ti è servita questa pagina?', fbYes:'Sì', fbNo:'Non tanto', fbThanks:'Grazie!',
+      disc:'<strong>Non è una consulenza fiscale o finanziaria.</strong> Sono esempi per capire. Il tuo caso può essere diverso: altri redditi, altri paesi, regimi speciali. Investire in ETF vuol dire che puoi anche perdere soldi. Nessun legame con banche o broker, nessun link di affiliazione.',
+      privacy:'Privacy: niente cookie e niente dati personali. Contiamo visite e click in forma anonima, con un codice che cambia ogni giorno.'},
+    es:{locale:'es-ES', title:'Impuestos de los ETF: cuánto pagas al vender (calculadora) | Your ETF Plan',
+      badge:'Guía · impuestos, fácil',
+      h1:'Impuestos de los ETF: <em>cuánto pagas</em> al vender',
+      sub:'No pagas impuestos por todo. Solo por lo que has ganado. Pon lo que metiste y lo que vale hoy: ves el impuesto y lo que te queda en el bolsillo, en euros.',
+      illAlt:'Un bote de dinero pasa a otro un poco más pequeño, con un símbolo de porcentaje encima',
+      calcH:'Tus números', whereL:'Dónde vives', cIt:'Italia', cEs:'España', cOther:'Otro país',
+      lPaid:'Metiste', lWorth:'Hoy vale', lRate:'Impuesto sobre ganancias donde vives', pct:p=>p+'%',
+      gainL:'Tu ganancia', taxL:'Impuesto al vender', homeL:'Te queda',
+      splitIt:'26% sobre la ganancia.', splitOther:r=>r+'% sobre la ganancia.',
+      splitEs:parts=>parts.map(([x,r])=>Math.round(r*100)+'% sobre '+x).join(', luego ')+'.',
+      verdict:(p,w,g,t,h)=>`Metiste ${p}. Hoy vale ${w}. Pagas solo por la ganancia, ${g}: son <b class="loss">${t}</b>. Te quedan <b class="gain">${h}</b>.`,
+      loss:(p,w,l)=>`Metiste ${p} y hoy vale ${w}. Es una pérdida de <b class="loss">${l}</b>: si vendes ahora no pagas nada. La pérdida te puede servir después: mira las reglas de abajo.`,
+      bollo:b=>` En Italia, mientras lo tienes, pagas además el 0,2% al año sobre el valor: unos ${b} al año, al valor de hoy.`,
+      part:(s,g,t)=>`¿Solo necesitas ${s}? Vendes ${s} de ETF. De eso, solo ${g} es ganancia, así que el impuesto es de unos ${t}. El resto sigue invertido.`,
+      noteIt:'Para un ETF de acciones, como un ETF mundial. Si el ETF lleva deuda pública, esa parte paga el 12,5%. ETF de acumulación, residente en Italia. Solo impuestos, sin comisiones del bróker.',
+      noteEs:'Residente en España. Los tramos suman todas las rentas del ahorro del año: ganancias, intereses, dividendos. Aquí contamos solo esta venta. Solo impuestos, sin comisiones del bróker.',
+      noteOther:'En muchos países el impuesto sobre ganancias va del 0% al 40%. Pon el tuyo. Algunos países cobran un poco cada año aunque no vendas: compruébalo antes de empezar.',
+      rulesH:'Las reglas, en claro',
+      rules:{
+        it:'<li><span><b>Mientras no vendes, no pagas nada por la ganancia.</b> Con un ETF de acumulación las ganancias se quedan dentro y siguen trabajando.</span></li><li><span><b>Cada año está el bollo: el 0,2% de lo que tienes.</b> 10.000&nbsp;€ → 20&nbsp;€ al año. Con un bróker extranjero se llama IVAFE: misma cantidad, la pagas en la declaración.</span></li><li><span><b>Al vender, 26% sobre la ganancia.</b> No sobre todo. La parte de deuda pública dentro de un ETF paga el 12,5%.</span></li><li><span><b>Con un bróker italiano lo hace todo él</b> (regime amministrato). Con uno extranjero lo declaras tú, a menudo con un gestor.</span></li><li><span><b>La regla rara.</b> Una pérdida en un ETF puede bajar el impuesto de ganancias en acciones sueltas o bonos en los 4 años siguientes. Pero no el de ganancias en otro ETF.</span></li>',
+        es:'<li><span><b>Mientras no vendes, no pagas nada por la ganancia.</b> Con un ETF de acumulación no hay ningún impuesto anual por tenerlo.</span></li><li><span><b>Al vender, pagas solo por la ganancia, por tramos.</b> 19% por los primeros 6.000&nbsp;€, 21% hasta 50.000&nbsp;€, 23% hasta 200.000&nbsp;€, 27% hasta 300.000&nbsp;€, 30% por encima.</span></li><li><span><b>Un ETF no es un fondo indexado.</b> Con un fondo puedes pasar a otro fondo sin pagar (traspaso). Con un ETF no: cambiar de ETF es vender y pagar.</span></li><li><span><b>Las pérdidas restan de las ganancias.</b> Lo que sobre lo usas en los 4 años siguientes. Pero si vendes con pérdida y recompras el mismo ETF en 2 meses, esa pérdida todavía no cuenta.</span></li><li><span><b>¿Bróker extranjero?</b> Lo declaras tú en la renta. Si tienes más de 50.000&nbsp;€ en acciones y ETF fuera, también presentas el Modelo 720 (solo informativo).</span></li>',
+        other:'<li><span><b>Normalmente pagas solo por la ganancia, al vender.</b> No por todo, y no mientras lo tienes.</span></li><li><span><b>Los ETF de acumulación reinvierten los dividendos dentro.</b> En la mayoría de países eso quiere decir nada de impuestos hasta vender. Los de distribución te pagan, y tributas cada vez.</span></li><li><span><b>Algunos países cobran un poco cada año, aunque no vendas.</b> Mira el tuyo antes de empezar.</span></li><li><span><b>Pregunta quién paga el impuesto.</b> Un bróker local a menudo lo hace todo. Con uno extranjero, normalmente lo declaras tú.</span></li><li><span><b>Las pérdidas suelen restar de las ganancias.</b> Las reglas cambian mucho de un país a otro.</span></li>'},
+      faqH:'Preguntas',
+      q1:'¿Pago impuestos cada año?', a1:'Por la ganancia, no: solo al vender, si el ETF es de acumulación. En España no hay nada anual por tener un ETF de acumulación. (En Italia sí: el bollo, 0,2% al año.)',
+      q2:'¿Acumulación o distribución?', a2:'Acumulación, si no necesitas el dinero ahora. Los dividendos vuelven a entrar solos y pagas solo al final. Con un ETF de distribución tributas por cada pago, y te retienen el 19% en el momento. <a data-link="learn" href="#">Qué es un ETF, en 7 lecciones →</a>',
+      q3:'Si nunca vendo, ¿nunca pago?', a3:'Pagas cuando vendes. Pero esperar ayuda: el dinero que habrías pagado en impuestos sigue invertido y sigue creciendo. Una razón más para meter en ETF solo dinero que no vas a necesitar en al menos 5 años. Cuanto más largo, mejor: a 15 años o más, históricamente, siempre ha ido bien.',
+      q4:'¿Y el dinero del banco no paga impuestos?', a4:'Sí paga. Los intereses de un depósito tributan también, desde el 19%. Y tributan cada año, no al final.',
+      q5:'¿El fondo del banco tributa distinto?', a5:'Mismos tramos sobre la ganancia. Una diferencia a favor del fondo: puedes traspasar de un fondo a otro sin pagar; un ETF no. En contra: el coste anual, a menudo del 1,5% o más, que pagas también en los años rojos. Un fondo indexado barato te da las dos cosas. <a data-link="fund" href="#">ETF o el fondo del banco →</a>',
+      taxNote:'<b>Los impuestos cambian, y dependen de dónde vivas.</b> Aquí tienes las normas de hoy, revisadas en noviembre de 2026. Antes de hacer algo grande, pregunta a un gestor: sale más barato que un error.',
+      nextH:'Ahora tu plan', next:'3 preguntas, y ves cuánto dejar en el banco, cuánto invertir en ETF y cuánto añadir cada mes.', nextBtn:'Hacer mi plan',
+      fbQ:'¿Te ha servido esta página?', fbYes:'Sí', fbNo:'No mucho', fbThanks:'¡Gracias!',
+      disc:'<strong>No es asesoramiento fiscal ni financiero.</strong> Son ejemplos para entender. Tu caso puede ser distinto: otros ingresos, otros países, regímenes especiales. Invertir en ETF significa que también puedes perder dinero. Sin relación con ningún banco ni bróker, sin enlaces de afiliado.',
+      privacy:'Privacidad: sin cookies y sin datos personales. Contamos visitas y clics de forma anónima, con un código que cambia cada día.'}
+  };
+
+  const meta=document.querySelector('meta[name="page-lang"]');
+  const FIXED=meta?meta.content:null;
+  function guessLang(){
+    try{const s=localStorage.getItem('etf-plan-lang');if(s in T)return s}catch(e){}
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    if(['Europe/Rome','Europe/San_Marino','Europe/Vatican'].includes(tz))return 'it';
+    if(['Europe/Madrid','Atlantic/Canary','Africa/Ceuta'].includes(tz))return 'es';
+    const f=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+    return f in T?f:'en';
+  }
+  let lang=FIXED||guessLang(), L=T[lang], fmt;
+  const DEF_C={en:'other',it:'it',es:'es'};
+  let country=DEF_C[lang];
+
+  function tax(g){
+    if(g<=0)return {t:0,parts:[]};
+    if(country==='it')return {t:g*IT_RATE,parts:null};
+    if(country==='es')return esTax(g);
+    return {t:g*(+$('rate').value)/100,parts:null};
+  }
+
+  function render(){
+    const p=+$('paid').value, w=+$('worth').value, g=w-p;
+    $('paid-out').textContent=fmt(p); $('worth-out').textContent=fmt(w);
+    $('rate-out').textContent=L.pct(+$('rate').value);
+    $('rate-box').hidden=country!=='other';
+    ['it','es','other'].forEach(c=>$('c-'+c).setAttribute('aria-selected',c===country));
+    const r=tax(g);
+    $('v-gain').textContent=fmt(g); $('v-tax').textContent=fmt(r.t); $('v-home').textContent=fmt(w-r.t);
+    $('split').textContent=g<=0?'':country==='it'?L.splitIt:country==='es'?L.splitEs(r.parts.map(([x,rt])=>[fmt(x),rt])):L.splitOther(+$('rate').value);
+    if(g<=0){$('verdict').innerHTML=L.loss(fmt(p),fmt(w),fmt(-g));$('part').hidden=true}
+    else{
+      $('verdict').innerHTML=L.verdict(fmt(p),fmt(w),fmt(g),fmt(r.t),fmt(w-r.t))+(country==='it'?L.bollo(fmt(w*BOLLO)):'');
+      const s=Math.min(5000,w), sg=s*g/w;
+      $('part').hidden=s>=w; $('part').textContent=L.part(fmt(s),fmt(sg),fmt(tax(sg).t));
+    }
+    $('calc-note').textContent=country==='it'?L.noteIt:country==='es'?L.noteEs:L.noteOther;
+    $('rules').innerHTML=L.rules[country];
+  }
+
+  function applyLang(){
+    L=T[lang];
+    document.documentElement.lang=lang;
+    if(!FIXED)document.title=L.title;
+    const nf=new Intl.NumberFormat(L.locale,{style:'currency',currency:'EUR',maximumFractionDigits:0,useGrouping:'always'});
+    fmt=v=>nf.format(Math.round(v));
+    document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=L[el.dataset.t]});
+    document.querySelectorAll('[data-ta]').forEach(el=>{el.setAttribute('aria-label',L[el.dataset.ta])});
+    ['en','it','es'].forEach(k=>$('l-'+k).setAttribute('aria-pressed',k===lang));
+    const base=FIXED?'':'https://youretfplan.com';
+    $('home').href=FIXED?HOME[lang]:'/'; $('next-btn').href=base+HOME[lang]+'#wizard';
+    document.querySelectorAll('[data-link]').forEach(a=>{a.href=base+LINKS[a.dataset.link][lang]});
+    render();
+  }
+  function setLang(k){
+    try{localStorage.setItem('etf-plan-lang',k)}catch(e){}
+    if(FIXED){if(k!==FIXED)location.href=PAGE_URLS[k];return}
+    lang=k;country=DEF_C[k];applyLang();
+  }
+  ['en','it','es'].forEach(k=>$('l-'+k).addEventListener('click',()=>setLang(k)));
+  ['paid','worth','rate'].forEach(id=>$(id).addEventListener('input',render));
+  document.querySelectorAll('[data-c]').forEach(b=>b.addEventListener('click',()=>{country=b.dataset.c;render()}));
+
+  // Anonymous usage (see worker/index.js): only on youretfplan.com, not in the build pre-render.
+  const TRACK=!!FIXED&&!navigator.webdriver;
+  const sent=new Set();
+  const SRC=(()=>{const r=document.referrer;if(!r)return 'direct';try{const h=new URL(r).hostname.replace(/^www\./,'');if(h.endsWith('youretfplan.com'))return 'internal';if(/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|startpage)\./.test(h))return 'search:'+h;return h}catch(e){return 'other'}})();
+  function send(steps){
+    steps=steps.filter(s=>!sent.has(s)); if(!TRACK||!steps.length)return;
+    steps.forEach(s=>sent.add(s));
+    const body=JSON.stringify({steps,lang,source:SRC});
+    try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/e',body)))fetch('/api/e',{method:'POST',body,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  if(TRACK){
+    $('fb').hidden=false; $('privacy').hidden=false;
+    send(['sc_tax_view']);
+    ['paid','worth','rate'].forEach(id=>$(id).addEventListener('input',()=>send(['sc_tax_active','active'])));
+    document.querySelectorAll('.fb-vote').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.fb-vote').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.disabled=true});
+      document.querySelector('.fb-thanks').hidden=false;
+      fetch('/api/f',{method:'POST',body:JSON.stringify({place:'sc_tax',vote:+b.dataset.vote,lang})}).catch(()=>{});
+      send(['feedback']);
+    }));
+  }
+  applyLang();
+})();
+</script>
+
+
+
+</body></html>
