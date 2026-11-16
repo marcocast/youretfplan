@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-15T13:55:55+00:00",
+ "generated_at": "2026-11-16T07:50:45+00:00",
  "range": {
-  "from": "2026-10-11",
-  "to": "2026-11-15"
+  "from": "2026-10-12",
+  "to": "2026-11-16"
  },
  "errors": [],
  "web_analytics": {
@@ -52,28 +52,8 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 14,
+     "pageviews": 16,
      "visits": 13
-    },
-    {
-     "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 3,
-     "visits": 0
-    },
-    {
-     "requestPath": "/it/",
-     "pageviews": 3,
-     "visits": 0
-    },
-    {
-     "requestPath": "/it/banca-vs-etf/",
-     "pageviews": 1,
-     "visits": 0
-    },
-    {
-     "requestPath": "/it/affittare-o-vendere-casa-etf/",
-     "pageviews": 1,
-     "visits": 0
     },
     {
      "requestPath": "/buy-vs-rent-etf/",
@@ -81,12 +61,22 @@
      "visits": 1
     },
     {
+     "requestPath": "/it/pensione-affitto-o-etf/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
+     "requestPath": "/it/",
+     "pageviews": 1,
+     "visits": 0
+    },
+    {
      "requestPath": "/inheritance-etf/",
      "pageviews": 1,
      "visits": 0
     },
     {
-     "requestPath": "/retired-rental-or-etf/",
+     "requestPath": "/es/",
      "pageviews": 1,
      "visits": 0
     }
@@ -98,13 +88,13 @@
      "visits": 13
     },
     {
-     "refererHost": "www.youretfplan.com",
-     "pageviews": 7,
+     "refererHost": "youretfplan.com",
+     "pageviews": 4,
      "visits": 0
     },
     {
-     "refererHost": "youretfplan.com",
-     "pageviews": 4,
+     "refererHost": "www.youretfplan.com",
+     "pageviews": 3,
      "visits": 0
     },
     {
@@ -115,14 +105,14 @@
    ],
    "countries": [
     {
-     "countryName": "US",
-     "pageviews": 7,
-     "visits": 5
+     "countryName": "ES",
+     "pageviews": 5,
+     "visits": 0
     },
     {
-     "countryName": "ES",
-     "pageviews": 6,
-     "visits": 0
+     "countryName": "US",
+     "pageviews": 5,
+     "visits": 3
     },
     {
      "countryName": "CN",
@@ -130,17 +120,17 @@
      "visits": 4
     },
     {
-     "countryName": "FR",
-     "pageviews": 3,
-     "visits": 0
-    },
-    {
      "countryName": "IE",
      "pageviews": 2,
      "visits": 2
     },
     {
-     "countryName": "IN",
+     "countryName": "FR",
+     "pageviews": 2,
+     "visits": 2
+    },
+    {
+     "countryName": "BE",
      "pageviews": 1,
      "visits": 1
     },
@@ -158,13 +148,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 16,
-     "visits": 12
+     "pageviews": 14,
+     "visits": 10
     },
     {
      "deviceType": "mobile",
-     "pageviews": 9,
-     "visits": 2
+     "pageviews": 7,
+     "visits": 4
     }
    ]
   }
@@ -428,15 +418,15 @@
    },
    {
     "day": "2026-11-15",
-    "view": 1,
-    "hook": 0,
-    "plan": 0,
-    "calc_seen": 0,
-    "active": 0,
+    "view": 3,
+    "hook": 1,
+    "plan": 1,
+    "calc_seen": 1,
+    "active": 1,
     "explore": 0,
-    "start_seen": 0,
+    "start_seen": 1,
     "faq": 0,
-    "bottom": 0,
+    "bottom": 1,
     "feedback": 0,
     "share": 0
    }
@@ -447,14 +437,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 8
-   },
-   {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 2
+    "n": 6
    },
    {
     "step": "active",
@@ -464,6 +447,13 @@
     "n": 1
    },
    {
+    "step": "active",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
     "step": "calc_seen",
     "lang": "en",
     "device": "desktop",
@@ -472,14 +462,21 @@
    },
    {
     "step": "calc_seen",
-    "lang": "it",
+    "lang": "en",
     "device": "mobile",
-    "source": "direct",
+    "source": "internal",
     "n": 1
    },
    {
-    "step": "sc_bank_view",
-    "lang": "it",
+    "step": "hook",
+    "lang": "en",
+    "device": "mobile",
+    "source": "internal",
+    "n": 1
+   },
+   {
+    "step": "plan",
+    "lang": "en",
     "device": "mobile",
     "source": "internal",
     "n": 1
@@ -506,13 +503,6 @@
     "n": 1
    },
    {
-    "step": "sc_own_view",
-    "lang": "it",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
     "step": "sc_retire_view",
     "lang": "it",
     "device": "desktop",
@@ -528,14 +518,14 @@
    },
    {
     "step": "view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
     "n": 1
    },
    {
     "step": "view",
-    "lang": "it",
+    "lang": "es",
     "device": "mobile",
     "source": "direct",
     "n": 1
@@ -543,7 +533,7 @@
    {
     "step": "view",
     "lang": "it",
-    "device": "mobile",
+    "device": "desktop",
     "source": "internal",
     "n": 1
    }
@@ -555,7 +545,7 @@
    },
    {
     "month": "2026-11",
-    "active_user_days": 15
+    "active_user_days": 16
    }
   ]
  },
