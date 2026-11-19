@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-18T15:39:37+00:00",
+ "generated_at": "2026-11-19T13:38:15+00:00",
  "range": {
-  "from": "2026-10-14",
-  "to": "2026-11-18"
+  "from": "2026-10-15",
+  "to": "2026-11-19"
  },
  "errors": [],
  "web_analytics": {
@@ -52,8 +52,8 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 15,
-     "visits": 12
+     "pageviews": 18,
+     "visits": 15
     },
     {
      "requestPath": "/buy-vs-rent-etf/",
@@ -94,8 +94,8 @@
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 14,
-     "visits": 14
+     "pageviews": 17,
+     "visits": 17
     },
     {
      "refererHost": "youretfplan.com",
@@ -116,13 +116,18 @@
    "countries": [
     {
      "countryName": "US",
-     "pageviews": 6,
-     "visits": 4
+     "pageviews": 7,
+     "visits": 5
     },
     {
      "countryName": "ES",
      "pageviews": 5,
      "visits": 0
+    },
+    {
+     "countryName": "BE",
+     "pageviews": 2,
+     "visits": 2
     },
     {
      "countryName": "IE",
@@ -145,12 +150,12 @@
      "visits": 2
     },
     {
-     "countryName": "BE",
+     "countryName": "PL",
      "pageviews": 1,
      "visits": 1
     },
     {
-     "countryName": "PL",
+     "countryName": "DE",
      "pageviews": 1,
      "visits": 1
     },
@@ -163,8 +168,8 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 15,
-     "visits": 11
+     "pageviews": 18,
+     "visits": 14
     },
     {
      "deviceType": "mobile",
@@ -444,6 +449,20 @@
     "bottom": 1,
     "feedback": 0,
     "share": 0
+   },
+   {
+    "day": "2026-11-19",
+    "view": 2,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -452,7 +471,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 4
+    "n": 6
    },
    {
     "step": "active",
