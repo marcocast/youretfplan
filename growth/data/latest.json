@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-19T15:44:48+00:00",
+ "generated_at": "2026-11-20T13:19:01+00:00",
  "range": {
-  "from": "2026-10-15",
-  "to": "2026-11-19"
+  "from": "2026-10-16",
+  "to": "2026-11-20"
  },
  "errors": [],
  "web_analytics": {
@@ -52,23 +52,13 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 18,
-     "visits": 15
+     "pageviews": 16,
+     "visits": 13
     },
     {
      "requestPath": "/buy-vs-rent-etf/",
      "pageviews": 1,
      "visits": 1
-    },
-    {
-     "requestPath": "/it/pensione-affitto-o-etf/",
-     "pageviews": 1,
-     "visits": 0
-    },
-    {
-     "requestPath": "/it/",
-     "pageviews": 1,
-     "visits": 0
     },
     {
      "requestPath": "/etf-taxes-when-you-sell/",
@@ -94,17 +84,17 @@
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 17,
-     "visits": 17
-    },
-    {
-     "refererHost": "youretfplan.com",
-     "pageviews": 4,
-     "visits": 0
+     "pageviews": 15,
+     "visits": 15
     },
     {
      "refererHost": "www.youretfplan.com",
      "pageviews": 3,
+     "visits": 0
+    },
+    {
+     "refererHost": "youretfplan.com",
+     "pageviews": 2,
      "visits": 0
     },
     {
@@ -121,7 +111,7 @@
     },
     {
      "countryName": "ES",
-     "pageviews": 5,
+     "pageviews": 3,
      "visits": 0
     },
     {
@@ -131,11 +121,6 @@
     },
     {
      "countryName": "IE",
-     "pageviews": 2,
-     "visits": 2
-    },
-    {
-     "countryName": "CN",
      "pageviews": 2,
      "visits": 2
     },
@@ -168,8 +153,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 10,
-     "visits": 10
+     "pageviews": 14,
+     "visits": 12
+    },
+    {
+     "deviceType": "mobile",
+     "pageviews": 7,
+     "visits": 4
     }
    ]
   }
@@ -466,7 +456,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 6
+    "n": 5
    },
    {
     "step": "active",
@@ -532,13 +522,6 @@
     "n": 1
    },
    {
-    "step": "sc_retire_view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
     "step": "view",
     "lang": "en",
     "device": "desktop",
@@ -557,13 +540,6 @@
     "lang": "es",
     "device": "mobile",
     "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "view",
-    "lang": "it",
-    "device": "desktop",
-    "source": "internal",
     "n": 1
    }
   ],
