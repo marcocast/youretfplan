@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-21T14:39:33+00:00",
+ "generated_at": "2026-11-22T12:44:29+00:00",
  "range": {
-  "from": "2026-10-17",
-  "to": "2026-11-21"
+  "from": "2026-10-18",
+  "to": "2026-11-22"
  },
  "errors": [],
  "web_analytics": {
@@ -52,23 +52,13 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 15,
-     "visits": 12
-    },
-    {
-     "requestPath": "/buy-vs-rent-etf/",
-     "pageviews": 1,
-     "visits": 1
+     "pageviews": 12,
+     "visits": 10
     },
     {
      "requestPath": "/etf-taxes-when-you-sell/",
      "pageviews": 1,
      "visits": 1
-    },
-    {
-     "requestPath": "/inheritance-etf/",
-     "pageviews": 1,
-     "visits": 0
     },
     {
      "requestPath": "/es/",
@@ -84,29 +74,19 @@
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 14,
-     "visits": 14
+     "pageviews": 12,
+     "visits": 12
     },
     {
      "refererHost": "www.youretfplan.com",
      "pageviews": 3,
      "visits": 0
-    },
-    {
-     "refererHost": "youretfplan.com",
-     "pageviews": 2,
-     "visits": 0
-    },
-    {
-     "refererHost": "www.google.com",
-     "pageviews": 1,
-     "visits": 1
     }
    ],
    "countries": [
     {
      "countryName": "US",
-     "pageviews": 7,
+     "pageviews": 5,
      "visits": 5
     },
     {
@@ -120,17 +100,7 @@
      "visits": 2
     },
     {
-     "countryName": "IE",
-     "pageviews": 2,
-     "visits": 2
-    },
-    {
      "countryName": "FR",
-     "pageviews": 2,
-     "visits": 2
-    },
-    {
-     "countryName": "CA",
      "pageviews": 2,
      "visits": 2
     },
@@ -143,13 +113,18 @@
      "countryName": "DE",
      "pageviews": 1,
      "visits": 1
+    },
+    {
+     "countryName": "CA",
+     "pageviews": 1,
+     "visits": 1
     }
    ],
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 13,
-     "visits": 11
+     "pageviews": 8,
+     "visits": 8
     },
     {
      "deviceType": "mobile",
@@ -443,6 +418,20 @@
     "bottom": 0,
     "feedback": 0,
     "share": 0
+   },
+   {
+    "day": "2026-11-21",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -452,13 +441,6 @@
     "device": "desktop",
     "source": "direct",
     "n": 4
-   },
-   {
-    "step": "active",
-    "lang": "en",
-    "device": "desktop",
-    "source": "search:google.com",
-    "n": 1
    },
    {
     "step": "active",
@@ -485,34 +467,6 @@
     "step": "plan",
     "lang": "en",
     "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "sc_buy_active",
-    "lang": "en",
-    "device": "desktop",
-    "source": "search:google.com",
-    "n": 1
-   },
-   {
-    "step": "sc_buy_view",
-    "lang": "en",
-    "device": "desktop",
-    "source": "search:google.com",
-    "n": 1
-   },
-   {
-    "step": "sc_inherit_view",
-    "lang": "en",
-    "device": "desktop",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "view",
-    "lang": "en",
-    "device": "desktop",
     "source": "internal",
     "n": 1
    },
