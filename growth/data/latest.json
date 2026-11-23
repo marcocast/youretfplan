@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T07:50:30+00:00",
+ "generated_at": "2026-11-23T07:55:29+00:00",
  "range": {
   "from": "2026-10-19",
   "to": "2026-11-23"
@@ -434,5 +434,6 @@
    }
   ]
  },
+ "search_console": "not configured (GSC_SA_JSON secret missing)",
  "new_feedback": 0
 }
