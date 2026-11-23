@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-22T14:34:30+00:00",
+ "generated_at": "2026-11-23T07:50:30+00:00",
  "range": {
-  "from": "2026-10-18",
-  "to": "2026-11-22"
+  "from": "2026-10-19",
+  "to": "2026-11-23"
  },
  "errors": [],
  "web_analytics": {
@@ -52,18 +52,13 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 12,
-     "visits": 10
+     "pageviews": 6,
+     "visits": 6
     },
     {
      "requestPath": "/etf-taxes-when-you-sell/",
      "pageviews": 1,
      "visits": 1
-    },
-    {
-     "requestPath": "/es/",
-     "pageviews": 1,
-     "visits": 0
     },
     {
      "requestPath": "/rent-or-sell-house-etf/",
@@ -74,35 +69,20 @@
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 12,
-     "visits": 12
-    },
-    {
-     "refererHost": "www.youretfplan.com",
-     "pageviews": 3,
-     "visits": 0
+     "pageviews": 8,
+     "visits": 8
     }
    ],
    "countries": [
     {
      "countryName": "US",
-     "pageviews": 5,
-     "visits": 5
-    },
-    {
-     "countryName": "ES",
-     "pageviews": 3,
-     "visits": 0
+     "pageviews": 4,
+     "visits": 4
     },
     {
      "countryName": "BE",
-     "pageviews": 2,
-     "visits": 2
-    },
-    {
-     "countryName": "FR",
-     "pageviews": 2,
-     "visits": 2
+     "pageviews": 1,
+     "visits": 1
     },
     {
      "countryName": "PL",
@@ -123,13 +103,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 8,
-     "visits": 8
+     "pageviews": 7,
+     "visits": 7
     },
     {
      "deviceType": "mobile",
-     "pageviews": 7,
-     "visits": 4
+     "pageviews": 1,
+     "visits": 1
     }
    ]
   }
@@ -440,49 +420,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 4
-   },
-   {
-    "step": "active",
-    "lang": "en",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "calc_seen",
-    "lang": "en",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "hook",
-    "lang": "en",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "plan",
-    "lang": "en",
-    "device": "mobile",
-    "source": "internal",
-    "n": 1
-   },
-   {
-    "step": "view",
-    "lang": "en",
-    "device": "mobile",
-    "source": "direct",
-    "n": 1
-   },
-   {
-    "step": "view",
-    "lang": "es",
-    "device": "mobile",
-    "source": "direct",
-    "n": 1
+    "n": 3
    }
   ],
   "monthly_active": [
