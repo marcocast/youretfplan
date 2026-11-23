@@ -343,6 +343,53 @@ FOOTER_SITE = (
 )
 
 
+# "Other situations and guides" block, added to every scenario and guide page by the
+# build (before the disclaimer), so each page links to all the others in its language:
+# readers get a next step and search engines can reach every page from every page.
+DISC = '<p class="disclaimer" data-t="disc"></p>'
+SITUATIONS = ["bank", "buy", "inherit", "own", "let", "retire"]
+GUIDE_PAGES = ["learn", "first", "fund", "crash", "monthly", "tax"]
+LINK_LABELS = {
+    "bank": {"en": "Money in the bank or in ETFs?", "it": "Soldi in banca o in ETF?", "es": "¿Dinero en el banco o en ETF?"},
+    "buy": {"en": "Buy your home, or rent and invest in ETFs?", "it": "Comprare casa, o stare in affitto e investire in ETF?", "es": "¿Comprar casa, o alquilar e invertir en ETF?"},
+    "inherit": {"en": "You inherited money or a house", "it": "Hai ereditato soldi o una casa", "es": "Has heredado dinero o una casa"},
+    "own": {"en": "You own a house: rent it out or sell it?", "it": "Hai una casa: affittarla o venderla?", "es": "Tienes una casa: ¿alquilarla o venderla?"},
+    "let": {"en": "Buy a flat to rent out, or ETFs?", "it": "Comprare casa da affittare, o ETF?", "es": "¿Comprar un piso para alquilar, o ETF?"},
+    "retire": {"en": "Retired with a rented-out flat", "it": "In pensione con una casa in affitto", "es": "Jubilado con un piso alquilado"},
+    "learn": {"en": "What is an ETF?", "it": "Cosa sono gli ETF?", "es": "¿Qué es un ETF?"},
+    "first": {"en": "How to buy your first ETF", "it": "Come comprare il primo ETF", "es": "Cómo comprar tu primer ETF"},
+    "fund": {"en": "ETF or the bank's fund?", "it": "ETF o il fondo della banca?", "es": "¿ETF o el fondo del banco?"},
+    "crash": {"en": "When markets fall", "it": "Quando la borsa crolla", "es": "Cuando la bolsa cae"},
+    "monthly": {"en": "How much to invest in ETFs each month", "it": "Quanto investire in ETF ogni mese", "es": "Cuánto invertir en ETF cada mes"},
+    "tax": {"en": "ETF taxes: what you pay when you sell", "it": "Tasse sugli ETF: quanto paghi quando vendi", "es": "Impuestos de los ETF: lo que pagas al vender"},
+}
+LINK_HEADS = {
+    "situations": {"en": "Other situations", "it": "Altre situazioni", "es": "Otras situaciones"},
+    "guides": {"en": "Understand ETFs", "it": "Capire gli ETF", "es": "Entender los ETF"},
+    "aria": {"en": "Other situations and guides", "it": "Altre situazioni e guide", "es": "Otras situaciones y guías"},
+}
+MORE_CSS = (
+    "<style>.more-guides{margin:28px 0 8px;padding:18px 20px;border:2px solid var(--line);border-radius:16px;background:var(--surface)}"
+    ".more-guides h2{font-size:1rem;margin:0 0 8px}.more-guides h2+ul{margin-bottom:14px}"
+    ".more-guides ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}"
+    ".more-guides a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:3px 0}"
+    "@media(min-width:640px){.more-guides ul{grid-template-columns:1fr 1fr;column-gap:20px}}</style>"
+)
+
+
+def more_guides(gname: str, lang: str) -> str:
+    def items(names):
+        return "".join(
+            f'<li><a href="{GROUPS[n][lang]["path"]}">{LINK_LABELS[n][lang]}</a></li>'
+            for n in names if n != gname and n in GROUPS
+        )
+    return (
+        f'{MORE_CSS}<nav class="more-guides" aria-label="{LINK_HEADS["aria"][lang]}">'
+        f'<h2>{LINK_HEADS["situations"][lang]}</h2><ul>{items(SITUATIONS)}</ul>'
+        f'<h2>{LINK_HEADS["guides"][lang]}</h2><ul>{items(GUIDE_PAGES)}</ul></nav>\n  '
+    )
+
+
 async def main() -> None:
     tmp = ROOT / ".build"
     tmp.mkdir(exist_ok=True)
@@ -356,7 +403,11 @@ async def main() -> None:
             for lang in langs(group):
                 p = group[lang]
                 raw = tmp / f"{gname}-{lang}.html"
-                raw.write_text(wrap(group, lang, fragment), encoding="utf-8")
+                frag = fragment
+                if gname != "main":
+                    assert DISC in frag, f"disclaimer not found in {group['_src'].name}"
+                    frag = frag.replace(DISC, more_guides(gname, lang) + DISC, 1)
+                raw.write_text(wrap(group, lang, frag), encoding="utf-8")
                 ctx = await browser.new_context(
                     viewport={"width": 820, "height": 1000},
                     timezone_id=p["timezone"],

@@ -5,6 +5,7 @@ Runs in GitHub Actions (see .github/workflows/export.yml), which can reach the
 Cloudflare API. Reads:
   - D1 database `youretfplan`: anonymous funnel steps and feedback (worker/index.js)
   - Cloudflare Web Analytics (RUM): visits by day, page, referrer, country, device
+  - Google Search Console (optional, tools/gsc.py): impressions, clicks, queries
 
 Writes:
   - growth/data/latest.json             full snapshot of the last 35 days
@@ -15,7 +16,7 @@ Writes:
 Errors from either source are written into the snapshot under "errors" instead of
 failing the job, so problems are visible in the repo.
 
-Env: CF_API_TOKEN, CF_ACCOUNT_ID, D1_DATABASE_ID, CF_SITE_TAG
+Env: CF_API_TOKEN, CF_ACCOUNT_ID, D1_DATABASE_ID, CF_SITE_TAG, GSC_SA_JSON (optional)
 """
 import datetime as dt
 import json
@@ -174,6 +175,12 @@ def main() -> None:
         snapshot["funnel"] = funnel(start, recent_start)
     except Exception as e:
         snapshot["errors"].append(f"funnel: {e}")
+    try:
+        from gsc import search_console
+        gsc = search_console(start, recent_start, end)
+        snapshot["search_console"] = gsc if gsc is not None else "not configured (GSC_SA_JSON secret missing)"
+    except Exception as e:
+        snapshot["errors"].append(f"search console: {e}")
 
     state_file = DATA / "state.json"
     state = json.loads(state_file.read_text()) if state_file.exists() else {"last_feedback_id": 0}
