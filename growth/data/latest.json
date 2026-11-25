@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-24T17:43:59+00:00",
+ "generated_at": "2026-11-25T14:41:38+00:00",
  "range": {
-  "from": "2026-10-20",
-  "to": "2026-11-24"
+  "from": "2026-10-21",
+  "to": "2026-11-25"
  },
  "errors": [],
  "web_analytics": {
@@ -54,23 +54,13 @@
      "requestPath": "/",
      "pageviews": 6,
      "visits": 6
-    },
-    {
-     "requestPath": "/etf-taxes-when-you-sell/",
-     "pageviews": 1,
-     "visits": 1
-    },
-    {
-     "requestPath": "/rent-or-sell-house-etf/",
-     "pageviews": 1,
-     "visits": 1
     }
    ],
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 8,
-     "visits": 8
+     "pageviews": 6,
+     "visits": 6
     }
    ],
    "countries": [
@@ -85,17 +75,7 @@
      "visits": 1
     },
     {
-     "countryName": "PL",
-     "pageviews": 1,
-     "visits": 1
-    },
-    {
      "countryName": "DE",
-     "pageviews": 1,
-     "visits": 1
-    },
-    {
-     "countryName": "CA",
      "pageviews": 1,
      "visits": 1
     }
@@ -103,8 +83,8 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 7,
-     "visits": 7
+     "pageviews": 5,
+     "visits": 5
     },
     {
      "deviceType": "mobile",
