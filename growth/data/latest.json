@@ -1,73 +1,53 @@
 {
- "generated_at": "2026-11-25T17:13:50+00:00",
+ "generated_at": "2026-11-26T14:06:10+00:00",
  "range": {
-  "from": "2026-10-21",
-  "to": "2026-11-25"
+  "from": "2026-10-22",
+  "to": "2026-11-26"
  },
  "errors": [],
  "web_analytics": {
   "by_day": [
    {
     "date": "2026-10-29",
-    "pageviews": 70,
-    "visits": 30
+    "pageviews": 100,
+    "visits": 100
    },
    {
     "date": "2026-10-30",
-    "pageviews": 160,
-    "visits": 30
-   },
-   {
-    "date": "2026-10-31",
-    "pageviews": 10,
+    "pageviews": 100,
     "visits": 0
    },
    {
     "date": "2026-11-01",
     "pageviews": 200,
-    "visits": 60
-   },
-   {
-    "date": "2026-11-03",
-    "pageviews": 10,
     "visits": 0
-   },
-   {
-    "date": "2026-11-04",
-    "pageviews": 10,
-    "visits": 10
-   },
-   {
-    "date": "2026-11-08",
-    "pageviews": 10,
-    "visits": 10
-   },
-   {
-    "date": "2026-11-13",
-    "pageviews": 10,
-    "visits": 10
    }
   ],
   "last_7_days": {
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 6,
-     "visits": 6
+     "pageviews": 7,
+     "visits": 7
     }
    ],
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 6,
-     "visits": 6
+     "pageviews": 7,
+     "visits": 7
     }
    ],
    "countries": [
     {
+     "countryName": "FR",
+     "pageviews": 3,
+     "visits": 3
+    },
+    {
      "countryName": "US",
-     "pageviews": 4,
-     "visits": 4
+     "pageviews": 2,
+     "visits": 2
     },
     {
      "countryName": "BE",
@@ -83,13 +63,13 @@
    "devices": [
     {
      "deviceType": "desktop",
-     "pageviews": 5,
-     "visits": 5
+     "pageviews": 4,
+     "visits": 4
     },
     {
-     "deviceType": "mobile",
-     "pageviews": 1,
-     "visits": 1
+     "deviceType": "tablet",
+     "pageviews": 3,
+     "visits": 3
     }
    ]
   }
@@ -392,6 +372,20 @@
     "bottom": 0,
     "feedback": 0,
     "share": 0
+   },
+   {
+    "day": "2026-11-25",
+    "view": 1,
+    "hook": 0,
+    "plan": 0,
+    "calc_seen": 0,
+    "active": 0,
+    "explore": 0,
+    "start_seen": 0,
+    "faq": 0,
+    "bottom": 0,
+    "feedback": 0,
+    "share": 0
    }
   ],
   "last_7_days_breakdown": [
@@ -401,6 +395,13 @@
     "device": "desktop",
     "source": "direct",
     "n": 3
+   },
+   {
+    "step": "view",
+    "lang": "en",
+    "device": "mobile",
+    "source": "direct",
+    "n": 1
    }
   ],
   "monthly_active": [
