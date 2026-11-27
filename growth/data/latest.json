@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-26T16:53:49+00:00",
+ "generated_at": "2026-11-27T14:04:01+00:00",
  "range": {
-  "from": "2026-10-22",
-  "to": "2026-11-26"
+  "from": "2026-10-23",
+  "to": "2026-11-27"
  },
  "errors": [],
  "web_analytics": {
@@ -57,15 +57,15 @@
    "pages": [
     {
      "requestPath": "/",
-     "pageviews": 7,
-     "visits": 7
+     "pageviews": 4,
+     "visits": 4
     }
    ],
    "referrers": [
     {
      "refererHost": "",
-     "pageviews": 7,
-     "visits": 7
+     "pageviews": 4,
+     "visits": 4
     }
    ],
    "countries": [
@@ -76,30 +76,20 @@
     },
     {
      "countryName": "US",
-     "pageviews": 2,
-     "visits": 2
-    },
-    {
-     "countryName": "BE",
-     "pageviews": 1,
-     "visits": 1
-    },
-    {
-     "countryName": "DE",
      "pageviews": 1,
      "visits": 1
     }
    ],
    "devices": [
     {
-     "deviceType": "desktop",
-     "pageviews": 4,
-     "visits": 4
-    },
-    {
      "deviceType": "tablet",
      "pageviews": 3,
      "visits": 3
+    },
+    {
+     "deviceType": "desktop",
+     "pageviews": 1,
+     "visits": 1
     }
    ]
   }
@@ -424,7 +414,7 @@
     "lang": "en",
     "device": "desktop",
     "source": "direct",
-    "n": 3
+    "n": 1
    },
    {
     "step": "view",
